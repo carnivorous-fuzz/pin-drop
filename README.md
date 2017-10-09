@@ -1,6 +1,6 @@
 # *Location Messaging*
 
-iOS location-based media sharing app
+iOS location-based media sharing app. Users are able to login to the app, and see messages left by others in an area around them. They can also upload messages of their own.
 
 ## User Stories
 
@@ -20,6 +20,8 @@ iOS location-based media sharing app
 
 **Optional** features:
 
+- [ ] Login
+   - [ ] Sign up with user name and password
 - [ ] Home page
    - [ ] Private feed and public feed.
    - [ ] User can toggle to sort by distance, time message was created, highest rated, etc.
@@ -29,6 +31,7 @@ iOS location-based media sharing app
    - [ ] User can send direct messages to specific users or groups.
    - [ ] User can specify time after which message should delete automatically.
    - [ ] User can post multiple messages as a sequence or group posting. All messages must be "retrieved" by another user for the posting to be marked as viewed (i.e. start to create a concept of "tours").
+   - [ ] Users can remove their own messages
 - [ ] Retrieve message
    - [ ] Users can comment on and like messages.
    - [ ] Users can access an archive of "viewed" messages.
@@ -36,7 +39,7 @@ iOS location-based media sharing app
    - [ ] Users collect points for finding pin messages or creating content.
 - [ ] Business interaction
    - [ ] Businesses can create a group, and invite people. Give out promotions, only users who visits the business location can view the promotion.
-   
+
 [Google Doc](https://docs.google.com/spreadsheets/d/1Gt9Vq7hf5kCIKTsnLPe2V9hwP1ld5uV749G3nETrglo/edit?usp=sharing)
 
 ## Wireframes
