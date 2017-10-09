@@ -24,6 +24,7 @@ iOS location-based media sharing app
    - [ ] Private feed and public feed.
    - [ ] User can toggle to sort by distance, time message was created, highest rated, etc.
 - [ ] Create message
+   - [ ] Enable video content for messaging.
    - [ ] User can create private message groups (1+ other users).
    - [ ] User can send direct messages to specific users or groups.
    - [ ] User can specify time after which message should delete automatically.
