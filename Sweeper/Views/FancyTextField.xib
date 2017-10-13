@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="13196" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13173"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <customFonts key="customFonts">
+        <array key="HelveticaNeueLights.ttc">
+            <string>HelveticaNeue-Light</string>
+        </array>
+    </customFonts>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="FancyTextField" customModule="Sweeper" customModuleProvider="target">
+            <connections>
+                <outlet property="contentView" destination="iN0-l3-epB" id="Oiq-EM-6e4"/>
+                <outlet property="fieldLabel" destination="IG0-r0-0Yo" id="Xyy-qL-SDd"/>
+                <outlet property="fieldLabelBottomConstraint" destination="wcY-Oq-uu3" id="YYg-M1-xos"/>
+                <outlet property="separatorView" destination="zJr-EU-OH8" id="4gK-X8-EoF"/>
+                <outlet property="textField" destination="auG-ZA-5Zc" id="h4e-t4-9MX"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB">
+            <rect key="frame" x="0.0" y="0.0" width="375" height="166"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="auG-ZA-5Zc">
+                    <rect key="frame" x="0.0" y="74.5" width="375" height="17"/>
+                    <nil key="textColor"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                    <textInputTraits key="textInputTraits"/>
+                </textField>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Password" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IG0-r0-0Yo">
+                    <rect key="frame" x="3" y="69.5" width="78" height="22"/>
+                    <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="18"/>
+                    <nil key="textColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="zJr-EU-OH8">
+                    <rect key="frame" x="0.0" y="92.5" width="375" height="1"/>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="1" id="yMh-Ml-421"/>
+                    </constraints>
+                </view>
+            </subviews>
+            <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <constraints>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="auG-ZA-5Zc" secondAttribute="trailing" id="E3n-dC-nRi"/>
+                <constraint firstItem="zJr-EU-OH8" firstAttribute="width" secondItem="auG-ZA-5Zc" secondAttribute="width" id="Kkc-2d-mTU"/>
+                <constraint firstItem="auG-ZA-5Zc" firstAttribute="centerY" secondItem="iN0-l3-epB" secondAttribute="centerY" id="Lk9-7v-2lm"/>
+                <constraint firstItem="zJr-EU-OH8" firstAttribute="leading" secondItem="auG-ZA-5Zc" secondAttribute="leading" id="Ptv-eE-55P"/>
+                <constraint firstItem="IG0-r0-0Yo" firstAttribute="leading" secondItem="auG-ZA-5Zc" secondAttribute="leading" constant="3" id="feE-BD-rvv"/>
+                <constraint firstItem="auG-ZA-5Zc" firstAttribute="bottom" secondItem="IG0-r0-0Yo" secondAttribute="bottom" id="wcY-Oq-uu3"/>
+                <constraint firstItem="auG-ZA-5Zc" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="zp6-Ht-7Kv"/>
+                <constraint firstItem="zJr-EU-OH8" firstAttribute="top" secondItem="auG-ZA-5Zc" secondAttribute="bottom" constant="1" id="zwI-Kk-cRg"/>
+            </constraints>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
+            <point key="canvasLocation" x="35.5" y="51"/>
+        </view>
+    </objects>
+</document>

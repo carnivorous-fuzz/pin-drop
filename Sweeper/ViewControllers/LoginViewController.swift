@@ -7,29 +7,75 @@
 //
 
 import UIKit
+import Parse
 
 class LoginViewController: UIViewController {
-
+    @IBOutlet weak var usernameView: FancyTextField!
+    @IBOutlet weak var passwordView: FancyTextField!
+    
+    // MARK: Lifecycle functions
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Do any additional setup after loading the view.
-    }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
+        usernameView.fieldLabel.text = "Email"
+        passwordView.textField.isSecureTextEntry = true
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+    // MARK: IBAction outlets
+    @IBAction func onBackgroundTap(_ sender: UITapGestureRecognizer) {
+        view.endEditing(true)
     }
-    */
+    
+    @IBAction func onLogin(_ sender: UIButton) {
+        let username = usernameView.getText()
+        let password = passwordView.getText()
+        
+        PFUser.logInWithUsername(inBackground: username, password: password) { (success, error) in
+            if error == nil {
+                print("Successfully logged in")
+            } else {
+                self.showLoginError()
+            }
+        }
+    }
+    
+    @IBAction func onSignUp(_ sender: UIButton) {
+        let user = PFUser()
+        user.username = usernameView.getText()
+        user.password = passwordView.getText()
+        
+        user.signUpInBackground(block: { (success, error) in
+            if let _ = error {
+                self.showLoginError()
+            } else {
+                // Hooray! Let them use the app now.
+                print("signed up")
+            }
+        })
 
+    }
+    
+    func showLoginError() {
+        let alertController = UIAlertController(title: "Whoops", message: "Make sure your username and email are correct", preferredStyle: .alert)
+        
+        let okAction = UIAlertAction(title: "Dismiss", style: .cancel, handler: nil)
+        alertController.addAction(okAction)
+        
+        present(alertController, animated: true, completion: nil)
+    }
 }
+
+//extension LoginViewController: UITextFieldDelegate {
+//    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+//        textField.resignFirstResponder()
+//        return true
+//    }
+    
+//    func textFieldDidBeginEditing(_ textField: UITextField) {
+//        textField.becomeFirstResponder()
+//    }
+//
+//    func textFieldDidEndEditing(_ textField: UITextField) {
+//        textField.resignFirstResponder()
+//    }
+//}
