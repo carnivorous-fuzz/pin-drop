@@ -6,5 +6,5 @@ target 'Sweeper' do
   use_frameworks!
 
   # Pods for Sweeper
-
+  pod 'Parse'
 end
