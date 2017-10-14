@@ -13,8 +13,9 @@
 		B9CB3CF81F9056060023EA79 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B9CB3CF71F9056060023EA79 /* Assets.xcassets */; };
 		B9CB3CFB1F9056060023EA79 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B9CB3CF91F9056060023EA79 /* LaunchScreen.storyboard */; };
 		B9CB3D071F9056720023EA79 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9CB3D061F9056720023EA79 /* LoginViewController.swift */; };
-		B9CB3D091F9056D90023EA79 /* LoginButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9CB3D081F9056D90023EA79 /* LoginButton.swift */; };
-		B9CB3D0B1F9056E40023EA79 /* LoginButton.xib in Resources */ = {isa = PBXBuildFile; fileRef = B9CB3D0A1F9056E40023EA79 /* LoginButton.xib */; };
+		B9CB3D151F90B5620023EA79 /* FancyTextField.xib in Resources */ = {isa = PBXBuildFile; fileRef = B9CB3D141F90B5620023EA79 /* FancyTextField.xib */; };
+		B9CB3D171F90B57C0023EA79 /* FancyTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9CB3D161F90B57C0023EA79 /* FancyTextField.swift */; };
+		B9CB3D1A1F90C8BF0023EA79 /* UIConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9CB3D191F90C8BF0023EA79 /* UIConstants.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -28,8 +29,9 @@
 		B9CB3CFA1F9056060023EA79 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		B9CB3CFC1F9056060023EA79 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		B9CB3D061F9056720023EA79 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
-		B9CB3D081F9056D90023EA79 /* LoginButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginButton.swift; sourceTree = "<group>"; };
-		B9CB3D0A1F9056E40023EA79 /* LoginButton.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LoginButton.xib; sourceTree = "<group>"; };
+		B9CB3D141F90B5620023EA79 /* FancyTextField.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FancyTextField.xib; sourceTree = "<group>"; };
+		B9CB3D161F90B57C0023EA79 /* FancyTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FancyTextField.swift; sourceTree = "<group>"; };
+		B9CB3D191F90C8BF0023EA79 /* UIConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIConstants.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -82,6 +84,7 @@
 		B9CB3CEF1F9056060023EA79 /* Sweeper */ = {
 			isa = PBXGroup;
 			children = (
+				B9CB3D181F90C8B30023EA79 /* Utils */,
 				B9CB3D051F9056500023EA79 /* Views */,
 				B9CB3D041F9056450023EA79 /* API */,
 				B9CB3D031F90563E0023EA79 /* ViewControllers */,
@@ -120,10 +123,18 @@
 		B9CB3D051F9056500023EA79 /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				B9CB3D081F9056D90023EA79 /* LoginButton.swift */,
-				B9CB3D0A1F9056E40023EA79 /* LoginButton.xib */,
+				B9CB3D141F90B5620023EA79 /* FancyTextField.xib */,
+				B9CB3D161F90B57C0023EA79 /* FancyTextField.swift */,
 			);
 			path = Views;
+			sourceTree = "<group>";
+		};
+		B9CB3D181F90C8B30023EA79 /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+				B9CB3D191F90C8BF0023EA79 /* UIConstants.swift */,
+			);
+			path = Utils;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -189,7 +200,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				B9CB3CFB1F9056060023EA79 /* LaunchScreen.storyboard in Resources */,
-				B9CB3D0B1F9056E40023EA79 /* LoginButton.xib in Resources */,
+				B9CB3D151F90B5620023EA79 /* FancyTextField.xib in Resources */,
 				B9CB3CF81F9056060023EA79 /* Assets.xcassets in Resources */,
 				B9CB3CF61F9056060023EA79 /* Main.storyboard in Resources */,
 			);
@@ -258,9 +269,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B9CB3D171F90B57C0023EA79 /* FancyTextField.swift in Sources */,
 				B9CB3D071F9056720023EA79 /* LoginViewController.swift in Sources */,
-				B9CB3D091F9056D90023EA79 /* LoginButton.swift in Sources */,
 				B9CB3CF11F9056060023EA79 /* AppDelegate.swift in Sources */,
+				B9CB3D1A1F90C8BF0023EA79 /* UIConstants.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
