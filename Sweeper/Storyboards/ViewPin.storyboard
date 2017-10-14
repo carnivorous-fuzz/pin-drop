@@ -12,7 +12,7 @@
         <!--Pin Details View Controller-->
         <scene sceneID="NEi-AE-M2E">
             <objects>
-                <viewController storyboardIdentifier="PinViewController" id="h5x-vb-VtG" customClass="PinDetailsViewController" customModule="Sweeper" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="PinDetailsViewController" id="h5x-vb-VtG" customClass="PinDetailsViewController" customModule="Sweeper" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="gcH-A3-JFB">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>

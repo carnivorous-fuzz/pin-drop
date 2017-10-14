@@ -12,7 +12,7 @@ import GooglePlaces
 
 class PinViewsViewController: UIViewController {
     
-    let defaultLocation = CLLocation(latitude: 37.7749, longitude: 122.4194)
+    let defaultLocation = CLLocation(latitude: 37.7749, longitude: -122.4194)
     var locationManager: CLLocationManager!
     var currentLocation: CLLocation?
     var mapView: GMSMapView!
@@ -20,7 +20,7 @@ class PinViewsViewController: UIViewController {
     var zoomLevel = Float(15.0)
     let far_location: GMSMarker = { () -> GMSMarker in
         let location = GMSMarker(position: CLLocationCoordinate2D(latitude: 37.784516, longitude: -122.410171))
-        location.title = "Fake message"
+        location.snippet = "Fake message"
         let imageView = UIImageView(image: #imageLiteral(resourceName: "default_profile"))
         imageView.layer.cornerRadius = imageView.bounds.width / 2.0
         imageView.layer.masksToBounds = true
@@ -29,7 +29,7 @@ class PinViewsViewController: UIViewController {
     }()
     let close_location: GMSMarker = { () -> GMSMarker in
         let location = GMSMarker(position: CLLocationCoordinate2D(latitude: 37.784592, longitude: -122.407585))
-        location.title = "Oooh look at me waiting for the cable car"
+        location.snippet = "Oooh look at me waiting for the cable car"
         let imageView = UIImageView(image: #imageLiteral(resourceName: "default_profile"))
         imageView.layer.cornerRadius = imageView.bounds.width / 2.0
         imageView.layer.masksToBounds = true
