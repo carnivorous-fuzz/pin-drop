@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		374C23E21F91B40B000C0ECE /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 374C23E11F91B40B000C0ECE /* HomeViewController.swift */; };
+		374C23E81F91BDA5000C0ECE /* Pin.swift in Sources */ = {isa = PBXBuildFile; fileRef = 374C23E71F91BDA5000C0ECE /* Pin.swift */; };
+		374C23EA1F91BDAE000C0ECE /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 374C23E91F91BDAE000C0ECE /* User.swift */; };
 		5B4C8AEAC3C694DCF2E8D6DB /* Pods_Sweeper.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B9002B9427295A5C4DB280EB /* Pods_Sweeper.framework */; };
 		B9CB3CF11F9056060023EA79 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9CB3CF01F9056060023EA79 /* AppDelegate.swift */; };
 		B9CB3CF61F9056060023EA79 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B9CB3CF41F9056060023EA79 /* Main.storyboard */; };
@@ -22,6 +24,8 @@
 /* Begin PBXFileReference section */
 		1D859EDDB4E56A4A4F927E7C /* Pods-Sweeper.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Sweeper.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Sweeper/Pods-Sweeper.debug.xcconfig"; sourceTree = "<group>"; };
 		374C23E11F91B40B000C0ECE /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
+		374C23E71F91BDA5000C0ECE /* Pin.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = Pin.swift; path = Sweeper/ViewControllers/Pin.swift; sourceTree = SOURCE_ROOT; };
+		374C23E91F91BDAE000C0ECE /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = User.swift; path = Sweeper/ViewControllers/User.swift; sourceTree = SOURCE_ROOT; };
 		8770897BBAA32FD84972558F /* Pods-Sweeper.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Sweeper.release.xcconfig"; path = "Pods/Target Support Files/Pods-Sweeper/Pods-Sweeper.release.xcconfig"; sourceTree = "<group>"; };
 		B9002B9427295A5C4DB280EB /* Pods_Sweeper.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Sweeper.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		B9CB3CED1F9056060023EA79 /* Sweeper.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Sweeper.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -103,6 +107,8 @@
 		B9CB3D021F9056380023EA79 /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				374C23E71F91BDA5000C0ECE /* Pin.swift */,
+				374C23E91F91BDAE000C0ECE /* User.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -275,8 +281,10 @@
 				374C23E21F91B40B000C0ECE /* HomeViewController.swift in Sources */,
 				B9CB3D171F90B57C0023EA79 /* FancyTextField.swift in Sources */,
 				B9CB3D071F9056720023EA79 /* LoginViewController.swift in Sources */,
+				374C23E81F91BDA5000C0ECE /* Pin.swift in Sources */,
 				B9CB3CF11F9056060023EA79 /* AppDelegate.swift in Sources */,
 				B9CB3D1A1F90C8BF0023EA79 /* UIConstants.swift in Sources */,
+				374C23EA1F91BDAE000C0ECE /* User.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
