@@ -10,6 +10,10 @@
 		374C23E21F91B40B000C0ECE /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 374C23E11F91B40B000C0ECE /* HomeViewController.swift */; };
 		5B4C8AEAC3C694DCF2E8D6DB /* Pods_Sweeper.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B9002B9427295A5C4DB280EB /* Pods_Sweeper.framework */; };
 		B79291FB1F91CD0100069144 /* CreatePin.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B79291FA1F91CD0100069144 /* CreatePin.storyboard */; };
+		B79291FE1F91CE7400069144 /* CreatePinViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B79291FD1F91CE7400069144 /* CreatePinViewController.swift */; };
+		B7B862371F91E6AD00FB2F1E /* LocationBanner.xib in Resources */ = {isa = PBXBuildFile; fileRef = B7B862361F91E6AD00FB2F1E /* LocationBanner.xib */; };
+		B7B862391F91E6B900FB2F1E /* LocationBanner.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7B862381F91E6B900FB2F1E /* LocationBanner.swift */; };
+		B7E83F231F92AFFA00FA9D88 /* Location.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7E83F221F92AFFA00FA9D88 /* Location.swift */; };
 		B9CB3CF11F9056060023EA79 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9CB3CF01F9056060023EA79 /* AppDelegate.swift */; };
 		B9CB3CF61F9056060023EA79 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B9CB3CF41F9056060023EA79 /* Main.storyboard */; };
 		B9CB3CF81F9056060023EA79 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B9CB3CF71F9056060023EA79 /* Assets.xcassets */; };
@@ -25,6 +29,10 @@
 		374C23E11F91B40B000C0ECE /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		8770897BBAA32FD84972558F /* Pods-Sweeper.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Sweeper.release.xcconfig"; path = "Pods/Target Support Files/Pods-Sweeper/Pods-Sweeper.release.xcconfig"; sourceTree = "<group>"; };
 		B79291FA1F91CD0100069144 /* CreatePin.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = CreatePin.storyboard; sourceTree = "<group>"; };
+		B79291FD1F91CE7400069144 /* CreatePinViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreatePinViewController.swift; sourceTree = "<group>"; };
+		B7B862361F91E6AD00FB2F1E /* LocationBanner.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LocationBanner.xib; sourceTree = "<group>"; };
+		B7B862381F91E6B900FB2F1E /* LocationBanner.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationBanner.swift; sourceTree = "<group>"; };
+		B7E83F221F92AFFA00FA9D88 /* Location.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Location.swift; sourceTree = "<group>"; };
 		B9002B9427295A5C4DB280EB /* Pods_Sweeper.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Sweeper.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		B9CB3CED1F9056060023EA79 /* Sweeper.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Sweeper.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B9CB3CF01F9056060023EA79 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -76,6 +84,15 @@
 			path = Storyboards;
 			sourceTree = "<group>";
 		};
+		B7B862351F91E69400FB2F1E /* LocationBaner */ = {
+			isa = PBXGroup;
+			children = (
+				B7B862361F91E6AD00FB2F1E /* LocationBanner.xib */,
+				B7B862381F91E6B900FB2F1E /* LocationBanner.swift */,
+			);
+			path = LocationBaner;
+			sourceTree = "<group>";
+		};
 		B9CB3CE41F9056060023EA79 = {
 			isa = PBXGroup;
 			children = (
@@ -123,6 +140,7 @@
 			children = (
 				B9CB3D061F9056720023EA79 /* LoginViewController.swift */,
 				374C23E11F91B40B000C0ECE /* HomeViewController.swift */,
+				B79291FD1F91CE7400069144 /* CreatePinViewController.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -137,6 +155,7 @@
 		B9CB3D051F9056500023EA79 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				B7B862351F91E69400FB2F1E /* LocationBaner */,
 				B9CB3D141F90B5620023EA79 /* FancyTextField.xib */,
 				B9CB3D161F90B57C0023EA79 /* FancyTextField.swift */,
 			);
@@ -147,6 +166,7 @@
 			isa = PBXGroup;
 			children = (
 				B9CB3D191F90C8BF0023EA79 /* UIConstants.swift */,
+				B7E83F221F92AFFA00FA9D88 /* Location.swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -215,6 +235,7 @@
 			files = (
 				B9CB3CFB1F9056060023EA79 /* LaunchScreen.storyboard in Resources */,
 				B9CB3D151F90B5620023EA79 /* FancyTextField.xib in Resources */,
+				B7B862371F91E6AD00FB2F1E /* LocationBanner.xib in Resources */,
 				B9CB3CF81F9056060023EA79 /* Assets.xcassets in Resources */,
 				B9CB3CF61F9056060023EA79 /* Main.storyboard in Resources */,
 				B79291FB1F91CD0100069144 /* CreatePin.storyboard in Resources */,
@@ -286,6 +307,9 @@
 			files = (
 				374C23E21F91B40B000C0ECE /* HomeViewController.swift in Sources */,
 				B9CB3D171F90B57C0023EA79 /* FancyTextField.swift in Sources */,
+				B7E83F231F92AFFA00FA9D88 /* Location.swift in Sources */,
+				B7B862391F91E6B900FB2F1E /* LocationBanner.swift in Sources */,
+				B79291FE1F91CE7400069144 /* CreatePinViewController.swift in Sources */,
 				B9CB3D071F9056720023EA79 /* LoginViewController.swift in Sources */,
 				B9CB3CF11F9056060023EA79 /* AppDelegate.swift in Sources */,
 				B9CB3D1A1F90C8BF0023EA79 /* UIConstants.swift in Sources */,

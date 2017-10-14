@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="13196" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13173"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="LocationBanner" customModule="Sweeper" customModuleProvider="target">
+            <connections>
+                <outlet property="addressLabel" destination="bLa-8L-pt9" id="CSZ-oI-Z2X"/>
+                <outlet property="contentView" destination="iN0-l3-epB" id="c3G-vx-0Vi"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB">
+            <rect key="frame" x="0.0" y="0.0" width="375" height="65"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="map-pin" translatesAutoresizingMaskIntoConstraints="NO" id="3bq-yH-Xfg">
+                    <rect key="frame" x="15" y="16" width="32" height="32"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="32" id="T0s-us-keV"/>
+                        <constraint firstAttribute="width" constant="32" id="e8n-lU-aRd"/>
+                    </constraints>
+                </imageView>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="506 Palm Ave" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bLa-8L-pt9">
+                    <rect key="frame" x="57" y="24" width="308" height="17"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                    <color key="textColor" red="0.43529411759999997" green="0.4431372549" blue="0.47450980390000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    <nil key="highlightedColor"/>
+                </label>
+            </subviews>
+            <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <constraints>
+                <constraint firstItem="bLa-8L-pt9" firstAttribute="leading" secondItem="3bq-yH-Xfg" secondAttribute="trailing" constant="10" id="8li-mz-qz9"/>
+                <constraint firstItem="3bq-yH-Xfg" firstAttribute="centerY" secondItem="iN0-l3-epB" secondAttribute="centerY" id="aRz-vh-A0d"/>
+                <constraint firstItem="bLa-8L-pt9" firstAttribute="centerY" secondItem="iN0-l3-epB" secondAttribute="centerY" id="fvQ-JA-eiv"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="bLa-8L-pt9" secondAttribute="trailing" constant="10" id="hrI-km-hkc"/>
+                <constraint firstItem="3bq-yH-Xfg" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="15" id="n74-vK-jT5"/>
+            </constraints>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
+            <point key="canvasLocation" x="47.5" y="-236.5"/>
+        </view>
+    </objects>
+    <resources>
+        <image name="map-pin" width="128" height="128"/>
+    </resources>
+</document>

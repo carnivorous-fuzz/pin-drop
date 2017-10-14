@@ -1,7 +1,108 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13142" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13196" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="xJu-Jn-1OJ">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12042"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13173"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
-    <scenes/>
+    <scenes>
+        <!--New Pin-->
+        <scene sceneID="83y-N6-Hgy">
+            <objects>
+                <viewController id="c74-9K-Gpk" customClass="CreatePinViewController" customModule="Sweeper" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="wyp-xB-kDZ">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="xHt-xx-V0b" customClass="LocationBanner" customModule="Sweeper" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="64" width="375" height="65"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="65" id="ndw-yi-mF6"/>
+                                </constraints>
+                            </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="6hX-l4-mDV" customClass="FancyTextField" customModule="Sweeper" customModuleProvider="target">
+                                <rect key="frame" x="20" y="149" width="335" height="55"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="55" id="bIU-ki-SOo"/>
+                                </constraints>
+                            </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="IYi-VJ-b0o">
+                                <rect key="frame" x="20" y="224" width="335" height="300"/>
+                                <subviews>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="zyB-ZN-YLj">
+                                        <rect key="frame" x="20" y="125" width="295" height="150"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="150" id="I3O-AC-isp"/>
+                                        </constraints>
+                                    </imageView>
+                                </subviews>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="300" id="I2C-R2-a8a"/>
+                                    <constraint firstAttribute="trailing" secondItem="zyB-ZN-YLj" secondAttribute="trailing" constant="20" id="XGH-Zy-nNU"/>
+                                    <constraint firstItem="zyB-ZN-YLj" firstAttribute="leading" secondItem="IYi-VJ-b0o" secondAttribute="leading" constant="20" id="cF5-2W-rGK"/>
+                                </constraints>
+                            </view>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7Zm-5v-hRe">
+                                <rect key="frame" x="164" y="599" width="48" height="48"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="48" id="juz-qV-5G0"/>
+                                    <constraint firstAttribute="height" constant="48" id="sT2-1D-oTo"/>
+                                </constraints>
+                                <state key="normal" title="Button" image="camera"/>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="xHt-xx-V0b" firstAttribute="leading" secondItem="m72-VC-Qxu" secondAttribute="leading" id="1PO-HC-Z1y"/>
+                            <constraint firstItem="6hX-l4-mDV" firstAttribute="top" secondItem="xHt-xx-V0b" secondAttribute="bottom" constant="20" id="32x-U5-goG"/>
+                            <constraint firstItem="m72-VC-Qxu" firstAttribute="trailing" secondItem="IYi-VJ-b0o" secondAttribute="trailing" constant="20" id="Glb-dg-F6h"/>
+                            <constraint firstItem="IYi-VJ-b0o" firstAttribute="leading" secondItem="m72-VC-Qxu" secondAttribute="leading" constant="20" id="Hv8-I0-9gX"/>
+                            <constraint firstItem="6hX-l4-mDV" firstAttribute="leading" secondItem="m72-VC-Qxu" secondAttribute="leading" constant="20" id="KWe-Se-D1J"/>
+                            <constraint firstItem="7Zm-5v-hRe" firstAttribute="centerX" secondItem="wyp-xB-kDZ" secondAttribute="centerX" id="he8-W4-q79"/>
+                            <constraint firstItem="m72-VC-Qxu" firstAttribute="trailing" secondItem="6hX-l4-mDV" secondAttribute="trailing" constant="20" id="iQM-TR-8Hf"/>
+                            <constraint firstItem="IYi-VJ-b0o" firstAttribute="top" secondItem="6hX-l4-mDV" secondAttribute="bottom" constant="20" id="kOF-Ly-sjk"/>
+                            <constraint firstItem="xHt-xx-V0b" firstAttribute="top" secondItem="m72-VC-Qxu" secondAttribute="top" id="pXf-Y4-Zzz"/>
+                            <constraint firstItem="m72-VC-Qxu" firstAttribute="bottom" secondItem="7Zm-5v-hRe" secondAttribute="bottom" constant="20" id="ySL-At-VAu"/>
+                            <constraint firstItem="xHt-xx-V0b" firstAttribute="trailing" secondItem="m72-VC-Qxu" secondAttribute="trailing" id="zEB-bs-X7k"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="m72-VC-Qxu"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="New Pin" id="v7B-Da-iAm"/>
+                    <connections>
+                        <outlet property="locationBanner" destination="xHt-xx-V0b" id="XaL-cY-D3l"/>
+                        <outlet property="titleField" destination="6hX-l4-mDV" id="NAO-cY-eAq"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="82k-Te-517" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="229.59999999999999" y="168.6656671664168"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="bL8-mh-Bao">
+            <objects>
+                <navigationController storyboardIdentifier="CreatePinNavViewController" automaticallyAdjustsScrollViewInsets="NO" id="xJu-Jn-1OJ" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="cEo-d5-Oel">
+                        <rect key="frame" x="0.0" y="20" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="c74-9K-Gpk" kind="relationship" relationship="rootViewController" id="Vhu-jB-oL9"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="l54-yn-uLA" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-539.20000000000005" y="169.11544227886057"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="camera" width="128" height="128"/>
+    </resources>
 </document>
