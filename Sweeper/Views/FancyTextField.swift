@@ -48,6 +48,9 @@ class FancyTextField: UIView {
         let nib = UINib(nibName: "FancyTextField", bundle: nil)
         nib.instantiate(withOwner: self, options: nil)
         contentView.frame = bounds
+        contentView.addGestureRecognizer(
+            UITapGestureRecognizer(target: self, action: #selector(onViewTap))
+        )
         addSubview(contentView)
         
         setDefaultColors()
@@ -78,9 +81,13 @@ class FancyTextField: UIView {
         }
     }
     
+    @objc private func onViewTap() {
+        textField.becomeFirstResponder()
+    }
+    
     private func moveLabel(isEditing: Bool) {
         UIView.animate(withDuration: 0.35) {
-            self.fieldLabelBottomConstraint.constant = isEditing ? self.textField.bounds.size.height + 4.0 : 0.0
+            self.fieldLabelBottomConstraint.constant = isEditing ? self.textField.bounds.size.height + 8.0 : 0.0
             self.layoutIfNeeded()
         }
     }

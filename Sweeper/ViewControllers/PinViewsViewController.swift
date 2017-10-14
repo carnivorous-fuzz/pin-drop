@@ -64,7 +64,7 @@ extension PinViewsViewController: CLLocationManagerDelegate {
         if let location = locations.last {
             let camera = GMSCameraPosition.camera(withLatitude: location.coordinate.latitude,
                                                   longitude: location.coordinate.longitude,
-                                                  zoom: zoomLevel)
+                                                  zoom: mapView.camera.zoom)
             
             if mapView.isHidden {
                 mapView.isHidden = false
