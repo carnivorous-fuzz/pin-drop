@@ -18,6 +18,10 @@
 		B9CB3D151F90B5620023EA79 /* FancyTextField.xib in Resources */ = {isa = PBXBuildFile; fileRef = B9CB3D141F90B5620023EA79 /* FancyTextField.xib */; };
 		B9CB3D171F90B57C0023EA79 /* FancyTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9CB3D161F90B57C0023EA79 /* FancyTextField.swift */; };
 		B9CB3D1A1F90C8BF0023EA79 /* UIConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9CB3D191F90C8BF0023EA79 /* UIConstants.swift */; };
+		B9CB3D1C1F91D1780023EA79 /* Pinviews.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B9CB3D1B1F91D1780023EA79 /* Pinviews.storyboard */; };
+		B9CB3D1E1F91D5AE0023EA79 /* PinViewsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9CB3D1D1F91D5AE0023EA79 /* PinViewsViewController.swift */; };
+		B9CB3D201F91E8200023EA79 /* KeyboardNotification.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9CB3D1F1F91E8200023EA79 /* KeyboardNotification.swift */; };
+		B9CB3D241F91F6770023EA79 /* mapstyle.json in Resources */ = {isa = PBXBuildFile; fileRef = B9CB3D231F91F6770023EA79 /* mapstyle.json */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -36,6 +40,10 @@
 		B9CB3D141F90B5620023EA79 /* FancyTextField.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FancyTextField.xib; sourceTree = "<group>"; };
 		B9CB3D161F90B57C0023EA79 /* FancyTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FancyTextField.swift; sourceTree = "<group>"; };
 		B9CB3D191F90C8BF0023EA79 /* UIConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIConstants.swift; sourceTree = "<group>"; };
+		B9CB3D1B1F91D1780023EA79 /* Pinviews.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Pinviews.storyboard; sourceTree = "<group>"; };
+		B9CB3D1D1F91D5AE0023EA79 /* PinViewsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PinViewsViewController.swift; sourceTree = "<group>"; };
+		B9CB3D1F1F91E8200023EA79 /* KeyboardNotification.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyboardNotification.swift; sourceTree = "<group>"; };
+		B9CB3D231F91F6770023EA79 /* mapstyle.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = mapstyle.json; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -72,6 +80,7 @@
 			children = (
 				B9CB3CF41F9056060023EA79 /* Main.storyboard */,
 				B79291FA1F91CD0100069144 /* CreatePin.storyboard */,
+				B9CB3D1B1F91D1780023EA79 /* Pinviews.storyboard */,
 			);
 			path = Storyboards;
 			sourceTree = "<group>";
@@ -107,6 +116,7 @@
 				B9CB3CF71F9056060023EA79 /* Assets.xcassets */,
 				B9CB3CF91F9056060023EA79 /* LaunchScreen.storyboard */,
 				B9CB3CFC1F9056060023EA79 /* Info.plist */,
+				B9CB3D231F91F6770023EA79 /* mapstyle.json */,
 			);
 			path = Sweeper;
 			sourceTree = "<group>";
@@ -123,6 +133,7 @@
 			children = (
 				B9CB3D061F9056720023EA79 /* LoginViewController.swift */,
 				374C23E11F91B40B000C0ECE /* HomeViewController.swift */,
+				B9CB3D1D1F91D5AE0023EA79 /* PinViewsViewController.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -147,6 +158,7 @@
 			isa = PBXGroup;
 			children = (
 				B9CB3D191F90C8BF0023EA79 /* UIConstants.swift */,
+				B9CB3D1F1F91E8200023EA79 /* KeyboardNotification.swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -217,7 +229,9 @@
 				B9CB3D151F90B5620023EA79 /* FancyTextField.xib in Resources */,
 				B9CB3CF81F9056060023EA79 /* Assets.xcassets in Resources */,
 				B9CB3CF61F9056060023EA79 /* Main.storyboard in Resources */,
+				B9CB3D241F91F6770023EA79 /* mapstyle.json in Resources */,
 				B79291FB1F91CD0100069144 /* CreatePin.storyboard in Resources */,
+				B9CB3D1C1F91D1780023EA79 /* Pinviews.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -268,9 +282,13 @@
 			files = (
 			);
 			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-Sweeper/Pods-Sweeper-resources.sh",
+				"${PODS_ROOT}/GoogleMaps/Maps/Frameworks/GoogleMaps.framework/Resources/GoogleMaps.bundle",
+				"${PODS_ROOT}/GooglePlaces/Frameworks/GooglePlaces.framework/Resources/GooglePlaces.bundle",
 			);
 			name = "[CP] Copy Pods Resources";
 			outputPaths = (
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -287,7 +305,9 @@
 				374C23E21F91B40B000C0ECE /* HomeViewController.swift in Sources */,
 				B9CB3D171F90B57C0023EA79 /* FancyTextField.swift in Sources */,
 				B9CB3D071F9056720023EA79 /* LoginViewController.swift in Sources */,
+				B9CB3D1E1F91D5AE0023EA79 /* PinViewsViewController.swift in Sources */,
 				B9CB3CF11F9056060023EA79 /* AppDelegate.swift in Sources */,
+				B9CB3D201F91E8200023EA79 /* KeyboardNotification.swift in Sources */,
 				B9CB3D1A1F90C8BF0023EA79 /* UIConstants.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
