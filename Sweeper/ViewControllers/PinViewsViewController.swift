@@ -120,7 +120,7 @@ extension PinViewsViewController: GMSMapViewDelegate {
     func mapView(_ mapView: GMSMapView, didTapInfoWindowOf marker: GMSMarker) {
         if marker.distanceFromUser() < 200 {
             let storyboard = UIStoryboard(name: "ViewPin", bundle: nil)
-            let vc = storyboard.instantiateViewController(withIdentifier: "PinViewController") as! PinViewController
+            let vc = storyboard.instantiateViewController(withIdentifier: "PinDetailsViewController") as! PinDetailsViewController
             vc.marker = marker
             show(vc, sender: marker)
         } else {

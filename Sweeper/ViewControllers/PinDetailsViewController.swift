@@ -9,7 +9,7 @@
 import UIKit
 import GoogleMaps
 
-class PinViewController: UIViewController {
+class PinDetailsViewController: UIViewController {
     
     @IBOutlet weak var messageLabel: UILabel!
     
