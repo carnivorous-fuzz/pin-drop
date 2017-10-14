@@ -24,14 +24,14 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="QHE-7n-lM7" customClass="FancyTextField" customModule="Sweeper" customModuleProvider="target">
-                                <rect key="frame" x="19" y="80" width="337.5" height="80"/>
+                                <rect key="frame" x="38" y="80" width="300" height="80"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="80" id="7R1-s9-hHD"/>
                                 </constraints>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="EUC-6b-4EL" customClass="FancyTextField" customModule="Sweeper" customModuleProvider="target">
-                                <rect key="frame" x="19" y="168" width="337.5" height="80"/>
+                                <rect key="frame" x="38" y="168" width="300" height="80"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="80" id="NRa-I4-cDk"/>
@@ -72,14 +72,14 @@
                             <constraint firstItem="gu8-Ar-Qm9" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="0n7-1I-Xra"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="gu8-Ar-Qm9" secondAttribute="bottom" constant="60" id="3vw-YK-T28"/>
                             <constraint firstItem="bTJ-oV-MRa" firstAttribute="top" relation="greaterThanOrEqual" secondItem="EUC-6b-4EL" secondAttribute="bottom" constant="8" id="7iu-G6-duj"/>
-                            <constraint firstItem="QHE-7n-lM7" firstAttribute="width" secondItem="8bC-Xf-vdC" secondAttribute="width" multiplier="0.9" id="9D3-73-SzC"/>
+                            <constraint firstItem="QHE-7n-lM7" firstAttribute="width" secondItem="8bC-Xf-vdC" secondAttribute="width" multiplier="0.8" id="9D3-73-SzC"/>
                             <constraint firstItem="gu8-Ar-Qm9" firstAttribute="top" secondItem="bTJ-oV-MRa" secondAttribute="bottom" constant="16" id="9lE-Cn-I0W"/>
                             <constraint firstItem="EUC-6b-4EL" firstAttribute="top" secondItem="QHE-7n-lM7" secondAttribute="bottom" constant="8" id="IBL-6w-gux"/>
                             <constraint firstItem="bTJ-oV-MRa" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="Mvv-qF-tEF"/>
                             <constraint firstItem="EUC-6b-4EL" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="UCg-sl-Zan"/>
                             <constraint firstItem="QHE-7n-lM7" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="60" id="aWn-I7-vVa"/>
                             <constraint firstItem="QHE-7n-lM7" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="nw2-az-pkr"/>
-                            <constraint firstItem="EUC-6b-4EL" firstAttribute="width" secondItem="8bC-Xf-vdC" secondAttribute="width" multiplier="0.9" id="r2n-cx-gsw"/>
+                            <constraint firstItem="EUC-6b-4EL" firstAttribute="width" secondItem="8bC-Xf-vdC" secondAttribute="width" multiplier="0.8" id="r2n-cx-gsw"/>
                             <constraint firstItem="bTJ-oV-MRa" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="uxf-uG-Lzj"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
