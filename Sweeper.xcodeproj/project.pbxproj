@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		374C23E21F91B40B000C0ECE /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 374C23E11F91B40B000C0ECE /* HomeViewController.swift */; };
 		5B4C8AEAC3C694DCF2E8D6DB /* Pods_Sweeper.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B9002B9427295A5C4DB280EB /* Pods_Sweeper.framework */; };
+		B79291FB1F91CD0100069144 /* CreatePin.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B79291FA1F91CD0100069144 /* CreatePin.storyboard */; };
 		B9CB3CF11F9056060023EA79 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9CB3CF01F9056060023EA79 /* AppDelegate.swift */; };
 		B9CB3CF61F9056060023EA79 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B9CB3CF41F9056060023EA79 /* Main.storyboard */; };
 		B9CB3CF81F9056060023EA79 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B9CB3CF71F9056060023EA79 /* Assets.xcassets */; };
@@ -23,6 +24,7 @@
 		1D859EDDB4E56A4A4F927E7C /* Pods-Sweeper.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Sweeper.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Sweeper/Pods-Sweeper.debug.xcconfig"; sourceTree = "<group>"; };
 		374C23E11F91B40B000C0ECE /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		8770897BBAA32FD84972558F /* Pods-Sweeper.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Sweeper.release.xcconfig"; path = "Pods/Target Support Files/Pods-Sweeper/Pods-Sweeper.release.xcconfig"; sourceTree = "<group>"; };
+		B79291FA1F91CD0100069144 /* CreatePin.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = CreatePin.storyboard; sourceTree = "<group>"; };
 		B9002B9427295A5C4DB280EB /* Pods_Sweeper.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Sweeper.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		B9CB3CED1F9056060023EA79 /* Sweeper.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Sweeper.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B9CB3CF01F9056060023EA79 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -65,6 +67,15 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		B79291FC1F91CD0700069144 /* Storyboards */ = {
+			isa = PBXGroup;
+			children = (
+				B9CB3CF41F9056060023EA79 /* Main.storyboard */,
+				B79291FA1F91CD0100069144 /* CreatePin.storyboard */,
+			);
+			path = Storyboards;
+			sourceTree = "<group>";
+		};
 		B9CB3CE41F9056060023EA79 = {
 			isa = PBXGroup;
 			children = (
@@ -86,13 +97,13 @@
 		B9CB3CEF1F9056060023EA79 /* Sweeper */ = {
 			isa = PBXGroup;
 			children = (
+				B79291FC1F91CD0700069144 /* Storyboards */,
 				B9CB3D181F90C8B30023EA79 /* Utils */,
 				B9CB3D051F9056500023EA79 /* Views */,
 				B9CB3D031F90563E0023EA79 /* ViewControllers */,
 				B9CB3D041F9056450023EA79 /* API */,
 				B9CB3D021F9056380023EA79 /* Models */,
 				B9CB3CF01F9056060023EA79 /* AppDelegate.swift */,
-				B9CB3CF41F9056060023EA79 /* Main.storyboard */,
 				B9CB3CF71F9056060023EA79 /* Assets.xcassets */,
 				B9CB3CF91F9056060023EA79 /* LaunchScreen.storyboard */,
 				B9CB3CFC1F9056060023EA79 /* Info.plist */,
@@ -206,6 +217,7 @@
 				B9CB3D151F90B5620023EA79 /* FancyTextField.xib in Resources */,
 				B9CB3CF81F9056060023EA79 /* Assets.xcassets in Resources */,
 				B9CB3CF61F9056060023EA79 /* Main.storyboard in Resources */,
+				B79291FB1F91CD0100069144 /* CreatePin.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
