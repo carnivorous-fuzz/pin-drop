@@ -24,8 +24,8 @@
 /* Begin PBXFileReference section */
 		1D859EDDB4E56A4A4F927E7C /* Pods-Sweeper.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Sweeper.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Sweeper/Pods-Sweeper.debug.xcconfig"; sourceTree = "<group>"; };
 		374C23E11F91B40B000C0ECE /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
-		374C23E71F91BDA5000C0ECE /* Pin.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = Pin.swift; path = Sweeper/ViewControllers/Pin.swift; sourceTree = SOURCE_ROOT; };
-		374C23E91F91BDAE000C0ECE /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = User.swift; path = Sweeper/ViewControllers/User.swift; sourceTree = SOURCE_ROOT; };
+		374C23E71F91BDA5000C0ECE /* Pin.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = Pin.swift; path = Sweeper/Models/Pin.swift; sourceTree = SOURCE_ROOT; };
+		374C23E91F91BDAE000C0ECE /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = User.swift; path = Sweeper/Models/User.swift; sourceTree = SOURCE_ROOT; };
 		8770897BBAA32FD84972558F /* Pods-Sweeper.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Sweeper.release.xcconfig"; path = "Pods/Target Support Files/Pods-Sweeper/Pods-Sweeper.release.xcconfig"; sourceTree = "<group>"; };
 		B9002B9427295A5C4DB280EB /* Pods_Sweeper.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Sweeper.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		B9CB3CED1F9056060023EA79 /* Sweeper.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Sweeper.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -52,6 +52,22 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		374C23EB1F91D082000C0ECE /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				374C23E71F91BDA5000C0ECE /* Pin.swift */,
+				374C23E91F91BDAE000C0ECE /* User.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		374C23EC1F91D0A3000C0ECE /* API */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = API;
+			sourceTree = "<group>";
+		};
 		766016692BDDF89522F0D054 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
@@ -93,8 +109,8 @@
 				B9CB3D181F90C8B30023EA79 /* Utils */,
 				B9CB3D051F9056500023EA79 /* Views */,
 				B9CB3D031F90563E0023EA79 /* ViewControllers */,
-				B9CB3D041F9056450023EA79 /* API */,
-				B9CB3D021F9056380023EA79 /* Models */,
+				374C23EC1F91D0A3000C0ECE /* API */,
+				374C23EB1F91D082000C0ECE /* Models */,
 				B9CB3CF01F9056060023EA79 /* AppDelegate.swift */,
 				B9CB3CF41F9056060023EA79 /* Main.storyboard */,
 				B9CB3CF71F9056060023EA79 /* Assets.xcassets */,
@@ -104,15 +120,6 @@
 			path = Sweeper;
 			sourceTree = "<group>";
 		};
-		B9CB3D021F9056380023EA79 /* Models */ = {
-			isa = PBXGroup;
-			children = (
-				374C23E71F91BDA5000C0ECE /* Pin.swift */,
-				374C23E91F91BDAE000C0ECE /* User.swift */,
-			);
-			path = Models;
-			sourceTree = "<group>";
-		};
 		B9CB3D031F90563E0023EA79 /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
@@ -120,13 +127,6 @@
 				374C23E11F91B40B000C0ECE /* HomeViewController.swift */,
 			);
 			path = ViewControllers;
-			sourceTree = "<group>";
-		};
-		B9CB3D041F9056450023EA79 /* API */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = API;
 			sourceTree = "<group>";
 		};
 		B9CB3D051F9056500023EA79 /* Views */ = {
