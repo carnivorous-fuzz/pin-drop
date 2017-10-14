@@ -7,4 +7,6 @@ target 'Sweeper' do
 
   # Pods for Sweeper
   pod 'Parse'
+  pod 'GoogleMaps'
+  pod 'GooglePlaces'
 end

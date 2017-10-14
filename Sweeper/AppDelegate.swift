@@ -8,6 +8,8 @@
 
 import UIKit
 import Parse
+import GoogleMaps
+import GooglePlaces
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -22,6 +24,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             $0.server = "http://165.227.6.232:1337/parse"
         }
         Parse.initialize(with: configuration)
+        
+        GMSServices.provideAPIKey("AIzaSyA9pJAN_2kseox1wiaUUiEZYM-9ffMkXTs")
+        GMSPlacesClient.provideAPIKey("AIzaSyA9pJAN_2kseox1wiaUUiEZYM-9ffMkXTs")
+        
         return true
     }
 
