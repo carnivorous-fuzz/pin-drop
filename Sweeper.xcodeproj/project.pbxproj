@@ -22,6 +22,9 @@
 		B9CB3D1E1F91D5AE0023EA79 /* PinViewsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9CB3D1D1F91D5AE0023EA79 /* PinViewsViewController.swift */; };
 		B9CB3D201F91E8200023EA79 /* KeyboardNotification.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9CB3D1F1F91E8200023EA79 /* KeyboardNotification.swift */; };
 		B9CB3D241F91F6770023EA79 /* mapstyle.json in Resources */ = {isa = PBXBuildFile; fileRef = B9CB3D231F91F6770023EA79 /* mapstyle.json */; };
+		B9CB3D261F92C6170023EA79 /* ViewPin.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B9CB3D251F92C6170023EA79 /* ViewPin.storyboard */; };
+		B9CB3D281F92C6970023EA79 /* PinViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9CB3D271F92C6970023EA79 /* PinViewController.swift */; };
+		B9CB3D2A1F92CD9B0023EA79 /* GMSMarkerExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9CB3D291F92CD9B0023EA79 /* GMSMarkerExtension.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -44,6 +47,9 @@
 		B9CB3D1D1F91D5AE0023EA79 /* PinViewsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PinViewsViewController.swift; sourceTree = "<group>"; };
 		B9CB3D1F1F91E8200023EA79 /* KeyboardNotification.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyboardNotification.swift; sourceTree = "<group>"; };
 		B9CB3D231F91F6770023EA79 /* mapstyle.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = mapstyle.json; sourceTree = "<group>"; };
+		B9CB3D251F92C6170023EA79 /* ViewPin.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = ViewPin.storyboard; sourceTree = "<group>"; };
+		B9CB3D271F92C6970023EA79 /* PinViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PinViewController.swift; sourceTree = "<group>"; };
+		B9CB3D291F92CD9B0023EA79 /* GMSMarkerExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GMSMarkerExtension.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -81,6 +87,7 @@
 				B9CB3CF41F9056060023EA79 /* Main.storyboard */,
 				B79291FA1F91CD0100069144 /* CreatePin.storyboard */,
 				B9CB3D1B1F91D1780023EA79 /* Pinviews.storyboard */,
+				B9CB3D251F92C6170023EA79 /* ViewPin.storyboard */,
 			);
 			path = Storyboards;
 			sourceTree = "<group>";
@@ -134,6 +141,7 @@
 				B9CB3D061F9056720023EA79 /* LoginViewController.swift */,
 				374C23E11F91B40B000C0ECE /* HomeViewController.swift */,
 				B9CB3D1D1F91D5AE0023EA79 /* PinViewsViewController.swift */,
+				B9CB3D271F92C6970023EA79 /* PinViewController.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -159,6 +167,7 @@
 			children = (
 				B9CB3D191F90C8BF0023EA79 /* UIConstants.swift */,
 				B9CB3D1F1F91E8200023EA79 /* KeyboardNotification.swift */,
+				B9CB3D291F92CD9B0023EA79 /* GMSMarkerExtension.swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -228,6 +237,7 @@
 				B9CB3CFB1F9056060023EA79 /* LaunchScreen.storyboard in Resources */,
 				B9CB3D151F90B5620023EA79 /* FancyTextField.xib in Resources */,
 				B9CB3CF81F9056060023EA79 /* Assets.xcassets in Resources */,
+				B9CB3D261F92C6170023EA79 /* ViewPin.storyboard in Resources */,
 				B9CB3CF61F9056060023EA79 /* Main.storyboard in Resources */,
 				B9CB3D241F91F6770023EA79 /* mapstyle.json in Resources */,
 				B79291FB1F91CD0100069144 /* CreatePin.storyboard in Resources */,
@@ -302,10 +312,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B9CB3D281F92C6970023EA79 /* PinViewController.swift in Sources */,
 				374C23E21F91B40B000C0ECE /* HomeViewController.swift in Sources */,
 				B9CB3D171F90B57C0023EA79 /* FancyTextField.swift in Sources */,
 				B9CB3D071F9056720023EA79 /* LoginViewController.swift in Sources */,
 				B9CB3D1E1F91D5AE0023EA79 /* PinViewsViewController.swift in Sources */,
+				B9CB3D2A1F92CD9B0023EA79 /* GMSMarkerExtension.swift in Sources */,
 				B9CB3CF11F9056060023EA79 /* AppDelegate.swift in Sources */,
 				B9CB3D201F91E8200023EA79 /* KeyboardNotification.swift in Sources */,
 				B9CB3D1A1F90C8BF0023EA79 /* UIConstants.swift in Sources */,
