@@ -32,7 +32,7 @@ class LoginViewController: UIViewController {
         
         PFUser.logInWithUsername(inBackground: username, password: password) { (success, error) in
             if error == nil {
-                print("Successfully logged in")
+                self.performSegue(withIdentifier: "LoginSegue", sender: self)
             } else {
                 self.showLoginError()
             }
@@ -49,7 +49,7 @@ class LoginViewController: UIViewController {
                 self.showLoginError()
             } else {
                 // Hooray! Let them use the app now.
-                print("signed up")
+                self.performSegue(withIdentifier: "LoginSegue", sender: self)
             }
         })
 

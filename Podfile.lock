@@ -1,6 +1,6 @@
 PODS:
   - Bolts/Tasks (1.8.4)
-  - Parse (1.15.3):
+  - Parse (1.15.2):
     - Bolts/Tasks (~> 1.8)
 
 DEPENDENCIES:
@@ -8,7 +8,7 @@ DEPENDENCIES:
 
 SPEC CHECKSUMS:
   Bolts: 8a7995239dbe724f9cba2248b766d48b7ebdd322
-  Parse: cdc0f1f975ee8be0409e66f21b05df4ae067047c
+  Parse: 7daa8804b876d250a65420534c97d2d786c3b0b4
 
 PODFILE CHECKSUM: fd3b9ee7af5d53f084dbb67e68858f8062314b44
 
