@@ -70,7 +70,7 @@
                         <constraints>
                             <constraint firstItem="gu8-Ar-Qm9" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="0n7-1I-Xra"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="gu8-Ar-Qm9" secondAttribute="bottom" constant="60" id="3vw-YK-T28"/>
-                            <constraint firstItem="bTJ-oV-MRa" firstAttribute="top" relation="greaterThanOrEqual" secondItem="EUC-6b-4EL" secondAttribute="bottom" constant="200" id="7iu-G6-duj"/>
+                            <constraint firstItem="bTJ-oV-MRa" firstAttribute="top" relation="greaterThanOrEqual" secondItem="EUC-6b-4EL" secondAttribute="bottom" constant="16" id="7iu-G6-duj"/>
                             <constraint firstItem="gu8-Ar-Qm9" firstAttribute="top" secondItem="bTJ-oV-MRa" secondAttribute="bottom" constant="16" id="9lE-Cn-I0W"/>
                             <constraint firstItem="QHE-7n-lM7" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="8" id="DdK-Ol-8dT"/>
                             <constraint firstItem="bTJ-oV-MRa" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="Mvv-qF-tEF"/>
@@ -87,6 +87,7 @@
                         </connections>
                     </view>
                     <connections>
+                        <outlet property="bottomConstraint" destination="3vw-YK-T28" id="iie-2L-UA1"/>
                         <outlet property="passwordView" destination="EUC-6b-4EL" id="3dI-96-5RT"/>
                         <outlet property="usernameView" destination="QHE-7n-lM7" id="mm2-JD-QAw"/>
                         <segue destination="vIV-jJ-T32" kind="show" identifier="LoginSegue" id="Uhu-UU-2AW"/>
