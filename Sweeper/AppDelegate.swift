@@ -27,9 +27,15 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         Parse.initialize(with: configuration)
         
-        if User.currentUser != nil {
-            print("Logged in!")
-        }
+        User.getStoredUser(completion: { (user: User?) in
+            if user != nil {
+                print(user!)
+                // segue to home
+            } else {
+                print("user not found")
+            }
+            
+        })
         
         GMSServices.provideAPIKey("AIzaSyA9pJAN_2kseox1wiaUUiEZYM-9ffMkXTs")
         GMSPlacesClient.provideAPIKey("AIzaSyA9pJAN_2kseox1wiaUUiEZYM-9ffMkXTs")

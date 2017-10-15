@@ -20,27 +20,37 @@ class User: PFUser {
     
     class var currentUser: User? {
         get {
-            if (_currentUser == nil) {
-                let query = PFQuery(className: "User")
-                query.fromLocalDatastore()
-                query.findObjectsInBackground(block: { (users: [PFObject]?, error: Error?) in
-                    if error == nil {
-                        _currentUser = users![0] as? User
-                    } else {
-                        print(error!.localizedDescription)
-                    }
-                })
-            }
             return _currentUser
         }
-        set(user) {
-            if user != nil { // save locally
+    }
+    
+    class func getStoredUser(completion: @escaping (User?) -> Void) {
+        let query = PFQuery(className: "User")
+        query.fromLocalDatastore()
+        query.getFirstObjectInBackground { (user: PFObject?, error: Error?) in
+            if error == nil {
+                let user = user as? User
                 _currentUser = user
-                _currentUser!.pinInBackground()
-            } else { // logout
-                _currentUser?.unpinInBackground()
-                _currentUser = nil
+                completion(user)
+            } else {
+                completion(nil)
             }
+        }
+    }
+    
+    class func saveLocalUser(user: User?, completion: @escaping (Bool) -> Void) {
+        if user != nil { // save locally
+            user!.pinInBackground(block: { (success: Bool, error: Error?) in
+                if success {
+                    _currentUser = user
+                }
+                completion(success)
+            })
+        } else { // logout
+            _currentUser?.unpinInBackground(block: { (success: Bool, error: Error?) in
+                _currentUser = nil
+                completion(success)
+            })
         }
     }
     

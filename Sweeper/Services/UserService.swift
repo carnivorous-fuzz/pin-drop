@@ -22,7 +22,9 @@ class UserService {
             if success {
                 let user = pfUser as? User
                 // store user in local storage
-                User.currentUser = user
+                User.saveLocalUser(user: user, completion: { (success: Bool) in
+                    print("hello?")
+                })
             }
             completion(success, error)
         })
@@ -35,7 +37,9 @@ class UserService {
             if pfUser != nil {
                 user = pfUser as? User
                 // store user in local storage
-                User.currentUser = user
+                User.saveLocalUser(user: user, completion: { (success: Bool) in
+                    print("hello?")
+                })
                 success = true
             }
             completion(success, error)
