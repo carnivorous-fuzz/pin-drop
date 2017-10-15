@@ -12,7 +12,7 @@
         <!--New Pin-->
         <scene sceneID="83y-N6-Hgy">
             <objects>
-                <viewController id="c74-9K-Gpk" customClass="CreatePinViewController" customModule="Sweeper" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="CreatePinViewController" id="c74-9K-Gpk" customClass="CreatePinViewController" customModule="Sweeper" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="wyp-xB-kDZ">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>

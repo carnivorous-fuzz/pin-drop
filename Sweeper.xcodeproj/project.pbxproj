@@ -130,6 +130,7 @@
 		B763C35B1F932DBB00DA8311 /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
+				B9CB3D291F92CD9B0023EA79 /* GMSMarkerExtension.swift */,
 				B763C3571F9322C500DA8311 /* StringExtension.swift */,
 				B763C35C1F932DD600DA8311 /* UIViewExtension.swift */,
 			);
@@ -208,9 +209,8 @@
 		B9CB3D051F9056500023EA79 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				B9CB3D2B1F9340D10023EA79 /* FancyTextField */,
 				B7B862351F91E69400FB2F1E /* LocationBaner */,
-				B9CB3D141F90B5620023EA79 /* FancyTextField.xib */,
-				B9CB3D161F90B57C0023EA79 /* FancyTextField.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -222,9 +222,17 @@
 				B7E83F221F92AFFA00FA9D88 /* Location.swift */,
 				B763C3551F931F2700DA8311 /* AWSConstants.swift */,
 				B9CB3D1F1F91E8200023EA79 /* KeyboardNotification.swift */,
-				B9CB3D291F92CD9B0023EA79 /* GMSMarkerExtension.swift */,
 			);
 			path = Utils;
+			sourceTree = "<group>";
+		};
+		B9CB3D2B1F9340D10023EA79 /* FancyTextField */ = {
+			isa = PBXGroup;
+			children = (
+				B9CB3D141F90B5620023EA79 /* FancyTextField.xib */,
+				B9CB3D161F90B57C0023EA79 /* FancyTextField.swift */,
+			);
+			path = FancyTextField;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
