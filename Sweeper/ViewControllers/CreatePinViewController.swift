@@ -42,42 +42,42 @@ class CreatePinViewController: UIViewController, UINavigationControllerDelegate 
         locationManager.startUpdatingLocation()
     }
     @IBAction func onPost(_ sender: Any) {
-//        let tags = tagsField.getText()
-//        let imageName = String.random(length: 10)
-//
-//        let pin = Pin()
-//        pin.blurb = titleField.getText()
-//        pin.tags = tags.components(separatedBy: ",")
-//        pin.latitude = currentLocation?.coordinate.latitude
-//        pin.longitude = currentLocation?.coordinate.longitude
-//        pin.location = self.currentLocation
-//        pin.message = messageTextView.text
-//
-//        // TODO: animation while waiting for the image saving
-//        if self.importedImageView.image != nil {
-//            AWSS3Client.sharedInstance.uploadImage(for: imageName, with: UIImagePNGRepresentation(self.importedImageView.image!)!, completionHandler: {
-//                (task, error) -> Void in
-//                pin.imageUrl = URL(string: "\(AWSConstans.S3BaseImageURL)\(imageName)")
-//                pin.saveInBackground(block: { (success, error) in
-//                    if (success) {
-//                        print(pin.title!)
-//                        self.dismiss(animated: true, completion: nil)
-//                    } else {
-//                        print(error!)
-//                    }
-//                })
-//            })
-//        } else {
-//            pin.imageUrl = nil
-//            pin.saveInBackground(block: { (success, error) in
-//                if (success) {
-//                    print(pin.title!)
-//                    self.dismiss(animated: true, completion: nil)
-//                } else {
-//                    print(error!)
-//                }
-//            })
-//        }
+        let tags = tagsField.getText()
+        let imageName = String.random(length: 10)
+
+        let pin = Pin()
+        pin.blurb = titleField.getText()
+        pin.tags = tags.components(separatedBy: ",")
+        pin.latitude = currentLocation?.coordinate.latitude
+        pin.longitude = currentLocation?.coordinate.longitude
+        pin.location = self.currentLocation
+        pin.message = messageTextView.text
+
+        // TODO: animation while waiting for the image saving
+        if self.importedImageView.image != nil {
+            AWSS3Client.sharedInstance.uploadImage(for: imageName, with: UIImagePNGRepresentation(self.importedImageView.image!)!, completionHandler: {
+                (task, error) -> Void in
+                pin.imageUrl = URL(string: "\(AWSConstans.S3BaseImageURL)\(imageName)")
+                pin.saveInBackground(block: { (success, error) in
+                    if (success) {
+                        print(pin.title!)
+                        self.dismiss(animated: true, completion: nil)
+                    } else {
+                        print(error!)
+                    }
+                })
+            })
+        } else {
+            pin.imageUrl = nil
+            pin.saveInBackground(block: { (success, error) in
+                if (success) {
+                    print(pin.title!)
+                    self.dismiss(animated: true, completion: nil)
+                } else {
+                    print(error!)
+                }
+            })
+        }
     }
     @IBAction func importImage(_ sender: Any) {
         let alertController = UIAlertController(title: "Choose image", message: nil, preferredStyle: .actionSheet)
