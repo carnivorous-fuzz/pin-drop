@@ -25,6 +25,7 @@ class CreatePinViewController: UIViewController, UINavigationControllerDelegate 
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        createDismissBarItem()
         getLocation()
         titleField.fieldLabel.text = "Title"
         tagsField.fieldLabel.text = "Tags"
@@ -34,6 +35,19 @@ class CreatePinViewController: UIViewController, UINavigationControllerDelegate 
         editingView.dropShadow(color: UIConstants.Theme.mediumGray, offSet: CGSize(width: -1, height: 1), radius: 2)
         importedImageView.layer.cornerRadius = 20
     }
+    
+    private func createDismissBarItem() {
+        guard let count = navigationController?.viewControllers.count else {
+            return
+        }
+        
+        if count > 1 {
+            return
+        }
+        
+        navigationItem.leftBarButtonItem = UIBarButtonItem(image: #imageLiteral(resourceName: "cancel"), style: .plain, target: self, action: #selector(onCancel))
+    }
+    
     private func getLocation() {
         locationManager = CLLocationManager()
         locationManager.delegate = self
@@ -41,6 +55,7 @@ class CreatePinViewController: UIViewController, UINavigationControllerDelegate 
         locationManager.distanceFilter = 200
         locationManager.startUpdatingLocation()
     }
+    
     @IBAction func onPost(_ sender: Any) {
         let tags = tagsField.getText()
         let imageName = String.random(length: 10)
@@ -79,6 +94,7 @@ class CreatePinViewController: UIViewController, UINavigationControllerDelegate 
             })
         }
     }
+    
     @IBAction func importImage(_ sender: Any) {
         let alertController = UIAlertController(title: "Choose image", message: nil, preferredStyle: .actionSheet)
         alertController.addAction(UIAlertAction(title: "Camera", style: .default, handler: { (action) in
@@ -89,6 +105,10 @@ class CreatePinViewController: UIViewController, UINavigationControllerDelegate 
         }))
         alertController.addAction(UIAlertAction(title: "Cancel", style: .default, handler: nil))
         self.present(alertController, animated: true, completion: nil)
+    }
+    
+    @objc func onCancel() {
+        dismiss(animated: true, completion: nil)
     }
 
     fileprivate func showPicker(with type: UIImagePickerControllerSourceType) {

@@ -70,6 +70,13 @@ class PinViewsViewController: UIViewController {
         close_location.map = mapView
     }
     
+    @IBAction func onPost(_ sender: UIBarButtonItem) {
+        let storyboard = UIStoryboard(name: "CreatePin", bundle: nil)
+        let vc = storyboard.instantiateViewController(withIdentifier: "CreatePinNavViewController")
+        
+        present(vc, animated: true, completion: nil)
+    }
+    
     private func requestLocationPermission() {
         locationManager = CLLocationManager()
         locationManager.delegate = self
