@@ -7,7 +7,7 @@
 //
 
 import UIKit
-import Parse
+//import Parse
 
 class LoginViewController: UIViewController {
     @IBOutlet weak var usernameView: FancyTextField!
@@ -49,8 +49,8 @@ class LoginViewController: UIViewController {
         let username = usernameView.getText()
         let password = passwordView.getText()
         
-        PFUser.logInWithUsername(inBackground: username, password: password) { (success, error) in
-            if error == nil {
+        UserService.sharedInstance.login(username: username, password: password) { (success: Bool, error: Error?) in
+            if success {
                 self.segueToHome()
             } else {
                 self.showLoginError()
@@ -59,19 +59,16 @@ class LoginViewController: UIViewController {
     }
     
     @IBAction func onSignUp(_ sender: UIButton) {
-        let user = PFUser()
-        user.username = usernameView.getText()
-        user.password = passwordView.getText()
+        let username = usernameView.getText()
+        let password = passwordView.getText()
         
-        user.signUpInBackground(block: { (success, error) in
-            if let _ = error {
-                self.showLoginError()
-            } else {
-                // Hooray! Let them use the app now.
+        UserService.sharedInstance.signup(username: username, password: password) { (success: Bool, error: Error?) in
+            if success {
                 self.segueToHome()
+            } else {
+                self.showLoginError()
             }
-        })
-
+        }
     }
     
     @objc private func keyboardWillShow(notification: Notification) {
