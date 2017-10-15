@@ -47,9 +47,9 @@ class CreatePinViewController: UIViewController, UINavigationControllerDelegate 
 
         let pin = Pin()
         pin.blurb = titleField.getText()
-        pin.tags = tags.components(separatedBy: ",")
-        pin.latitude = currentLocation?.coordinate.latitude
-        pin.longitude = currentLocation?.coordinate.longitude
+//        pin.tags = tags.components(separatedBy: ",")
+        pin.latitude = currentLocation?.coordinate.latitude as? NSDecimalNumber
+        pin.longitude = currentLocation?.coordinate.longitude as? NSDecimalNumber
         pin.location = self.currentLocation
         pin.message = messageTextView.text
 
@@ -60,7 +60,7 @@ class CreatePinViewController: UIViewController, UINavigationControllerDelegate 
                 pin.imageUrl = URL(string: "\(AWSConstans.S3BaseImageURL)\(imageName)")
                 pin.saveInBackground(block: { (success, error) in
                     if (success) {
-                        print(pin.title!)
+                        print(pin.blurb!)
                         self.dismiss(animated: true, completion: nil)
                     } else {
                         print(error!)
@@ -71,7 +71,7 @@ class CreatePinViewController: UIViewController, UINavigationControllerDelegate 
             pin.imageUrl = nil
             pin.saveInBackground(block: { (success, error) in
                 if (success) {
-                    print(pin.title!)
+                    print(pin.blurb!)
                     self.dismiss(animated: true, completion: nil)
                 } else {
                     print(error!)

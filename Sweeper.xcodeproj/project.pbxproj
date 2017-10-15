@@ -8,6 +8,11 @@
 
 /* Begin PBXBuildFile section */
 		374C23E21F91B40B000C0ECE /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 374C23E11F91B40B000C0ECE /* HomeViewController.swift */; };
+		374C23E81F91BDA5000C0ECE /* Pin.swift in Sources */ = {isa = PBXBuildFile; fileRef = 374C23E71F91BDA5000C0ECE /* Pin.swift */; };
+		374C23EA1F91BDAE000C0ECE /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 374C23E91F91BDAE000C0ECE /* User.swift */; };
+		37731EC91F92BE5F009E0603 /* PinService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37731EC81F92BE5F009E0603 /* PinService.swift */; };
+		37731ECB1F92BE6D009E0603 /* UserService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37731ECA1F92BE6D009E0603 /* UserService.swift */; };
+		37731ECD1F92C093009E0603 /* AppService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37731ECC1F92C093009E0603 /* AppService.swift */; };
 		5B4C8AEAC3C694DCF2E8D6DB /* Pods_Sweeper.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B9002B9427295A5C4DB280EB /* Pods_Sweeper.framework */; };
 		B763C3561F931F2700DA8311 /* AWSConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = B763C3551F931F2700DA8311 /* AWSConstants.swift */; };
 		B763C3581F9322C500DA8311 /* StringExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = B763C3571F9322C500DA8311 /* StringExtension.swift */; };
@@ -26,11 +31,20 @@
 		B9CB3D151F90B5620023EA79 /* FancyTextField.xib in Resources */ = {isa = PBXBuildFile; fileRef = B9CB3D141F90B5620023EA79 /* FancyTextField.xib */; };
 		B9CB3D171F90B57C0023EA79 /* FancyTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9CB3D161F90B57C0023EA79 /* FancyTextField.swift */; };
 		B9CB3D1A1F90C8BF0023EA79 /* UIConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9CB3D191F90C8BF0023EA79 /* UIConstants.swift */; };
+		B9CB3D1C1F91D1780023EA79 /* Pinviews.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B9CB3D1B1F91D1780023EA79 /* Pinviews.storyboard */; };
+		B9CB3D1E1F91D5AE0023EA79 /* PinViewsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9CB3D1D1F91D5AE0023EA79 /* PinViewsViewController.swift */; };
+		B9CB3D201F91E8200023EA79 /* KeyboardNotification.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9CB3D1F1F91E8200023EA79 /* KeyboardNotification.swift */; };
+		B9CB3D241F91F6770023EA79 /* mapstyle.json in Resources */ = {isa = PBXBuildFile; fileRef = B9CB3D231F91F6770023EA79 /* mapstyle.json */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		1D859EDDB4E56A4A4F927E7C /* Pods-Sweeper.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Sweeper.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Sweeper/Pods-Sweeper.debug.xcconfig"; sourceTree = "<group>"; };
 		374C23E11F91B40B000C0ECE /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
+		374C23E71F91BDA5000C0ECE /* Pin.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = Pin.swift; path = Sweeper/Models/Pin.swift; sourceTree = SOURCE_ROOT; };
+		374C23E91F91BDAE000C0ECE /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = User.swift; path = Sweeper/Models/User.swift; sourceTree = SOURCE_ROOT; };
+		37731EC81F92BE5F009E0603 /* PinService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PinService.swift; sourceTree = "<group>"; };
+		37731ECA1F92BE6D009E0603 /* UserService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserService.swift; sourceTree = "<group>"; };
+		37731ECC1F92C093009E0603 /* AppService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppService.swift; sourceTree = "<group>"; };
 		8770897BBAA32FD84972558F /* Pods-Sweeper.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Sweeper.release.xcconfig"; path = "Pods/Target Support Files/Pods-Sweeper/Pods-Sweeper.release.xcconfig"; sourceTree = "<group>"; };
 		B763C3551F931F2700DA8311 /* AWSConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AWSConstants.swift; sourceTree = "<group>"; };
 		B763C3571F9322C500DA8311 /* StringExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StringExtension.swift; sourceTree = "<group>"; };
@@ -52,6 +66,10 @@
 		B9CB3D141F90B5620023EA79 /* FancyTextField.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FancyTextField.xib; sourceTree = "<group>"; };
 		B9CB3D161F90B57C0023EA79 /* FancyTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FancyTextField.swift; sourceTree = "<group>"; };
 		B9CB3D191F90C8BF0023EA79 /* UIConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIConstants.swift; sourceTree = "<group>"; };
+		B9CB3D1B1F91D1780023EA79 /* Pinviews.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Pinviews.storyboard; sourceTree = "<group>"; };
+		B9CB3D1D1F91D5AE0023EA79 /* PinViewsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PinViewsViewController.swift; sourceTree = "<group>"; };
+		B9CB3D1F1F91E8200023EA79 /* KeyboardNotification.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyboardNotification.swift; sourceTree = "<group>"; };
+		B9CB3D231F91F6770023EA79 /* mapstyle.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = mapstyle.json; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -66,6 +84,26 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		374C23EB1F91D082000C0ECE /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				374C23E71F91BDA5000C0ECE /* Pin.swift */,
+				374C23E91F91BDAE000C0ECE /* User.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		374C23EC1F91D0A3000C0ECE /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				B7E83F251F92EA9000FA9D88 /* AWSS3Client.swift */,
+				37731EC81F92BE5F009E0603 /* PinService.swift */,
+				37731ECA1F92BE6D009E0603 /* UserService.swift */,
+				37731ECC1F92C093009E0603 /* AppService.swift */,
+			);
+			path = Services;
+			sourceTree = "<group>";
+		};
 		766016692BDDF89522F0D054 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
@@ -97,6 +135,7 @@
 			children = (
 				B9CB3CF41F9056060023EA79 /* Main.storyboard */,
 				B79291FA1F91CD0100069144 /* CreatePin.storyboard */,
+				B9CB3D1B1F91D1780023EA79 /* Pinviews.storyboard */,
 			);
 			path = Storyboards;
 			sourceTree = "<group>";
@@ -136,22 +175,15 @@
 				B9CB3D181F90C8B30023EA79 /* Utils */,
 				B9CB3D051F9056500023EA79 /* Views */,
 				B9CB3D031F90563E0023EA79 /* ViewControllers */,
-				B9CB3D041F9056450023EA79 /* API */,
-				B9CB3D021F9056380023EA79 /* Models */,
-				B7E83F251F92EA9000FA9D88 /* AWSS3Client.swift */,
+				374C23EC1F91D0A3000C0ECE /* Services */,
+				374C23EB1F91D082000C0ECE /* Models */,
 				B9CB3CF01F9056060023EA79 /* AppDelegate.swift */,
 				B9CB3CF71F9056060023EA79 /* Assets.xcassets */,
 				B9CB3CF91F9056060023EA79 /* LaunchScreen.storyboard */,
 				B9CB3CFC1F9056060023EA79 /* Info.plist */,
+				B9CB3D231F91F6770023EA79 /* mapstyle.json */,
 			);
 			path = Sweeper;
-			sourceTree = "<group>";
-		};
-		B9CB3D021F9056380023EA79 /* Models */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Models;
 			sourceTree = "<group>";
 		};
 		B9CB3D031F90563E0023EA79 /* ViewControllers */ = {
@@ -160,15 +192,9 @@
 				B9CB3D061F9056720023EA79 /* LoginViewController.swift */,
 				374C23E11F91B40B000C0ECE /* HomeViewController.swift */,
 				B79291FD1F91CE7400069144 /* CreatePinViewController.swift */,
+				B9CB3D1D1F91D5AE0023EA79 /* PinViewsViewController.swift */,
 			);
 			path = ViewControllers;
-			sourceTree = "<group>";
-		};
-		B9CB3D041F9056450023EA79 /* API */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = API;
 			sourceTree = "<group>";
 		};
 		B9CB3D051F9056500023EA79 /* Views */ = {
@@ -187,6 +213,7 @@
 				B9CB3D191F90C8BF0023EA79 /* UIConstants.swift */,
 				B7E83F221F92AFFA00FA9D88 /* Location.swift */,
 				B763C3551F931F2700DA8311 /* AWSConstants.swift */,
+				B9CB3D1F1F91E8200023EA79 /* KeyboardNotification.swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -258,7 +285,9 @@
 				B7B862371F91E6AD00FB2F1E /* LocationBanner.xib in Resources */,
 				B9CB3CF81F9056060023EA79 /* Assets.xcassets in Resources */,
 				B9CB3CF61F9056060023EA79 /* Main.storyboard in Resources */,
+				B9CB3D241F91F6770023EA79 /* mapstyle.json in Resources */,
 				B79291FB1F91CD0100069144 /* CreatePin.storyboard in Resources */,
+				B9CB3D1C1F91D1780023EA79 /* Pinviews.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -293,18 +322,24 @@
 				"${BUILT_PRODUCTS_DIR}/AWSCognito/AWSCognito.framework",
 				"${BUILT_PRODUCTS_DIR}/AWSCore/AWSCore.framework",
 				"${BUILT_PRODUCTS_DIR}/AWSS3/AWSS3.framework",
+				"${BUILT_PRODUCTS_DIR}/Bolts-Swift/BoltsSwift.framework",
 				"${BUILT_PRODUCTS_DIR}/Bolts/Bolts.framework",
 				"${BUILT_PRODUCTS_DIR}/KMPlaceholderTextView/KMPlaceholderTextView.framework",
 				"${BUILT_PRODUCTS_DIR}/Parse/Parse.framework",
+				"${BUILT_PRODUCTS_DIR}/ParseLiveQuery/ParseLiveQuery.framework",
+				"${BUILT_PRODUCTS_DIR}/Starscream/Starscream.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/AWSCognito.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/AWSCore.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/AWSS3.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/BoltsSwift.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Bolts.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/KMPlaceholderTextView.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Parse.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ParseLiveQuery.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Starscream.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -317,9 +352,13 @@
 			files = (
 			);
 			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-Sweeper/Pods-Sweeper-resources.sh",
+				"${PODS_ROOT}/GoogleMaps/Maps/Frameworks/GoogleMaps.framework/Resources/GoogleMaps.bundle",
+				"${PODS_ROOT}/GooglePlaces/Frameworks/GooglePlaces.framework/Resources/GooglePlaces.bundle",
 			);
 			name = "[CP] Copy Pods Resources";
 			outputPaths = (
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -334,6 +373,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				374C23E21F91B40B000C0ECE /* HomeViewController.swift in Sources */,
+				37731ECD1F92C093009E0603 /* AppService.swift in Sources */,
 				B9CB3D171F90B57C0023EA79 /* FancyTextField.swift in Sources */,
 				B7E83F231F92AFFA00FA9D88 /* Location.swift in Sources */,
 				B763C3561F931F2700DA8311 /* AWSConstants.swift in Sources */,
@@ -341,10 +381,16 @@
 				B79291FE1F91CE7400069144 /* CreatePinViewController.swift in Sources */,
 				B763C35D1F932DD600DA8311 /* UIViewExtension.swift in Sources */,
 				B9CB3D071F9056720023EA79 /* LoginViewController.swift in Sources */,
+				374C23E81F91BDA5000C0ECE /* Pin.swift in Sources */,
+				B9CB3D1E1F91D5AE0023EA79 /* PinViewsViewController.swift in Sources */,
+				37731EC91F92BE5F009E0603 /* PinService.swift in Sources */,
+				37731ECB1F92BE6D009E0603 /* UserService.swift in Sources */,
 				B9CB3CF11F9056060023EA79 /* AppDelegate.swift in Sources */,
+				B9CB3D201F91E8200023EA79 /* KeyboardNotification.swift in Sources */,
 				B9CB3D1A1F90C8BF0023EA79 /* UIConstants.swift in Sources */,
 				B763C3581F9322C500DA8311 /* StringExtension.swift in Sources */,
 				B7E83F261F92EA9000FA9D88 /* AWSS3Client.swift in Sources */,
+				374C23EA1F91BDAE000C0ECE /* User.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -483,6 +529,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 58727B98H6;
 				INFOPLIST_FILE = Sweeper/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.team11.Sweeper;
@@ -498,6 +545,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 58727B98H6;
 				INFOPLIST_FILE = Sweeper/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.team11.Sweeper;

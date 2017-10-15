@@ -9,7 +9,7 @@
 	<key>NSPhotoLibraryUsageDescription</key>
 	<string>You photo library is in use</string>
 	<key>NSLocationWhenInUseUsageDescription</key>
-	<string>Your location is in use</string>
+	<string>We need your location in order to show you relevant pins in your area.</string>
 	<key>CFBundleDevelopmentRegion</key>
 	<string>$(DEVELOPMENT_LANGUAGE)</string>
 	<key>CFBundleExecutable</key>
