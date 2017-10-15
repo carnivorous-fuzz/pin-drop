@@ -9,11 +9,15 @@
 /* Begin PBXBuildFile section */
 		374C23E21F91B40B000C0ECE /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 374C23E11F91B40B000C0ECE /* HomeViewController.swift */; };
 		5B4C8AEAC3C694DCF2E8D6DB /* Pods_Sweeper.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B9002B9427295A5C4DB280EB /* Pods_Sweeper.framework */; };
+		B763C3561F931F2700DA8311 /* AWSConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = B763C3551F931F2700DA8311 /* AWSConstants.swift */; };
+		B763C3581F9322C500DA8311 /* StringExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = B763C3571F9322C500DA8311 /* StringExtension.swift */; };
+		B763C35D1F932DD600DA8311 /* UIViewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = B763C35C1F932DD600DA8311 /* UIViewExtension.swift */; };
 		B79291FB1F91CD0100069144 /* CreatePin.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B79291FA1F91CD0100069144 /* CreatePin.storyboard */; };
 		B79291FE1F91CE7400069144 /* CreatePinViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B79291FD1F91CE7400069144 /* CreatePinViewController.swift */; };
 		B7B862371F91E6AD00FB2F1E /* LocationBanner.xib in Resources */ = {isa = PBXBuildFile; fileRef = B7B862361F91E6AD00FB2F1E /* LocationBanner.xib */; };
 		B7B862391F91E6B900FB2F1E /* LocationBanner.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7B862381F91E6B900FB2F1E /* LocationBanner.swift */; };
 		B7E83F231F92AFFA00FA9D88 /* Location.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7E83F221F92AFFA00FA9D88 /* Location.swift */; };
+		B7E83F261F92EA9000FA9D88 /* AWSS3Client.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7E83F251F92EA9000FA9D88 /* AWSS3Client.swift */; };
 		B9CB3CF11F9056060023EA79 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9CB3CF01F9056060023EA79 /* AppDelegate.swift */; };
 		B9CB3CF61F9056060023EA79 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B9CB3CF41F9056060023EA79 /* Main.storyboard */; };
 		B9CB3CF81F9056060023EA79 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B9CB3CF71F9056060023EA79 /* Assets.xcassets */; };
@@ -28,11 +32,15 @@
 		1D859EDDB4E56A4A4F927E7C /* Pods-Sweeper.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Sweeper.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Sweeper/Pods-Sweeper.debug.xcconfig"; sourceTree = "<group>"; };
 		374C23E11F91B40B000C0ECE /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		8770897BBAA32FD84972558F /* Pods-Sweeper.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Sweeper.release.xcconfig"; path = "Pods/Target Support Files/Pods-Sweeper/Pods-Sweeper.release.xcconfig"; sourceTree = "<group>"; };
+		B763C3551F931F2700DA8311 /* AWSConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AWSConstants.swift; sourceTree = "<group>"; };
+		B763C3571F9322C500DA8311 /* StringExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StringExtension.swift; sourceTree = "<group>"; };
+		B763C35C1F932DD600DA8311 /* UIViewExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewExtension.swift; sourceTree = "<group>"; };
 		B79291FA1F91CD0100069144 /* CreatePin.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = CreatePin.storyboard; sourceTree = "<group>"; };
 		B79291FD1F91CE7400069144 /* CreatePinViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreatePinViewController.swift; sourceTree = "<group>"; };
 		B7B862361F91E6AD00FB2F1E /* LocationBanner.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LocationBanner.xib; sourceTree = "<group>"; };
 		B7B862381F91E6B900FB2F1E /* LocationBanner.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationBanner.swift; sourceTree = "<group>"; };
 		B7E83F221F92AFFA00FA9D88 /* Location.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Location.swift; sourceTree = "<group>"; };
+		B7E83F251F92EA9000FA9D88 /* AWSS3Client.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AWSS3Client.swift; sourceTree = "<group>"; };
 		B9002B9427295A5C4DB280EB /* Pods_Sweeper.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Sweeper.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		B9CB3CED1F9056060023EA79 /* Sweeper.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Sweeper.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B9CB3CF01F9056060023EA79 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -75,6 +83,15 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		B763C35B1F932DBB00DA8311 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				B763C3571F9322C500DA8311 /* StringExtension.swift */,
+				B763C35C1F932DD600DA8311 /* UIViewExtension.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
 		B79291FC1F91CD0700069144 /* Storyboards */ = {
 			isa = PBXGroup;
 			children = (
@@ -114,6 +131,7 @@
 		B9CB3CEF1F9056060023EA79 /* Sweeper */ = {
 			isa = PBXGroup;
 			children = (
+				B763C35B1F932DBB00DA8311 /* Extensions */,
 				B79291FC1F91CD0700069144 /* Storyboards */,
 				B9CB3D181F90C8B30023EA79 /* Utils */,
 				B9CB3D051F9056500023EA79 /* Views */,
@@ -148,6 +166,7 @@
 		B9CB3D041F9056450023EA79 /* API */ = {
 			isa = PBXGroup;
 			children = (
+				B7E83F251F92EA9000FA9D88 /* AWSS3Client.swift */,
 			);
 			path = API;
 			sourceTree = "<group>";
@@ -167,6 +186,7 @@
 			children = (
 				B9CB3D191F90C8BF0023EA79 /* UIConstants.swift */,
 				B7E83F221F92AFFA00FA9D88 /* Location.swift */,
+				B763C3551F931F2700DA8311 /* AWSConstants.swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -270,12 +290,18 @@
 			);
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-Sweeper/Pods-Sweeper-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/AWSCognito/AWSCognito.framework",
+				"${BUILT_PRODUCTS_DIR}/AWSCore/AWSCore.framework",
+				"${BUILT_PRODUCTS_DIR}/AWSS3/AWSS3.framework",
 				"${BUILT_PRODUCTS_DIR}/Bolts/Bolts.framework",
 				"${BUILT_PRODUCTS_DIR}/KMPlaceholderTextView/KMPlaceholderTextView.framework",
 				"${BUILT_PRODUCTS_DIR}/Parse/Parse.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/AWSCognito.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/AWSCore.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/AWSS3.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Bolts.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/KMPlaceholderTextView.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Parse.framework",
@@ -310,11 +336,15 @@
 				374C23E21F91B40B000C0ECE /* HomeViewController.swift in Sources */,
 				B9CB3D171F90B57C0023EA79 /* FancyTextField.swift in Sources */,
 				B7E83F231F92AFFA00FA9D88 /* Location.swift in Sources */,
+				B763C3561F931F2700DA8311 /* AWSConstants.swift in Sources */,
 				B7B862391F91E6B900FB2F1E /* LocationBanner.swift in Sources */,
 				B79291FE1F91CE7400069144 /* CreatePinViewController.swift in Sources */,
+				B763C35D1F932DD600DA8311 /* UIViewExtension.swift in Sources */,
 				B9CB3D071F9056720023EA79 /* LoginViewController.swift in Sources */,
 				B9CB3CF11F9056060023EA79 /* AppDelegate.swift in Sources */,
 				B9CB3D1A1F90C8BF0023EA79 /* UIConstants.swift in Sources */,
+				B763C3581F9322C500DA8311 /* StringExtension.swift in Sources */,
+				B7E83F261F92EA9000FA9D88 /* AWSS3Client.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -53,10 +53,10 @@
                                 <rect key="frame" x="20" y="249" width="335" height="300"/>
                                 <subviews>
                                     <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="k4I-ji-9ed" customClass="KMPlaceholderTextView" customModule="KMPlaceholderTextView">
-                                        <rect key="frame" x="0.0" y="0.0" width="335" height="128"/>
+                                        <rect key="frame" x="15" y="10" width="305" height="140"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <constraints>
-                                            <constraint firstAttribute="height" constant="128" id="D9f-L8-55m"/>
+                                            <constraint firstAttribute="height" constant="140" id="D9f-L8-55m"/>
                                         </constraints>
                                         <color key="textColor" red="0.43529411759999997" green="0.4431372549" blue="0.47450980390000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="16"/>
@@ -65,22 +65,22 @@
                                             <userDefinedRuntimeAttribute type="string" keyPath="placeholder" value="Type something..."/>
                                         </userDefinedRuntimeAttributes>
                                     </textView>
-                                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="zyB-ZN-YLj">
-                                        <rect key="frame" x="0.0" y="138" width="335" height="150"/>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="zyB-ZN-YLj">
+                                        <rect key="frame" x="15" y="180" width="100" height="100"/>
                                         <constraints>
-                                            <constraint firstAttribute="height" constant="150" id="I3O-AC-isp"/>
+                                            <constraint firstAttribute="height" constant="100" id="I3O-AC-isp"/>
+                                            <constraint firstAttribute="width" constant="100" id="xQ9-of-JSc"/>
                                         </constraints>
                                     </imageView>
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
-                                    <constraint firstItem="zyB-ZN-YLj" firstAttribute="top" secondItem="k4I-ji-9ed" secondAttribute="bottom" constant="10" id="HrP-Gn-hhK"/>
+                                    <constraint firstItem="zyB-ZN-YLj" firstAttribute="top" secondItem="k4I-ji-9ed" secondAttribute="bottom" constant="30" id="HrP-Gn-hhK"/>
                                     <constraint firstAttribute="height" constant="300" id="I2C-R2-a8a"/>
-                                    <constraint firstAttribute="trailing" secondItem="zyB-ZN-YLj" secondAttribute="trailing" id="XGH-Zy-nNU"/>
-                                    <constraint firstItem="k4I-ji-9ed" firstAttribute="leading" secondItem="IYi-VJ-b0o" secondAttribute="leading" id="apO-Tr-FJl"/>
-                                    <constraint firstItem="zyB-ZN-YLj" firstAttribute="leading" secondItem="IYi-VJ-b0o" secondAttribute="leading" id="cF5-2W-rGK"/>
-                                    <constraint firstAttribute="trailing" secondItem="k4I-ji-9ed" secondAttribute="trailing" id="m1r-JE-Qpt"/>
-                                    <constraint firstItem="k4I-ji-9ed" firstAttribute="top" secondItem="IYi-VJ-b0o" secondAttribute="top" id="tjK-IC-N7M"/>
+                                    <constraint firstItem="k4I-ji-9ed" firstAttribute="leading" secondItem="IYi-VJ-b0o" secondAttribute="leading" constant="15" id="apO-Tr-FJl"/>
+                                    <constraint firstItem="zyB-ZN-YLj" firstAttribute="leading" secondItem="IYi-VJ-b0o" secondAttribute="leading" constant="15" id="k2H-Ik-TRh"/>
+                                    <constraint firstAttribute="trailing" secondItem="k4I-ji-9ed" secondAttribute="trailing" constant="15" id="m1r-JE-Qpt"/>
+                                    <constraint firstItem="k4I-ji-9ed" firstAttribute="top" secondItem="IYi-VJ-b0o" secondAttribute="top" constant="10" id="tjK-IC-N7M"/>
                                 </constraints>
                             </view>
                         </subviews>
@@ -111,6 +111,7 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
+                        <outlet property="editingView" destination="IYi-VJ-b0o" id="fdj-DP-xaX"/>
                         <outlet property="importedImageView" destination="zyB-ZN-YLj" id="zT5-eG-Afw"/>
                         <outlet property="locationBanner" destination="xHt-xx-V0b" id="XaL-cY-D3l"/>
                         <outlet property="messageTextView" destination="k4I-ji-9ed" id="0XV-13-NOd"/>
