@@ -138,6 +138,7 @@
 				B9CB3D031F90563E0023EA79 /* ViewControllers */,
 				B9CB3D041F9056450023EA79 /* API */,
 				B9CB3D021F9056380023EA79 /* Models */,
+				B7E83F251F92EA9000FA9D88 /* AWSS3Client.swift */,
 				B9CB3CF01F9056060023EA79 /* AppDelegate.swift */,
 				B9CB3CF71F9056060023EA79 /* Assets.xcassets */,
 				B9CB3CF91F9056060023EA79 /* LaunchScreen.storyboard */,
@@ -166,7 +167,6 @@
 		B9CB3D041F9056450023EA79 /* API */ = {
 			isa = PBXGroup;
 			children = (
-				B7E83F251F92EA9000FA9D88 /* AWSS3Client.swift */,
 			);
 			path = API;
 			sourceTree = "<group>";
