@@ -61,8 +61,8 @@ class CreatePinViewController: UIViewController, UINavigationControllerDelegate 
 
         let pin = Pin()
         pin.blurb = titleField.getText()
-        pin.latitude = currentLocation?.coordinate.latitude as? NSDecimalNumber
-        pin.longitude = currentLocation?.coordinate.longitude as? NSDecimalNumber
+        pin.latitude = currentLocation?.coordinate.latitude
+        pin.longitude = currentLocation?.coordinate.longitude
         pin.setLocation()
         pin.message = messageTextView.text
 

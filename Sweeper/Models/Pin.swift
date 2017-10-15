@@ -15,8 +15,6 @@ class Pin: PFObject, PFSubclassing {
     //MARK: DB properties
     @NSManaged var blurb: String?
     @NSManaged var location: PFGeoPoint?
-    @NSManaged var latitude: NSDecimalNumber?
-    @NSManaged var longitude: NSDecimalNumber?
     @NSManaged var message: String?
     @NSManaged var imageUrlStr: String?
     @NSManaged var tagIds: [String]?
@@ -24,6 +22,8 @@ class Pin: PFObject, PFSubclassing {
     // MARK: non-DB properties
     var tags: [Tag]?
     var imageUrl: URL?
+    var latitude: Double?
+    var longitude: Double?
     
     override init() {
         super.init()
@@ -52,7 +52,7 @@ class Pin: PFObject, PFSubclassing {
     
     func setLocation() {
         if latitude != nil && longitude != nil {
-            location = PFGeoPoint(latitude: latitude as! Double, longitude: longitude as! Double)
+            location = PFGeoPoint(latitude: latitude!, longitude: longitude!)
         } else {
             print("OH NO! Lat and long not set! Set both to use this function")
         }
