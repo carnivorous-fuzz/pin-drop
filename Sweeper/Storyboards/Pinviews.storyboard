@@ -20,6 +20,11 @@
                         <viewLayoutGuide key="safeArea" id="hFo-SU-imR"/>
                     </view>
                     <navigationItem key="navigationItem" id="9sP-HK-WAH">
+                        <barButtonItem key="leftBarButtonItem" title="Logout" id="4pV-2b-f1Q">
+                            <connections>
+                                <action selector="onLogout:" destination="6MM-aJ-zjn" id="HrD-2F-Fsv"/>
+                            </connections>
+                        </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" title="Post" id="fyp-1T-M4B">
                             <connections>
                                 <action selector="onPost:" destination="6MM-aJ-zjn" id="xDx-yV-0Np"/>
