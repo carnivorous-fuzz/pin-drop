@@ -10,6 +10,9 @@
 		374C23E21F91B40B000C0ECE /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 374C23E11F91B40B000C0ECE /* HomeViewController.swift */; };
 		374C23E81F91BDA5000C0ECE /* Pin.swift in Sources */ = {isa = PBXBuildFile; fileRef = 374C23E71F91BDA5000C0ECE /* Pin.swift */; };
 		374C23EA1F91BDAE000C0ECE /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 374C23E91F91BDAE000C0ECE /* User.swift */; };
+		37731EC91F92BE5F009E0603 /* PinService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37731EC81F92BE5F009E0603 /* PinService.swift */; };
+		37731ECB1F92BE6D009E0603 /* UserService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37731ECA1F92BE6D009E0603 /* UserService.swift */; };
+		37731ECD1F92C093009E0603 /* AppService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37731ECC1F92C093009E0603 /* AppService.swift */; };
 		5B4C8AEAC3C694DCF2E8D6DB /* Pods_Sweeper.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B9002B9427295A5C4DB280EB /* Pods_Sweeper.framework */; };
 		B79291FB1F91CD0100069144 /* CreatePin.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B79291FA1F91CD0100069144 /* CreatePin.storyboard */; };
 		B9CB3CF11F9056060023EA79 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9CB3CF01F9056060023EA79 /* AppDelegate.swift */; };
@@ -34,6 +37,9 @@
 		374C23E11F91B40B000C0ECE /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		374C23E71F91BDA5000C0ECE /* Pin.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = Pin.swift; path = Sweeper/Models/Pin.swift; sourceTree = SOURCE_ROOT; };
 		374C23E91F91BDAE000C0ECE /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = User.swift; path = Sweeper/Models/User.swift; sourceTree = SOURCE_ROOT; };
+		37731EC81F92BE5F009E0603 /* PinService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PinService.swift; sourceTree = "<group>"; };
+		37731ECA1F92BE6D009E0603 /* UserService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserService.swift; sourceTree = "<group>"; };
+		37731ECC1F92C093009E0603 /* AppService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppService.swift; sourceTree = "<group>"; };
 		8770897BBAA32FD84972558F /* Pods-Sweeper.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Sweeper.release.xcconfig"; path = "Pods/Target Support Files/Pods-Sweeper/Pods-Sweeper.release.xcconfig"; sourceTree = "<group>"; };
 		B79291FA1F91CD0100069144 /* CreatePin.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = CreatePin.storyboard; sourceTree = "<group>"; };
 		B9002B9427295A5C4DB280EB /* Pods_Sweeper.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Sweeper.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -77,11 +83,14 @@
 			path = Models;
 			sourceTree = "<group>";
 		};
-		374C23EC1F91D0A3000C0ECE /* API */ = {
+		374C23EC1F91D0A3000C0ECE /* Services */ = {
 			isa = PBXGroup;
 			children = (
+				37731EC81F92BE5F009E0603 /* PinService.swift */,
+				37731ECA1F92BE6D009E0603 /* UserService.swift */,
+				37731ECC1F92C093009E0603 /* AppService.swift */,
 			);
-			path = API;
+			path = Services;
 			sourceTree = "<group>";
 		};
 		766016692BDDF89522F0D054 /* Pods */ = {
@@ -137,7 +146,7 @@
 				B9CB3D181F90C8B30023EA79 /* Utils */,
 				B9CB3D051F9056500023EA79 /* Views */,
 				B9CB3D031F90563E0023EA79 /* ViewControllers */,
-				374C23EC1F91D0A3000C0ECE /* API */,
+				374C23EC1F91D0A3000C0ECE /* Services */,
 				374C23EB1F91D082000C0ECE /* Models */,
 				B9CB3CF01F9056060023EA79 /* AppDelegate.swift */,
 				B9CB3CF71F9056060023EA79 /* Assets.xcassets */,
@@ -279,13 +288,19 @@
 			);
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-Sweeper/Pods-Sweeper-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/Bolts-Swift/BoltsSwift.framework",
 				"${BUILT_PRODUCTS_DIR}/Bolts/Bolts.framework",
 				"${BUILT_PRODUCTS_DIR}/Parse/Parse.framework",
+				"${BUILT_PRODUCTS_DIR}/ParseLiveQuery/ParseLiveQuery.framework",
+				"${BUILT_PRODUCTS_DIR}/Starscream/Starscream.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/BoltsSwift.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Bolts.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Parse.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ParseLiveQuery.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Starscream.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -320,11 +335,14 @@
 			files = (
 				B9CB3D281F92C6970023EA79 /* PinDetailsViewController.swift in Sources */,
 				374C23E21F91B40B000C0ECE /* HomeViewController.swift in Sources */,
+				37731ECD1F92C093009E0603 /* AppService.swift in Sources */,
 				B9CB3D171F90B57C0023EA79 /* FancyTextField.swift in Sources */,
 				B9CB3D071F9056720023EA79 /* LoginViewController.swift in Sources */,
 				374C23E81F91BDA5000C0ECE /* Pin.swift in Sources */,
 				B9CB3D1E1F91D5AE0023EA79 /* PinViewsViewController.swift in Sources */,
 				B9CB3D2A1F92CD9B0023EA79 /* GMSMarkerExtension.swift in Sources */,
+				37731EC91F92BE5F009E0603 /* PinService.swift in Sources */,
+				37731ECB1F92BE6D009E0603 /* UserService.swift in Sources */,
 				B9CB3CF11F9056060023EA79 /* AppDelegate.swift in Sources */,
 				B9CB3D201F91E8200023EA79 /* KeyboardNotification.swift in Sources */,
 				B9CB3D1A1F90C8BF0023EA79 /* UIConstants.swift in Sources */,

@@ -8,35 +8,50 @@
 
 import Foundation
 import UIKit
+import Parse
 
-class User: NSObject {
-    let firstName: String?
-    let lastName: String?
-    let email: String?
-    let caption: String?
-    let profileImageUrl: URL?
+var _currentUser: User?
+
+class User: PFUser {
+    @NSManaged var firstName: String?
+    @NSManaged var lastName: String?
+    @NSManaged var caption: String?
+    @NSManaged var profileImageUrl: URL?
     
-    init(dictionary: NSDictionary) {
-        firstName = dictionary["firstName"] as? String
-        lastName = dictionary["lastName"] as? String
-        email = dictionary["email"] as? String
-        caption = dictionary["caption"] as? String
-        
-        let imageUrlStr = dictionary["profile_image_url"] as? String
-        if imageUrlStr != nil {
-            profileImageUrl = URL(string: imageUrlStr!)!
-        } else {
-            profileImageUrl = nil
+    class var currentUser: User? {
+        get {
+            return _currentUser
         }
     }
     
-    class func users(withArray: [NSDictionary]) -> [User] {
-        var users = [User]()
-        for dictionary in withArray {
-            let user = User(dictionary: dictionary)
-            users.append(user)
+    class func getStoredUser(completion: @escaping (User?) -> Void) {
+        let query = PFQuery(className: "User")
+        query.fromLocalDatastore()
+        query.getFirstObjectInBackground { (user: PFObject?, error: Error?) in
+            if error == nil {
+                let user = user as? User
+                _currentUser = user
+                completion(user)
+            } else {
+                completion(nil)
+            }
         }
-        return users
+    }
+    
+    class func saveLocalUser(user: User?, completion: @escaping (Bool) -> Void) {
+        if user != nil { // save locally
+            user!.pinInBackground(block: { (success: Bool, error: Error?) in
+                if success {
+                    _currentUser = user
+                }
+                completion(success)
+            })
+        } else { // logout
+            _currentUser?.unpinInBackground(block: { (success: Bool, error: Error?) in
+                _currentUser = nil
+                completion(success)
+            })
+        }
     }
     
     func getFullName() -> (String) {
