@@ -8,6 +8,8 @@
 
 import UIKit
 import Parse
+import AWSCore
+import AWSCognito
 import GoogleMaps
 import GooglePlaces
 
@@ -18,7 +20,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
-        
         let configuration = ParseClientConfiguration {
             $0.applicationId = "com.team11.Sweeper"
             $0.server = "http://165.227.6.232:1337/parse"
@@ -26,6 +27,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         }
         
         Parse.initialize(with: configuration)
+
+        let credentialsProvider = AWSCognitoCredentialsProvider(regionType:.USEast1, identityPoolId:"us-east-1:39325d1c-04a9-4b41-8a5c-17a7e8dc7ced")
+        let awsConfiguration = AWSServiceConfiguration(region:.USEast1, credentialsProvider:credentialsProvider)
+        AWSServiceManager.default().defaultServiceConfiguration = awsConfiguration
         
         User.getStoredUser(completion: { (user: User?) in
             if user != nil {
@@ -39,7 +44,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         GMSServices.provideAPIKey("AIzaSyA9pJAN_2kseox1wiaUUiEZYM-9ffMkXTs")
         GMSPlacesClient.provideAPIKey("AIzaSyA9pJAN_2kseox1wiaUUiEZYM-9ffMkXTs")
-        
+
         return true
     }
 
@@ -64,7 +69,5 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func applicationWillTerminate(_ application: UIApplication) {
         // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
     }
-
-
 }
 
