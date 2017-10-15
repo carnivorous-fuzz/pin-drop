@@ -8,35 +8,40 @@
 
 import Foundation
 import UIKit
+import Parse
 
-class User: NSObject {
-    let firstName: String?
-    let lastName: String?
-    let email: String?
-    let caption: String?
-    let profileImageUrl: URL?
+var _currentUser: User?
+
+class User: PFUser {
+    @NSManaged var firstName: String?
+    @NSManaged var lastName: String?
+    @NSManaged var caption: String?
+    @NSManaged var profileImageUrl: URL?
     
-    init(dictionary: NSDictionary) {
-        firstName = dictionary["firstName"] as? String
-        lastName = dictionary["lastName"] as? String
-        email = dictionary["email"] as? String
-        caption = dictionary["caption"] as? String
-        
-        let imageUrlStr = dictionary["profile_image_url"] as? String
-        if imageUrlStr != nil {
-            profileImageUrl = URL(string: imageUrlStr!)!
-        } else {
-            profileImageUrl = nil
+    class var currentUser: User? {
+        get {
+            if (_currentUser == nil) {
+                let query = PFQuery(className: "User")
+                query.fromLocalDatastore()
+                query.findObjectsInBackground(block: { (users: [PFObject]?, error: Error?) in
+                    if error == nil {
+                        _currentUser = users![0] as? User
+                    } else {
+                        print(error!.localizedDescription)
+                    }
+                })
+            }
+            return _currentUser
         }
-    }
-    
-    class func users(withArray: [NSDictionary]) -> [User] {
-        var users = [User]()
-        for dictionary in withArray {
-            let user = User(dictionary: dictionary)
-            users.append(user)
+        set(user) {
+            if user != nil { // save locally
+                _currentUser = user
+                _currentUser!.pinInBackground()
+            } else { // logout
+                _currentUser?.unpinInBackground()
+                _currentUser = nil
+            }
         }
-        return users
     }
     
     func getFullName() -> (String) {

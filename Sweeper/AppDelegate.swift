@@ -18,12 +18,18 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
-
+        
         let configuration = ParseClientConfiguration {
             $0.applicationId = "com.team11.Sweeper"
             $0.server = "http://165.227.6.232:1337/parse"
+            $0.isLocalDatastoreEnabled = true
         }
+        
         Parse.initialize(with: configuration)
+        
+        if User.currentUser != nil {
+            print("Logged in!")
+        }
         
         GMSServices.provideAPIKey("AIzaSyA9pJAN_2kseox1wiaUUiEZYM-9ffMkXTs")
         GMSPlacesClient.provideAPIKey("AIzaSyA9pJAN_2kseox1wiaUUiEZYM-9ffMkXTs")
