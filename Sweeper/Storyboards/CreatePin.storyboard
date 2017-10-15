@@ -62,7 +62,7 @@
                                         <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                         <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                         <userDefinedRuntimeAttributes>
-                                            <userDefinedRuntimeAttribute type="string" keyPath="placeholder" value="Type something..."/>
+                                            <userDefinedRuntimeAttribute type="string" keyPath="placeholder" value="Add a description..."/>
                                         </userDefinedRuntimeAttributes>
                                     </textView>
                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="zyB-ZN-YLj">
@@ -104,7 +104,7 @@
                         <viewLayoutGuide key="safeArea" id="m72-VC-Qxu"/>
                     </view>
                     <navigationItem key="navigationItem" title="New Pin" id="v7B-Da-iAm">
-                        <barButtonItem key="rightBarButtonItem" title="Post" id="OLr-L2-g9t">
+                        <barButtonItem key="rightBarButtonItem" title="Share" id="OLr-L2-g9t">
                             <connections>
                                 <action selector="onPost:" destination="c74-9K-Gpk" id="uAP-eH-rxq"/>
                             </connections>
