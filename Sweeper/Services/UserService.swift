@@ -37,12 +37,17 @@ class UserService {
             if pfUser != nil {
                 user = pfUser as? User
                 // store user in local storage
-                User.saveLocalUser(user: user, completion: { (success: Bool) in
-                    print("hello?")
-                })
+                User.saveLocalUser(user: user, completion: { _ in })
                 success = true
             }
             completion(success, error)
+        }
+    }
+    
+    // remove stored user. View controller is responsible for view segue
+    func logout() {
+        User.saveLocalUser(user: nil) { (success: Bool) in
+            print("logout: stored user removed")
         }
     }
 }

@@ -77,6 +77,13 @@ class PinViewsViewController: UIViewController {
         present(vc, animated: true, completion: nil)
     }
     
+    @IBAction func onLogout(_ sender: UIBarButtonItem) {
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        let vc = storyboard.instantiateViewController(withIdentifier: "LoginViewController")
+        present(vc, animated: true, completion: nil)
+        UserService.sharedInstance.logout()
+    }
+    
     private func requestLocationPermission() {
         locationManager = CLLocationManager()
         locationManager.delegate = self

@@ -25,8 +25,7 @@ class User: PFUser {
     }
     
     class func getStoredUser(completion: @escaping (User?) -> Void) {
-        let query = PFQuery(className: "User")
-        query.fromLocalDatastore()
+        let query = User.query()!.fromLocalDatastore()
         query.getFirstObjectInBackground { (user: PFObject?, error: Error?) in
             if error == nil {
                 let user = user as? User

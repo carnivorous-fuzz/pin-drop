@@ -18,7 +18,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
 
-
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         let configuration = ParseClientConfiguration {
             $0.applicationId = "com.team11.Sweeper"
@@ -34,12 +33,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         User.getStoredUser(completion: { (user: User?) in
             if user != nil {
-                print(user!)
-                // segue to home
+                let storyboard = UIStoryboard(name: "Pinviews", bundle: nil)
+                let navigationVC = storyboard.instantiateViewController(withIdentifier: "PinviewsNavigationController")
+                
+                self.window?.rootViewController = navigationVC
             } else {
-                print("user not found")
+                print("user not found in local data store")
             }
-            
         })
         
         GMSServices.provideAPIKey("AIzaSyA9pJAN_2kseox1wiaUUiEZYM-9ffMkXTs")
