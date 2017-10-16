@@ -14,16 +14,18 @@ import GoogleMaps
 class Pin: PFObject, PFSubclassing {
     //MARK: DB properties
     @NSManaged var userId: String?
+    @NSManaged var creator: User?
     @NSManaged var blurb: String?
     @NSManaged var location: PFGeoPoint?
     @NSManaged var message: String?
     @NSManaged var imageUrlStr: String?
     @NSManaged var tagIds: [String]?
+    @NSManaged var tags: [Tag]?
     
     lazy var marker: PinMarker? = location == nil ? nil : PinMarker(fromPin: self)
     
     // MARK: non-DB properties
-    var tags: [Tag]?
+//    var tags: [Tag]?
     var imageUrl: URL?
     var latitude: Double?
     var longitude: Double?
