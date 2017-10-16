@@ -6,22 +6,22 @@ iOS location-based media sharing app. Users are able to login to the app, and se
 
 **Required** functionality:
 
-- [ ] Login
-   - [ ] Authenticate user using OAuth (Google, FB, or Twitter).
-- [ ] Home page
-   - [ ] User should see a list of all pending/unviewed messages on home screen, sorted by distance from current location.
-   - [ ] User should be able to toggle between map view and list view for pending messages.
-- [ ] Create location message
-   - [ ] User can create a pin message, which consists of a location, tagline, and some media content (pictures first).
+- [x] Login
+   - [x] Sign up with user name and password
+- [x] Home page
+   - [x] User should see a list of all pending/unviewed messages on home screen, sorted by distance from current location.
+   - [ ] User should be able to toggle between map view and list view for pending messages. (list view coming soon)
+- [x] Create location message
+   - [x] User can create a pin message, which consists of a location, tagline, and some media content (pictures first).
    - [ ] Newly created messages are posted to the public "home" feed.
-- [ ] Retrieve location message
-   - [ ] When user is within range of a pin message, the message becomes "available" to view.
-   - [ ] After viewing a message, the message is marked as "viewed" and put into an archive.
+- [x] Retrieve location message
+   - [x] When user is within range of a pin message, the message becomes "available" to view. (This is disabled for debugging purposes for now, though the functionality is really easy to change in code)
+   - [x] After viewing a message, the message is marked as "viewed" and put into an archive.
 
 **Optional** features:
 
 - [ ] Login
-   - [ ] Sign up with user name and password
+   - [ ] Authenticate user using OAuth (Google, FB, or Twitter).
 - [ ] Home page
    - [ ] Private feed and public feed.
    - [ ] User can toggle to sort by distance, time message was created, highest rated, etc.
@@ -41,6 +41,14 @@ iOS location-based media sharing app. Users are able to login to the app, and se
    - [ ] Businesses can create a group, and invite people. Give out promotions, only users who visits the business location can view the promotion.
 
 [Google Doc](https://docs.google.com/spreadsheets/d/1Gt9Vq7hf5kCIKTsnLPe2V9hwP1ld5uV749G3nETrglo/edit?usp=sharing)
+
+## Video Walkthrough
+
+Here is a walkthrough of our implemented features
+
+<img src='https://i.imgur.com/1vMYBW1.gif' title='Video Walkthrough' width='' alt='Video Walkthrough' />
+
+GIF created with [LiceCap](http://www.cockos.com/licecap/).
 
 ## Wireframes
 
