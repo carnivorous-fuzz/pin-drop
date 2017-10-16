@@ -17,6 +17,7 @@ class PinService {
     static let sharedInstance = PinService()
 
     func create(pin: Pin, withImage: UIImage?, tagNames: [String]?, completion: @escaping (Bool, Error?) -> Void) {
+        pin.userId = User.currentUser?.objectId
         TagService.sharedInstance.createTags(forNames: tagNames ?? [], completion: { (tags: [Tag]?, error: Error?) in
             if error == nil {
                 let tagIds = tags!.map({ $0.objectId! })
@@ -26,7 +27,7 @@ class PinService {
                     let imageName = String.random(length: 10)
                     AWSS3Service.sharedInstance.uploadImage(for: imageName, with: UIImagePNGRepresentation(withImage!)!, completion: {
                         (task, error) -> Void in
-                        let urlStr = "\(AWSConstans.S3BaseImageURL)\(imageName)"
+                        let urlStr = "\(AWSConstants.S3BaseImageURL)\(imageName)"
                         pin.imageUrlStr = urlStr
                         pin.imageUrl = URL(string: urlStr)
                         pin.saveInBackground(block: { (success, error) in
@@ -53,6 +54,7 @@ class PinService {
         
         let pinsQuery = Pin.query() as! PFQuery<Pin>
         pinsQuery.order(byDescending: "createdAt")
+        pinsQuery.limit = 20
         pinsQuery.clearCachedResult()
         
         pinsQuery.findObjectsInBackground { (pins: [Pin]?, error: Error?) in

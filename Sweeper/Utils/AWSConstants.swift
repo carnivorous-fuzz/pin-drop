@@ -7,7 +7,7 @@
 //
 
 import Foundation
-struct AWSConstans {
+struct AWSConstants {
     static let S3BaseImageURL = "https://s3.amazonaws.com/local-messaging-media-bucket/"
     static let S3BucketName: String = "local-messaging-media-bucket"
 }

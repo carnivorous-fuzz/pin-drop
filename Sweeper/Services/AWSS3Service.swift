@@ -23,7 +23,7 @@ class AWSS3Service {
         
         transferUtility.uploadData(
             data,
-            bucket: AWSConstans.S3BucketName,
+            bucket: AWSConstants.S3BucketName,
             key: key,
             contentType: "image/png",
             expression: expression,

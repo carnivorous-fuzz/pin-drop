@@ -13,6 +13,7 @@ import GoogleMaps
 
 class Pin: PFObject, PFSubclassing {
     //MARK: DB properties
+    @NSManaged var userId: String?
     @NSManaged var blurb: String?
     @NSManaged var location: PFGeoPoint?
     @NSManaged var message: String?
