@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		374C23E21F91B40B000C0ECE /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 374C23E11F91B40B000C0ECE /* HomeViewController.swift */; };
 		374C23E81F91BDA5000C0ECE /* Pin.swift in Sources */ = {isa = PBXBuildFile; fileRef = 374C23E71F91BDA5000C0ECE /* Pin.swift */; };
 		374C23EA1F91BDAE000C0ECE /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 374C23E91F91BDAE000C0ECE /* User.swift */; };
 		37731EC91F92BE5F009E0603 /* PinService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37731EC81F92BE5F009E0603 /* PinService.swift */; };
@@ -40,11 +39,13 @@
 		B9CB3D261F92C6170023EA79 /* ViewPin.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B9CB3D251F92C6170023EA79 /* ViewPin.storyboard */; };
 		B9CB3D281F92C6970023EA79 /* PinDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9CB3D271F92C6970023EA79 /* PinDetailsViewController.swift */; };
 		B9CB3D2A1F92CD9B0023EA79 /* GMSMarkerExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9CB3D291F92CD9B0023EA79 /* GMSMarkerExtension.swift */; };
+		B9CB3D2E1F94143B0023EA79 /* ProfileView.xib in Resources */ = {isa = PBXBuildFile; fileRef = B9CB3D2D1F94143B0023EA79 /* ProfileView.xib */; };
+		B9CB3D301F94144B0023EA79 /* ProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9CB3D2F1F94144B0023EA79 /* ProfileView.swift */; };
+		B9CB3D321F9425FA0023EA79 /* ImageUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9CB3D311F9425FA0023EA79 /* ImageUtils.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		1D859EDDB4E56A4A4F927E7C /* Pods-Sweeper.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Sweeper.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Sweeper/Pods-Sweeper.debug.xcconfig"; sourceTree = "<group>"; };
-		374C23E11F91B40B000C0ECE /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		374C23E71F91BDA5000C0ECE /* Pin.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = Pin.swift; path = Sweeper/Models/Pin.swift; sourceTree = SOURCE_ROOT; };
 		374C23E91F91BDAE000C0ECE /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = User.swift; path = Sweeper/Models/User.swift; sourceTree = SOURCE_ROOT; };
 		37731EC81F92BE5F009E0603 /* PinService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PinService.swift; sourceTree = "<group>"; };
@@ -80,6 +81,9 @@
 		B9CB3D251F92C6170023EA79 /* ViewPin.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = ViewPin.storyboard; sourceTree = "<group>"; };
 		B9CB3D271F92C6970023EA79 /* PinDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PinDetailsViewController.swift; sourceTree = "<group>"; };
 		B9CB3D291F92CD9B0023EA79 /* GMSMarkerExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GMSMarkerExtension.swift; sourceTree = "<group>"; };
+		B9CB3D2D1F94143B0023EA79 /* ProfileView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ProfileView.xib; sourceTree = "<group>"; };
+		B9CB3D2F1F94144B0023EA79 /* ProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileView.swift; sourceTree = "<group>"; };
+		B9CB3D311F9425FA0023EA79 /* ImageUtils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageUtils.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -204,7 +208,6 @@
 			isa = PBXGroup;
 			children = (
 				B9CB3D061F9056720023EA79 /* LoginViewController.swift */,
-				374C23E11F91B40B000C0ECE /* HomeViewController.swift */,
 				B79291FD1F91CE7400069144 /* CreatePinViewController.swift */,
 				B9CB3D1D1F91D5AE0023EA79 /* PinViewsViewController.swift */,
 				B9CB3D271F92C6970023EA79 /* PinDetailsViewController.swift */,
@@ -215,6 +218,7 @@
 		B9CB3D051F9056500023EA79 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				B9CB3D2C1F9414110023EA79 /* Profile */,
 				B9CB3D2B1F9340D10023EA79 /* FancyTextField */,
 				B7B862351F91E69400FB2F1E /* LocationBaner */,
 			);
@@ -228,6 +232,7 @@
 				B7E83F221F92AFFA00FA9D88 /* Location.swift */,
 				B763C3551F931F2700DA8311 /* AWSConstants.swift */,
 				B9CB3D1F1F91E8200023EA79 /* KeyboardNotification.swift */,
+				B9CB3D311F9425FA0023EA79 /* ImageUtils.swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -239,6 +244,15 @@
 				B9CB3D161F90B57C0023EA79 /* FancyTextField.swift */,
 			);
 			path = FancyTextField;
+			sourceTree = "<group>";
+		};
+		B9CB3D2C1F9414110023EA79 /* Profile */ = {
+			isa = PBXGroup;
+			children = (
+				B9CB3D2D1F94143B0023EA79 /* ProfileView.xib */,
+				B9CB3D2F1F94144B0023EA79 /* ProfileView.swift */,
+			);
+			path = Profile;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -309,6 +323,7 @@
 				B9CB3CF81F9056060023EA79 /* Assets.xcassets in Resources */,
 				B9CB3D261F92C6170023EA79 /* ViewPin.storyboard in Resources */,
 				B9CB3CF61F9056060023EA79 /* Main.storyboard in Resources */,
+				B9CB3D2E1F94143B0023EA79 /* ProfileView.xib in Resources */,
 				B9CB3D241F91F6770023EA79 /* mapstyle.json in Resources */,
 				B79291FB1F91CD0100069144 /* CreatePin.storyboard in Resources */,
 				B9CB3D1C1F91D1780023EA79 /* Pinviews.storyboard in Resources */,
@@ -343,6 +358,7 @@
 			);
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-Sweeper/Pods-Sweeper-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/AFNetworking/AFNetworking.framework",
 				"${BUILT_PRODUCTS_DIR}/AWSCognito/AWSCognito.framework",
 				"${BUILT_PRODUCTS_DIR}/AWSCore/AWSCore.framework",
 				"${BUILT_PRODUCTS_DIR}/AWSS3/AWSS3.framework",
@@ -355,6 +371,7 @@
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/AFNetworking.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/AWSCognito.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/AWSCore.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/AWSS3.framework",
@@ -397,8 +414,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				B9CB3D281F92C6970023EA79 /* PinDetailsViewController.swift in Sources */,
-				374C23E21F91B40B000C0ECE /* HomeViewController.swift in Sources */,
 				37731ECD1F92C093009E0603 /* AppService.swift in Sources */,
+				B9CB3D321F9425FA0023EA79 /* ImageUtils.swift in Sources */,
 				B9CB3D171F90B57C0023EA79 /* FancyTextField.swift in Sources */,
 				3786F84A1F9414120009F05B /* TagService.swift in Sources */,
 				B7E83F231F92AFFA00FA9D88 /* Location.swift in Sources */,

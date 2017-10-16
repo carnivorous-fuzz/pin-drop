@@ -8,6 +8,7 @@ target 'Sweeper' do
   # Pods for Sweeper
   pod 'Parse'
   pod 'KMPlaceholderTextView', '~> 1.3.0'
+  pod 'AFNetworking'
 
   # AWS SDKs
   pod 'AWSCognito'
