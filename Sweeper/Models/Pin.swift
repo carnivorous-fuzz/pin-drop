@@ -9,7 +9,13 @@
 import Foundation
 import UIKit
 import Parse
-import CoreLocation
+import GoogleMaps
+
+fileprivate extension PFGeoPoint {
+    func toGMSMarker() -> GMSMarker {
+        return GMSMarker(position: CLLocationCoordinate2D(latitude: latitude, longitude: longitude))
+    }
+}
 
 class Pin: PFObject, PFSubclassing {
     //MARK: DB properties
@@ -18,6 +24,15 @@ class Pin: PFObject, PFSubclassing {
     @NSManaged var message: String?
     @NSManaged var imageUrlStr: String?
     @NSManaged var tagIds: [String]?
+    
+    private lazy var _marker: GMSMarker? = location == nil ? nil : location!.toGMSMarker()
+    var marker: GMSMarker? {
+        get {
+            _marker?.title = "Message:"
+            _marker?.snippet = message
+            return _marker
+        }
+    }
     
     // MARK: non-DB properties
     var tags: [Tag]?
@@ -50,6 +65,12 @@ class Pin: PFObject, PFSubclassing {
         return "Pin"
     }
     
+    override class func query() -> PFQuery<PFObject>? {
+        let query = PFQuery(className: Pin.parseClassName())
+        query.order(byDescending: "createdAt")
+        return query
+    }
+    
     func setLocation() {
         if latitude != nil && longitude != nil {
             location = PFGeoPoint(latitude: latitude!, longitude: longitude!)
@@ -57,5 +78,4 @@ class Pin: PFObject, PFSubclassing {
             print("OH NO! Lat and long not set! Set both to use this function")
         }
     }
-
 }

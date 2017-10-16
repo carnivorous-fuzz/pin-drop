@@ -44,6 +44,15 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         GMSServices.provideAPIKey("AIzaSyA9pJAN_2kseox1wiaUUiEZYM-9ffMkXTs")
         GMSPlacesClient.provideAPIKey("AIzaSyA9pJAN_2kseox1wiaUUiEZYM-9ffMkXTs")
+        
+        NotificationCenter.default.addObserver(
+            forName: NSNotification.Name(rawValue: User.userDidLogoutKey),
+            object: nil,
+            queue: OperationQueue.main) { (notification) in
+                let storyboard = UIStoryboard(name: "Main", bundle: nil)
+                let vc = storyboard.instantiateInitialViewController()
+                self.window?.rootViewController = vc
+        }
 
         return true
     }

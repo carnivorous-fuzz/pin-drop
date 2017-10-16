@@ -435,6 +435,7 @@
 				B9CB3D1A1F90C8BF0023EA79 /* UIConstants.swift in Sources */,
 				B763C3581F9322C500DA8311 /* StringExtension.swift in Sources */,
 				B7E83F261F92EA9000FA9D88 /* AWSS3Service.swift in Sources */,
+				B9CB3D301F94144B0023EA79 /* ProfileView.swift in Sources */,
 				374C23EA1F91BDAE000C0ECE /* User.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
