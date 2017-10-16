@@ -41,7 +41,7 @@ class PinViewsViewController: UIViewController {
         super.viewDidLoad()
 
         requestLocationPermission()
-        
+
         // Create a map.
         placesClient = GMSPlacesClient.shared()
         let camera = GMSCameraPosition.camera(withLatitude: defaultLocation.coordinate.latitude,

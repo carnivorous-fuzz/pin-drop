@@ -17,8 +17,7 @@ class PinDetailsViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
+//        pinMarker.pin.markAsViewed(User.currentUser)
         messageLabel.text = marker.snippet
     }
-
 }

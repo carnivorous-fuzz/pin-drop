@@ -63,5 +63,47 @@ class PinService {
             completion(pins, error)
         }
     }
-    
+
+    func fetchArchievedPins(for user: User, completion: @escaping ([Pin], Error?) -> Void) {
+        var viewedPinIds = [String]()
+        let viewedPinsQuery = ViewedPin.query() as! PFQuery<ViewedPin>
+        viewedPinsQuery.whereKey("userId", equalTo: user.objectId!)
+        viewedPinsQuery.findObjectsInBackground { (viewedPins: [ViewedPin]?, error: Error?) in
+            if viewedPins != nil {
+                for viewedPin in viewedPins! {
+                    viewedPinIds.append(viewedPin.pinId!)
+                }
+
+                let pinQuery = Pin.query() as! PFQuery<Pin>
+
+                pinQuery.whereKey("objectId", containedIn: viewedPinIds)
+                pinQuery.findObjectsInBackground(block: { (pins: [Pin]?, error: Error?) in
+                    if pins != nil {
+                        completion(pins!, error)
+                    }
+                })
+            }
+        }
+    }
+
+    func hasViewed(by user: User, with pin: Pin, completion: @escaping (Bool, Error?) -> Void) {
+        let viewedPinsQuery = ViewedPin.query() as! PFQuery<ViewedPin>
+        viewedPinsQuery.whereKey("userId", equalTo: user.objectId!)
+        viewedPinsQuery.whereKey("pinId", equalTo: pin.objectId!)
+
+        viewedPinsQuery.getFirstObjectInBackground(block: { (viewedPin: ViewedPin?, error: Error?) in
+            if viewedPin != nil {
+                completion(true, error)
+            } else {
+                completion(false, error)
+            }
+        })
+    }
+
+    func markAsViewed(by user: User, with pin: Pin) {
+        let viewedPin = ViewedPin()
+        viewedPin.userId = user.objectId
+        viewedPin.pinId = pin.objectId
+        viewedPin.saveInBackground()
+    }
 }

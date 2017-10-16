@@ -57,5 +57,4 @@ class Pin: PFObject, PFSubclassing {
             print("OH NO! Lat and long not set! Set both to use this function")
         }
     }
-
 }
