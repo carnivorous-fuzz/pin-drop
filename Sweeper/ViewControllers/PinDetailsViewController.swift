@@ -21,6 +21,7 @@ class PinDetailsViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
+//         pinMarker.pin.markAsViewed(User.currentUser)
         locationBanner.prepare(with: pinMarker.getLocation())
         messageLabel.text = pinMarker.snippet
         
@@ -29,5 +30,4 @@ class PinDetailsViewController: UIViewController {
             ImageUtils.loadImage(forView: messageImage, defaultImage: nil, url: imgURL)
         }
     }
-
 }
