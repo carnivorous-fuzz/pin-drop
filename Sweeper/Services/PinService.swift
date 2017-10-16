@@ -11,41 +11,57 @@ import UIKit
 import Parse
 import ParseLiveQuery
 
-var _pinsQuery: PFQuery<Pin> {
-    return Pin.query()!
-        .order(byDescending: "createdAt") as! PFQuery<Pin>
-}
+var _pins: [Pin] = [Pin]()
 
 class PinService {
     static let sharedInstance = PinService()
     
-    func create(pin: Pin, completion: @escaping (Bool, Error?) -> Void) {
-        pin.saveInBackground { (success: Bool, error: Error?) in
-            completion(success, error)
+    func create(pin: Pin, withImage: UIImage?, tagNames: [String]?, completion: @escaping (Bool, Error?) -> Void) {
+        print(pin)
+        if withImage != nil {
+            let imageName = String.random(length: 10)
+            AWSS3Service.sharedInstance.uploadImage(for: imageName, with: UIImagePNGRepresentation(withImage!)!, completion: {
+                (task, error) -> Void in
+                let urlStr = "\(AWSConstans.S3BaseImageURL)\(imageName)"
+                pin.imageUrlStr = urlStr
+                pin.imageUrl = URL(string: urlStr)
+                TagService.sharedInstance.createTags(forNames: tagNames ?? [], completion: { (tags: [Tag]?, error: Error?) in
+                    if error == nil {
+                        let tagIds = tags!.map({ $0.objectId! })
+                        pin.tagIds = tagIds
+                        pin.saveInBackground(block: { (success, error) in
+                            completion(success, error)
+                            _pins.append(pin)
+                        })
+                    } else {
+                        print("error calling tagService.create")
+                    }
+                })
+                
+            })
+        } else {
+            pin.imageUrlStr = nil
+            pin.saveInBackground(block: { (success, error) in
+                completion(success, error)
+                _pins.append(pin)
+            })
         }
-        
-        // TODO: append pin to local pins collection
     }
     
     func fetchPins(completion: @escaping ([Pin]?, Error?) -> Void) {
 //        client = ParseLiveQuery.Client()
-//        TODO: subscription closure
-//        subscription = client.subscribe(query)
-//            // handle creation events, we can also listen for update, leave, enter events
-//            .handle(Event.created) { _, message in
-//                DispatchQueue.main.async {
-//                    print(message.text!)
-//                    self.messages!.insert(message, at: 0)
-//                    self.tableView.reloadData()
-//                }
-//        }
+//        TODO: subscription livequery closure
         
-        _pinsQuery.findObjectsInBackground { (pins: [Pin]?, error: Error?) in
+        let pinsQuery = Pin.query() as! PFQuery<Pin>
+        pinsQuery.order(byDescending: "createdAt")
+        
+        pinsQuery.findObjectsInBackground { (pins: [Pin]?, error: Error?) in
             print("fetched!")
+            if pins != nil {
+                _pins = pins!
+            }
             completion(pins, error)
         }
-        
-        // TODO: set pins collection
     }
     
 }

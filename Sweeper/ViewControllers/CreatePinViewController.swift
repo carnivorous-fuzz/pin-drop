@@ -10,7 +10,6 @@ import UIKit
 import CoreLocation
 import KMPlaceholderTextView
 import Parse
-import AWSS3
 
 class CreatePinViewController: UIViewController, UINavigationControllerDelegate {
     @IBOutlet weak var locationBanner: LocationBanner!
@@ -27,8 +26,8 @@ class CreatePinViewController: UIViewController, UINavigationControllerDelegate 
         super.viewDidLoad()
         createDismissBarItem()
         getLocation()
-        titleField.fieldLabel.text = "Title"
-        tagsField.fieldLabel.text = "Tags"
+        titleField.fieldLabel.text = "Add a Title"
+        tagsField.fieldLabel.text = "Add Tags"
         editingView.layer.borderWidth = 1
         editingView.layer.cornerRadius = 10
         editingView.layer.borderColor = UIConstants.Theme.mediumGray.cgColor
@@ -58,40 +57,22 @@ class CreatePinViewController: UIViewController, UINavigationControllerDelegate 
     
     @IBAction func onPost(_ sender: Any) {
         let tags = tagsField.getText()
-        let imageName = String.random(length: 10)
+        let tagNames = tags.components(separatedBy: ",")
 
         let pin = Pin()
         pin.blurb = titleField.getText()
-//        pin.tags = tags.components(separatedBy: ",")
-        pin.latitude = currentLocation?.coordinate.latitude as? NSDecimalNumber
-        pin.longitude = currentLocation?.coordinate.longitude as? NSDecimalNumber
-        pin.location = self.currentLocation
+        pin.latitude = currentLocation?.coordinate.latitude
+        pin.longitude = currentLocation?.coordinate.longitude
+        pin.setLocation()
         pin.message = messageTextView.text
 
         // TODO: animation while waiting for the image saving
-        if self.importedImageView.image != nil {
-            AWSS3Client.sharedInstance.uploadImage(for: imageName, with: UIImagePNGRepresentation(self.importedImageView.image!)!, completionHandler: {
-                (task, error) -> Void in
-                pin.imageUrl = URL(string: "\(AWSConstans.S3BaseImageURL)\(imageName)")
-                pin.saveInBackground(block: { (success, error) in
-                    if (success) {
-                        print(pin.blurb!)
-                        self.dismiss(animated: true, completion: nil)
-                    } else {
-                        print(error!)
-                    }
-                })
-            })
-        } else {
-            pin.imageUrl = nil
-            pin.saveInBackground(block: { (success, error) in
-                if (success) {
-                    print(pin.blurb!)
-                    self.dismiss(animated: true, completion: nil)
-                } else {
-                    print(error!)
-                }
-            })
+        PinService.sharedInstance.create(pin: pin, withImage: importedImageView.image ?? nil, tagNames: tagNames) { (success: Bool, error: Error?) in
+            if success {
+                print("saved!")
+                print(pin.blurb!)
+                self.dismiss(animated: true, completion: nil)
+            }
         }
     }
     

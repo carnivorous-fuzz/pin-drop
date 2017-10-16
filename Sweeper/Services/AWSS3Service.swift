@@ -1,5 +1,5 @@
 //
-//  AWSS3Client.swift
+//  AWSS3Service.swift
 //  Sweeper
 //
 //  Created by Raina Wang on 10/14/17.
@@ -8,17 +8,17 @@
 
 import AWSS3
 
-class AWSS3Client {
+class AWSS3Service {
     let transferUtility = AWSS3TransferUtility.default()
 
-    class var sharedInstance: AWSS3Client {
+    class var sharedInstance: AWSS3Service {
         struct Static {
-            static let instance = AWSS3Client()
+            static let instance = AWSS3Service()
         }
         return Static.instance
     }
 
-    func uploadImage(for key: String, with data: Data, completionHandler: @escaping AWSS3TransferUtilityUploadCompletionHandlerBlock) {
+    func uploadImage(for key: String, with data: Data, completion: @escaping AWSS3TransferUtilityUploadCompletionHandlerBlock) {
         let expression = AWSS3TransferUtilityUploadExpression()
         
         transferUtility.uploadData(
@@ -27,7 +27,7 @@ class AWSS3Client {
             key: key,
             contentType: "image/png",
             expression: expression,
-            completionHandler: completionHandler
+            completionHandler: completion
         )
     }
 }
