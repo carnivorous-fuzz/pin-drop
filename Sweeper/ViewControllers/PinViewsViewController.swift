@@ -18,24 +18,26 @@ class PinViewsViewController: UIViewController {
     var mapView: GMSMapView!
     var placesClient: GMSPlacesClient!
     var zoomLevel = Float(15.0)
-    let far_location: GMSMarker = { () -> GMSMarker in
-        let location = GMSMarker(position: CLLocationCoordinate2D(latitude: 37.784516, longitude: -122.410171))
-        location.snippet = "Fake message"
-        let imageView = UIImageView(image: #imageLiteral(resourceName: "default_profile"))
-        imageView.layer.cornerRadius = imageView.bounds.width / 2.0
-        imageView.layer.masksToBounds = true
-        location.iconView = imageView
-        return location
-    }()
-    let close_location: GMSMarker = { () -> GMSMarker in
-        let location = GMSMarker(position: CLLocationCoordinate2D(latitude: 37.784592, longitude: -122.407585))
-        location.snippet = "Oooh look at me waiting for the cable car"
-        let imageView = UIImageView(image: #imageLiteral(resourceName: "default_profile"))
-        imageView.layer.cornerRadius = imageView.bounds.width / 2.0
-        imageView.layer.masksToBounds = true
-        location.iconView = imageView
-        return location
-    }()
+    var pins: [Pin]!
+    
+//    let far_location: GMSMarker = { () -> GMSMarker in
+//        let location = GMSMarker(position: CLLocationCoordinate2D(latitude: 37.784516, longitude: -122.410171))
+//        location.snippet = "Fake message"
+//        let imageView = UIImageView(image: #imageLiteral(resourceName: "default_profile"))
+//        imageView.layer.cornerRadius = imageView.bounds.width / 2.0
+//        imageView.layer.masksToBounds = true
+//        location.iconView = imageView
+//        return location
+//    }()
+//    let close_location: GMSMarker = { () -> GMSMarker in
+//        let location = GMSMarker(position: CLLocationCoordinate2D(latitude: 37.784592, longitude: -122.407585))
+//        location.snippet = "Oooh look at me waiting for the cable car"
+//        let imageView = UIImageView(image: #imageLiteral(resourceName: "default_profile"))
+//        imageView.layer.cornerRadius = imageView.bounds.width / 2.0
+//        imageView.layer.masksToBounds = true
+//        location.iconView = imageView
+//        return location
+//    }()
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -65,9 +67,20 @@ class PinViewsViewController: UIViewController {
         view.addSubview(mapView)
         mapView.isHidden = true
         
-        // TODO: Remove when we have real data
-        far_location.map = mapView
-        close_location.map = mapView
+        PinService.sharedInstance.fetchPins { (pins, error) in
+            if let pins = pins {
+                print("~~~~~~~~~~~ Fetch pins worked ~~~~~~~~~~~~~")
+                self.pins = pins
+                self.pins.forEach({ (pin) in
+                    if let marker = pin.marker {
+                        marker.map = self.mapView
+                    }
+                })
+            } else {
+                print(error.debugDescription)
+                print("~~~~~~~~~~~ Fetch pins failed ~~~~~~~~~~~~~")
+            }
+        }
     }
     
     @IBAction func onPost(_ sender: UIBarButtonItem) {
@@ -78,9 +91,6 @@ class PinViewsViewController: UIViewController {
     }
     
     @IBAction func onLogout(_ sender: UIBarButtonItem) {
-        let storyboard = UIStoryboard(name: "Main", bundle: nil)
-        let vc = storyboard.instantiateViewController(withIdentifier: "LoginViewController")
-        present(vc, animated: true, completion: nil)
         UserService.sharedInstance.logout()
     }
     
@@ -132,7 +142,8 @@ extension PinViewsViewController: CLLocationManagerDelegate {
 // MARK:- Google map view delegate
 extension PinViewsViewController: GMSMapViewDelegate {
     func mapView(_ mapView: GMSMapView, didTapInfoWindowOf marker: GMSMarker) {
-        if marker.distanceFromUser() < 200 {
+        // TODO: Currently enabling all pins for testing, restrict later
+        if marker.distanceFromUser() < 0 {
             let storyboard = UIStoryboard(name: "ViewPin", bundle: nil)
             let vc = storyboard.instantiateViewController(withIdentifier: "PinDetailsViewController") as! PinDetailsViewController
             vc.marker = marker

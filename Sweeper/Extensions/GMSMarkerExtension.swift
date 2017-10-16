@@ -19,4 +19,8 @@ extension GMSMarker {
         print("~~~~Marker(title: \"\(title ?? "No title")\") is \(distance) meters away from user~~~~")
         return distance
     }
+    
+    func getLocation() -> CLLocation {
+        return CLLocation(latitude: position.latitude, longitude: position.longitude)
+    }
 }
