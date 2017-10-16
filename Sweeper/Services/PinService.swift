@@ -54,6 +54,7 @@ class PinService {
         
         let pinsQuery = Pin.query() as! PFQuery<Pin>
         pinsQuery.order(byDescending: "createdAt")
+        pinsQuery.clearCachedResult()
         
         pinsQuery.findObjectsInBackground { (pins: [Pin]?, error: Error?) in
             print("fetched!")

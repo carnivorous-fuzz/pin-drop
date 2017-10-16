@@ -13,12 +13,14 @@ import Parse
 var _currentUser: User?
 
 class User: PFUser {
+    static let userDidLogoutKey = "user_logged_out"
+    
     @NSManaged var firstName: String?
     @NSManaged var lastName: String?
     @NSManaged var caption: String?
     @NSManaged var profileImageUrl: URL?
     
-    class var currentUser: User? {
+    static var currentUser: User? {
         get {
             return _currentUser
         }

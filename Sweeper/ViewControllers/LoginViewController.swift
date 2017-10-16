@@ -38,6 +38,9 @@ class LoginViewController: UIViewController {
         NotificationCenter.default.removeObserver(self,
                                                   name: .UIKeyboardWillShow,
                                                   object: nil)
+        NotificationCenter.default.removeObserver(self,
+                                                  name: .UIKeyboardWillHide,
+                                                  object: nil)
     }
     
     // MARK: IBAction outlets

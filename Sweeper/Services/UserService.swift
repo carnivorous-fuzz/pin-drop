@@ -48,6 +48,7 @@ class UserService {
     func logout() {
         User.saveLocalUser(user: nil) { (success: Bool) in
             print("logout: stored user removed")
+            NotificationCenter.default.post(Notification(name: Notification.Name(rawValue: User.userDidLogoutKey)))
         }
     }
 }

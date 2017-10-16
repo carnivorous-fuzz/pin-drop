@@ -1,4 +1,19 @@
 PODS:
+  - AFNetworking (3.1.0):
+    - AFNetworking/NSURLSession (= 3.1.0)
+    - AFNetworking/Reachability (= 3.1.0)
+    - AFNetworking/Security (= 3.1.0)
+    - AFNetworking/Serialization (= 3.1.0)
+    - AFNetworking/UIKit (= 3.1.0)
+  - AFNetworking/NSURLSession (3.1.0):
+    - AFNetworking/Reachability
+    - AFNetworking/Security
+    - AFNetworking/Serialization
+  - AFNetworking/Reachability (3.1.0)
+  - AFNetworking/Security (3.1.0)
+  - AFNetworking/Serialization (3.1.0)
+  - AFNetworking/UIKit (3.1.0):
+    - AFNetworking/NSURLSession
   - AWSCognito (2.6.1):
     - AWSCore (= 2.6.1)
   - AWSCore (2.6.1)
@@ -23,6 +38,7 @@ PODS:
   - Starscream (2.1.1)
 
 DEPENDENCIES:
+  - AFNetworking
   - AWSCognito
   - AWSCore
   - AWSS3
@@ -33,6 +49,7 @@ DEPENDENCIES:
   - ParseLiveQuery
 
 SPEC CHECKSUMS:
+  AFNetworking: 5e0e199f73d8626b11e79750991f5d173d1f8b67
   AWSCognito: 9aad635e11de0febf026e8a8acbbd345b2016801
   AWSCore: e7d37fa0715def975acf1b0d75556576780088b8
   AWSS3: 2e18ede28199a5530955dc1a65434da43dcc4d2c
@@ -45,6 +62,6 @@ SPEC CHECKSUMS:
   ParseLiveQuery: bc2321032ddae9d6ecfd4842d1b10210d453b08b
   Starscream: 142bd8ef24592d985daee9fa48c936070b85b15f
 
-PODFILE CHECKSUM: 247a4e6cadbd412b3d8a50362dd704a49932156d
+PODFILE CHECKSUM: 4fddbfcf1bbe74f4d865510497f11b9453a74f2e
 
 COCOAPODS: 1.3.1
