@@ -11,6 +11,8 @@ import Parse
 class ViewedPin: PFObject, PFSubclassing {
     @NSManaged var userId: String?
     @NSManaged var pinId: String?
+    @NSManaged var user: User?
+    @NSManaged var toPin: Pin?
 
     static func parseClassName() -> String {
         return "ViewedPin"

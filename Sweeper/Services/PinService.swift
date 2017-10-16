@@ -18,10 +18,12 @@ class PinService {
 
     func create(pin: Pin, withImage: UIImage?, tagNames: [String]?, completion: @escaping (Bool, Error?) -> Void) {
         pin.userId = User.currentUser?.objectId
+        pin.creator = User.currentUser
         TagService.sharedInstance.createTags(forNames: tagNames ?? [], completion: { (tags: [Tag]?, error: Error?) in
             if error == nil {
                 let tagIds = tags!.map({ $0.objectId! })
                 pin.tagIds = tagIds
+                pin.tags = tags
 
                 if withImage != nil {
                     let imageName = String.random(length: 10)
@@ -55,6 +57,7 @@ class PinService {
         let pinsQuery = Pin.query() as! PFQuery<Pin>
         pinsQuery.order(byDescending: "createdAt")
         pinsQuery.limit = 20
+        pinsQuery.includeKey("tags")
         pinsQuery.clearCachedResult()
         
         pinsQuery.findObjectsInBackground { (pins: [Pin]?, error: Error?) in
@@ -105,7 +108,9 @@ class PinService {
     func markAsViewed(by user: User, with pin: Pin) {
         let viewedPin = ViewedPin()
         viewedPin.userId = user.objectId
+        viewedPin.user = user
         viewedPin.pinId = pin.objectId
+        viewedPin.toPin = pin
         viewedPin.saveInBackground()
     }
 }
