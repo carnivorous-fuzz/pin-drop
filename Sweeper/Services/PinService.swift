@@ -48,8 +48,8 @@ class PinService {
     }
     
     func fetchPins(completion: @escaping ([Pin]?, Error?) -> Void) {
-        //        client = ParseLiveQuery.Client()
-        //        TODO: subscription livequery closure
+//      client = ParseLiveQuery.Client()
+//      TODO: subscription livequery closure
         
         let pinsQuery = Pin.query() as! PFQuery<Pin>
         pinsQuery.order(byDescending: "createdAt")
