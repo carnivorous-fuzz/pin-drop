@@ -16,12 +16,18 @@ class PinDetailsViewController: UIViewController {
     @IBOutlet weak var messageLabel: UILabel!
     @IBOutlet weak var messageImage: UIImageView!
     
-    var marker: GMSMarker!
+    var pinMarker: PinMarker!
 
     override func viewDidLoad() {
         super.viewDidLoad()
-//        pinMarker.pin.markAsViewed(User.currentUser)
-        locationBanner.prepare(with: marker.getLocation())
-        messageLabel.text = marker.snippet
+
+//         pinMarker.pin.markAsViewed(User.currentUser)
+        locationBanner.prepare(with: pinMarker.getLocation())
+        messageLabel.text = pinMarker.snippet
+        
+        messageImage.image = nil
+        if let imgURL = URL(string: pinMarker.pin.imageUrlStr ?? "") {
+            ImageUtils.loadImage(forView: messageImage, defaultImage: nil, url: imgURL)
+        }
     }
 }

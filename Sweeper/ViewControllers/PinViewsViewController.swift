@@ -69,16 +69,14 @@ class PinViewsViewController: UIViewController {
         
         PinService.sharedInstance.fetchPins { (pins, error) in
             if let pins = pins {
-                print("~~~~~~~~~~~ Fetch pins worked ~~~~~~~~~~~~~")
                 self.pins = pins
                 self.pins.forEach({ (pin) in
-                    if let marker = pin.marker {
+                    if pin.location != nil, let marker = pin.marker {
                         marker.map = self.mapView
                     }
                 })
             } else {
                 print(error.debugDescription)
-                print("~~~~~~~~~~~ Fetch pins failed ~~~~~~~~~~~~~")
             }
         }
     }
@@ -142,11 +140,15 @@ extension PinViewsViewController: CLLocationManagerDelegate {
 // MARK:- Google map view delegate
 extension PinViewsViewController: GMSMapViewDelegate {
     func mapView(_ mapView: GMSMapView, didTapInfoWindowOf marker: GMSMarker) {
+        guard let marker = marker as? PinMarker else {
+            return
+        }
+        
         // TODO: Currently enabling all pins for testing, restrict later
-        if marker.distanceFromUser() < 0 {
+        if marker.distanceFromUser() >= 0 {
             let storyboard = UIStoryboard(name: "ViewPin", bundle: nil)
             let vc = storyboard.instantiateViewController(withIdentifier: "PinDetailsViewController") as! PinDetailsViewController
-            vc.marker = marker
+            vc.pinMarker = marker
             show(vc, sender: marker)
         } else {
             let alertController = UIAlertController(title: "Oops", message: "You are too far away from the pin.", preferredStyle: .alert)

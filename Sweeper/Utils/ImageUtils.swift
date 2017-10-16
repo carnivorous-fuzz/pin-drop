@@ -11,7 +11,7 @@ import AFNetworking
 
 class ImageUtils {
     
-    class func loadImage(forView view: UIImageView, defaultImage: UIImage, url: URL) {
+    class func loadImage(forView view: UIImageView, defaultImage: UIImage?, url: URL) {
         view.setImageWith(
             URLRequest(url: url),
             placeholderImage: nil,
