@@ -29,6 +29,7 @@ PODS:
   - GooglePlaces (2.4.0):
     - GoogleMaps/Base (= 2.4.0)
   - KMPlaceholderTextView (1.3.0)
+  - Mapbox-iOS-SDK (3.6.4)
   - Parse (1.15.2):
     - Bolts/Tasks (~> 1.8)
   - ParseLiveQuery (2.2.1):
@@ -45,6 +46,7 @@ DEPENDENCIES:
   - GoogleMaps
   - GooglePlaces
   - KMPlaceholderTextView (~> 1.3.0)
+  - Mapbox-iOS-SDK (~> 3.6)
   - Parse
   - ParseLiveQuery
 
@@ -58,10 +60,11 @@ SPEC CHECKSUMS:
   GoogleMaps: 8436ab5d1c25e36915b2f7416d0c8e3fa2e76c61
   GooglePlaces: aafe5990fa7951e98e078761bbdaaf236d7e0c65
   KMPlaceholderTextView: 2bbcd19a273648a80a61e1e48f9743a24d8930e3
+  Mapbox-iOS-SDK: 47847dd44285477e0dfffd0130f65c8a52823ada
   Parse: 7daa8804b876d250a65420534c97d2d786c3b0b4
   ParseLiveQuery: bc2321032ddae9d6ecfd4842d1b10210d453b08b
   Starscream: 142bd8ef24592d985daee9fa48c936070b85b15f
 
-PODFILE CHECKSUM: 4fddbfcf1bbe74f4d865510497f11b9453a74f2e
+PODFILE CHECKSUM: 765e80836868e73dd70438b0c9b3977583933e94
 
 COCOAPODS: 1.3.1

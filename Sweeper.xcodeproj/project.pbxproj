@@ -15,6 +15,9 @@
 		3786F8481F94071D0009F05B /* Tag.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3786F8471F94071D0009F05B /* Tag.swift */; };
 		3786F84A1F9414120009F05B /* TagService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3786F8491F9414120009F05B /* TagService.swift */; };
 		5B4C8AEAC3C694DCF2E8D6DB /* Pods_Sweeper.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B9002B9427295A5C4DB280EB /* Pods_Sweeper.framework */; };
+		7C1A43141F96B6FD00E3E6E0 /* PinAnnotationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C1A43131F96B6FD00E3E6E0 /* PinAnnotationView.swift */; };
+		7C1A43161F96C6FB00E3E6E0 /* StoryboardUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C1A43151F96C6FB00E3E6E0 /* StoryboardUtils.swift */; };
+		7C1A43181F96C82F00E3E6E0 /* PinAnnotation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C1A43171F96C82F00E3E6E0 /* PinAnnotation.swift */; };
 		B763C3561F931F2700DA8311 /* AWSConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = B763C3551F931F2700DA8311 /* AWSConstants.swift */; };
 		B763C3581F9322C500DA8311 /* StringExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = B763C3571F9322C500DA8311 /* StringExtension.swift */; };
 		B763C35D1F932DD600DA8311 /* UIViewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = B763C35C1F932DD600DA8311 /* UIViewExtension.swift */; };
@@ -36,7 +39,6 @@
 		B9CB3D1C1F91D1780023EA79 /* Pinviews.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B9CB3D1B1F91D1780023EA79 /* Pinviews.storyboard */; };
 		B9CB3D1E1F91D5AE0023EA79 /* PinViewsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9CB3D1D1F91D5AE0023EA79 /* PinViewsViewController.swift */; };
 		B9CB3D201F91E8200023EA79 /* KeyboardNotification.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9CB3D1F1F91E8200023EA79 /* KeyboardNotification.swift */; };
-		B9CB3D241F91F6770023EA79 /* mapstyle.json in Resources */ = {isa = PBXBuildFile; fileRef = B9CB3D231F91F6770023EA79 /* mapstyle.json */; };
 		B9CB3D261F92C6170023EA79 /* ViewPin.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B9CB3D251F92C6170023EA79 /* ViewPin.storyboard */; };
 		B9CB3D281F92C6970023EA79 /* PinDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9CB3D271F92C6970023EA79 /* PinDetailsViewController.swift */; };
 		B9CB3D2E1F94143B0023EA79 /* ProfileView.xib in Resources */ = {isa = PBXBuildFile; fileRef = B9CB3D2D1F94143B0023EA79 /* ProfileView.xib */; };
@@ -53,6 +55,9 @@
 		37731ECC1F92C093009E0603 /* AppService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppService.swift; sourceTree = "<group>"; };
 		3786F8471F94071D0009F05B /* Tag.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tag.swift; sourceTree = "<group>"; };
 		3786F8491F9414120009F05B /* TagService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TagService.swift; sourceTree = "<group>"; };
+		7C1A43131F96B6FD00E3E6E0 /* PinAnnotationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PinAnnotationView.swift; sourceTree = "<group>"; };
+		7C1A43151F96C6FB00E3E6E0 /* StoryboardUtils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoryboardUtils.swift; sourceTree = "<group>"; };
+		7C1A43171F96C82F00E3E6E0 /* PinAnnotation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PinAnnotation.swift; sourceTree = "<group>"; };
 		8770897BBAA32FD84972558F /* Pods-Sweeper.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Sweeper.release.xcconfig"; path = "Pods/Target Support Files/Pods-Sweeper/Pods-Sweeper.release.xcconfig"; sourceTree = "<group>"; };
 		B763C3551F931F2700DA8311 /* AWSConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AWSConstants.swift; sourceTree = "<group>"; };
 		B763C3571F9322C500DA8311 /* StringExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StringExtension.swift; sourceTree = "<group>"; };
@@ -78,7 +83,6 @@
 		B9CB3D1B1F91D1780023EA79 /* Pinviews.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Pinviews.storyboard; sourceTree = "<group>"; };
 		B9CB3D1D1F91D5AE0023EA79 /* PinViewsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PinViewsViewController.swift; sourceTree = "<group>"; };
 		B9CB3D1F1F91E8200023EA79 /* KeyboardNotification.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyboardNotification.swift; sourceTree = "<group>"; };
-		B9CB3D231F91F6770023EA79 /* mapstyle.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = mapstyle.json; sourceTree = "<group>"; };
 		B9CB3D251F92C6170023EA79 /* ViewPin.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = ViewPin.storyboard; sourceTree = "<group>"; };
 		B9CB3D271F92C6970023EA79 /* PinDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PinDetailsViewController.swift; sourceTree = "<group>"; };
 		B9CB3D2D1F94143B0023EA79 /* ProfileView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ProfileView.xib; sourceTree = "<group>"; };
@@ -199,7 +203,6 @@
 				B9CB3CF71F9056060023EA79 /* Assets.xcassets */,
 				B9CB3CF91F9056060023EA79 /* LaunchScreen.storyboard */,
 				B9CB3CFC1F9056060023EA79 /* Info.plist */,
-				B9CB3D231F91F6770023EA79 /* mapstyle.json */,
 			);
 			path = Sweeper;
 			sourceTree = "<group>";
@@ -221,6 +224,7 @@
 				B9CB3D2C1F9414110023EA79 /* Profile */,
 				B9CB3D2B1F9340D10023EA79 /* FancyTextField */,
 				B7B862351F91E69400FB2F1E /* LocationBaner */,
+				7C1A43131F96B6FD00E3E6E0 /* PinAnnotationView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -233,6 +237,8 @@
 				B763C3551F931F2700DA8311 /* AWSConstants.swift */,
 				B9CB3D1F1F91E8200023EA79 /* KeyboardNotification.swift */,
 				B9CB3D311F9425FA0023EA79 /* ImageUtils.swift */,
+				7C1A43151F96C6FB00E3E6E0 /* StoryboardUtils.swift */,
+				7C1A43171F96C82F00E3E6E0 /* PinAnnotation.swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -324,7 +330,6 @@
 				B9CB3D261F92C6170023EA79 /* ViewPin.storyboard in Resources */,
 				B9CB3CF61F9056060023EA79 /* Main.storyboard in Resources */,
 				B9CB3D2E1F94143B0023EA79 /* ProfileView.xib in Resources */,
-				B9CB3D241F91F6770023EA79 /* mapstyle.json in Resources */,
 				B79291FB1F91CD0100069144 /* CreatePin.storyboard in Resources */,
 				B9CB3D1C1F91D1780023EA79 /* Pinviews.storyboard in Resources */,
 			);
@@ -365,6 +370,8 @@
 				"${BUILT_PRODUCTS_DIR}/Bolts-Swift/BoltsSwift.framework",
 				"${BUILT_PRODUCTS_DIR}/Bolts/Bolts.framework",
 				"${BUILT_PRODUCTS_DIR}/KMPlaceholderTextView/KMPlaceholderTextView.framework",
+				"${PODS_ROOT}/Mapbox-iOS-SDK/dynamic/Mapbox.framework",
+				"${PODS_ROOT}/Mapbox-iOS-SDK/dynamic/Mapbox.framework.dSYM",
 				"${BUILT_PRODUCTS_DIR}/Parse/Parse.framework",
 				"${BUILT_PRODUCTS_DIR}/ParseLiveQuery/ParseLiveQuery.framework",
 				"${BUILT_PRODUCTS_DIR}/Starscream/Starscream.framework",
@@ -378,6 +385,8 @@
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/BoltsSwift.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Bolts.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/KMPlaceholderTextView.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Mapbox.framework",
+				"${DWARF_DSYM_FOLDER_PATH}/Mapbox.framework.dSYM",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Parse.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ParseLiveQuery.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Starscream.framework",
@@ -414,9 +423,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				B9CB3D281F92C6970023EA79 /* PinDetailsViewController.swift in Sources */,
+				7C1A43181F96C82F00E3E6E0 /* PinAnnotation.swift in Sources */,
 				37731ECD1F92C093009E0603 /* AppService.swift in Sources */,
 				B9CB3D321F9425FA0023EA79 /* ImageUtils.swift in Sources */,
 				B9CB3D171F90B57C0023EA79 /* FancyTextField.swift in Sources */,
+				7C1A43141F96B6FD00E3E6E0 /* PinAnnotationView.swift in Sources */,
 				3786F84A1F9414120009F05B /* TagService.swift in Sources */,
 				B7E83F231F92AFFA00FA9D88 /* Location.swift in Sources */,
 				B763C3561F931F2700DA8311 /* AWSConstants.swift in Sources */,
@@ -426,6 +437,7 @@
 				B763C35D1F932DD600DA8311 /* UIViewExtension.swift in Sources */,
 				B9CB3D071F9056720023EA79 /* LoginViewController.swift in Sources */,
 				374C23E81F91BDA5000C0ECE /* Pin.swift in Sources */,
+				7C1A43161F96C6FB00E3E6E0 /* StoryboardUtils.swift in Sources */,
 				B9CB3D1E1F91D5AE0023EA79 /* PinViewsViewController.swift in Sources */,
 				37731EC91F92BE5F009E0603 /* PinService.swift in Sources */,
 				37731ECB1F92BE6D009E0603 /* UserService.swift in Sources */,

@@ -18,6 +18,7 @@ target 'Sweeper' do
   pod 'ParseLiveQuery'
   pod 'GoogleMaps'
   pod 'GooglePlaces'
+  pod 'Mapbox-iOS-SDK', '~> 3.6'
   post_install do |installer|
       installer.pods_project.targets.each do |target|
           target.build_configurations.each do |config|

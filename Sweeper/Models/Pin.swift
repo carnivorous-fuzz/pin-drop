@@ -9,7 +9,6 @@
 import Foundation
 import UIKit
 import Parse
-import GoogleMaps
 
 class Pin: PFObject, PFSubclassing {
     //MARK: DB properties
@@ -22,7 +21,7 @@ class Pin: PFObject, PFSubclassing {
     @NSManaged var tagIds: [String]?
     @NSManaged var tags: [Tag]?
     
-    lazy var marker: PinMarker? = location == nil ? nil : PinMarker(fromPin: self)
+    //lazy var marker: PinMarker? = location == nil ? nil : PinMarker(fromPin: self)
     
     // MARK: non-DB properties
 //    var tags: [Tag]?
@@ -64,29 +63,30 @@ class Pin: PFObject, PFSubclassing {
     }
 }
 
-class PinMarker: GMSMarker {
-    weak var pin: Pin!
-    
-    convenience init(fromPin pin: Pin) {
-        self.init(position: CLLocationCoordinate2D(latitude: (pin.location?.latitude)!, longitude: (pin.location?.longitude)!))
-        self.pin = pin
-        snippet = self.pin.message
-        title = "Message:"
-        icon = #imageLiteral(resourceName: "default_profile")
-    }
-    
-    func distanceFromUser() -> Double {
-        guard let userLocation = map?.myLocation else {
-            return Double.greatestFiniteMagnitude
-        }
-        
-        let markerLocation = CLLocation(latitude: position.latitude, longitude: position.longitude)
-        let distance = markerLocation.distance(from: userLocation)
-        print("~~~~Marker(title: \"\(title ?? "No title")\") is \(distance) meters away from user~~~~")
-        return distance
-    }
-    
-    func getLocation() -> CLLocation {
-        return CLLocation(latitude: position.latitude, longitude: position.longitude)
-    }
-}
+//class PinMarker: GMSMarker {
+//    weak var pin: Pin!
+//
+//    convenience init(fromPin pin: Pin) {
+//        self.init(position: CLLocationCoordinate2D(latitude: (pin.location?.latitude)!, longitude: (pin.location?.longitude)!))
+//        self.pin = pin
+//        snippet = self.pin.message
+//        title = "Message:"
+//        icon = #imageLiteral(resourceName: "default_profile")
+//    }
+//
+//    func distanceFromUser() -> Double {
+//        guard let userLocation = map?.myLocation else {
+//            return Double.greatestFiniteMagnitude
+//        }
+//
+//        let markerLocation = CLLocation(latitude: position.latitude, longitude: position.longitude)
+//        let distance = markerLocation.distance(from: userLocation)
+//        print("~~~~Marker(title: \"\(title ?? "No title")\") is \(distance) meters away from user~~~~")
+//        return distance
+//    }
+//
+//    func getLocation() -> CLLocation {
+//        return CLLocation(latitude: position.latitude, longitude: position.longitude)
+//    }
+//}
+
