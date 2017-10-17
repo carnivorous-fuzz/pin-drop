@@ -10,8 +10,6 @@ import Foundation
 import UIKit
 import Parse
 
-var _currentUser: User?
-
 class User: PFUser {
     static let userDidLogoutKey = "user_logged_out"
     
@@ -20,37 +18,41 @@ class User: PFUser {
     @NSManaged var caption: String?
     @NSManaged var profileImageUrl: URL?
     
+    private static var _currentUser: User?
     static var currentUser: User? {
         get {
+            if _currentUser == nil {
+                _currentUser = getStoredUser()
+            }
             return _currentUser
         }
-    }
-    
-    class func getStoredUser(completion: @escaping (User?) -> Void) {
-        let query = User.query()!.fromLocalDatastore()
-        query.getFirstObjectInBackground { (user: PFObject?, error: Error?) in
-            if error == nil {
-                let user = user as? User
-                _currentUser = user
-                completion(user)
-            } else {
-                completion(nil)
-            }
+        set(user) {
+            _currentUser = user
+            saveLocalUser(user: user, completion: nil)
         }
     }
     
-    class func saveLocalUser(user: User?, completion: @escaping (Bool) -> Void) {
+    private class func getStoredUser() -> User? {
+        let query = User.query()!.fromLocalDatastore()
+        do {
+            return try query.getFirstObject() as? User
+        } catch {
+            return nil
+        }
+    }
+    
+    class func saveLocalUser(user: User?, completion: ((Bool) -> Void)?) {
         if user != nil { // save locally
             user!.pinInBackground(block: { (success: Bool, error: Error?) in
                 if success {
                     _currentUser = user
                 }
-                completion(success)
+                completion?(success)
             })
         } else { // logout
             _currentUser?.unpinInBackground(block: { (success: Bool, error: Error?) in
                 _currentUser = nil
-                completion(success)
+                completion?(success)
             })
         }
     }

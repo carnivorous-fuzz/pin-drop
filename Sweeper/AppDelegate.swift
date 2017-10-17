@@ -10,8 +10,6 @@ import UIKit
 import Parse
 import AWSCore
 import AWSCognito
-import GoogleMaps
-import GooglePlaces
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -31,19 +29,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         let awsConfiguration = AWSServiceConfiguration(region:.USEast1, credentialsProvider:credentialsProvider)
         AWSServiceManager.default().defaultServiceConfiguration = awsConfiguration
         
-        User.getStoredUser(completion: { (user: User?) in
-            if user != nil {
-                let storyboard = UIStoryboard(name: "Pinviews", bundle: nil)
-                let navigationVC = storyboard.instantiateViewController(withIdentifier: "PinviewsNavigationController")
-                
-                self.window?.rootViewController = navigationVC
-            } else {
-                print("user not found in local data store")
-            }
-        })
-        
-        GMSServices.provideAPIKey("AIzaSyA9pJAN_2kseox1wiaUUiEZYM-9ffMkXTs")
-        GMSPlacesClient.provideAPIKey("AIzaSyA9pJAN_2kseox1wiaUUiEZYM-9ffMkXTs")
+        if User.currentUser != nil {
+            self.window?.rootViewController = StoryboardUtils.initVC(storyboard: "Pinviews", identifier: "PinviewsNavigationController")
+        }
         
         NotificationCenter.default.addObserver(
             forName: NSNotification.Name(rawValue: User.userDidLogoutKey),
