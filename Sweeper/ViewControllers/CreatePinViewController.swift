@@ -119,7 +119,7 @@ extension CreatePinViewController: CLLocationManagerDelegate {
 extension CreatePinViewController: UIImagePickerControllerDelegate {
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
         if let image = info[UIImagePickerControllerOriginalImage] as? UIImage {
-            self.importedImageView.image = image
+            self.importedImageView.image = image.compress()
             // TODO: should do some animation for uploading the image
         } else {
             print("No image was selected")
