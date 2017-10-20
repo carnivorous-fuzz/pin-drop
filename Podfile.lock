@@ -21,15 +21,9 @@ PODS:
     - AWSCore (= 2.6.1)
   - Bolts-Swift (1.3.0)
   - Bolts/Tasks (1.8.4)
-  - GoogleMaps (2.4.0):
-    - GoogleMaps/Maps (= 2.4.0)
-  - GoogleMaps/Base (2.4.0)
-  - GoogleMaps/Maps (2.4.0):
-    - GoogleMaps/Base
-  - GooglePlaces (2.4.0):
-    - GoogleMaps/Base (= 2.4.0)
   - KMPlaceholderTextView (1.3.0)
-  - Parse (1.15.2):
+  - Mapbox-iOS-SDK (3.6.4)
+  - Parse (1.15.3):
     - Bolts/Tasks (~> 1.8)
   - ParseLiveQuery (2.2.1):
     - Bolts-Swift (~> 1.3)
@@ -42,10 +36,9 @@ DEPENDENCIES:
   - AWSCognito
   - AWSCore
   - AWSS3
-  - GoogleMaps
-  - GooglePlaces
   - KMPlaceholderTextView (~> 1.3.0)
-  - Parse
+  - Mapbox-iOS-SDK (~> 3.6)
+  - Parse (~> 1.15.3)
   - ParseLiveQuery
 
 SPEC CHECKSUMS:
@@ -55,13 +48,12 @@ SPEC CHECKSUMS:
   AWSS3: 2e18ede28199a5530955dc1a65434da43dcc4d2c
   Bolts: 8a7995239dbe724f9cba2248b766d48b7ebdd322
   Bolts-Swift: fa98d1b59fc1acea9b21a21306dcdca1c85e3737
-  GoogleMaps: 8436ab5d1c25e36915b2f7416d0c8e3fa2e76c61
-  GooglePlaces: aafe5990fa7951e98e078761bbdaaf236d7e0c65
   KMPlaceholderTextView: 2bbcd19a273648a80a61e1e48f9743a24d8930e3
-  Parse: 7daa8804b876d250a65420534c97d2d786c3b0b4
+  Mapbox-iOS-SDK: 47847dd44285477e0dfffd0130f65c8a52823ada
+  Parse: cdc0f1f975ee8be0409e66f21b05df4ae067047c
   ParseLiveQuery: bc2321032ddae9d6ecfd4842d1b10210d453b08b
   Starscream: 142bd8ef24592d985daee9fa48c936070b85b15f
 
-PODFILE CHECKSUM: 4fddbfcf1bbe74f4d865510497f11b9453a74f2e
+PODFILE CHECKSUM: d16d60a061bb04de7cc3f178ecf0d38ab28cfe72
 
 COCOAPODS: 1.3.1

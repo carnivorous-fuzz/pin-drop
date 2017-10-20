@@ -9,7 +9,7 @@
 	<key>NSPhotoLibraryUsageDescription</key>
 	<string>You photo library is in use</string>
 	<key>NSLocationWhenInUseUsageDescription</key>
-	<string>We need your location in order to show you relevant pins in your area.</string>
+	<string>Shows your location on the map and helps improve OpenStreetMap.</string>
 	<key>CFBundleDevelopmentRegion</key>
 	<string>$(DEVELOPMENT_LANGUAGE)</string>
 	<key>CFBundleExecutable</key>
@@ -49,6 +49,8 @@
 		<string>UIInterfaceOrientationLandscapeLeft</string>
 		<string>UIInterfaceOrientationLandscapeRight</string>
 	</array>
+	<key>MGLMapboxAccessToken</key>
+	<string>sk.eyJ1Ijoid3VtaW5neCIsImEiOiJjajh3M3VtYnoxam85MzFtYmt1eGR5MWsyIn0.jt-JkfZ_kW6d5CE-qDIa1w</string>
 	<key>NSAppTransportSecurity</key>
 	<dict>
 		<key>NSExceptionDomains</key>

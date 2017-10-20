@@ -7,7 +7,6 @@
 //
 
 import UIKit
-import GoogleMaps
 
 class PinDetailsViewController: UIViewController {
     
@@ -16,17 +15,17 @@ class PinDetailsViewController: UIViewController {
     @IBOutlet weak var messageLabel: UILabel!
     @IBOutlet weak var messageImage: UIImageView!
     
-    var pinMarker: PinMarker!
+    var pinAnnotation: PinAnnotation!
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
 //         pinMarker.pin.markAsViewed(User.currentUser)
-        locationBanner.prepare(with: pinMarker.getLocation())
-        messageLabel.text = pinMarker.snippet
+        locationBanner.prepare(with: pinAnnotation.location)
+        messageLabel.text = pinAnnotation.subtitle
         
         messageImage.image = nil
-        if let imgURL = URL(string: pinMarker.pin.imageUrlStr ?? "") {
+        if let imgURL = URL(string: pinAnnotation.pin.imageUrlStr ?? "") {
             ImageUtils.loadImage(forView: messageImage, defaultImage: nil, url: imgURL)
         }
     }

@@ -7,74 +7,43 @@
 //
 
 import UIKit
-import GoogleMaps
-import GooglePlaces
+import Mapbox
 
 class PinViewsViewController: UIViewController {
     
-    let defaultLocation = CLLocation(latitude: 37.7749, longitude: -122.4194)
+    let defaultLocation = CLLocation(latitude: 37.787353, longitude: -122.421561)
     var locationManager: CLLocationManager!
     var currentLocation: CLLocation?
-    var mapView: GMSMapView!
-    var placesClient: GMSPlacesClient!
-    var zoomLevel = Float(15.0)
+    var mapView: MGLMapView!
+    var zoomLevel = 15.0
     var pins: [Pin]!
-    
-//    let far_location: GMSMarker = { () -> GMSMarker in
-//        let location = GMSMarker(position: CLLocationCoordinate2D(latitude: 37.784516, longitude: -122.410171))
-//        location.snippet = "Fake message"
-//        let imageView = UIImageView(image: #imageLiteral(resourceName: "default_profile"))
-//        imageView.layer.cornerRadius = imageView.bounds.width / 2.0
-//        imageView.layer.masksToBounds = true
-//        location.iconView = imageView
-//        return location
-//    }()
-//    let close_location: GMSMarker = { () -> GMSMarker in
-//        let location = GMSMarker(position: CLLocationCoordinate2D(latitude: 37.784592, longitude: -122.407585))
-//        location.snippet = "Oooh look at me waiting for the cable car"
-//        let imageView = UIImageView(image: #imageLiteral(resourceName: "default_profile"))
-//        imageView.layer.cornerRadius = imageView.bounds.width / 2.0
-//        imageView.layer.masksToBounds = true
-//        location.iconView = imageView
-//        return location
-//    }()
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        // Request location
         requestLocationPermission()
 
-        // Create a map.
-        placesClient = GMSPlacesClient.shared()
-        let camera = GMSCameraPosition.camera(withLatitude: defaultLocation.coordinate.latitude,
-                                              longitude: defaultLocation.coordinate.longitude,
-                                              zoom: zoomLevel)
-        mapView = GMSMapView.map(withFrame: view.bounds, camera: camera)
-        mapView.settings.myLocationButton = true
+        // Create map
+        mapView = MGLMapView(frame: view.bounds, styleURL: MGLStyle.darkStyleURL(withVersion: 9))
         mapView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
-        mapView.isMyLocationEnabled = true
-        
-        if let styleUrl = Bundle.main.url(forResource: "mapstyle", withExtension: "json") {
-            do {
-                mapView.mapStyle = try GMSMapStyle(contentsOfFileURL: styleUrl)
-            } catch {
-                NSLog("Failed to load map style")
-            }
-        }
-        
+        mapView.setCenter(defaultLocation.coordinate, zoomLevel: zoomLevel, animated: false)
+        mapView.showsUserLocation = true
         mapView.delegate = self
-        
-        view.addSubview(mapView)
         mapView.isHidden = true
+        view.addSubview(mapView)
         
+        var annotations: [PinAnnotation] = []
         PinService.sharedInstance.fetchPins { (pins, error) in
             if let pins = pins {
                 self.pins = pins
                 self.pins.forEach({ (pin) in
-                    if pin.location != nil, let marker = pin.marker {
-                        marker.map = self.mapView
+                    if pin.location != nil {
+                        let point = PinAnnotation(fromPin: pin)
+                        annotations.append(point)
                     }
                 })
+                self.mapView.addAnnotations(annotations)
             } else {
                 print(error.debugDescription)
             }
@@ -84,7 +53,7 @@ class PinViewsViewController: UIViewController {
     @IBAction func onPost(_ sender: UIBarButtonItem) {
         let storyboard = UIStoryboard(name: "CreatePin", bundle: nil)
         let vc = storyboard.instantiateViewController(withIdentifier: "CreatePinNavViewController")
-        
+
         present(vc, animated: true, completion: nil)
     }
     
@@ -106,15 +75,9 @@ class PinViewsViewController: UIViewController {
 extension PinViewsViewController: CLLocationManagerDelegate {
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
         if let location = locations.last {
-            let camera = GMSCameraPosition.camera(withLatitude: location.coordinate.latitude,
-                                                  longitude: location.coordinate.longitude,
-                                                  zoom: mapView.camera.zoom)
-            
+            mapView?.setCenter(location.coordinate, zoomLevel: mapView?.zoomLevel ?? zoomLevel, animated: !mapView.isHidden)
             if mapView.isHidden {
                 mapView.isHidden = false
-                mapView.camera = camera
-            } else {
-                mapView.animate(to: camera)
             }
         }
     }
@@ -137,24 +100,40 @@ extension PinViewsViewController: CLLocationManagerDelegate {
     }
 }
 
-// MARK:- Google map view delegate
-extension PinViewsViewController: GMSMapViewDelegate {
-    func mapView(_ mapView: GMSMapView, didTapInfoWindowOf marker: GMSMarker) {
-        guard let marker = marker as? PinMarker else {
-            return
+// MARK:- Mapbox map view delegate
+extension PinViewsViewController: MGLMapViewDelegate {
+    
+    func mapView(_ mapView: MGLMapView, viewFor annotation: MGLAnnotation) -> MGLAnnotationView? {
+        guard annotation is MGLPointAnnotation else {
+            return nil
         }
         
-        // TODO: Currently enabling all pins for testing, restrict later
-        if marker.distanceFromUser() >= 0 {
-            let storyboard = UIStoryboard(name: "ViewPin", bundle: nil)
-            let vc = storyboard.instantiateViewController(withIdentifier: "PinDetailsViewController") as! PinDetailsViewController
-            vc.pinMarker = marker
-            show(vc, sender: marker)
-        } else {
-            let alertController = UIAlertController(title: "Oops", message: "You are too far away from the pin.", preferredStyle: .alert)
-            let dismissAction = UIAlertAction(title: "Dismiss", style: .cancel, handler: nil)
-            alertController.addAction(dismissAction)
-            present(alertController, animated: true, completion: nil)
+        let reuseIdentifier = "\(annotation.coordinate.longitude)"
+        
+        // For better performance, always try to reuse existing annotations.
+        var annotationView = mapView.dequeueReusableAnnotationView(withIdentifier: reuseIdentifier)
+        
+        // If there’s no reusable annotation view available, initialize a new one.
+        if annotationView == nil {
+            annotationView = CustomAnnotationView(reuseIdentifier: reuseIdentifier)
+            annotationView!.frame = CGRect(x: 0, y: 0, width: 40, height: 40)
+            
+            // Set the annotation view’s background color to a value determined by its longitude.
+            let hue = CGFloat(annotation.coordinate.longitude) / 100
+            annotationView!.backgroundColor = UIColor(hue: hue, saturation: 0.5, brightness: 1, alpha: 1)
         }
+        
+        return annotationView
+    }
+    
+    func mapView(_ mapView: MGLMapView, annotationCanShowCallout annotation: MGLAnnotation) -> Bool {
+        // TODO: We can restrict access here
+        return annotation is PinAnnotation
+    }
+    
+    func mapView(_ mapView: MGLMapView, tapOnCalloutFor annotation: MGLAnnotation) {
+        let vc = UIStoryboard.pinDetailsVC
+        vc.pinAnnotation = annotation as! PinAnnotation
+        show(vc, sender: nil)
     }
 }
