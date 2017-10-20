@@ -10,23 +10,48 @@ import UIKit
 
 class PinDetailsViewController: UIViewController {
     
-    @IBOutlet weak var profileView: ProfileView!
-    @IBOutlet weak var locationBanner: LocationBanner!
-    @IBOutlet weak var messageLabel: UILabel!
-    @IBOutlet weak var messageImage: UIImageView!
+    
+    @IBOutlet weak var pinCard: PinDetailsCard!
+    @IBOutlet weak var pinCardHeightConstraint: NSLayoutConstraint!
+    @IBOutlet weak var commentsTableView: UITableView!
     
     var pinAnnotation: PinAnnotation!
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
-//         pinMarker.pin.markAsViewed(User.currentUser)
-        locationBanner.prepare(with: pinAnnotation.location)
-        messageLabel.text = pinAnnotation.subtitle
+        commentsTableView.contentInset = UIEdgeInsetsMake(pinCard.frame.height, 0, 0, 0)
+        commentsTableView.tableFooterView = UIView()
+        commentsTableView.rowHeight = UITableViewAutomaticDimension
+        commentsTableView.estimatedRowHeight = 80
+        commentsTableView.register(UINib(nibName: "PinCommentCell", bundle: nil) , forCellReuseIdentifier: "PinCommentCell")
+        commentsTableView.delegate = self
+        commentsTableView.dataSource = self
         
-        messageImage.image = nil
-        if let imgURL = URL(string: pinAnnotation.pin.imageUrlStr ?? "") {
-            ImageUtils.loadImage(forView: messageImage, defaultImage: nil, url: imgURL)
+        pinCard.prepare(withPin: pinAnnotation.pin)
+    }
+    
+    override func viewDidLayoutSubviews() {
+        super.viewDidLayoutSubviews()
+        
+        let size = pinCard.systemLayoutSizeFitting(UILayoutFittingCompressedSize)
+        if pinCard.frame.height != size.height {
+            pinCardHeightConstraint.constant = size.height
+            commentsTableView.contentInset = UIEdgeInsetsMake(pinCard.frame.height, 0, 0, 0)
+            view.layoutIfNeeded()
         }
+    }
+}
+
+extension PinDetailsViewController: UITableViewDelegate, UITableViewDataSource {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return 1
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = commentsTableView.dequeueReusableCell(withIdentifier: "PinCommentCell", for: indexPath) as! PinCommentCell
+        cell.commenterLabel.text = "No one"
+        cell.commentLabel.text = "Fake!"
+        return cell
     }
 }

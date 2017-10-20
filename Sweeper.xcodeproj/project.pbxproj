@@ -31,6 +31,10 @@
 		B7E83F231F92AFFA00FA9D88 /* Location.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7E83F221F92AFFA00FA9D88 /* Location.swift */; };
 		B7E83F261F92EA9000FA9D88 /* AWSS3Service.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7E83F251F92EA9000FA9D88 /* AWSS3Service.swift */; };
 		B7EBCA121F94331B00D5795D /* ViewedPin.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7EBCA111F94331B00D5795D /* ViewedPin.swift */; };
+		B96D35211F99B32F00BC6CBF /* PinDetailsCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = B96D35201F99B32F00BC6CBF /* PinDetailsCard.swift */; };
+		B96D35231F99B33A00BC6CBF /* PinDetailsCard.xib in Resources */ = {isa = PBXBuildFile; fileRef = B96D35221F99B33A00BC6CBF /* PinDetailsCard.xib */; };
+		B96D35271F99D03700BC6CBF /* PinCommentCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B96D35251F99D03700BC6CBF /* PinCommentCell.swift */; };
+		B96D35281F99D03700BC6CBF /* PinCommentCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B96D35261F99D03700BC6CBF /* PinCommentCell.xib */; };
 		B9CB3CF11F9056060023EA79 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9CB3CF01F9056060023EA79 /* AppDelegate.swift */; };
 		B9CB3CF61F9056060023EA79 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B9CB3CF41F9056060023EA79 /* Main.storyboard */; };
 		B9CB3CF81F9056060023EA79 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B9CB3CF71F9056060023EA79 /* Assets.xcassets */; };
@@ -76,6 +80,10 @@
 		B7E83F251F92EA9000FA9D88 /* AWSS3Service.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AWSS3Service.swift; sourceTree = "<group>"; };
 		B7EBCA111F94331B00D5795D /* ViewedPin.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewedPin.swift; sourceTree = "<group>"; };
 		B9002B9427295A5C4DB280EB /* Pods_Sweeper.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Sweeper.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		B96D35201F99B32F00BC6CBF /* PinDetailsCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PinDetailsCard.swift; sourceTree = "<group>"; };
+		B96D35221F99B33A00BC6CBF /* PinDetailsCard.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PinDetailsCard.xib; sourceTree = "<group>"; };
+		B96D35251F99D03700BC6CBF /* PinCommentCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PinCommentCell.swift; sourceTree = "<group>"; };
+		B96D35261F99D03700BC6CBF /* PinCommentCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PinCommentCell.xib; sourceTree = "<group>"; };
 		B9CB3CED1F9056060023EA79 /* Sweeper.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Sweeper.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B9CB3CF01F9056060023EA79 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		B9CB3CF51F9056060023EA79 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -178,6 +186,15 @@
 			path = LocationBanner;
 			sourceTree = "<group>";
 		};
+		B96D35241F99CAEF00BC6CBF /* PinCommentCell */ = {
+			isa = PBXGroup;
+			children = (
+				B96D35251F99D03700BC6CBF /* PinCommentCell.swift */,
+				B96D35261F99D03700BC6CBF /* PinCommentCell.xib */,
+			);
+			path = PinCommentCell;
+			sourceTree = "<group>";
+		};
 		B9CB3CE41F9056060023EA79 = {
 			isa = PBXGroup;
 			children = (
@@ -229,11 +246,14 @@
 		B9CB3D051F9056500023EA79 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				B96D35241F99CAEF00BC6CBF /* PinCommentCell */,
 				B9CB3D2C1F9414110023EA79 /* Profile */,
 				B9CB3D2B1F9340D10023EA79 /* FancyTextField */,
 				B7B862351F91E69400FB2F1E /* LocationBanner */,
 				7C1A43131F96B6FD00E3E6E0 /* PinAnnotationView.swift */,
 				37B4E2541F99C6AA0090B168 /* PinCell.swift */,
+				B96D35201F99B32F00BC6CBF /* PinDetailsCard.swift */,
+				B96D35221F99B33A00BC6CBF /* PinDetailsCard.xib */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -337,10 +357,12 @@
 				B7B862371F91E6AD00FB2F1E /* LocationBanner.xib in Resources */,
 				B9CB3CF81F9056060023EA79 /* Assets.xcassets in Resources */,
 				B9CB3D261F92C6170023EA79 /* ViewPin.storyboard in Resources */,
+				B96D35231F99B33A00BC6CBF /* PinDetailsCard.xib in Resources */,
 				B9CB3CF61F9056060023EA79 /* Main.storyboard in Resources */,
 				B9CB3D2E1F94143B0023EA79 /* ProfileView.xib in Resources */,
 				B79291FB1F91CD0100069144 /* CreatePin.storyboard in Resources */,
 				B9CB3D1C1F91D1780023EA79 /* PinViews.storyboard in Resources */,
+				B96D35281F99D03700BC6CBF /* PinCommentCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -436,10 +458,12 @@
 				B9CB3D281F92C6970023EA79 /* PinDetailsViewController.swift in Sources */,
 				7C1A43181F96C82F00E3E6E0 /* PinAnnotation.swift in Sources */,
 				37731ECD1F92C093009E0603 /* AppService.swift in Sources */,
+				B96D35211F99B32F00BC6CBF /* PinDetailsCard.swift in Sources */,
 				B9CB3D321F9425FA0023EA79 /* ImageUtils.swift in Sources */,
 				B9CB3D171F90B57C0023EA79 /* FancyTextField.swift in Sources */,
 				7C1A43141F96B6FD00E3E6E0 /* PinAnnotationView.swift in Sources */,
 				3786F84A1F9414120009F05B /* TagService.swift in Sources */,
+				B96D35271F99D03700BC6CBF /* PinCommentCell.swift in Sources */,
 				B7E83F231F92AFFA00FA9D88 /* Location.swift in Sources */,
 				B763C3561F931F2700DA8311 /* AWSConstants.swift in Sources */,
 				3786F8481F94071D0009F05B /* Tag.swift in Sources */,
