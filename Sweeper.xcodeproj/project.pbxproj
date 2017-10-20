@@ -212,6 +212,15 @@
 			path = PinCommentCell;
 			sourceTree = "<group>";
 		};
+		B96D35241F99CAEF00BC6CBF /* PinCommentCell */ = {
+			isa = PBXGroup;
+			children = (
+				B96D35251F99D03700BC6CBF /* PinCommentCell.swift */,
+				B96D35261F99D03700BC6CBF /* PinCommentCell.xib */,
+			);
+			path = PinCommentCell;
+			sourceTree = "<group>";
+		};
 		B9CB3CE41F9056060023EA79 = {
 			isa = PBXGroup;
 			children = (
