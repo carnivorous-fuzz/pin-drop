@@ -13,7 +13,7 @@
         <!--Pins Map View Controller-->
         <scene sceneID="BCJ-rb-BVu">
             <objects>
-                <viewController id="6MM-aJ-zjn" customClass="PinsMapViewController" customModule="Sweeper" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="PinsMapViewController" id="6MM-aJ-zjn" customClass="PinsMapViewController" customModule="Sweeper" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8b2-YN-cYb">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -40,7 +40,7 @@
         <!--Pins List View Controller-->
         <scene sceneID="kGi-cg-7iX">
             <objects>
-                <viewController id="Qkg-fS-K8W" customClass="PinsListViewController" customModule="Sweeper" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="PinsListViewController" id="Qkg-fS-K8W" customClass="PinsListViewController" customModule="Sweeper" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="JTH-xK-bI6">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -49,7 +49,7 @@
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <view key="tableHeaderView" contentMode="scaleToFill" id="at1-yB-5cd" userLabel="Header View">
-                                    <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="320" height="35"/>
                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                     <subviews>
                                         <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="a5d-jC-Vxw">
@@ -76,7 +76,7 @@
                                 </view>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="PinCell" rowHeight="98" id="mS0-pT-mPf" customClass="PinCell" customModule="Sweeper" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="72" width="320" height="98"/>
+                                        <rect key="frame" x="0.0" y="63" width="320" height="98"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="mS0-pT-mPf" id="V9S-Zx-WJA">
                                             <rect key="frame" x="0.0" y="0.0" width="320" height="97.5"/>

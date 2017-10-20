@@ -46,7 +46,7 @@ class PinsListViewController: UIViewController, UITableViewDataSource {
     // MARK: Action handlers
     @IBAction func onChangeViewType(_ sender: UISegmentedControl) {
         if sender.selectedSegmentIndex == 1 {
-            let vc = storyboard?.instantiateViewController(withIdentifier: "PinsMapViewNavigationController")
+            let vc = storyboard?.instantiateViewController(withIdentifier: "PinsMapViewController")
             UIView.beginAnimations("animation", context: nil)
             UIView.setAnimationDuration(1.0)
             navigationController!.pushViewController(vc!, animated: false)
