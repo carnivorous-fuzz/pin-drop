@@ -6,7 +6,7 @@ target 'Sweeper' do
   use_frameworks!
 
   # Pods for Sweeper
-  pod 'Parse', '~> 1.15.3'
+  pod 'Parse'
   pod 'KMPlaceholderTextView', '~> 1.3.0'
   pod 'AFNetworking'
 
@@ -14,6 +14,7 @@ target 'Sweeper' do
   pod 'AWSCognito'
   pod 'AWSCore'
   pod 'AWSS3'
+  pod 'NSDateMinimalTimeAgo'
 
   pod 'ParseLiveQuery'
   pod 'Mapbox-iOS-SDK', '~> 3.6'

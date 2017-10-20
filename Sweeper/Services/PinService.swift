@@ -58,10 +58,10 @@ class PinService {
         pinsQuery.order(byDescending: "createdAt")
         pinsQuery.limit = 20
         pinsQuery.includeKey("tags")
+        pinsQuery.includeKey("creator")
         pinsQuery.clearCachedResult()
         
         pinsQuery.findObjectsInBackground { (pins: [Pin]?, error: Error?) in
-            print("fetched!")
             if pins != nil {
                 _pins = pins!
             }

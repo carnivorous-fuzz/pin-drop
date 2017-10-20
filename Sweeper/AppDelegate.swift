@@ -30,7 +30,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         AWSServiceManager.default().defaultServiceConfiguration = awsConfiguration
         
         if User.currentUser != nil {
-            window?.rootViewController = UIStoryboard.pinViewsNC
+            //window?.rootViewController = UIStoryboard.pinsMapViewNC
+            window?.rootViewController = UIStoryboard.pinsListViewNC
         }
         
         NotificationCenter.default.addObserver(
