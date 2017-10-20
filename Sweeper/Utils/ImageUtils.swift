@@ -31,3 +31,38 @@ class ImageUtils {
         }
     }
 }
+
+extension UIImage {
+    func compress() -> UIImage {
+        let maxHeight = CGFloat(400)
+        let maxWidth = CGFloat(600)
+        let compressionQuality = CGFloat(0.4)
+        var imgRatio = size.width / size.height
+        let maxRatio = maxWidth / maxHeight
+        
+        var compressedHeight = size.height
+        var compressedWidth = size.width
+        if size.width > maxWidth || size.height > maxHeight {
+            if imgRatio < maxRatio {
+                imgRatio = maxHeight / size.height
+                compressedWidth = imgRatio * size.width
+                compressedHeight = maxHeight
+            } else if imgRatio > maxRatio {
+                imgRatio = maxWidth / size.width
+                compressedHeight = imgRatio * size.height
+                compressedWidth = maxWidth
+            } else {
+                compressedHeight = maxHeight
+                compressedWidth = maxWidth
+            }
+        }
+        
+        let rect = CGRect(x: 0, y: 0, width: compressedWidth, height: compressedHeight)
+        UIGraphicsBeginImageContext(rect.size)
+        draw(in: rect)
+        let img = UIGraphicsGetImageFromCurrentImageContext()!
+        let imageData = UIImageJPEGRepresentation(img, compressionQuality)!
+        UIGraphicsEndImageContext();
+        return UIImage(data: imageData)!
+    }
+}
