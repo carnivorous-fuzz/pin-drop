@@ -128,11 +128,11 @@ extension PinViewsViewController: MGLMapViewDelegate {
     
     func mapView(_ mapView: MGLMapView, annotationCanShowCallout annotation: MGLAnnotation) -> Bool {
         // TODO: We can restrict access here
-        return true
+        return annotation is PinAnnotation
     }
     
     func mapView(_ mapView: MGLMapView, tapOnCalloutFor annotation: MGLAnnotation) {
-        let vc = StoryboardUtils.initVC(storyboard: "ViewPin", identifier: "PinDetailsViewController") as! PinDetailsViewController
+        let vc = UIStoryboard.pinDetailsVC
         vc.pinAnnotation = annotation as! PinAnnotation
         show(vc, sender: nil)
     }

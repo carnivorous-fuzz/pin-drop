@@ -6,7 +6,7 @@ target 'Sweeper' do
   use_frameworks!
 
   # Pods for Sweeper
-  pod 'Parse'
+  pod 'Parse', '~> 1.15.3'
   pod 'KMPlaceholderTextView', '~> 1.3.0'
   pod 'AFNetworking'
 
@@ -16,8 +16,6 @@ target 'Sweeper' do
   pod 'AWSS3'
 
   pod 'ParseLiveQuery'
-  pod 'GoogleMaps'
-  pod 'GooglePlaces'
   pod 'Mapbox-iOS-SDK', '~> 3.6'
   post_install do |installer|
       installer.pods_project.targets.each do |target|

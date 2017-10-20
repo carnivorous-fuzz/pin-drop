@@ -22,38 +22,17 @@ class User: PFUser {
     static var currentUser: User? {
         get {
             if _currentUser == nil {
-                _currentUser = getStoredUser()
+                _currentUser = current()
             }
             return _currentUser
         }
         set(user) {
             _currentUser = user
-            saveLocalUser(user: user, completion: nil)
-        }
-    }
-    
-    private class func getStoredUser() -> User? {
-        let query = User.query()!.fromLocalDatastore()
-        do {
-            return try query.getFirstObject() as? User
-        } catch {
-            return nil
-        }
-    }
-    
-    class func saveLocalUser(user: User?, completion: ((Bool) -> Void)?) {
-        if user != nil { // save locally
-            user!.pinInBackground(block: { (success: Bool, error: Error?) in
-                if success {
-                    _currentUser = user
-                }
-                completion?(success)
-            })
-        } else { // logout
-            _currentUser?.unpinInBackground(block: { (success: Bool, error: Error?) in
-                _currentUser = nil
-                completion?(success)
-            })
+            do {
+                try user?.save()
+            } catch {
+                print("Save user error")
+            }
         }
     }
     

@@ -30,16 +30,14 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         AWSServiceManager.default().defaultServiceConfiguration = awsConfiguration
         
         if User.currentUser != nil {
-            self.window?.rootViewController = StoryboardUtils.initVC(storyboard: "Pinviews", identifier: "PinviewsNavigationController")
+            window?.rootViewController = UIStoryboard.pinViewsNC
         }
         
         NotificationCenter.default.addObserver(
             forName: NSNotification.Name(rawValue: User.userDidLogoutKey),
             object: nil,
-            queue: OperationQueue.main) { (notification) in
-                let storyboard = UIStoryboard(name: "Main", bundle: nil)
-                let vc = storyboard.instantiateInitialViewController()
-                self.window?.rootViewController = vc
+            queue: OperationQueue.main) { _ in
+                self.window?.rootViewController = UIStoryboard.loginVC
         }
 
         return true
