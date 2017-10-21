@@ -61,7 +61,7 @@ class FancyTextView: UIView {
                                                name: .UIKeyboardWillShow,
                                                object: nil)
         NotificationCenter.default.addObserver(self,
-                                               selector: #selector(keyboardWillShow),
+                                               selector: #selector(keyboardWillHide),
                                                name: .UIKeyboardWillHide,
                                                object: nil)
     }
@@ -110,10 +110,11 @@ class FancyTextView: UIView {
             delay: 0.0,
             options: [keyboardNotification.animationCurve],
             animations: {
-                self.bottomViewBottomConstraint.constant = keyboardWillShow ? height : 0.0
-                self.layoutIfNeeded()
+                self.bottomViewBottomConstraint.constant = keyboardWillShow ? -height : 0.0
+                self.contentView.layoutIfNeeded()
             },
-            completion: nil)
+            completion: nil
+        )
     }
     
     private func updateCompletionButton() {

@@ -29,6 +29,7 @@ class PinDetailsViewController: UIViewController {
         commentsTableView.dataSource = self
         
         pinCard.prepare(withPin: pinAnnotation.pin)
+        pinCard.pinActionsView.delegate = self
     }
     
     override func viewDidLayoutSubviews() {
@@ -53,5 +54,15 @@ extension PinDetailsViewController: UITableViewDelegate, UITableViewDataSource {
         cell.commenterLabel.text = "No one"
         cell.commentLabel.text = "Fake!"
         return cell
+    }
+}
+
+extension PinDetailsViewController: PinActionsViewDelegate {
+    func pinActions(_ pinActionsView: PinActionsView, didLike: Bool) {
+        
+    }
+    
+    func pinActions(_ pinActionsView: PinActionsView, didComment: Bool) {
+        present(UIStoryboard.pinCommentNC, animated: true, completion: nil)
     }
 }

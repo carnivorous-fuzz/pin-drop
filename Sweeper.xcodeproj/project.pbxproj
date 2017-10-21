@@ -43,11 +43,13 @@
 		B96D35231F99B33A00BC6CBF /* PinDetailsCard.xib in Resources */ = {isa = PBXBuildFile; fileRef = B96D35221F99B33A00BC6CBF /* PinDetailsCard.xib */; };
 		B96D35271F99D03700BC6CBF /* PinCommentCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B96D35251F99D03700BC6CBF /* PinCommentCell.swift */; };
 		B96D35281F99D03700BC6CBF /* PinCommentCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B96D35261F99D03700BC6CBF /* PinCommentCell.xib */; };
+		B96D352A1F9AFEA600BC6CBF /* PinComment.swift in Sources */ = {isa = PBXBuildFile; fileRef = B96D35291F9AFEA600BC6CBF /* PinComment.swift */; };
 		B96D352C1F9B006900BC6CBF /* PinComment.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B96D352B1F9B006900BC6CBF /* PinComment.storyboard */; };
 		B96D352E1F9B008E00BC6CBF /* PinCommentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B96D352D1F9B008E00BC6CBF /* PinCommentViewController.swift */; };
 		B96D35311F9B039000BC6CBF /* FancyTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B96D35301F9B039000BC6CBF /* FancyTextView.swift */; };
 		B96D35331F9B039A00BC6CBF /* FancyTextView.xib in Resources */ = {isa = PBXBuildFile; fileRef = B96D35321F9B039A00BC6CBF /* FancyTextView.xib */; };
-		B96D352A1F9AFEA600BC6CBF /* PinComment.swift in Sources */ = {isa = PBXBuildFile; fileRef = B96D35291F9AFEA600BC6CBF /* PinComment.swift */; };
+		B9784BC41F9B240E009BDF14 /* PinActionsView.xib in Resources */ = {isa = PBXBuildFile; fileRef = B9784BC31F9B240D009BDF14 /* PinActionsView.xib */; };
+		B9784BC61F9B2419009BDF14 /* PinActionsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9784BC51F9B2419009BDF14 /* PinActionsView.swift */; };
 		B9CB3CF11F9056060023EA79 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9CB3CF01F9056060023EA79 /* AppDelegate.swift */; };
 		B9CB3CF61F9056060023EA79 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B9CB3CF41F9056060023EA79 /* Main.storyboard */; };
 		B9CB3CF81F9056060023EA79 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B9CB3CF71F9056060023EA79 /* Assets.xcassets */; };
@@ -58,7 +60,7 @@
 		B9CB3D1A1F90C8BF0023EA79 /* UIConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9CB3D191F90C8BF0023EA79 /* UIConstants.swift */; };
 		B9CB3D1C1F91D1780023EA79 /* PinViews.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B9CB3D1B1F91D1780023EA79 /* PinViews.storyboard */; };
 		B9CB3D201F91E8200023EA79 /* KeyboardNotification.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9CB3D1F1F91E8200023EA79 /* KeyboardNotification.swift */; };
-		B9CB3D261F92C6170023EA79 /* ViewPin.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B9CB3D251F92C6170023EA79 /* ViewPin.storyboard */; };
+		B9CB3D261F92C6170023EA79 /* PinDetails.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B9CB3D251F92C6170023EA79 /* PinDetails.storyboard */; };
 		B9CB3D281F92C6970023EA79 /* PinDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9CB3D271F92C6970023EA79 /* PinDetailsViewController.swift */; };
 		B9CB3D2E1F94143B0023EA79 /* ProfileView.xib in Resources */ = {isa = PBXBuildFile; fileRef = B9CB3D2D1F94143B0023EA79 /* ProfileView.xib */; };
 		B9CB3D301F94144B0023EA79 /* ProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9CB3D2F1F94144B0023EA79 /* ProfileView.swift */; };
@@ -104,11 +106,13 @@
 		B96D35221F99B33A00BC6CBF /* PinDetailsCard.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PinDetailsCard.xib; sourceTree = "<group>"; };
 		B96D35251F99D03700BC6CBF /* PinCommentCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PinCommentCell.swift; sourceTree = "<group>"; };
 		B96D35261F99D03700BC6CBF /* PinCommentCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PinCommentCell.xib; sourceTree = "<group>"; };
+		B96D35291F9AFEA600BC6CBF /* PinComment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PinComment.swift; sourceTree = "<group>"; };
 		B96D352B1F9B006900BC6CBF /* PinComment.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = PinComment.storyboard; sourceTree = "<group>"; };
 		B96D352D1F9B008E00BC6CBF /* PinCommentViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PinCommentViewController.swift; sourceTree = "<group>"; };
 		B96D35301F9B039000BC6CBF /* FancyTextView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FancyTextView.swift; sourceTree = "<group>"; };
 		B96D35321F9B039A00BC6CBF /* FancyTextView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FancyTextView.xib; sourceTree = "<group>"; };
-		B96D35291F9AFEA600BC6CBF /* PinComment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PinComment.swift; sourceTree = "<group>"; };
+		B9784BC31F9B240D009BDF14 /* PinActionsView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PinActionsView.xib; sourceTree = "<group>"; };
+		B9784BC51F9B2419009BDF14 /* PinActionsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PinActionsView.swift; sourceTree = "<group>"; };
 		B9CB3CED1F9056060023EA79 /* Sweeper.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Sweeper.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B9CB3CF01F9056060023EA79 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		B9CB3CF51F9056060023EA79 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -122,7 +126,7 @@
 		B9CB3D1B1F91D1780023EA79 /* PinViews.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = PinViews.storyboard; sourceTree = "<group>"; };
 		B9CB3D1D1F91D5AE0023EA79 /* PinsMapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PinsMapViewController.swift; sourceTree = "<group>"; };
 		B9CB3D1F1F91E8200023EA79 /* KeyboardNotification.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyboardNotification.swift; sourceTree = "<group>"; };
-		B9CB3D251F92C6170023EA79 /* ViewPin.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = ViewPin.storyboard; sourceTree = "<group>"; };
+		B9CB3D251F92C6170023EA79 /* PinDetails.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = PinDetails.storyboard; sourceTree = "<group>"; };
 		B9CB3D271F92C6970023EA79 /* PinDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PinDetailsViewController.swift; sourceTree = "<group>"; };
 		B9CB3D2D1F94143B0023EA79 /* ProfileView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ProfileView.xib; sourceTree = "<group>"; };
 		B9CB3D2F1F94144B0023EA79 /* ProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileView.swift; sourceTree = "<group>"; };
@@ -201,6 +205,7 @@
 				B9CB3D1B1F91D1780023EA79 /* PinViews.storyboard */,
 				B9CB3D251F92C6170023EA79 /* ViewPin.storyboard */,
 				B7286D661F99C83300CD9C0E /* ScavengerHunt.storyboard */,
+				B9CB3D251F92C6170023EA79 /* PinDetails.storyboard */,
 				B96D352B1F9B006900BC6CBF /* PinComment.storyboard */,
 			);
 			path = Storyboards;
@@ -209,8 +214,8 @@
 		B7B862351F91E69400FB2F1E /* LocationBanner */ = {
 			isa = PBXGroup;
 			children = (
-				B7B862361F91E6AD00FB2F1E /* LocationBanner.xib */,
 				B7B862381F91E6B900FB2F1E /* LocationBanner.swift */,
+				B7B862361F91E6AD00FB2F1E /* LocationBanner.xib */,
 			);
 			path = LocationBanner;
 			sourceTree = "<group>";
@@ -240,6 +245,15 @@
 				B96D35221F99B33A00BC6CBF /* PinDetailsCard.xib */,
 			);
 			path = PinDetailsCard;
+			sourceTree = "<group>";
+		};
+		B9784BC21F9B23F6009BDF14 /* PinActions */ = {
+			isa = PBXGroup;
+			children = (
+				B9784BC51F9B2419009BDF14 /* PinActionsView.swift */,
+				B9784BC31F9B240D009BDF14 /* PinActionsView.xib */,
+			);
+			path = PinActions;
 			sourceTree = "<group>";
 		};
 		B9CB3CE41F9056060023EA79 = {
@@ -296,12 +310,13 @@
 		B9CB3D051F9056500023EA79 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				B9784BC21F9B23F6009BDF14 /* PinActions */,
 				B9784BC11F9B2194009BDF14 /* PinDetailsCard */,
 				B96D35241F99CAEF00BC6CBF /* PinCommentCell */,
 				B9CB3D2C1F9414110023EA79 /* Profile */,
 				B9CB3D2B1F9340D10023EA79 /* FancyTextField */,
-				B7B862351F91E69400FB2F1E /* LocationBanner */,
 				B96D352F1F9B036F00BC6CBF /* FancyTextView */,
+				B7B862351F91E69400FB2F1E /* LocationBanner */,
 				7C1A43131F96B6FD00E3E6E0 /* PinAnnotationView.swift */,
 				B7DE45DD1F9B0BFF00F2472F /* SegmentControlViewCell.swift */,
 				B7DE45E11F9B2D4A00F2472F /* TagSelectorCell.swift */,
@@ -329,8 +344,8 @@
 		B9CB3D2B1F9340D10023EA79 /* FancyTextField */ = {
 			isa = PBXGroup;
 			children = (
-				B9CB3D141F90B5620023EA79 /* FancyTextField.xib */,
 				B9CB3D161F90B57C0023EA79 /* FancyTextField.swift */,
+				B9CB3D141F90B5620023EA79 /* FancyTextField.xib */,
 			);
 			path = FancyTextField;
 			sourceTree = "<group>";
@@ -338,8 +353,8 @@
 		B9CB3D2C1F9414110023EA79 /* Profile */ = {
 			isa = PBXGroup;
 			children = (
-				B9CB3D2D1F94143B0023EA79 /* ProfileView.xib */,
 				B9CB3D2F1F94144B0023EA79 /* ProfileView.swift */,
+				B9CB3D2D1F94143B0023EA79 /* ProfileView.xib */,
 			);
 			path = Profile;
 			sourceTree = "<group>";
@@ -413,12 +428,14 @@
 				B9CB3CF81F9056060023EA79 /* Assets.xcassets in Resources */,
 				B7286D671F99C83300CD9C0E /* ScavengerHunt.storyboard in Resources */,
 				B9CB3D261F92C6170023EA79 /* ViewPin.storyboard in Resources */,
+				B9CB3D261F92C6170023EA79 /* PinDetails.storyboard in Resources */,
 				B96D35231F99B33A00BC6CBF /* PinDetailsCard.xib in Resources */,
 				B96D352C1F9B006900BC6CBF /* PinComment.storyboard in Resources */,
 				B9CB3CF61F9056060023EA79 /* Main.storyboard in Resources */,
 				B9CB3D2E1F94143B0023EA79 /* ProfileView.xib in Resources */,
 				B79291FB1F91CD0100069144 /* CreatePin.storyboard in Resources */,
 				B9CB3D1C1F91D1780023EA79 /* PinViews.storyboard in Resources */,
+				B9784BC41F9B240E009BDF14 /* PinActionsView.xib in Resources */,
 				B96D35281F99D03700BC6CBF /* PinCommentCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -519,6 +536,7 @@
 				B96D35211F99B32F00BC6CBF /* PinDetailsCard.swift in Sources */,
 				B9CB3D321F9425FA0023EA79 /* ImageUtils.swift in Sources */,
 				B7DE45E81F9BFB0300F2472F /* InfiniteScrollActivityView.swift in Sources */,
+				B9784BC61F9B2419009BDF14 /* PinActionsView.swift in Sources */,
 				B96D35311F9B039000BC6CBF /* FancyTextView.swift in Sources */,
 				B9CB3D171F90B57C0023EA79 /* FancyTextField.swift in Sources */,
 				7C1A43141F96B6FD00E3E6E0 /* PinAnnotationView.swift in Sources */,

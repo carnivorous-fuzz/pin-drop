@@ -22,8 +22,8 @@ extension UIStoryboard {
         return getStoryboardNamed("PinViews")
     }
 
-    static var viewPin: UIStoryboard {
-        return getStoryboardNamed("ViewPin")
+    static var pinDetails: UIStoryboard {
+        return getStoryboardNamed("PinDetails")
     }
 
     static var scavengerHunt: UIStoryboard {
@@ -51,7 +51,7 @@ extension UIStoryboard {
     }
 
     static var pinDetailsVC: PinDetailsViewController {
-        return UIStoryboard.viewPin.instantiateViewController(withIdentifier: "PinDetailsViewController") as! PinDetailsViewController
+        return UIStoryboard.pinDetails.instantiateViewController(withIdentifier: "PinDetailsViewController") as! PinDetailsViewController
     }
 
     static var tagsSelectorVC: TagSelectorViewController {

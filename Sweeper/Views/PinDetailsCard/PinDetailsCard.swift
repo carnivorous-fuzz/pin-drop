@@ -20,6 +20,8 @@ class PinDetailsCard: UIView {
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var messageLabel: UILabel!
     
+    @IBOutlet weak var pinActionsView: PinActionsView!
+    
     var pin: Pin!
     
     required init?(coder aDecoder: NSCoder) {
@@ -54,5 +56,7 @@ class PinDetailsCard: UIView {
         titleLabel.text = pin.blurb
         messageLabel.text = pin.message
         nameLabel.text = pin.creator?.username
+        
+        pinActionsView.prepare(withPin: pin)
     }
 }
