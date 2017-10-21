@@ -9,13 +9,12 @@ target 'Sweeper' do
   pod 'Parse'
   pod 'KMPlaceholderTextView', '~> 1.3.0'
   pod 'AFNetworking'
-  pod 'SwiftDate', '~> 4.3.0'
 
   # AWS SDKs
   pod 'AWSCognito'
   pod 'AWSCore'
   pod 'AWSS3'
-  pod 'SwiftDate', ‘~> 4.3.0’
+  pod 'SwiftDate', '~> 4.3.0'
 
   pod 'ParseLiveQuery'
   pod 'Mapbox-iOS-SDK', '~> 3.6'
