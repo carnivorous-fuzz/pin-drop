@@ -16,6 +16,7 @@
 		3786F84A1F9414120009F05B /* TagService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3786F8491F9414120009F05B /* TagService.swift */; };
 		37B4E2531F99B9440090B168 /* PinsListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37B4E2521F99B9440090B168 /* PinsListViewController.swift */; };
 		37B4E2551F99C6AA0090B168 /* PinCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37B4E2541F99C6AA0090B168 /* PinCell.swift */; };
+		37F3FA6B1F9B16A300287F61 /* Time.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37F3FA6A1F9B16A300287F61 /* Time.swift */; };
 		5B4C8AEAC3C694DCF2E8D6DB /* Pods_Sweeper.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B9002B9427295A5C4DB280EB /* Pods_Sweeper.framework */; };
 		7C1A43141F96B6FD00E3E6E0 /* PinAnnotationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C1A43131F96B6FD00E3E6E0 /* PinAnnotationView.swift */; };
 		7C1A43181F96C82F00E3E6E0 /* PinAnnotation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C1A43171F96C82F00E3E6E0 /* PinAnnotation.swift */; };
@@ -59,6 +60,7 @@
 		3786F8491F9414120009F05B /* TagService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TagService.swift; sourceTree = "<group>"; };
 		37B4E2521F99B9440090B168 /* PinsListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PinsListViewController.swift; sourceTree = "<group>"; };
 		37B4E2541F99C6AA0090B168 /* PinCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PinCell.swift; sourceTree = "<group>"; };
+		37F3FA6A1F9B16A300287F61 /* Time.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Time.swift; sourceTree = "<group>"; };
 		7C1A43131F96B6FD00E3E6E0 /* PinAnnotationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PinAnnotationView.swift; sourceTree = "<group>"; };
 		7C1A43171F96C82F00E3E6E0 /* PinAnnotation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PinAnnotation.swift; sourceTree = "<group>"; };
 		7C1A43201F994CC000E3E6E0 /* StoryboardExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoryboardExtension.swift; sourceTree = "<group>"; };
@@ -245,6 +247,7 @@
 				B9CB3D1F1F91E8200023EA79 /* KeyboardNotification.swift */,
 				B9CB3D311F9425FA0023EA79 /* ImageUtils.swift */,
 				7C1A43171F96C82F00E3E6E0 /* PinAnnotation.swift */,
+				37F3FA6A1F9B16A300287F61 /* Time.swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -378,10 +381,10 @@
 				"${BUILT_PRODUCTS_DIR}/KMPlaceholderTextView/KMPlaceholderTextView.framework",
 				"${PODS_ROOT}/Mapbox-iOS-SDK/dynamic/Mapbox.framework",
 				"${PODS_ROOT}/Mapbox-iOS-SDK/dynamic/Mapbox.framework.dSYM",
-				"${BUILT_PRODUCTS_DIR}/NSDateMinimalTimeAgo/NSDateMinimalTimeAgo.framework",
 				"${BUILT_PRODUCTS_DIR}/Parse/Parse.framework",
 				"${BUILT_PRODUCTS_DIR}/ParseLiveQuery/ParseLiveQuery.framework",
 				"${BUILT_PRODUCTS_DIR}/Starscream/Starscream.framework",
+				"${BUILT_PRODUCTS_DIR}/SwiftDate/SwiftDate.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
@@ -394,10 +397,10 @@
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/KMPlaceholderTextView.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Mapbox.framework",
 				"${DWARF_DSYM_FOLDER_PATH}/Mapbox.framework.dSYM",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/NSDateMinimalTimeAgo.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Parse.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ParseLiveQuery.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Starscream.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftDate.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -442,6 +445,7 @@
 				3786F8481F94071D0009F05B /* Tag.swift in Sources */,
 				7C1A43211F994CC000E3E6E0 /* StoryboardExtension.swift in Sources */,
 				B7B862391F91E6B900FB2F1E /* LocationBanner.swift in Sources */,
+				37F3FA6B1F9B16A300287F61 /* Time.swift in Sources */,
 				B79291FE1F91CE7400069144 /* CreatePinViewController.swift in Sources */,
 				B763C35D1F932DD600DA8311 /* UIViewExtension.swift in Sources */,
 				B9CB3D071F9056720023EA79 /* LoginViewController.swift in Sources */,

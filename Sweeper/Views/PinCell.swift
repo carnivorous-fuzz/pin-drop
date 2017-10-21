@@ -8,7 +8,6 @@
 
 import UIKit
 import CoreLocation
-import NSDateMinimalTimeAgo
 
 class PinCell: UITableViewCell {
 
@@ -45,8 +44,8 @@ class PinCell: UITableViewCell {
             }
             
             usernameLabel.text = pin.creator?.getFullName() ?? "anon user"
-            if let createdAtNS = pin.createdAt as NSDate? {
-                timestampLabel.text = createdAtNS.timeAgo()
+            if let createdAt = pin.createdAt {
+                timestampLabel.text = TimeUtils.getPrettyTimeAgoString(createdAt)
             }
             
             blurbLabel.text = pin.blurb

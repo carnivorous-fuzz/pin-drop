@@ -108,9 +108,7 @@ class LoginViewController: UIViewController {
     }
     
     private func segueToHome() {
-        let storyboard = UIStoryboard(name: "PinViews", bundle: nil)
-        let navigationVC = storyboard.instantiateViewController(withIdentifier: "PinsMapViewNavigationController")
-        
+        let navigationVC = UIStoryboard.pinsListViewNC
         present(navigationVC, animated: true, completion: nil)
     }
 }
