@@ -19,7 +19,7 @@ extension UIStoryboard {
     }
     
     static var pinViews: UIStoryboard {
-        return getStoryboardNamed("Pinviews")
+        return getStoryboardNamed("PinViews")
     }
     
     static var viewPin: UIStoryboard {
@@ -31,8 +31,12 @@ extension UIStoryboard {
     }
     
     // MARK: View controllers
-    static var pinViewsNC: UINavigationController {
-        return UIStoryboard.pinViews.instantiateViewController(withIdentifier: "PinviewsNavigationController") as! UINavigationController
+    static var pinsMapViewNC: UINavigationController {
+        return UIStoryboard.pinViews.instantiateViewController(withIdentifier: "PinsMapViewNavigationController") as! UINavigationController
+    }
+    
+    static var pinsListViewNC: UINavigationController {
+        return UIStoryboard.pinViews.instantiateViewController(withIdentifier: "PinsListViewNavigationController") as! UINavigationController
     }
     
     static var loginVC: LoginViewController {

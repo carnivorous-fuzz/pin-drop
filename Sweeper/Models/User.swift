@@ -36,18 +36,18 @@ class User: PFUser {
         }
     }
     
-    func getFullName() -> (String) {
+    func getFullName() -> String? {
         var result = ""
-        if self.firstName != nil {
+        if firstName != nil {
             result += "\(self.firstName!)"
         }
         
-        if self.lastName != nil {
+        if lastName != nil {
             if result.characters.count > 0 {
                 result += " "
             }
             result += "\(self.lastName!)"
         }
-        return result
+        return result.characters.count > 0 ? result : nil
     }
 }

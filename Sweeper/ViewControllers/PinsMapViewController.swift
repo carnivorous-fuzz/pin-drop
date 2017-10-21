@@ -1,5 +1,5 @@
 //
-//  PinViewsViewController.swift
+//  PinsMapViewController.swift
 //  Sweeper
 //
 //  Created by Wuming Xie on 10/13/17.
@@ -9,7 +9,7 @@
 import UIKit
 import Mapbox
 
-class PinViewsViewController: UIViewController {
+class PinsMapViewController: UIViewController {
     
     let defaultLocation = CLLocation(latitude: 37.787353, longitude: -122.421561)
     var locationManager: CLLocationManager!
@@ -72,7 +72,7 @@ class PinViewsViewController: UIViewController {
 }
 
 // MARK:- Location manager delegate
-extension PinViewsViewController: CLLocationManagerDelegate {
+extension PinsMapViewController: CLLocationManagerDelegate {
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
         if let location = locations.last {
             mapView?.setCenter(location.coordinate, zoomLevel: mapView?.zoomLevel ?? zoomLevel, animated: !mapView.isHidden)
@@ -101,7 +101,7 @@ extension PinViewsViewController: CLLocationManagerDelegate {
 }
 
 // MARK:- Mapbox map view delegate
-extension PinViewsViewController: MGLMapViewDelegate {
+extension PinsMapViewController: MGLMapViewDelegate {
     
     func mapView(_ mapView: MGLMapView, viewFor annotation: MGLAnnotation) -> MGLAnnotationView? {
         guard annotation is MGLPointAnnotation else {

@@ -8,12 +8,22 @@
 
 import CoreLocation
 
+let METERS_PER_MILE = 1609.34
+
 struct Location {
     static var sharedInstance: CLGeocoder {
         struct Static {
             static let instance = CLGeocoder()
         }
         return Static.instance
+    }
+    
+    static func getPrettyDistance(loc1: CLLocation, loc2: CLLocation) -> String {
+        let meters = loc1.distance(from: loc2)
+        let miles = Double(meters) / METERS_PER_MILE
+        let rounded = round(miles * 10) / 10
+        let roundedStr = String(rounded)
+        return "\(roundedStr)mi"
     }
 
     static func getAddress(from location: CLLocation, success: @escaping (String) -> (), failure: @escaping (Error) -> ()) {

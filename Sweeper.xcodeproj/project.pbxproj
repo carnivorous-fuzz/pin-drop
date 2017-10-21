@@ -14,6 +14,9 @@
 		37731ECD1F92C093009E0603 /* AppService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37731ECC1F92C093009E0603 /* AppService.swift */; };
 		3786F8481F94071D0009F05B /* Tag.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3786F8471F94071D0009F05B /* Tag.swift */; };
 		3786F84A1F9414120009F05B /* TagService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3786F8491F9414120009F05B /* TagService.swift */; };
+		37B4E2531F99B9440090B168 /* PinsListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37B4E2521F99B9440090B168 /* PinsListViewController.swift */; };
+		37B4E2551F99C6AA0090B168 /* PinCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37B4E2541F99C6AA0090B168 /* PinCell.swift */; };
+		37F3FA6B1F9B16A300287F61 /* Time.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37F3FA6A1F9B16A300287F61 /* Time.swift */; };
 		5B4C8AEAC3C694DCF2E8D6DB /* Pods_Sweeper.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B9002B9427295A5C4DB280EB /* Pods_Sweeper.framework */; };
 		7C1A43141F96B6FD00E3E6E0 /* PinAnnotationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C1A43131F96B6FD00E3E6E0 /* PinAnnotationView.swift */; };
 		7C1A43181F96C82F00E3E6E0 /* PinAnnotation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C1A43171F96C82F00E3E6E0 /* PinAnnotation.swift */; };
@@ -36,8 +39,8 @@
 		B9CB3D151F90B5620023EA79 /* FancyTextField.xib in Resources */ = {isa = PBXBuildFile; fileRef = B9CB3D141F90B5620023EA79 /* FancyTextField.xib */; };
 		B9CB3D171F90B57C0023EA79 /* FancyTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9CB3D161F90B57C0023EA79 /* FancyTextField.swift */; };
 		B9CB3D1A1F90C8BF0023EA79 /* UIConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9CB3D191F90C8BF0023EA79 /* UIConstants.swift */; };
-		B9CB3D1C1F91D1780023EA79 /* Pinviews.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B9CB3D1B1F91D1780023EA79 /* Pinviews.storyboard */; };
-		B9CB3D1E1F91D5AE0023EA79 /* PinViewsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9CB3D1D1F91D5AE0023EA79 /* PinViewsViewController.swift */; };
+		B9CB3D1C1F91D1780023EA79 /* PinViews.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B9CB3D1B1F91D1780023EA79 /* PinViews.storyboard */; };
+		B9CB3D1E1F91D5AE0023EA79 /* PinsMapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9CB3D1D1F91D5AE0023EA79 /* PinsMapViewController.swift */; };
 		B9CB3D201F91E8200023EA79 /* KeyboardNotification.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9CB3D1F1F91E8200023EA79 /* KeyboardNotification.swift */; };
 		B9CB3D261F92C6170023EA79 /* ViewPin.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B9CB3D251F92C6170023EA79 /* ViewPin.storyboard */; };
 		B9CB3D281F92C6970023EA79 /* PinDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9CB3D271F92C6970023EA79 /* PinDetailsViewController.swift */; };
@@ -55,6 +58,9 @@
 		37731ECC1F92C093009E0603 /* AppService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppService.swift; sourceTree = "<group>"; };
 		3786F8471F94071D0009F05B /* Tag.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tag.swift; sourceTree = "<group>"; };
 		3786F8491F9414120009F05B /* TagService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TagService.swift; sourceTree = "<group>"; };
+		37B4E2521F99B9440090B168 /* PinsListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PinsListViewController.swift; sourceTree = "<group>"; };
+		37B4E2541F99C6AA0090B168 /* PinCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PinCell.swift; sourceTree = "<group>"; };
+		37F3FA6A1F9B16A300287F61 /* Time.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Time.swift; sourceTree = "<group>"; };
 		7C1A43131F96B6FD00E3E6E0 /* PinAnnotationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PinAnnotationView.swift; sourceTree = "<group>"; };
 		7C1A43171F96C82F00E3E6E0 /* PinAnnotation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PinAnnotation.swift; sourceTree = "<group>"; };
 		7C1A43201F994CC000E3E6E0 /* StoryboardExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoryboardExtension.swift; sourceTree = "<group>"; };
@@ -80,8 +86,8 @@
 		B9CB3D141F90B5620023EA79 /* FancyTextField.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FancyTextField.xib; sourceTree = "<group>"; };
 		B9CB3D161F90B57C0023EA79 /* FancyTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FancyTextField.swift; sourceTree = "<group>"; };
 		B9CB3D191F90C8BF0023EA79 /* UIConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIConstants.swift; sourceTree = "<group>"; };
-		B9CB3D1B1F91D1780023EA79 /* Pinviews.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Pinviews.storyboard; sourceTree = "<group>"; };
-		B9CB3D1D1F91D5AE0023EA79 /* PinViewsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PinViewsViewController.swift; sourceTree = "<group>"; };
+		B9CB3D1B1F91D1780023EA79 /* PinViews.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = PinViews.storyboard; sourceTree = "<group>"; };
+		B9CB3D1D1F91D5AE0023EA79 /* PinsMapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PinsMapViewController.swift; sourceTree = "<group>"; };
 		B9CB3D1F1F91E8200023EA79 /* KeyboardNotification.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyboardNotification.swift; sourceTree = "<group>"; };
 		B9CB3D251F92C6170023EA79 /* ViewPin.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = ViewPin.storyboard; sourceTree = "<group>"; };
 		B9CB3D271F92C6970023EA79 /* PinDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PinDetailsViewController.swift; sourceTree = "<group>"; };
@@ -157,19 +163,19 @@
 			children = (
 				B9CB3CF41F9056060023EA79 /* Main.storyboard */,
 				B79291FA1F91CD0100069144 /* CreatePin.storyboard */,
-				B9CB3D1B1F91D1780023EA79 /* Pinviews.storyboard */,
+				B9CB3D1B1F91D1780023EA79 /* PinViews.storyboard */,
 				B9CB3D251F92C6170023EA79 /* ViewPin.storyboard */,
 			);
 			path = Storyboards;
 			sourceTree = "<group>";
 		};
-		B7B862351F91E69400FB2F1E /* LocationBaner */ = {
+		B7B862351F91E69400FB2F1E /* LocationBanner */ = {
 			isa = PBXGroup;
 			children = (
 				B7B862361F91E6AD00FB2F1E /* LocationBanner.xib */,
 				B7B862381F91E6B900FB2F1E /* LocationBanner.swift */,
 			);
-			path = LocationBaner;
+			path = LocationBanner;
 			sourceTree = "<group>";
 		};
 		B9CB3CE41F9056060023EA79 = {
@@ -213,7 +219,8 @@
 			children = (
 				B9CB3D061F9056720023EA79 /* LoginViewController.swift */,
 				B79291FD1F91CE7400069144 /* CreatePinViewController.swift */,
-				B9CB3D1D1F91D5AE0023EA79 /* PinViewsViewController.swift */,
+				B9CB3D1D1F91D5AE0023EA79 /* PinsMapViewController.swift */,
+				37B4E2521F99B9440090B168 /* PinsListViewController.swift */,
 				B9CB3D271F92C6970023EA79 /* PinDetailsViewController.swift */,
 			);
 			path = ViewControllers;
@@ -224,8 +231,9 @@
 			children = (
 				B9CB3D2C1F9414110023EA79 /* Profile */,
 				B9CB3D2B1F9340D10023EA79 /* FancyTextField */,
-				B7B862351F91E69400FB2F1E /* LocationBaner */,
+				B7B862351F91E69400FB2F1E /* LocationBanner */,
 				7C1A43131F96B6FD00E3E6E0 /* PinAnnotationView.swift */,
+				37B4E2541F99C6AA0090B168 /* PinCell.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -239,6 +247,7 @@
 				B9CB3D1F1F91E8200023EA79 /* KeyboardNotification.swift */,
 				B9CB3D311F9425FA0023EA79 /* ImageUtils.swift */,
 				7C1A43171F96C82F00E3E6E0 /* PinAnnotation.swift */,
+				37F3FA6A1F9B16A300287F61 /* Time.swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -331,7 +340,7 @@
 				B9CB3CF61F9056060023EA79 /* Main.storyboard in Resources */,
 				B9CB3D2E1F94143B0023EA79 /* ProfileView.xib in Resources */,
 				B79291FB1F91CD0100069144 /* CreatePin.storyboard in Resources */,
-				B9CB3D1C1F91D1780023EA79 /* Pinviews.storyboard in Resources */,
+				B9CB3D1C1F91D1780023EA79 /* PinViews.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -375,6 +384,7 @@
 				"${BUILT_PRODUCTS_DIR}/Parse/Parse.framework",
 				"${BUILT_PRODUCTS_DIR}/ParseLiveQuery/ParseLiveQuery.framework",
 				"${BUILT_PRODUCTS_DIR}/Starscream/Starscream.framework",
+				"${BUILT_PRODUCTS_DIR}/SwiftDate/SwiftDate.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
@@ -390,6 +400,7 @@
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Parse.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ParseLiveQuery.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Starscream.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftDate.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -434,11 +445,12 @@
 				3786F8481F94071D0009F05B /* Tag.swift in Sources */,
 				7C1A43211F994CC000E3E6E0 /* StoryboardExtension.swift in Sources */,
 				B7B862391F91E6B900FB2F1E /* LocationBanner.swift in Sources */,
+				37F3FA6B1F9B16A300287F61 /* Time.swift in Sources */,
 				B79291FE1F91CE7400069144 /* CreatePinViewController.swift in Sources */,
 				B763C35D1F932DD600DA8311 /* UIViewExtension.swift in Sources */,
 				B9CB3D071F9056720023EA79 /* LoginViewController.swift in Sources */,
 				374C23E81F91BDA5000C0ECE /* Pin.swift in Sources */,
-				B9CB3D1E1F91D5AE0023EA79 /* PinViewsViewController.swift in Sources */,
+				B9CB3D1E1F91D5AE0023EA79 /* PinsMapViewController.swift in Sources */,
 				37731EC91F92BE5F009E0603 /* PinService.swift in Sources */,
 				37731ECB1F92BE6D009E0603 /* UserService.swift in Sources */,
 				B9CB3CF11F9056060023EA79 /* AppDelegate.swift in Sources */,
@@ -446,9 +458,11 @@
 				B9CB3D1A1F90C8BF0023EA79 /* UIConstants.swift in Sources */,
 				B763C3581F9322C500DA8311 /* StringExtension.swift in Sources */,
 				B7EBCA121F94331B00D5795D /* ViewedPin.swift in Sources */,
+				37B4E2531F99B9440090B168 /* PinsListViewController.swift in Sources */,
 				B7E83F261F92EA9000FA9D88 /* AWSS3Service.swift in Sources */,
 				B9CB3D301F94144B0023EA79 /* ProfileView.swift in Sources */,
 				374C23EA1F91BDAE000C0ECE /* User.swift in Sources */,
+				37B4E2551F99C6AA0090B168 /* PinCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
