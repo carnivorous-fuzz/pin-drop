@@ -47,6 +47,7 @@
 		B96D352E1F9B008E00BC6CBF /* PinCommentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B96D352D1F9B008E00BC6CBF /* PinCommentViewController.swift */; };
 		B96D35311F9B039000BC6CBF /* FancyTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B96D35301F9B039000BC6CBF /* FancyTextView.swift */; };
 		B96D35331F9B039A00BC6CBF /* FancyTextView.xib in Resources */ = {isa = PBXBuildFile; fileRef = B96D35321F9B039A00BC6CBF /* FancyTextView.xib */; };
+		B96D352A1F9AFEA600BC6CBF /* PinComment.swift in Sources */ = {isa = PBXBuildFile; fileRef = B96D35291F9AFEA600BC6CBF /* PinComment.swift */; };
 		B9CB3CF11F9056060023EA79 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9CB3CF01F9056060023EA79 /* AppDelegate.swift */; };
 		B9CB3CF61F9056060023EA79 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B9CB3CF41F9056060023EA79 /* Main.storyboard */; };
 		B9CB3CF81F9056060023EA79 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B9CB3CF71F9056060023EA79 /* Assets.xcassets */; };
@@ -107,6 +108,7 @@
 		B96D352D1F9B008E00BC6CBF /* PinCommentViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PinCommentViewController.swift; sourceTree = "<group>"; };
 		B96D35301F9B039000BC6CBF /* FancyTextView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FancyTextView.swift; sourceTree = "<group>"; };
 		B96D35321F9B039A00BC6CBF /* FancyTextView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FancyTextView.xib; sourceTree = "<group>"; };
+		B96D35291F9AFEA600BC6CBF /* PinComment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PinComment.swift; sourceTree = "<group>"; };
 		B9CB3CED1F9056060023EA79 /* Sweeper.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Sweeper.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B9CB3CF01F9056060023EA79 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		B9CB3CF51F9056060023EA79 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -146,6 +148,7 @@
 				374C23E91F91BDAE000C0ECE /* User.swift */,
 				3786F8471F94071D0009F05B /* Tag.swift */,
 				B7EBCA111F94331B00D5795D /* ViewedPin.swift */,
+				B96D35291F9AFEA600BC6CBF /* PinComment.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -524,6 +527,7 @@
 				B96D35271F99D03700BC6CBF /* PinCommentCell.swift in Sources */,
 				B7E83F231F92AFFA00FA9D88 /* Location.swift in Sources */,
 				B763C3561F931F2700DA8311 /* AWSConstants.swift in Sources */,
+				B96D352A1F9AFEA600BC6CBF /* PinComment.swift in Sources */,
 				3786F8481F94071D0009F05B /* Tag.swift in Sources */,
 				7C1A43211F994CC000E3E6E0 /* StoryboardExtension.swift in Sources */,
 				B7B862391F91E6B900FB2F1E /* LocationBanner.swift in Sources */,
