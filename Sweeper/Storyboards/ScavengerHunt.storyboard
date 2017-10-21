@@ -121,7 +121,6 @@
                                         <size key="customSize" width="81" height="24"/>
                                         <connections>
                                             <outlet property="selectedTagLabel" destination="gTs-RM-Bpe" id="ca2-kR-bKi"/>
-                                            <outletCollection property="gestureRecognizers" destination="J69-tC-wfN" appends="YES" id="rSY-cr-2hb"/>
                                         </connections>
                                     </collectionViewCell>
                                 </cells>
@@ -227,11 +226,6 @@
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="YaN-p1-rWr" userLabel="First Responder" sceneMemberID="firstResponder"/>
-                <pongPressGestureRecognizer allowableMovement="10" minimumPressDuration="0.5" id="J69-tC-wfN">
-                    <connections>
-                        <action selector="longPressSelectedTag:" destination="aj1-s4-6Rn" id="O6X-u6-qQZ"/>
-                    </connections>
-                </pongPressGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="96.799999999999997" y="17.541229385307346"/>
         </scene>

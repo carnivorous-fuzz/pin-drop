@@ -63,9 +63,8 @@ class SHGenerateViewController: UIViewController {
         print(selectedTags)
     }
     
-    @IBAction func longPressSelectedTag(_ sender: UILongPressGestureRecognizer) {
-        let selectedCell = sender.view as! TagSelectedCollectionCell
-        UIView.animate(withDuration: 0.3) {
+    func deleteTag(with selectedCell: TagSelectedCollectionCell) {
+        UIView.animate(withDuration: 1) {
             if let index = self.selectedTags.index(of: selectedCell.selectedTag) {
                 self.selectedTags.remove(at: index)
                 self.tagSelectionCollectionView.reloadData()
@@ -120,6 +119,9 @@ extension SHGenerateViewController: UICollectionViewDelegate, UICollectionViewDa
         } else {
             if (indexPath.row == selectedTagCount) && (selectedTagCount < maxTagOrStops)  {
                 onTagChooserTap()
+            } else {
+                let cell = collectionView.cellForItem(at: indexPath) as! TagSelectedCollectionCell
+                deleteTag(with: cell)
             }
         }
     }
