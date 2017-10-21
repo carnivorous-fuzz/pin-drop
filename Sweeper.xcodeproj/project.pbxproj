@@ -32,6 +32,7 @@
 		B7DE45E01F9B214A00F2472F /* TagSelectorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7DE45DF1F9B214A00F2472F /* TagSelectorViewController.swift */; };
 		B7DE45E21F9B2D4A00F2472F /* TagSelectorCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7DE45E11F9B2D4A00F2472F /* TagSelectorCell.swift */; };
 		B7DE45E41F9BE03C00F2472F /* TagSelectedCollectionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7DE45E31F9BE03C00F2472F /* TagSelectedCollectionCell.swift */; };
+		B7DE45E81F9BFB0300F2472F /* InfiniteScrollActivityView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7DE45E71F9BFB0300F2472F /* InfiniteScrollActivityView.swift */; };
 		B7E83F231F92AFFA00FA9D88 /* Location.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7E83F221F92AFFA00FA9D88 /* Location.swift */; };
 		B7E83F261F92EA9000FA9D88 /* AWSS3Service.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7E83F251F92EA9000FA9D88 /* AWSS3Service.swift */; };
 		B7EBCA121F94331B00D5795D /* ViewedPin.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7EBCA111F94331B00D5795D /* ViewedPin.swift */; };
@@ -80,6 +81,7 @@
 		B7DE45DF1F9B214A00F2472F /* TagSelectorViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TagSelectorViewController.swift; sourceTree = "<group>"; };
 		B7DE45E11F9B2D4A00F2472F /* TagSelectorCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TagSelectorCell.swift; sourceTree = "<group>"; };
 		B7DE45E31F9BE03C00F2472F /* TagSelectedCollectionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TagSelectedCollectionCell.swift; sourceTree = "<group>"; };
+		B7DE45E71F9BFB0300F2472F /* InfiniteScrollActivityView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfiniteScrollActivityView.swift; sourceTree = "<group>"; };
 		B7E83F221F92AFFA00FA9D88 /* Location.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Location.swift; sourceTree = "<group>"; };
 		B7E83F251F92EA9000FA9D88 /* AWSS3Service.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AWSS3Service.swift; sourceTree = "<group>"; };
 		B7EBCA111F94331B00D5795D /* ViewedPin.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewedPin.swift; sourceTree = "<group>"; };
@@ -247,6 +249,7 @@
 				B7DE45DD1F9B0BFF00F2472F /* SegmentControlViewCell.swift */,
 				B7DE45E11F9B2D4A00F2472F /* TagSelectorCell.swift */,
 				B7DE45E31F9BE03C00F2472F /* TagSelectedCollectionCell.swift */,
+				B7DE45E71F9BFB0300F2472F /* InfiniteScrollActivityView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -450,6 +453,7 @@
 				7C1A43181F96C82F00E3E6E0 /* PinAnnotation.swift in Sources */,
 				37731ECD1F92C093009E0603 /* AppService.swift in Sources */,
 				B9CB3D321F9425FA0023EA79 /* ImageUtils.swift in Sources */,
+				B7DE45E81F9BFB0300F2472F /* InfiniteScrollActivityView.swift in Sources */,
 				B9CB3D171F90B57C0023EA79 /* FancyTextField.swift in Sources */,
 				7C1A43141F96B6FD00E3E6E0 /* PinAnnotationView.swift in Sources */,
 				B7DE45DE1F9B0BFF00F2472F /* SegmentControlViewCell.swift in Sources */,
