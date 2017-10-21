@@ -24,6 +24,8 @@ class PinCommentViewController: UIViewController {
                                                selector: #selector(keyboardWillHide),
                                                name: .UIKeyboardWillHide,
                                                object: nil)
+        
+        fancyTextView.inputTextView.becomeFirstResponder()
     }
     
     deinit {
