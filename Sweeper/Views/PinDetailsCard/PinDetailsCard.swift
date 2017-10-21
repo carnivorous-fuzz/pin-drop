@@ -18,6 +18,7 @@ class PinDetailsCard: UIView {
     @IBOutlet weak var profileImageView: UIImageView!
     @IBOutlet weak var nameLabel: UILabel!
     @IBOutlet weak var titleLabel: UILabel!
+    @IBOutlet weak var timeAgoLabel: UILabel!
     @IBOutlet weak var messageLabel: UILabel!
     
     @IBOutlet weak var pinActionsView: PinActionsView!
@@ -54,6 +55,7 @@ class PinDetailsCard: UIView {
         }
         
         titleLabel.text = pin.blurb
+        timeAgoLabel.text = TimeUtils.getPrettyTimeAgoString(pin.createdAt!)
         messageLabel.text = pin.message
         nameLabel.text = pin.creator?.username
         

@@ -47,6 +47,9 @@ class PinCommentViewController: UIViewController {
     }
 
     @IBAction func onCancel(_ sender: UIBarButtonItem) {
+        if fancyTextView.hasText() {
+            
+        }
         dismiss(animated: true, completion: nil)
     }
     
