@@ -32,7 +32,7 @@
                         <viewLayoutGuide key="safeArea" id="WBd-9T-KG1"/>
                     </view>
                     <navigationItem key="navigationItem" id="mtD-jz-vIy">
-                        <barButtonItem key="rightBarButtonItem" title="Item" image="cancel" id="NZH-jS-tVw">
+                        <barButtonItem key="rightBarButtonItem" image="cancel" id="NZH-jS-tVw">
                             <connections>
                                 <action selector="onCancel:" destination="e0f-Y8-M0a" id="wOP-2n-Eew"/>
                             </connections>
