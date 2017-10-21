@@ -41,7 +41,9 @@ class PinActionsView: UIView {
         addSubview(actionsView)
         
         likeImageView.image = likeImageView.image?.withRenderingMode(.alwaysTemplate)
+        likeImageView.tintColor = UIColor.gray
         commentImageView.image = commentImageView.image?.withRenderingMode(.alwaysTemplate)
+        commentImageView.tintColor = UIColor.gray
         
         likeView.addGestureRecognizer(
             UITapGestureRecognizer(target: self, action: #selector(onLike))
