@@ -221,15 +221,6 @@
 			path = PinCommentCell;
 			sourceTree = "<group>";
 		};
-		B96D35241F99CAEF00BC6CBF /* PinCommentCell */ = {
-			isa = PBXGroup;
-			children = (
-				B96D35251F99D03700BC6CBF /* PinCommentCell.swift */,
-				B96D35261F99D03700BC6CBF /* PinCommentCell.xib */,
-			);
-			path = PinCommentCell;
-			sourceTree = "<group>";
-		};
 		B96D352F1F9B036F00BC6CBF /* FancyTextView */ = {
 			isa = PBXGroup;
 			children = (
@@ -237,6 +228,15 @@
 				B96D35321F9B039A00BC6CBF /* FancyTextView.xib */,
 			);
 			path = FancyTextView;
+			sourceTree = "<group>";
+		};
+		B9784BC11F9B2194009BDF14 /* PinDetailsCard */ = {
+			isa = PBXGroup;
+			children = (
+				B96D35201F99B32F00BC6CBF /* PinDetailsCard.swift */,
+				B96D35221F99B33A00BC6CBF /* PinDetailsCard.xib */,
+			);
+			path = PinDetailsCard;
 			sourceTree = "<group>";
 		};
 		B9CB3CE41F9056060023EA79 = {
@@ -293,6 +293,7 @@
 		B9CB3D051F9056500023EA79 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				B9784BC11F9B2194009BDF14 /* PinDetailsCard */,
 				B96D35241F99CAEF00BC6CBF /* PinCommentCell */,
 				B9CB3D2C1F9414110023EA79 /* Profile */,
 				B9CB3D2B1F9340D10023EA79 /* FancyTextField */,
@@ -304,8 +305,6 @@
 				B7DE45E31F9BE03C00F2472F /* TagSelectedCollectionCell.swift */,
 				B7DE45E71F9BFB0300F2472F /* InfiniteScrollActivityView.swift */,
 				37B4E2541F99C6AA0090B168 /* PinCell.swift */,
-				B96D35201F99B32F00BC6CBF /* PinDetailsCard.swift */,
-				B96D35221F99B33A00BC6CBF /* PinDetailsCard.xib */,
 			);
 			path = Views;
 			sourceTree = "<group>";
