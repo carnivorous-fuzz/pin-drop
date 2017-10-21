@@ -2,14 +2,6 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
-	<key>NSPhotoLibraryAddUsageDescription</key>
-	<string>We will be adding images to your photo library</string>
-	<key>NSCameraUsageDescription</key>
-	<string>We will be using your camera</string>
-	<key>NSPhotoLibraryUsageDescription</key>
-	<string>You photo library is in use</string>
-	<key>NSLocationWhenInUseUsageDescription</key>
-	<string>Shows your location on the map and helps improve OpenStreetMap.</string>
 	<key>CFBundleDevelopmentRegion</key>
 	<string>$(DEVELOPMENT_LANGUAGE)</string>
 	<key>CFBundleExecutable</key>
@@ -28,10 +20,44 @@
 	<string>1</string>
 	<key>LSRequiresIPhoneOS</key>
 	<true/>
+	<key>MGLMapboxAccessToken</key>
+	<string>sk.eyJ1Ijoid3VtaW5neCIsImEiOiJjajh3M3VtYnoxam85MzFtYmt1eGR5MWsyIn0.jt-JkfZ_kW6d5CE-qDIa1w</string>
+	<key>NSAppTransportSecurity</key>
+	<dict>
+		<key>NSExceptionDomains</key>
+		<dict>
+			<key>amazonaws.com</key>
+			<dict>
+				<key>NSIncludesSubdomains</key>
+				<true/>
+				<key>NSThirdPartyExceptionMinimumTLSVersion</key>
+				<string>TLSv1.0</string>
+				<key>NSThirdPartyExceptionRequiresForwardSecrecy</key>
+				<false/>
+			</dict>
+			<key>amazonaws.com.cn</key>
+			<dict>
+				<key>NSIncludesSubdomains</key>
+				<true/>
+				<key>NSThirdPartyExceptionMinimumTLSVersion</key>
+				<string>TLSv1.0</string>
+				<key>NSThirdPartyExceptionRequiresForwardSecrecy</key>
+				<false/>
+			</dict>
+		</dict>
+	</dict>
+	<key>NSCameraUsageDescription</key>
+	<string>We will be using your camera</string>
+	<key>NSLocationWhenInUseUsageDescription</key>
+	<string>Shows your location on the map and helps improve OpenStreetMap.</string>
+	<key>NSPhotoLibraryAddUsageDescription</key>
+	<string>We will be adding images to your photo library</string>
+	<key>NSPhotoLibraryUsageDescription</key>
+	<string>You photo library is in use</string>
 	<key>UILaunchStoryboardName</key>
 	<string>LaunchScreen</string>
 	<key>UIMainStoryboardFile</key>
-	<string>Main</string>
+	<string>ScavengerHunt</string>
 	<key>UIRequiredDeviceCapabilities</key>
 	<array>
 		<string>armv7</string>
@@ -49,31 +75,5 @@
 		<string>UIInterfaceOrientationLandscapeLeft</string>
 		<string>UIInterfaceOrientationLandscapeRight</string>
 	</array>
-	<key>MGLMapboxAccessToken</key>
-	<string>sk.eyJ1Ijoid3VtaW5neCIsImEiOiJjajh3M3VtYnoxam85MzFtYmt1eGR5MWsyIn0.jt-JkfZ_kW6d5CE-qDIa1w</string>
-	<key>NSAppTransportSecurity</key>
-	<dict>
-		<key>NSExceptionDomains</key>
-		<dict>
-			<key>amazonaws.com</key>
-			<dict>
-				<key>NSThirdPartyExceptionMinimumTLSVersion</key>
-				<string>TLSv1.0</string>
-				<key>NSThirdPartyExceptionRequiresForwardSecrecy</key>
-				<false/>
-				<key>NSIncludesSubdomains</key>
-				<true/>
-			</dict>
-			<key>amazonaws.com.cn</key>
-			<dict>
-				<key>NSThirdPartyExceptionMinimumTLSVersion</key>
-				<string>TLSv1.0</string>
-				<key>NSThirdPartyExceptionRequiresForwardSecrecy</key>
-				<false/>
-				<key>NSIncludesSubdomains</key>
-				<true/>
-			</dict>
-		</dict>
-	</dict>
 </dict>
 </plist>

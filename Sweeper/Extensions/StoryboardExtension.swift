@@ -25,7 +25,11 @@ extension UIStoryboard {
     static var viewPin: UIStoryboard {
         return getStoryboardNamed("ViewPin")
     }
-    
+
+    static var scavengerHunt: UIStoryboard {
+        return getStoryboardNamed("ScavengerHunt")
+    }
+
     fileprivate static func getStoryboardNamed(_ name: String, bundle: Bundle? = nil) -> UIStoryboard {
         return UIStoryboard(name: name, bundle: bundle)
     }
@@ -41,5 +45,9 @@ extension UIStoryboard {
     
     static var pinDetailsVC: PinDetailsViewController {
         return UIStoryboard.viewPin.instantiateViewController(withIdentifier: "PinDetailsViewController") as! PinDetailsViewController
+    }
+
+    static var tagsSelectorVC: TagSelectorViewController {
+        return UIStoryboard.scavengerHunt.instantiateViewController(withIdentifier: "TagSelectorViewController") as! TagSelectorViewController
     }
 }

@@ -31,4 +31,14 @@ extension UIView {
         self.layer.shouldRasterize = true
         self.layer.rasterizationScale = scale ? UIScreen.main.scale : 1
     }
+    func circleBorder() {
+        self.layer.borderColor = UIConstants.Theme.turquose.cgColor
+        self.layer.borderWidth = 2
+        self.layer.cornerRadius = 20
+    }
+    func slightlyRoundBorder() {
+        self.layer.borderWidth = 1
+        self.layer.cornerRadius = 10
+        self.layer.borderColor = UIConstants.Theme.turquose.cgColor
+    }
 }

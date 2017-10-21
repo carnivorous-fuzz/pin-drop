@@ -29,16 +29,16 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         let awsConfiguration = AWSServiceConfiguration(region:.USEast1, credentialsProvider:credentialsProvider)
         AWSServiceManager.default().defaultServiceConfiguration = awsConfiguration
         
-        if User.currentUser != nil {
-            window?.rootViewController = UIStoryboard.pinViewsNC
-        }
-        
-        NotificationCenter.default.addObserver(
-            forName: NSNotification.Name(rawValue: User.userDidLogoutKey),
-            object: nil,
-            queue: OperationQueue.main) { _ in
-                self.window?.rootViewController = UIStoryboard.loginVC
-        }
+//        if User.currentUser != nil {
+//            window?.rootViewController = UIStoryboard.pinViewsNC
+//        }
+//
+//        NotificationCenter.default.addObserver(
+//            forName: NSNotification.Name(rawValue: User.userDidLogoutKey),
+//            object: nil,
+//            queue: OperationQueue.main) { _ in
+//                self.window?.rootViewController = UIStoryboard.loginVC
+//        }
 
         return true
     }
