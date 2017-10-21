@@ -73,4 +73,13 @@ class TagService {
             completion(tags, error)
         }
     }
+
+    func search(with term: String, completion: @escaping ([Tag]?, Error?) -> Void) {
+        let query = Tag.query() as! PFQuery<Tag>
+        query.order(byDescending: "createdAt")
+        query.whereKey("name", equalTo: term.lowercased())
+        query.findObjectsInBackground { (tags: [Tag]?, error: Error?) in
+            completion(tags, error)
+        }
+    }
 }

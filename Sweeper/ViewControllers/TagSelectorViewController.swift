@@ -15,8 +15,10 @@ import UIKit
 class TagSelectorViewController: UIViewController {
     @IBOutlet weak var selectorView: UIView!
     @IBOutlet weak var tableView: UITableView!
+    @IBOutlet weak var searchBar: UISearchBar!
 
     var delegate: TagSelectorViewControllerDelegate?
+
     fileprivate var isMoreDataLoading = false
     fileprivate var loadingMoreView:InfiniteScrollActivityView?
     fileprivate var tags = [Tag]()
@@ -25,6 +27,7 @@ class TagSelectorViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         selectorView.slightlyRoundBorder()
+        tableView.tableFooterView = UIView(frame: CGRect.zero)
 
         // Set up Infinite Scroll loading indicator
         let frame = CGRect(x: 0, y: tableView.contentSize.height, width: tableView.bounds.size.width, height: InfiniteScrollActivityView.defaultHeight)
@@ -71,7 +74,10 @@ extension TagSelectorViewController: UITableViewDelegate, UITableViewDataSource 
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
         let tag = self.tags[indexPath.row]
-        delegate?.tagSelected?(tagSelectorViewController: self, didSelectTag: tag)
+        if (tag.name != nil) && (!tag.name!.isEmpty) {
+            delegate?.tagSelected?(tagSelectorViewController: self, didSelectTag: tag)
+        }
+
         removeSelf()
     }
 }
@@ -94,5 +100,24 @@ extension TagSelectorViewController: UIScrollViewDelegate {
                 loadTags(page: currentPage)
             }
         }
+    }
+}
+
+// MARK: UISearchBarDelegate
+extension TagSelectorViewController: UISearchBarDelegate {
+    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
+        if searchText.isEmpty {
+            self.loadTags(page: 0)
+        } else {
+            TagService.sharedInstance.search(with: searchText) { (tags: [Tag]?, error: Error?) in
+                if tags != nil {
+                    self.tags = tags!
+                    self.tableView.reloadData()
+                }
+            }
+        }
+    }
+    func searchBarTextDidEndEditing(_ searchBar: UISearchBar) {
+        self.loadTags(page: 0)
     }
 }
