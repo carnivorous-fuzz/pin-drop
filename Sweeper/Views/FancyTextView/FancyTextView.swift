@@ -9,8 +9,6 @@
 import UIKit
 
 protocol FancyTextViewDelegate: class {
-    func fancyTextView(_ fancyTextView: FancyTextView, keyboardWillShow: Bool)
-    func fancyTextView(_ fancyTextView: FancyTextView, keyboardWillHide: Bool)
     func fancyTextView(_ fancyTextView: FancyTextView, didComplete: Bool)
 }
 
@@ -20,7 +18,6 @@ class FancyTextView: UIView {
     @IBOutlet var contentView: UIView!
     @IBOutlet weak var inputTextView: UITextView!
     @IBOutlet weak var bottomView: UIView!
-    @IBOutlet weak var bottomViewBottomConstraint: NSLayoutConstraint!
     @IBOutlet weak var limitCountLabel: UILabel!
     @IBOutlet weak var completionButton: UIButton!
     
@@ -39,15 +36,6 @@ class FancyTextView: UIView {
         initSubviews()
     }
     
-    deinit {
-        NotificationCenter.default.removeObserver(self,
-                                                  name: .UIKeyboardWillShow,
-                                                  object: nil)
-        NotificationCenter.default.removeObserver(self,
-                                                  name: .UIKeyboardWillHide,
-                                                  object: nil)
-    }
-    
     private func initSubviews() {
         UINib(nibName: "FancyTextView", bundle: nil).instantiate(withOwner: self, options: nil)
         contentView.frame = bounds
@@ -55,15 +43,6 @@ class FancyTextView: UIView {
         
         inputTextView.delegate = self
         updateLimitCount(animated: false)
-        
-        NotificationCenter.default.addObserver(self,
-                                               selector: #selector(keyboardWillShow),
-                                               name: .UIKeyboardWillShow,
-                                               object: nil)
-        NotificationCenter.default.addObserver(self,
-                                               selector: #selector(keyboardWillHide),
-                                               name: .UIKeyboardWillHide,
-                                               object: nil)
     }
     
     // MARK: Action outlet
@@ -79,44 +58,7 @@ class FancyTextView: UIView {
         }
     }
     
-    // MARK: Notification functions
-    @objc private func keyboardWillShow(notification: Notification) {
-        guard let delegate = delegate else {
-            // Manage constraints as if we were the entire screen
-            updateLayout(keyboardWillShow: true, notification: notification)
-            return
-        }
-        
-        delegate.fancyTextView(self, keyboardWillShow: true)
-    }
-    
-    @objc private func keyboardWillHide(notification: Notification) {
-        guard let delegate = delegate else {
-            // Manage constraints as if we were the entire screen
-            updateLayout(keyboardWillShow: false, notification: notification)
-            return
-        }
-        
-        // If we have a delegate let it handle any movements if necessary
-        delegate.fancyTextView(self, keyboardWillHide: true)
-    }
-    
     // MARK: Helper
-    private func updateLayout(keyboardWillShow: Bool, notification: Notification) {
-        let keyboardNotification = KeyboardNotification(notification)
-        let height = keyboardNotification.frameEnd.size.height
-        UIView.animate(
-            withDuration: keyboardNotification.animationDuration,
-            delay: 0.0,
-            options: [keyboardNotification.animationCurve],
-            animations: {
-                self.bottomViewBottomConstraint.constant = keyboardWillShow ? -height : 0.0
-                self.contentView.layoutIfNeeded()
-            },
-            completion: nil
-        )
-    }
-    
     private func updateCompletionButton() {
         let charCount = inputTextView.text.characters.count
         let enabled = charCount > textLimit || charCount == 0

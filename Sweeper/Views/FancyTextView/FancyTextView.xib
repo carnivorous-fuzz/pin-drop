@@ -12,7 +12,6 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="FancyTextView" customModule="Sweeper" customModuleProvider="target">
             <connections>
                 <outlet property="bottomView" destination="4I7-Ug-ZbW" id="vat-fO-NWd"/>
-                <outlet property="bottomViewBottomConstraint" destination="MX9-cd-XtK" id="WyQ-5n-ekA"/>
                 <outlet property="completionButton" destination="114-eh-n5n" id="mmQ-w1-7ac"/>
                 <outlet property="contentView" destination="iN0-l3-epB" id="JyU-5n-BwS"/>
                 <outlet property="inputTextView" destination="ubu-v1-SB4" id="ys8-Pf-mam"/>

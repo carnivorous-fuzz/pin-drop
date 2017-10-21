@@ -40,6 +40,7 @@
                     </navigationItem>
                     <connections>
                         <outlet property="fancyTextView" destination="WHQ-rN-ODB" id="iTy-w4-QZz"/>
+                        <outlet property="textViewBottomConstraint" destination="csr-aE-MyI" id="Jgp-6w-Tod"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="lTm-ou-B8F" userLabel="First Responder" sceneMemberID="firstResponder"/>
