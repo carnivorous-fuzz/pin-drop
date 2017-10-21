@@ -8,30 +8,32 @@
 
 import UIKit
 
+@objc protocol TagSelectorViewControllerDelegate {
+    @objc optional func tagSelected(tagSelectorViewController: TagSelectorViewController, didSelectTag tag: Tag?)
+}
+
 class TagSelectorViewController: UIViewController {
     @IBOutlet weak var selectorView: UIView!
     @IBOutlet weak var tableView: UITableView!
-    @IBOutlet weak var selectedTagView: UICollectionView!
+
+    var delegate: TagSelectorViewControllerDelegate?
     
     fileprivate var tags: [Tag]?
-    fileprivate var selectedTags = [Tag]()
-    
+
     override func viewDidLoad() {
         super.viewDidLoad()
         selectorView.slightlyRoundBorder()
+        selectorView.layer.masksToBounds = true
         TagService.sharedInstance.fetchTags(with: 0) { (tags: [Tag]?, error: Error?) in
             self.tags = tags
             self.tableView.reloadData()
         }
     }
-
     @IBAction func onCancel(_ sender: Any) {
         removeSelf()
     }
-    @IBAction func onSave(_ sender: Any) {
-        removeSelf()
-    }
-    fileprivate func removeSelf() {
+
+	func removeSelf() {
         self.willMove(toParentViewController: nil)
         self.view.removeFromSuperview()
         self.removeFromParentViewController()
@@ -58,8 +60,7 @@ extension TagSelectorViewController: UITableViewDelegate, UITableViewDataSource 
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
         let tag = self.tags?[indexPath.row]
-        selectedTags.append(tag!)
-        let count = selectedTags.count
-        self.selectedTagView.insertItems(at: [IndexPath(item: tag, section: 0)])
+        delegate?.tagSelected?(tagSelectorViewController: self, didSelectTag: tag)
+        removeSelf()
     }
 }

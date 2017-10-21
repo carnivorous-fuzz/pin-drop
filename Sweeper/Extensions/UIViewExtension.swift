@@ -35,10 +35,12 @@ extension UIView {
         self.layer.borderColor = UIConstants.Theme.turquose.cgColor
         self.layer.borderWidth = 2
         self.layer.cornerRadius = 20
+        self.layer.masksToBounds = true
     }
     func slightlyRoundBorder() {
         self.layer.borderWidth = 1
         self.layer.cornerRadius = 10
         self.layer.borderColor = UIConstants.Theme.turquose.cgColor
+        self.layer.masksToBounds = true
     }
 }
