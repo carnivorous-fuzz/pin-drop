@@ -32,10 +32,10 @@ struct Theme {
         UINavigationBar.appearance().tintColor = UIColor.white
         UINavigationBar.appearance().titleTextAttributes = [NSAttributedStringKey.foregroundColor: UIColor.white]
         
-        UITabBarItem.appearance().setTitleTextAttributes([NSAttributedStringKey.foregroundColor: Colors().darkGray], for: .normal)
+        UITabBarItem.appearance().setTitleTextAttributes([NSAttributedStringKey.foregroundColor: Colors().lightGray], for: .normal)
         UITabBarItem.appearance().setTitleTextAttributes([NSAttributedStringKey.foregroundColor: Colors().green], for: .selected)
         
-        UITabBar.appearance().barTintColor = Colors().lightGray
-//        UITabBar.appearance().tintColor = Colors().lightGray
+        UITabBar.appearance().barTintColor = UIColor.white
+        UITabBar.appearance().tintColor = Colors().green
     }
 }

@@ -71,24 +71,24 @@ extension UIStoryboard {
     static var homeViewNC: UINavigationController {
         let controller = UIStoryboard.home.instantiateViewController(withIdentifier: "HomeNC") as! UINavigationController
         controller.tabBarItem.title = "Home"
-        controller.tabBarItem.image = UIImage(named: "home")
-        controller.tabBarItem.selectedImage = UIImage(named: "home-selected")
+        controller.tabBarItem.image = UIImage(named: "home")?.withRenderingMode(.alwaysOriginal)
+        controller.tabBarItem.selectedImage = UIImage(named: "home-selected")?.withRenderingMode(.alwaysOriginal)
         return controller
     }
     
     static var scavengerHuntNC: UINavigationController {
         let controller = UIStoryboard.scavengerHunt.instantiateViewController(withIdentifier: "ScavengerHuntNC") as! UINavigationController
         controller.tabBarItem.title = "Adventure"
-        controller.tabBarItem.image = UIImage(named: "scavenger")
-        controller.tabBarItem.selectedImage = UIImage(named: "scavenger-selected")
+        controller.tabBarItem.image = UIImage(named: "scavenger")?.withRenderingMode(.alwaysOriginal)
+        controller.tabBarItem.selectedImage = UIImage(named: "scavenger-selected")?.withRenderingMode(.alwaysOriginal)
         return controller
     }
     
     static var createPinNC: UINavigationController {
         let controller = UIStoryboard.createPin.instantiateViewController(withIdentifier: "CreatePinNC") as! UINavigationController
         controller.tabBarItem.title = nil
-        controller.tabBarItem.image = UIImage(named: "create-pin")
-        controller.tabBarItem.selectedImage = UIImage(named: "create-pin-selected")
+        controller.tabBarItem.image = UIImage(named: "create-pin")?.withRenderingMode(.alwaysOriginal)
+        controller.tabBarItem.selectedImage = UIImage(named: "create-pin-selected")?.withRenderingMode(.alwaysOriginal)
         return controller
     }
     
@@ -96,16 +96,16 @@ extension UIStoryboard {
         let controller = UIStoryboard.viewedPins.instantiateViewController(withIdentifier: "ViewedPinsNC") as! UINavigationController
         controller.tabBarItem.title = "Visited"
         controller.tabBarItem.title = "Visited"
-        controller.tabBarItem.image = UIImage(named: "visited")
-        controller.tabBarItem.selectedImage = UIImage(named: "visited-selected")
+        controller.tabBarItem.image = UIImage(named: "visited")?.withRenderingMode(.alwaysOriginal)
+        controller.tabBarItem.selectedImage = UIImage(named: "visited-selected")?.withRenderingMode(.alwaysOriginal)
         return controller
     }
     
     static var profileNC: UINavigationController {
         let controller = UIStoryboard.profile.instantiateViewController(withIdentifier: "ProfileNC") as! UINavigationController
         controller.tabBarItem.title = "Profile"
-        controller.tabBarItem.image = UIImage(named: "profile")
-        controller.tabBarItem.selectedImage = UIImage(named: "profile-selected")
+        controller.tabBarItem.image = UIImage(named: "profile")?.withRenderingMode(.alwaysOriginal)
+        controller.tabBarItem.selectedImage = UIImage(named: "profile-selected")?.withRenderingMode(.alwaysOriginal)
         return controller
     }
 
