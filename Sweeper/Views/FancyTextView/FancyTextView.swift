@@ -9,7 +9,7 @@
 import UIKit
 
 protocol FancyTextViewDelegate: class {
-    func fancyTextView(_ fancyTextView: FancyTextView, didComplete: Bool)
+    func fancyTextViewDidComplete(_ fancyTextView: FancyTextView)
 }
 
 class FancyTextView: UIView {
@@ -55,7 +55,7 @@ class FancyTextView: UIView {
     
     // MARK: Action outlet
     @IBAction func onComplete(_ sender: UIButton) {
-        delegate?.fancyTextView(self, didComplete: true)
+        delegate?.fancyTextViewDidComplete(self)
     }
     
     // MARK: Public functions

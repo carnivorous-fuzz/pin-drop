@@ -59,6 +59,7 @@ class PinService {
         pinsQuery.limit = 20
         pinsQuery.includeKey("tags")
         pinsQuery.includeKey("creator")
+        pinsQuery.includeKey("comments")
         pinsQuery.clearCachedResult()
         
         pinsQuery.findObjectsInBackground { (pins: [Pin]?, error: Error?) in
@@ -112,5 +113,28 @@ class PinService {
         viewedPin.pinId = pin.objectId
         viewedPin.toPin = pin
         viewedPin.saveInBackground()
+    }
+    
+    func getComments(forPin pin: Pin, completion: @escaping ([PinComment]?, Error?) -> ()) {
+        let commentsQuery = PinComment.query() as! PFQuery<PinComment>
+        commentsQuery.whereKey("commentedPin", equalTo: pin)
+        commentsQuery.addDescendingOrder("createdAt")
+        commentsQuery.findObjectsInBackground(block: { (pinComments, error) in
+            if let pinComments = pinComments {
+                completion(pinComments, nil)
+            } else {
+                completion(nil, error)
+            }
+        })
+    }
+    
+    func commentedOnPin(_ pin: Pin, completion: @escaping (Bool) -> ()) {
+        if let commentsQuery = PinComment.query() as? PFQuery<PinComment> {
+            commentsQuery.whereKey("user", equalTo: User.currentUser as Any)
+            commentsQuery.whereKey("commentedPin", equalTo: pin)
+            commentsQuery.countObjectsInBackground(block: { (count, error) in
+                completion(count > 0)
+            })
+        }
     }
 }

@@ -4,7 +4,7 @@
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13173"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13174"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -26,7 +26,7 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="gOr-Jw-1uQ">
-                    <rect key="frame" x="0.0" y="0.0" width="72" height="51"/>
+                    <rect key="frame" x="0.0" y="0.0" width="62.5" height="51"/>
                     <subviews>
                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="heart" translatesAutoresizingMaskIntoConstraints="NO" id="qQb-F5-BMz">
                             <rect key="frame" x="0.0" y="15.5" width="20" height="20"/>
@@ -35,8 +35,8 @@
                                 <constraint firstAttribute="height" constant="20" id="Yl1-En-y6R"/>
                             </constraints>
                         </imageView>
-                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="22" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wEf-Pd-net">
-                            <rect key="frame" x="28" y="15.5" width="20" height="20"/>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wEf-Pd-net">
+                            <rect key="frame" x="28" y="15.5" width="10.5" height="20"/>
                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                             <nil key="textColor"/>
                             <nil key="highlightedColor"/>
@@ -55,10 +55,10 @@
                     </constraints>
                 </view>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="3Wg-L8-12j">
-                    <rect key="frame" x="72" y="0.0" width="57" height="51"/>
+                    <rect key="frame" x="62.5" y="0.0" width="46.5" height="51"/>
                     <subviews>
-                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="20" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eJn-Qu-IcW">
-                            <rect key="frame" x="28" y="15.5" width="21" height="20"/>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eJn-Qu-IcW">
+                            <rect key="frame" x="28" y="15.5" width="10.5" height="20"/>
                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                             <nil key="textColor"/>
                             <nil key="highlightedColor"/>
