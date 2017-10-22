@@ -28,6 +28,7 @@ extension UIStoryboard {
 
     static var scavengerHunt: UIStoryboard {
         return getStoryboardNamed("ScavengerHunt")
+    }
 
     static var pinComment: UIStoryboard {
         return getStoryboardNamed("PinComment")
