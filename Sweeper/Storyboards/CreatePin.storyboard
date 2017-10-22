@@ -126,7 +126,7 @@
         <!--Navigation Controller-->
         <scene sceneID="bL8-mh-Bao">
             <objects>
-                <navigationController storyboardIdentifier="CreatePinNavViewController" automaticallyAdjustsScrollViewInsets="NO" id="xJu-Jn-1OJ" sceneMemberID="viewController">
+                <navigationController storyboardIdentifier="CreatePinNC" automaticallyAdjustsScrollViewInsets="NO" id="xJu-Jn-1OJ" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="cEo-d5-Oel">
                         <rect key="frame" x="0.0" y="20" width="375" height="44"/>

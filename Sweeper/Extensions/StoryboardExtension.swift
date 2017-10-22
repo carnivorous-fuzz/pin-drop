@@ -17,9 +17,9 @@ extension UIStoryboard {
     static var createPin: UIStoryboard {
         return getStoryboardNamed("CreatePin")
     }
-
-    static var pinViews: UIStoryboard {
-        return getStoryboardNamed("PinViews")
+    
+    static var home: UIStoryboard {
+        return getStoryboardNamed("Home")
     }
 
     static var pinDetails: UIStoryboard {
@@ -28,6 +28,14 @@ extension UIStoryboard {
 
     static var scavengerHunt: UIStoryboard {
         return getStoryboardNamed("ScavengerHunt")
+    }
+    
+    static var profile: UIStoryboard {
+        return getStoryboardNamed("Profile")
+    }
+    
+    static var viewedPins: UIStoryboard {
+        return getStoryboardNamed("ViewedPins")
     }
 
     static var pinComment: UIStoryboard {
@@ -39,24 +47,67 @@ extension UIStoryboard {
     }
 
     // MARK: View controllers
-    static var pinsMapViewNC: UINavigationController {
-        return UIStoryboard.pinViews.instantiateViewController(withIdentifier: "PinsMapViewNavigationController") as! UINavigationController
-    }
-
-    static var pinsListViewNC: UINavigationController {
-        return UIStoryboard.pinViews.instantiateViewController(withIdentifier: "PinsListViewNavigationController") as! UINavigationController
-    }
-
     static var loginVC: LoginViewController {
         return UIStoryboard.main.instantiateInitialViewController() as! LoginViewController
+    }
+    
+    static var pinsMapVC: PinsMapViewController {
+        return UIStoryboard.home.instantiateViewController(withIdentifier: "PinsMapViewController") as! PinsMapViewController
+    }
+    
+    static var pinsListVC: PinsListViewController {
+        return UIStoryboard.home.instantiateViewController(withIdentifier: "PinsListViewController") as! PinsListViewController
     }
 
     static var pinDetailsVC: PinDetailsViewController {
         return UIStoryboard.pinDetails.instantiateViewController(withIdentifier: "PinDetailsViewController") as! PinDetailsViewController
     }
-
+    
     static var tagsSelectorVC: TagSelectorViewController {
         return UIStoryboard.scavengerHunt.instantiateViewController(withIdentifier: "TagSelectorViewController") as! TagSelectorViewController
+    }
+    
+    // MARK tab-bar Navigation controllers
+    static var homeViewNC: UINavigationController {
+        let controller = UIStoryboard.home.instantiateViewController(withIdentifier: "HomeNC") as! UINavigationController
+        controller.tabBarItem.title = "Home"
+        controller.tabBarItem.image = UIImage(named: "home")?.withRenderingMode(.alwaysOriginal)
+        controller.tabBarItem.selectedImage = UIImage(named: "home-selected")?.withRenderingMode(.alwaysOriginal)
+        return controller
+    }
+    
+    static var scavengerHuntNC: UINavigationController {
+        let controller = UIStoryboard.scavengerHunt.instantiateViewController(withIdentifier: "ScavengerHuntNC") as! UINavigationController
+        controller.tabBarItem.title = "Adventure"
+        controller.tabBarItem.image = UIImage(named: "scavenger")?.withRenderingMode(.alwaysOriginal)
+        controller.tabBarItem.selectedImage = UIImage(named: "scavenger-selected")?.withRenderingMode(.alwaysOriginal)
+        return controller
+    }
+    
+    static var createPinNC: UINavigationController {
+        let controller = UIStoryboard.createPin.instantiateViewController(withIdentifier: "CreatePinNC") as! UINavigationController
+        controller.tabBarItem.title = nil
+        controller.tabBarItem.imageInsets = UIEdgeInsetsMake(6, 0, -6, 0)
+        controller.tabBarItem.image = UIImage(named: "create-pin")?.withRenderingMode(.alwaysOriginal)
+        controller.tabBarItem.selectedImage = UIImage(named: "create-pin-selected")?.withRenderingMode(.alwaysOriginal)
+        return controller
+    }
+    
+    static var viewedPinsNC: UINavigationController {
+        let controller = UIStoryboard.viewedPins.instantiateViewController(withIdentifier: "ViewedPinsNC") as! UINavigationController
+        controller.tabBarItem.title = "Visited"
+        controller.tabBarItem.title = "Visited"
+        controller.tabBarItem.image = UIImage(named: "visited")?.withRenderingMode(.alwaysOriginal)
+        controller.tabBarItem.selectedImage = UIImage(named: "visited-selected")?.withRenderingMode(.alwaysOriginal)
+        return controller
+    }
+    
+    static var profileNC: UINavigationController {
+        let controller = UIStoryboard.profile.instantiateViewController(withIdentifier: "ProfileNC") as! UINavigationController
+        controller.tabBarItem.title = "Profile"
+        controller.tabBarItem.image = UIImage(named: "profile")?.withRenderingMode(.alwaysOriginal)
+        controller.tabBarItem.selectedImage = UIImage(named: "profile-selected")?.withRenderingMode(.alwaysOriginal)
+        return controller
     }
 
     // MARK: Pin comment related controllers
@@ -67,4 +118,5 @@ extension UIStoryboard {
     static var pinCommentVC: PinCommentViewController {
         return UIStoryboard.pinComment.instantiateViewController(withIdentifier: "PinCommentViewController") as! PinCommentViewController
     }
+
 }
