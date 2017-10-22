@@ -14,7 +14,7 @@ target 'Sweeper' do
   pod 'AWSCognito'
   pod 'AWSCore'
   pod 'AWSS3'
-  pod 'SwiftDate', ‘~> 4.3.0’
+  pod 'SwiftDate', '~> 4.3.0'
 
   pod 'ParseLiveQuery'
   pod 'Mapbox-iOS-SDK', '~> 3.6'
