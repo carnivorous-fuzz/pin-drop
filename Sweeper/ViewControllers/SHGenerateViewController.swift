@@ -17,6 +17,7 @@ class SHGenerateViewController: UIViewController {
 
     fileprivate var currentLocation: CLLocation?
     fileprivate var locationManager: CLLocationManager!
+    fileprivate var scavengerHunt: ScavengerHunt?
 
     fileprivate let maxTagOrStops = 5
     fileprivate var selectedTagCount: Int!
@@ -68,23 +69,37 @@ class SHGenerateViewController: UIViewController {
 
     @IBAction func onGenerate(_ sender: Any) {
         // TODO: loading animation
+        // TODO: Improve pin filter based on count
         var selectedStopCount = 1
         let selectedStopCountIndex = stopsCollectionView.indexPathsForSelectedItems
 
         if let selectedStopCountIndexFirst = selectedStopCountIndex?.first {
             selectedStopCount = selectedStopCountIndexFirst.row + 1
-            print(selectedStopCount) // number of pins we want to generate
         }
 
         let sliderValue = Double(radiusSlider.value).rounded(toPlaces: 1)
-        print(sliderValue)
-        print(selectedTags)
-        PinService.sharedInstance.fetchPins(with: selectedTags, in: sliderValue, for: self.currentLocation!) { (pins: [Pin]?, error: Error?) in
-            print(pins)
+        if self.currentLocation != nil {
+            PinService.sharedInstance.fetchPins(with: selectedTags, in: sliderValue, for: self.currentLocation!) {
+                (pins: [Pin]?, error: Error?) in
+                if pins != nil {
+                    let scavengerHunt = ScavengerHunt()
+                    scavengerHunt.pinCount = pins!.count as NSNumber
+                    scavengerHunt.radius = sliderValue as NSNumber
+                    scavengerHunt.pins = pins!
+                    scavengerHunt.user = User.currentUser
+                    scavengerHunt.saveInBackground()
+                    self.scavengerHunt = scavengerHunt
+                    self.performSegue(withIdentifier: "SHNavigationSegue", sender: self)
+                } else {
+                    print("Sorry, there's no match within your location")
+                }
+            }
+        } else {
+            print("Can't get your current location")
         }
     }
-    
-    func deleteTag(with selectedCell: TagSelectedCollectionCell) {
+
+    fileprivate func deleteTag(with selectedCell: TagSelectedCollectionCell) {
         UIView.animate(withDuration: 1) {
             if let index = self.selectedTags.index(of: selectedCell.selectedTag) {
                 self.selectedTags.remove(at: index)
@@ -92,6 +107,13 @@ class SHGenerateViewController: UIViewController {
             }
         }
     }
+    override func prepare(for segue: UIStoryboardSegue, sender: Any!) {
+        if segue.identifier == "SHNavigationSegue" {
+            let destination = segue.destination as! UINavigationController
+            let SHNavVC = destination.topViewController as! SHNavigationViewController
+            SHNavVC.scavengerHunt = self.scavengerHunt
+        }
+	}
 }
 
 // MARK: UICollectionView delegate

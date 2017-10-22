@@ -10,8 +10,8 @@ import Foundation
 import Parse
 
 class ScavengerHunt: PFObject, PFSubclassing {
-    @NSManaged var radius: String?
-    @NSManaged var pinCount: String?
+    @NSManaged var radius: NSNumber?
+    @NSManaged var pinCount: NSNumber?
     @NSManaged var user: User?
     @NSManaged var pins: [Pin]?
 

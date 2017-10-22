@@ -74,10 +74,9 @@ class PinService {
         let kiloRadius: Double = Conversions.milesToKilometers(mile: radius)
         let pinsQuery = Pin.query() as! PFQuery<Pin>
 
-        pinsQuery.order(byDescending: "updatedAt")
         pinsQuery.limit = 5
         pinsQuery.whereKey("tags", containedIn: tags)
-        pinsQuery.whereKey("geoPoint", nearGeoPoint: userGeo, withinKilometers: kiloRadius)
+        pinsQuery.whereKey("location", nearGeoPoint: userGeo, withinKilometers: kiloRadius)
         pinsQuery.clearCachedResult()
         pinsQuery.findObjectsInBackground { (pins: [Pin]?, error: Error?) in
             completion(pins, error)

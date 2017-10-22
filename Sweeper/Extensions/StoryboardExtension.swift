@@ -55,8 +55,13 @@ extension UIStoryboard {
         return UIStoryboard.pinDetails.instantiateViewController(withIdentifier: "PinDetailsViewController") as! PinDetailsViewController
     }
 
+    // MARK: Scavenger Hunt related View Controllers
     static var tagsSelectorVC: TagSelectorViewController {
         return UIStoryboard.scavengerHunt.instantiateViewController(withIdentifier: "TagSelectorViewController") as! TagSelectorViewController
+    }
+
+    static var SHNavigationNC: UINavigationController {
+        return UIStoryboard.scavengerHunt.instantiateViewController(withIdentifier: "SHNavigationNavViewController") as! UINavigationController
     }
 
     // MARK: Pin comment related controllers

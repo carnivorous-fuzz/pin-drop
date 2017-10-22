@@ -23,6 +23,8 @@
 		7C1A43211F994CC000E3E6E0 /* StoryboardExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C1A43201F994CC000E3E6E0 /* StoryboardExtension.swift */; };
 		B71D029E1F9C28240090DD9D /* Conversions.swift in Sources */ = {isa = PBXBuildFile; fileRef = B71D029D1F9C28240090DD9D /* Conversions.swift */; };
 		B71D02A01F9C2F740090DD9D /* ScavengerHunt.swift in Sources */ = {isa = PBXBuildFile; fileRef = B71D029F1F9C2F740090DD9D /* ScavengerHunt.swift */; };
+		B71D02A21F9C54770090DD9D /* SHNavigationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B71D02A11F9C54770090DD9D /* SHNavigationViewController.swift */; };
+		B71D02A41F9C7AE20090DD9D /* PinOverviewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B71D02A31F9C7AE20090DD9D /* PinOverviewCell.swift */; };
 		B7286D671F99C83300CD9C0E /* ScavengerHunt.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B7286D661F99C83300CD9C0E /* ScavengerHunt.storyboard */; };
 		B7286D691F99CA1C00CD9C0E /* SHGenerateViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7286D681F99CA1C00CD9C0E /* SHGenerateViewController.swift */; };
 		B763C3561F931F2700DA8311 /* AWSConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = B763C3551F931F2700DA8311 /* AWSConstants.swift */; };
@@ -88,6 +90,8 @@
 		8770897BBAA32FD84972558F /* Pods-Sweeper.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Sweeper.release.xcconfig"; path = "Pods/Target Support Files/Pods-Sweeper/Pods-Sweeper.release.xcconfig"; sourceTree = "<group>"; };
 		B71D029D1F9C28240090DD9D /* Conversions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Conversions.swift; sourceTree = "<group>"; };
 		B71D029F1F9C2F740090DD9D /* ScavengerHunt.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScavengerHunt.swift; sourceTree = "<group>"; };
+		B71D02A11F9C54770090DD9D /* SHNavigationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SHNavigationViewController.swift; sourceTree = "<group>"; };
+		B71D02A31F9C7AE20090DD9D /* PinOverviewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PinOverviewCell.swift; sourceTree = "<group>"; };
 		B7286D661F99C83300CD9C0E /* ScavengerHunt.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = ScavengerHunt.storyboard; sourceTree = "<group>"; };
 		B7286D681F99CA1C00CD9C0E /* SHGenerateViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SHGenerateViewController.swift; sourceTree = "<group>"; };
 		B763C3551F931F2700DA8311 /* AWSConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AWSConstants.swift; sourceTree = "<group>"; };
@@ -159,7 +163,6 @@
 				B7EBCA111F94331B00D5795D /* ViewedPin.swift */,
 				B71D029F1F9C2F740090DD9D /* ScavengerHunt.swift */,
 				B96D35291F9AFEA600BC6CBF /* PinComment.swift */,
-
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -309,6 +312,7 @@
 				B7286D681F99CA1C00CD9C0E /* SHGenerateViewController.swift */,
 				B7DE45DF1F9B214A00F2472F /* TagSelectorViewController.swift */,
 				B96D352D1F9B008E00BC6CBF /* PinCommentViewController.swift */,
+				B71D02A11F9C54770090DD9D /* SHNavigationViewController.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -329,6 +333,7 @@
 				B7DE45E31F9BE03C00F2472F /* TagSelectedCollectionCell.swift */,
 				B7DE45E71F9BFB0300F2472F /* InfiniteScrollActivityView.swift */,
 				37B4E2541F99C6AA0090B168 /* PinCell.swift */,
+				B71D02A31F9C7AE20090DD9D /* PinOverviewCell.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -477,32 +482,54 @@
 				"${BUILT_PRODUCTS_DIR}/AFNetworking/AFNetworking.framework",
 				"${BUILT_PRODUCTS_DIR}/AWSCognito/AWSCognito.framework",
 				"${BUILT_PRODUCTS_DIR}/AWSCore/AWSCore.framework",
+				"${BUILT_PRODUCTS_DIR}/AWSPolly/AWSPolly.framework",
 				"${BUILT_PRODUCTS_DIR}/AWSS3/AWSS3.framework",
 				"${BUILT_PRODUCTS_DIR}/Bolts-Swift/BoltsSwift.framework",
 				"${BUILT_PRODUCTS_DIR}/Bolts/Bolts.framework",
 				"${BUILT_PRODUCTS_DIR}/KMPlaceholderTextView/KMPlaceholderTextView.framework",
 				"${PODS_ROOT}/Mapbox-iOS-SDK/dynamic/Mapbox.framework",
 				"${PODS_ROOT}/Mapbox-iOS-SDK/dynamic/Mapbox.framework.dSYM",
+				"${BUILT_PRODUCTS_DIR}/MapboxCoreNavigation/MapboxCoreNavigation.framework",
+				"${BUILT_PRODUCTS_DIR}/MapboxDirections.swift/MapboxDirections.framework",
+				"${BUILT_PRODUCTS_DIR}/MapboxMobileEvents/MapboxMobileEvents.framework",
+				"${BUILT_PRODUCTS_DIR}/MapboxNavigation/MapboxNavigation.framework",
+				"${BUILT_PRODUCTS_DIR}/OSRMTextInstructions/OSRMTextInstructions.framework",
 				"${BUILT_PRODUCTS_DIR}/Parse/Parse.framework",
 				"${BUILT_PRODUCTS_DIR}/ParseLiveQuery/ParseLiveQuery.framework",
+				"${BUILT_PRODUCTS_DIR}/Polyline/Polyline.framework",
+				"${BUILT_PRODUCTS_DIR}/Pulley/Pulley.framework",
+				"${BUILT_PRODUCTS_DIR}/SDWebImage/SDWebImage.framework",
+				"${BUILT_PRODUCTS_DIR}/Solar/Solar.framework",
 				"${BUILT_PRODUCTS_DIR}/Starscream/Starscream.framework",
 				"${BUILT_PRODUCTS_DIR}/SwiftDate/SwiftDate.framework",
+				"${BUILT_PRODUCTS_DIR}/Turf/Turf.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/AFNetworking.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/AWSCognito.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/AWSCore.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/AWSPolly.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/AWSS3.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/BoltsSwift.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Bolts.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/KMPlaceholderTextView.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Mapbox.framework",
 				"${DWARF_DSYM_FOLDER_PATH}/Mapbox.framework.dSYM",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/MapboxCoreNavigation.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/MapboxDirections.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/MapboxMobileEvents.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/MapboxNavigation.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/OSRMTextInstructions.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Parse.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ParseLiveQuery.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Polyline.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Pulley.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SDWebImage.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Solar.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Starscream.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftDate.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Turf.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -543,6 +570,7 @@
 				B9CB3D321F9425FA0023EA79 /* ImageUtils.swift in Sources */,
 				B7DE45E81F9BFB0300F2472F /* InfiniteScrollActivityView.swift in Sources */,
 				B9E7BF821F9C2BDA0063973C /* PinsMapViewController.swift in Sources */,
+				B71D02A41F9C7AE20090DD9D /* PinOverviewCell.swift in Sources */,
 				B9784BC61F9B2419009BDF14 /* PinActionsView.swift in Sources */,
 				B96D35311F9B039000BC6CBF /* FancyTextView.swift in Sources */,
 				B9CB3D171F90B57C0023EA79 /* FancyTextField.swift in Sources */,
@@ -569,6 +597,7 @@
 				37731ECB1F92BE6D009E0603 /* UserService.swift in Sources */,
 				B9CB3CF11F9056060023EA79 /* AppDelegate.swift in Sources */,
 				B9CB3D201F91E8200023EA79 /* KeyboardNotification.swift in Sources */,
+				B71D02A21F9C54770090DD9D /* SHNavigationViewController.swift in Sources */,
 				B9CB3D1A1F90C8BF0023EA79 /* UIConstants.swift in Sources */,
 				B763C3581F9322C500DA8311 /* StringExtension.swift in Sources */,
 				B7EBCA121F94331B00D5795D /* ViewedPin.swift in Sources */,
