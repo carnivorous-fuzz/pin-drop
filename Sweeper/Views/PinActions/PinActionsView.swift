@@ -9,8 +9,8 @@
 import UIKit
 
 protocol PinActionsViewDelegate: class {
-    func pinActions(_ pinActionsView: PinActionsView, didLike: Bool)
-    func pinActions(_ pinActionsView: PinActionsView, didComment: Bool)
+    func pinActionsDidLike(_ pinActionsView: PinActionsView)
+    func pinActionsDidComment(_ pinActionsView: PinActionsView)
 }
 
 class PinActionsView: UIView {
@@ -59,10 +59,10 @@ class PinActionsView: UIView {
     }
     
     @objc private func onLike() {
-        delegate?.pinActions(self, didLike: true)
+        delegate?.pinActionsDidLike(self)
     }
     
     @objc private func onComment() {
-        delegate?.pinActions(self, didComment: true)
+        delegate?.pinActionsDidComment(self)
     }
 }

@@ -58,11 +58,11 @@ extension PinDetailsViewController: UITableViewDelegate, UITableViewDataSource {
 }
 
 extension PinDetailsViewController: PinActionsViewDelegate {
-    func pinActions(_ pinActionsView: PinActionsView, didLike: Bool) {
+    func pinActionsDidLike(_ pinActionsView: PinActionsView) {
         
     }
     
-    func pinActions(_ pinActionsView: PinActionsView, didComment: Bool) {
+    func pinActionsDidComment(_ pinActionsView: PinActionsView) {
         present(UIStoryboard.pinCommentNC, animated: true, completion: nil)
     }
 }
