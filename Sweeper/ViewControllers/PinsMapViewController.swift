@@ -51,10 +51,7 @@ class PinsMapViewController: UIViewController {
     }
     
     @IBAction func onPost(_ sender: UIBarButtonItem) {
-        let storyboard = UIStoryboard(name: "CreatePin", bundle: nil)
-        let vc = storyboard.instantiateViewController(withIdentifier: "CreatePinNavViewController")
-
-        present(vc, animated: true, completion: nil)
+        present(UIStoryboard.createPinNC, animated: true, completion: nil)
     }
     
     @IBAction func onLogout(_ sender: UIBarButtonItem) {

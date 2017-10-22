@@ -18,8 +18,8 @@ extension UIStoryboard {
         return getStoryboardNamed("CreatePin")
     }
     
-    static var pinViews: UIStoryboard {
-        return getStoryboardNamed("PinViews")
+    static var home: UIStoryboard {
+        return getStoryboardNamed("Home")
     }
     
     static var viewPin: UIStoryboard {
@@ -29,29 +29,80 @@ extension UIStoryboard {
     static var scavengerHunt: UIStoryboard {
         return getStoryboardNamed("ScavengerHunt")
     }
+    
+    static var profile: UIStoryboard {
+        return getStoryboardNamed("Profile")
+    }
+    
+    static var viewedPins: UIStoryboard {
+        return getStoryboardNamed("ViewedPins")
+    }
 
     fileprivate static func getStoryboardNamed(_ name: String, bundle: Bundle? = nil) -> UIStoryboard {
         return UIStoryboard(name: name, bundle: bundle)
     }
     
     // MARK: View controllers
-    static var pinsMapViewNC: UINavigationController {
-        return UIStoryboard.pinViews.instantiateViewController(withIdentifier: "PinsMapViewNavigationController") as! UINavigationController
-    }
-    
-    static var pinsListViewNC: UINavigationController {
-        return UIStoryboard.pinViews.instantiateViewController(withIdentifier: "PinsListViewNavigationController") as! UINavigationController
-    }
-    
     static var loginVC: LoginViewController {
         return UIStoryboard.main.instantiateInitialViewController() as! LoginViewController
+    }
+    
+    static var pinsMapVC: PinsMapViewController {
+        return UIStoryboard.viewPin.instantiateViewController(withIdentifier: "PinsMapViewController") as! PinsMapViewController
+    }
+    
+    static var pinsListVC: PinsListViewController {
+        return UIStoryboard.viewPin.instantiateViewController(withIdentifier: "PinsListViewController") as! PinsListViewController
     }
     
     static var pinDetailsVC: PinDetailsViewController {
         return UIStoryboard.viewPin.instantiateViewController(withIdentifier: "PinDetailsViewController") as! PinDetailsViewController
     }
-
+    
     static var tagsSelectorVC: TagSelectorViewController {
         return UIStoryboard.scavengerHunt.instantiateViewController(withIdentifier: "TagSelectorViewController") as! TagSelectorViewController
     }
+    
+    // MARK Navigation controllers
+    static var homeViewNC: UINavigationController {
+        let controller = UIStoryboard.home.instantiateViewController(withIdentifier: "HomeNC") as! UINavigationController
+        controller.tabBarItem.title = "Home"
+        controller.tabBarItem.image = UIImage(named: "home")
+        controller.tabBarItem.selectedImage = UIImage(named: "home-selected")
+        return controller
+    }
+    
+    static var scavengerHuntNC: UINavigationController {
+        let controller = UIStoryboard.scavengerHunt.instantiateViewController(withIdentifier: "ScavengerHuntNC") as! UINavigationController
+        controller.tabBarItem.title = "Adventure"
+        controller.tabBarItem.image = UIImage(named: "scavenger")
+        controller.tabBarItem.selectedImage = UIImage(named: "scavenger-selected")
+        return controller
+    }
+    
+    static var createPinNC: UINavigationController {
+        let controller = UIStoryboard.createPin.instantiateViewController(withIdentifier: "CreatePinNC") as! UINavigationController
+        controller.tabBarItem.title = nil
+        controller.tabBarItem.image = UIImage(named: "create-pin")
+        controller.tabBarItem.selectedImage = UIImage(named: "create-pin-selected")
+        return controller
+    }
+    
+    static var viewedPinsNC: UINavigationController {
+        let controller = UIStoryboard.viewedPins.instantiateViewController(withIdentifier: "ViewedPinsNC") as! UINavigationController
+        controller.tabBarItem.title = "Visited"
+        controller.tabBarItem.title = "Visited"
+        controller.tabBarItem.image = UIImage(named: "visited")
+        controller.tabBarItem.selectedImage = UIImage(named: "visited-selected")
+        return controller
+    }
+    
+    static var profileNC: UINavigationController {
+        let controller = UIStoryboard.profile.instantiateViewController(withIdentifier: "ProfileNC") as! UINavigationController
+        controller.tabBarItem.title = "Profile"
+        controller.tabBarItem.image = UIImage(named: "profile")
+        controller.tabBarItem.selectedImage = UIImage(named: "profile-selected")
+        return controller
+    }
+
 }
