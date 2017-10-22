@@ -72,8 +72,7 @@ extension PinDetailsViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = commentsTableView.dequeueReusableCell(withIdentifier: "PinCommentCell", for: indexPath) as! PinCommentCell
         let comment = comments[indexPath.row]
-        cell.commenterLabel.text = comment.user?.username
-        cell.commentLabel.text = comment.comment
+        cell.prepare(withComment: comment)
         return cell
     }
 }
