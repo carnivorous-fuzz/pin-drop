@@ -112,18 +112,3 @@ class LoginViewController: UIViewController {
         present(navigationVC, animated: true, completion: nil)
     }
 }
-
-//extension LoginViewController: UITextFieldDelegate {
-//    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
-//        textField.resignFirstResponder()
-//        return true
-//    }
-    
-//    func textFieldDidBeginEditing(_ textField: UITextField) {
-//        textField.becomeFirstResponder()
-//    }
-//
-//    func textFieldDidEndEditing(_ textField: UITextField) {
-//        textField.resignFirstResponder()
-//    }
-//}
