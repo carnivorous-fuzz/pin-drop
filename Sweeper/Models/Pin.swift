@@ -37,4 +37,12 @@ class Pin: PFObject, PFSubclassing {
             print("OH NO! Lat and long not set! Set both to use this function")
         }
     }
+    
+    func getImageUrl() -> URL? {
+        if let imageUrlStr = imageUrlStr {
+            return URL(string: imageUrlStr)
+        } else {
+            return nil
+        }
+    }
 }
