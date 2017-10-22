@@ -7,12 +7,16 @@
 //
 
 import UIKit
+import CoreLocation
 
 class SHGenerateViewController: UIViewController {
     @IBOutlet weak var sliderVal: UILabel!
     @IBOutlet weak var radiusSlider: UISlider!
     @IBOutlet weak var stopsCollectionView: UICollectionView!
     @IBOutlet weak var tagSelectionCollectionView: UICollectionView!
+
+    fileprivate var currentLocation: CLLocation?
+    fileprivate var locationManager: CLLocationManager!
 
     fileprivate let maxTagOrStops = 5
     fileprivate var selectedTagCount: Int!
@@ -24,6 +28,8 @@ class SHGenerateViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+
+        getLocation()
         selectedTags = [Tag]()
         tagSelectionCollectionView.delegate = self
         tagSelectionCollectionView.dataSource = self
@@ -31,6 +37,18 @@ class SHGenerateViewController: UIViewController {
     @IBAction func sliderValueChanged(sender: UISlider) {
         let currentValue = Double(sender.value).rounded(toPlaces: 1)
         sliderVal.text = "\(currentValue) mi"
+    }
+
+    fileprivate func getLocation() {
+        locationManager = CLLocationManager()
+        if CLLocationManager.authorizationStatus() == .notDetermined {
+            locationManager.requestWhenInUseAuthorization()
+        }
+        locationManager.requestWhenInUseAuthorization()
+        locationManager.delegate = self
+        locationManager.desiredAccuracy = kCLLocationAccuracyBest
+        locationManager.distanceFilter = 200
+        locationManager.startUpdatingLocation()
     }
 
     fileprivate func onTagChooserTap() {
@@ -61,6 +79,9 @@ class SHGenerateViewController: UIViewController {
         let sliderValue = Double(radiusSlider.value).rounded(toPlaces: 1)
         print(sliderValue)
         print(selectedTags)
+        PinService.sharedInstance.fetchPins(with: selectedTags, in: sliderValue, for: self.currentLocation!) { (pins: [Pin]?, error: Error?) in
+            print(pins)
+        }
     }
     
     func deleteTag(with selectedCell: TagSelectedCollectionCell) {
@@ -141,6 +162,15 @@ extension SHGenerateViewController: TagSelectorViewControllerDelegate {
         if (tag != nil) && (self.selectedTags.count < maxTagOrStops) {
             self.selectedTags.append(tag!)
             tagSelectionCollectionView.reloadData()
+        }
+    }
+}
+
+// MARK: Location manager delegate
+extension SHGenerateViewController: CLLocationManagerDelegate {
+    func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
+        if let location = locations.last {
+            self.currentLocation = location
         }
     }
 }

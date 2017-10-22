@@ -21,6 +21,8 @@
 		7C1A43141F96B6FD00E3E6E0 /* PinAnnotationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C1A43131F96B6FD00E3E6E0 /* PinAnnotationView.swift */; };
 		7C1A43181F96C82F00E3E6E0 /* PinAnnotation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C1A43171F96C82F00E3E6E0 /* PinAnnotation.swift */; };
 		7C1A43211F994CC000E3E6E0 /* StoryboardExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C1A43201F994CC000E3E6E0 /* StoryboardExtension.swift */; };
+		B71D029E1F9C28240090DD9D /* Conversions.swift in Sources */ = {isa = PBXBuildFile; fileRef = B71D029D1F9C28240090DD9D /* Conversions.swift */; };
+		B71D02A01F9C2F740090DD9D /* ScavengerHunt.swift in Sources */ = {isa = PBXBuildFile; fileRef = B71D029F1F9C2F740090DD9D /* ScavengerHunt.swift */; };
 		B7286D671F99C83300CD9C0E /* ScavengerHunt.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B7286D661F99C83300CD9C0E /* ScavengerHunt.storyboard */; };
 		B7286D691F99CA1C00CD9C0E /* SHGenerateViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7286D681F99CA1C00CD9C0E /* SHGenerateViewController.swift */; };
 		B763C3561F931F2700DA8311 /* AWSConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = B763C3551F931F2700DA8311 /* AWSConstants.swift */; };
@@ -72,6 +74,8 @@
 		7C1A43171F96C82F00E3E6E0 /* PinAnnotation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PinAnnotation.swift; sourceTree = "<group>"; };
 		7C1A43201F994CC000E3E6E0 /* StoryboardExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoryboardExtension.swift; sourceTree = "<group>"; };
 		8770897BBAA32FD84972558F /* Pods-Sweeper.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Sweeper.release.xcconfig"; path = "Pods/Target Support Files/Pods-Sweeper/Pods-Sweeper.release.xcconfig"; sourceTree = "<group>"; };
+		B71D029D1F9C28240090DD9D /* Conversions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Conversions.swift; sourceTree = "<group>"; };
+		B71D029F1F9C2F740090DD9D /* ScavengerHunt.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScavengerHunt.swift; sourceTree = "<group>"; };
 		B7286D661F99C83300CD9C0E /* ScavengerHunt.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = ScavengerHunt.storyboard; sourceTree = "<group>"; };
 		B7286D681F99CA1C00CD9C0E /* SHGenerateViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SHGenerateViewController.swift; sourceTree = "<group>"; };
 		B763C3551F931F2700DA8311 /* AWSConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AWSConstants.swift; sourceTree = "<group>"; };
@@ -130,6 +134,7 @@
 				374C23E91F91BDAE000C0ECE /* User.swift */,
 				3786F8471F94071D0009F05B /* Tag.swift */,
 				B7EBCA111F94331B00D5795D /* ViewedPin.swift */,
+				B71D029F1F9C2F740090DD9D /* ScavengerHunt.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -271,6 +276,7 @@
 				B9CB3D311F9425FA0023EA79 /* ImageUtils.swift */,
 				7C1A43171F96C82F00E3E6E0 /* PinAnnotation.swift */,
 				37F3FA6A1F9B16A300287F61 /* Time.swift */,
+				B71D029D1F9C28240090DD9D /* Conversions.swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -466,6 +472,7 @@
 				7C1A43141F96B6FD00E3E6E0 /* PinAnnotationView.swift in Sources */,
 				B7DE45DE1F9B0BFF00F2472F /* SegmentControlViewCell.swift in Sources */,
 				3786F84A1F9414120009F05B /* TagService.swift in Sources */,
+				B71D02A01F9C2F740090DD9D /* ScavengerHunt.swift in Sources */,
 				B7E83F231F92AFFA00FA9D88 /* Location.swift in Sources */,
 				B763C3561F931F2700DA8311 /* AWSConstants.swift in Sources */,
 				3786F8481F94071D0009F05B /* Tag.swift in Sources */,
@@ -489,6 +496,7 @@
 				37B4E2531F99B9440090B168 /* PinsListViewController.swift in Sources */,
 				B7E83F261F92EA9000FA9D88 /* AWSS3Service.swift in Sources */,
 				B9CB3D301F94144B0023EA79 /* ProfileView.swift in Sources */,
+				B71D029E1F9C28240090DD9D /* Conversions.swift in Sources */,
 				B7286D691F99CA1C00CD9C0E /* SHGenerateViewController.swift in Sources */,
 				374C23EA1F91BDAE000C0ECE /* User.swift in Sources */,
 				B7DE45E01F9B214A00F2472F /* TagSelectorViewController.swift in Sources */,
