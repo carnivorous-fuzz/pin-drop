@@ -13,6 +13,8 @@ class PinCommentViewController: UIViewController {
     @IBOutlet weak var fancyTextView: FancyTextView!
     @IBOutlet weak var textViewBottomConstraint: NSLayoutConstraint!
     
+    var commnentedPin: Pin!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -25,6 +27,7 @@ class PinCommentViewController: UIViewController {
                                                name: .UIKeyboardWillHide,
                                                object: nil)
         
+        fancyTextView.delegate = self
         fancyTextView.inputTextView.becomeFirstResponder()
     }
     
@@ -84,4 +87,17 @@ class PinCommentViewController: UIViewController {
         view.endEditing(true)
         dismiss(animated: true, completion: nil)
     }
+}
+
+extension PinCommentViewController: FancyTextViewDelegate {
+    func fancyTextViewDidComplete(_ fancyTextView: FancyTextView) {
+        let pinComment = PinComment()
+        pinComment.user = User.currentUser
+        pinComment.commentedPin = commnentedPin
+        pinComment.comment = fancyTextView.inputTextView.text
+        pinComment.saveInBackground()
+        dismissController()
+    }
+    
+    
 }

@@ -12,6 +12,7 @@ import Parse
 class PinComment: PFObject {
     
     @NSManaged var user: User?
+    @NSManaged var commentedPin: Pin?
     @NSManaged var comment: String?
     
 }

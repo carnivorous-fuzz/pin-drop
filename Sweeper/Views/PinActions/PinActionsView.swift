@@ -25,6 +25,9 @@ class PinActionsView: UIView {
     
     var delegate: PinActionsViewDelegate?
     
+    private var likesCount = 0
+    private var commentCount = 0
+    
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
         initSubviews()
@@ -54,8 +57,28 @@ class PinActionsView: UIView {
         )
     }
     
-    func prepare(withPin: Pin) {
-        
+    func updateCommentIcon(toColor color: UIColor) {
+        commentImageView.tintColor = color
+    }
+    
+    func updateCommentsCount(animated: Bool, count: Int) {
+        if commentCount != count {
+            commentCount = count
+            if animated {
+                UIView.animate(withDuration: 0.1, animations: {
+                    self.commentCountLabel.alpha = 0.0
+                }, completion: { (finished) in
+                    self.updateCommentsCount()
+                    self.commentCountLabel.alpha = 1.0
+                })
+            } else {
+                updateCommentsCount()
+            }
+        }
+    }
+    
+    private func updateCommentsCount() {
+        commentCountLabel.text = "\(commentCount)"
     }
     
     @objc private func onLike() {

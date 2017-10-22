@@ -58,7 +58,5 @@ class PinDetailsCard: UIView {
         timeAgoLabel.text = TimeUtils.getPrettyTimeAgoString(pin.createdAt!)
         messageLabel.text = pin.message
         nameLabel.text = pin.creator?.username
-        
-        pinActionsView.prepare(withPin: pin)
     }
 }

@@ -11,9 +11,9 @@ import SwiftDate
 
 
 class TimeUtils {
+    static let components: [Calendar.Component] = [.day, .hour, .minute, .second]
+    static let mapping: [Calendar.Component: String] = [.day: "d", .hour: "h", .minute: "m", .second: "s"]
     class func getPrettyTimeAgoString(_ time: Date) -> String {
-        let components: [Calendar.Component] = [.day, .hour, .minute, .second]
-        let mapping: [Calendar.Component: String] = [.day: "d", .hour: "h", .minute: "m", .second: "s"]
         let times = time.timeIntervalSinceNow.in(components)
         
         for component in components {
@@ -24,6 +24,6 @@ class TimeUtils {
             }
         }
         
-        return ""
+        return "Now"
     }
 }
