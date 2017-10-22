@@ -87,6 +87,7 @@ extension UIStoryboard {
     static var createPinNC: UINavigationController {
         let controller = UIStoryboard.createPin.instantiateViewController(withIdentifier: "CreatePinNC") as! UINavigationController
         controller.tabBarItem.title = nil
+        controller.tabBarItem.imageInsets = UIEdgeInsetsMake(6, 0, -6, 0)
         controller.tabBarItem.image = UIImage(named: "create-pin")?.withRenderingMode(.alwaysOriginal)
         controller.tabBarItem.selectedImage = UIImage(named: "create-pin-selected")?.withRenderingMode(.alwaysOriginal)
         return controller
