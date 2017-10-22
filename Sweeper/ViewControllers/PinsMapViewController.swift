@@ -54,8 +54,12 @@ class PinsMapViewController: UIViewController {
         present(UIStoryboard.createPinNC, animated: true, completion: nil)
     }
     
-    @IBAction func onLogout(_ sender: UIBarButtonItem) {
-        UserService.sharedInstance.logout()
+    @IBAction func onToggleView(_ sender: Any) {
+        UIView.beginAnimations("animation", context: nil)
+        UIView.setAnimationDuration(1.0)
+        navigationController!.pushViewController(UIStoryboard.pinsListVC, animated: false)
+        UIView.setAnimationTransition(UIViewAnimationTransition.flipFromRight, for: self.navigationController!.view, cache: false)
+        UIView.commitAnimations()
     }
     
     private func requestLocationPermission() {

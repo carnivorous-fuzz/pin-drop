@@ -44,15 +44,12 @@ class PinsListViewController: UIViewController, UITableViewDataSource {
     }
     
     // MARK: Action handlers
-    @IBAction func onChangeViewType(_ sender: UISegmentedControl) {
-        if sender.selectedSegmentIndex == 1 {
-            let vc = storyboard?.instantiateViewController(withIdentifier: "PinsMapViewController")
-            UIView.beginAnimations("animation", context: nil)
-            UIView.setAnimationDuration(1.0)
-            navigationController!.pushViewController(vc!, animated: false)
-            UIView.setAnimationTransition(UIViewAnimationTransition.flipFromLeft, for: self.navigationController!.view, cache: false)
-            UIView.commitAnimations()
-        }
+    @IBAction func onChangeViewType(_ sender: Any) {
+        UIView.beginAnimations("animation", context: nil)
+        UIView.setAnimationDuration(1.0)
+        navigationController!.pushViewController(UIStoryboard.pinsMapVC, animated: false)
+        UIView.setAnimationTransition(UIViewAnimationTransition.flipFromLeft, for: self.navigationController!.view, cache: false)
+        UIView.commitAnimations()
     }
 
 }
