@@ -59,7 +59,6 @@ class PinService {
         pinsQuery.limit = 20
         pinsQuery.includeKey("tags")
         pinsQuery.includeKey("creator")
-        pinsQuery.includeKey("comments")
         pinsQuery.clearCachedResult()
         
         pinsQuery.findObjectsInBackground { (pins: [Pin]?, error: Error?) in
