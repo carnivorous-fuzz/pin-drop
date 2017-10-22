@@ -33,7 +33,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             //window?.rootViewController = UIStoryboard.pinsMapViewNC
             window?.rootViewController = UIStoryboard.pinsListViewNC
         }
-        
+
         NotificationCenter.default.addObserver(
             forName: NSNotification.Name(rawValue: User.userDidLogoutKey),
             object: nil,

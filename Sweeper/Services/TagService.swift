@@ -58,7 +58,28 @@ class TagService {
             } else {
                 print("error fetching tags: \(error!.localizedDescription)")
             }
-            
+        }
+    }
+
+    func fetchTags(with page: Int, completion: @escaping ([Tag]?, Error?) -> Void) {
+        // How much you want on a page
+        let displayLimit = 10
+        let query = Tag.query() as! PFQuery<Tag>
+        query.limit = displayLimit
+        query.skip = page * displayLimit
+        query.order(byDescending: "createdAt")
+
+        query.findObjectsInBackground { (tags: [Tag]?, error: Error?) in
+            completion(tags, error)
+        }
+    }
+
+    func search(with term: String, completion: @escaping ([Tag]?, Error?) -> Void) {
+        let query = Tag.query() as! PFQuery<Tag>
+        query.order(byDescending: "createdAt")
+        query.whereKey("name", equalTo: term.lowercased())
+        query.findObjectsInBackground { (tags: [Tag]?, error: Error?) in
+            completion(tags, error)
         }
     }
 }

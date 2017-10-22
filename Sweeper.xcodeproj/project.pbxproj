@@ -21,13 +21,21 @@
 		7C1A43141F96B6FD00E3E6E0 /* PinAnnotationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C1A43131F96B6FD00E3E6E0 /* PinAnnotationView.swift */; };
 		7C1A43181F96C82F00E3E6E0 /* PinAnnotation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C1A43171F96C82F00E3E6E0 /* PinAnnotation.swift */; };
 		7C1A43211F994CC000E3E6E0 /* StoryboardExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C1A43201F994CC000E3E6E0 /* StoryboardExtension.swift */; };
+		B7286D671F99C83300CD9C0E /* ScavengerHunt.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B7286D661F99C83300CD9C0E /* ScavengerHunt.storyboard */; };
+		B7286D691F99CA1C00CD9C0E /* SHGenerateViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7286D681F99CA1C00CD9C0E /* SHGenerateViewController.swift */; };
 		B763C3561F931F2700DA8311 /* AWSConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = B763C3551F931F2700DA8311 /* AWSConstants.swift */; };
 		B763C3581F9322C500DA8311 /* StringExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = B763C3571F9322C500DA8311 /* StringExtension.swift */; };
 		B763C35D1F932DD600DA8311 /* UIViewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = B763C35C1F932DD600DA8311 /* UIViewExtension.swift */; };
+		B77121091F9AFD50004BD7D7 /* DoubleExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = B77121081F9AFD50004BD7D7 /* DoubleExtension.swift */; };
 		B79291FB1F91CD0100069144 /* CreatePin.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B79291FA1F91CD0100069144 /* CreatePin.storyboard */; };
 		B79291FE1F91CE7400069144 /* CreatePinViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B79291FD1F91CE7400069144 /* CreatePinViewController.swift */; };
 		B7B862371F91E6AD00FB2F1E /* LocationBanner.xib in Resources */ = {isa = PBXBuildFile; fileRef = B7B862361F91E6AD00FB2F1E /* LocationBanner.xib */; };
 		B7B862391F91E6B900FB2F1E /* LocationBanner.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7B862381F91E6B900FB2F1E /* LocationBanner.swift */; };
+		B7DE45DE1F9B0BFF00F2472F /* SegmentControlViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7DE45DD1F9B0BFF00F2472F /* SegmentControlViewCell.swift */; };
+		B7DE45E01F9B214A00F2472F /* TagSelectorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7DE45DF1F9B214A00F2472F /* TagSelectorViewController.swift */; };
+		B7DE45E21F9B2D4A00F2472F /* TagSelectorCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7DE45E11F9B2D4A00F2472F /* TagSelectorCell.swift */; };
+		B7DE45E41F9BE03C00F2472F /* TagSelectedCollectionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7DE45E31F9BE03C00F2472F /* TagSelectedCollectionCell.swift */; };
+		B7DE45E81F9BFB0300F2472F /* InfiniteScrollActivityView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7DE45E71F9BFB0300F2472F /* InfiniteScrollActivityView.swift */; };
 		B7E83F231F92AFFA00FA9D88 /* Location.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7E83F221F92AFFA00FA9D88 /* Location.swift */; };
 		B7E83F261F92EA9000FA9D88 /* AWSS3Service.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7E83F251F92EA9000FA9D88 /* AWSS3Service.swift */; };
 		B7EBCA121F94331B00D5795D /* ViewedPin.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7EBCA111F94331B00D5795D /* ViewedPin.swift */; };
@@ -65,13 +73,21 @@
 		7C1A43171F96C82F00E3E6E0 /* PinAnnotation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PinAnnotation.swift; sourceTree = "<group>"; };
 		7C1A43201F994CC000E3E6E0 /* StoryboardExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoryboardExtension.swift; sourceTree = "<group>"; };
 		8770897BBAA32FD84972558F /* Pods-Sweeper.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Sweeper.release.xcconfig"; path = "Pods/Target Support Files/Pods-Sweeper/Pods-Sweeper.release.xcconfig"; sourceTree = "<group>"; };
+		B7286D661F99C83300CD9C0E /* ScavengerHunt.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = ScavengerHunt.storyboard; sourceTree = "<group>"; };
+		B7286D681F99CA1C00CD9C0E /* SHGenerateViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SHGenerateViewController.swift; sourceTree = "<group>"; };
 		B763C3551F931F2700DA8311 /* AWSConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AWSConstants.swift; sourceTree = "<group>"; };
 		B763C3571F9322C500DA8311 /* StringExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StringExtension.swift; sourceTree = "<group>"; };
 		B763C35C1F932DD600DA8311 /* UIViewExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewExtension.swift; sourceTree = "<group>"; };
+		B77121081F9AFD50004BD7D7 /* DoubleExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DoubleExtension.swift; sourceTree = "<group>"; };
 		B79291FA1F91CD0100069144 /* CreatePin.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = CreatePin.storyboard; sourceTree = "<group>"; };
 		B79291FD1F91CE7400069144 /* CreatePinViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreatePinViewController.swift; sourceTree = "<group>"; };
 		B7B862361F91E6AD00FB2F1E /* LocationBanner.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LocationBanner.xib; sourceTree = "<group>"; };
 		B7B862381F91E6B900FB2F1E /* LocationBanner.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationBanner.swift; sourceTree = "<group>"; };
+		B7DE45DD1F9B0BFF00F2472F /* SegmentControlViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SegmentControlViewCell.swift; sourceTree = "<group>"; };
+		B7DE45DF1F9B214A00F2472F /* TagSelectorViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TagSelectorViewController.swift; sourceTree = "<group>"; };
+		B7DE45E11F9B2D4A00F2472F /* TagSelectorCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TagSelectorCell.swift; sourceTree = "<group>"; };
+		B7DE45E31F9BE03C00F2472F /* TagSelectedCollectionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TagSelectedCollectionCell.swift; sourceTree = "<group>"; };
+		B7DE45E71F9BFB0300F2472F /* InfiniteScrollActivityView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfiniteScrollActivityView.swift; sourceTree = "<group>"; };
 		B7E83F221F92AFFA00FA9D88 /* Location.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Location.swift; sourceTree = "<group>"; };
 		B7E83F251F92EA9000FA9D88 /* AWSS3Service.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AWSS3Service.swift; sourceTree = "<group>"; };
 		B7EBCA111F94331B00D5795D /* ViewedPin.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewedPin.swift; sourceTree = "<group>"; };
@@ -154,6 +170,7 @@
 				B763C3571F9322C500DA8311 /* StringExtension.swift */,
 				B763C35C1F932DD600DA8311 /* UIViewExtension.swift */,
 				7C1A43201F994CC000E3E6E0 /* StoryboardExtension.swift */,
+				B77121081F9AFD50004BD7D7 /* DoubleExtension.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -165,6 +182,7 @@
 				B79291FA1F91CD0100069144 /* CreatePin.storyboard */,
 				B9CB3D1B1F91D1780023EA79 /* PinViews.storyboard */,
 				B9CB3D251F92C6170023EA79 /* ViewPin.storyboard */,
+				B7286D661F99C83300CD9C0E /* ScavengerHunt.storyboard */,
 			);
 			path = Storyboards;
 			sourceTree = "<group>";
@@ -222,6 +240,8 @@
 				B9CB3D1D1F91D5AE0023EA79 /* PinsMapViewController.swift */,
 				37B4E2521F99B9440090B168 /* PinsListViewController.swift */,
 				B9CB3D271F92C6970023EA79 /* PinDetailsViewController.swift */,
+				B7286D681F99CA1C00CD9C0E /* SHGenerateViewController.swift */,
+				B7DE45DF1F9B214A00F2472F /* TagSelectorViewController.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -233,6 +253,10 @@
 				B9CB3D2B1F9340D10023EA79 /* FancyTextField */,
 				B7B862351F91E69400FB2F1E /* LocationBanner */,
 				7C1A43131F96B6FD00E3E6E0 /* PinAnnotationView.swift */,
+				B7DE45DD1F9B0BFF00F2472F /* SegmentControlViewCell.swift */,
+				B7DE45E11F9B2D4A00F2472F /* TagSelectorCell.swift */,
+				B7DE45E31F9BE03C00F2472F /* TagSelectedCollectionCell.swift */,
+				B7DE45E71F9BFB0300F2472F /* InfiniteScrollActivityView.swift */,
 				37B4E2541F99C6AA0090B168 /* PinCell.swift */,
 			);
 			path = Views;
@@ -336,6 +360,7 @@
 				B9CB3D151F90B5620023EA79 /* FancyTextField.xib in Resources */,
 				B7B862371F91E6AD00FB2F1E /* LocationBanner.xib in Resources */,
 				B9CB3CF81F9056060023EA79 /* Assets.xcassets in Resources */,
+				B7286D671F99C83300CD9C0E /* ScavengerHunt.storyboard in Resources */,
 				B9CB3D261F92C6170023EA79 /* ViewPin.storyboard in Resources */,
 				B9CB3CF61F9056060023EA79 /* Main.storyboard in Resources */,
 				B9CB3D2E1F94143B0023EA79 /* ProfileView.xib in Resources */,
@@ -437,19 +462,25 @@
 				7C1A43181F96C82F00E3E6E0 /* PinAnnotation.swift in Sources */,
 				37731ECD1F92C093009E0603 /* AppService.swift in Sources */,
 				B9CB3D321F9425FA0023EA79 /* ImageUtils.swift in Sources */,
+				B7DE45E81F9BFB0300F2472F /* InfiniteScrollActivityView.swift in Sources */,
 				B9CB3D171F90B57C0023EA79 /* FancyTextField.swift in Sources */,
 				7C1A43141F96B6FD00E3E6E0 /* PinAnnotationView.swift in Sources */,
+				B7DE45DE1F9B0BFF00F2472F /* SegmentControlViewCell.swift in Sources */,
 				3786F84A1F9414120009F05B /* TagService.swift in Sources */,
 				B7E83F231F92AFFA00FA9D88 /* Location.swift in Sources */,
 				B763C3561F931F2700DA8311 /* AWSConstants.swift in Sources */,
 				3786F8481F94071D0009F05B /* Tag.swift in Sources */,
 				7C1A43211F994CC000E3E6E0 /* StoryboardExtension.swift in Sources */,
 				B7B862391F91E6B900FB2F1E /* LocationBanner.swift in Sources */,
+				B7DE45E21F9B2D4A00F2472F /* TagSelectorCell.swift in Sources */,
+				B7DE45E41F9BE03C00F2472F /* TagSelectedCollectionCell.swift in Sources */,
 				37F3FA6B1F9B16A300287F61 /* Time.swift in Sources */,
 				B79291FE1F91CE7400069144 /* CreatePinViewController.swift in Sources */,
 				B763C35D1F932DD600DA8311 /* UIViewExtension.swift in Sources */,
 				B9CB3D071F9056720023EA79 /* LoginViewController.swift in Sources */,
 				374C23E81F91BDA5000C0ECE /* Pin.swift in Sources */,
+				B9CB3D1E1F91D5AE0023EA79 /* PinViewsViewController.swift in Sources */,
+				B77121091F9AFD50004BD7D7 /* DoubleExtension.swift in Sources */,
 				B9CB3D1E1F91D5AE0023EA79 /* PinsMapViewController.swift in Sources */,
 				37731EC91F92BE5F009E0603 /* PinService.swift in Sources */,
 				37731ECB1F92BE6D009E0603 /* UserService.swift in Sources */,
@@ -461,7 +492,9 @@
 				37B4E2531F99B9440090B168 /* PinsListViewController.swift in Sources */,
 				B7E83F261F92EA9000FA9D88 /* AWSS3Service.swift in Sources */,
 				B9CB3D301F94144B0023EA79 /* ProfileView.swift in Sources */,
+				B7286D691F99CA1C00CD9C0E /* SHGenerateViewController.swift in Sources */,
 				374C23EA1F91BDAE000C0ECE /* User.swift in Sources */,
+				B7DE45E01F9B214A00F2472F /* TagSelectorViewController.swift in Sources */,
 				37B4E2551F99C6AA0090B168 /* PinCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -601,7 +634,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 58727B98H6;
+				DEVELOPMENT_TEAM = MCU29NU8L3;
 				INFOPLIST_FILE = Sweeper/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.team11.Sweeper;
@@ -617,7 +650,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 58727B98H6;
+				DEVELOPMENT_TEAM = MCU29NU8L3;
 				INFOPLIST_FILE = Sweeper/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.team11.Sweeper;
