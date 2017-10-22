@@ -40,7 +40,7 @@ class SHGenerateViewController: UIViewController {
         // TODO: make this transition look nicer
         tagSelectorView.modalPresentationStyle = UIModalPresentationStyle.formSheet
         tagSelectorView.modalTransitionStyle = UIModalTransitionStyle.partialCurl
-
+        tagSelectorView.willMove(toParentViewController: self)
         self.addChildViewController(tagSelectorView)
         UIView.animate(withDuration: 0.3) {
             self.view.addSubview(tagSelectorView.view)
