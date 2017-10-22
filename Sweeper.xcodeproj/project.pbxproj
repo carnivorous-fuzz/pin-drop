@@ -65,6 +65,7 @@
 		B9CB3D2E1F94143B0023EA79 /* ProfileView.xib in Resources */ = {isa = PBXBuildFile; fileRef = B9CB3D2D1F94143B0023EA79 /* ProfileView.xib */; };
 		B9CB3D301F94144B0023EA79 /* ProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9CB3D2F1F94144B0023EA79 /* ProfileView.swift */; };
 		B9CB3D321F9425FA0023EA79 /* ImageUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9CB3D311F9425FA0023EA79 /* ImageUtils.swift */; };
+		B9E7BF821F9C2BDA0063973C /* PinsMapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9CB3D1D1F91D5AE0023EA79 /* PinsMapViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -203,7 +204,6 @@
 				B9CB3CF41F9056060023EA79 /* Main.storyboard */,
 				B79291FA1F91CD0100069144 /* CreatePin.storyboard */,
 				B9CB3D1B1F91D1780023EA79 /* PinViews.storyboard */,
-				B9CB3D251F92C6170023EA79 /* ViewPin.storyboard */,
 				B7286D661F99C83300CD9C0E /* ScavengerHunt.storyboard */,
 				B9CB3D251F92C6170023EA79 /* PinDetails.storyboard */,
 				B96D352B1F9B006900BC6CBF /* PinComment.storyboard */,
@@ -427,7 +427,6 @@
 				B7B862371F91E6AD00FB2F1E /* LocationBanner.xib in Resources */,
 				B9CB3CF81F9056060023EA79 /* Assets.xcassets in Resources */,
 				B7286D671F99C83300CD9C0E /* ScavengerHunt.storyboard in Resources */,
-				B9CB3D261F92C6170023EA79 /* ViewPin.storyboard in Resources */,
 				B9CB3D261F92C6170023EA79 /* PinDetails.storyboard in Resources */,
 				B96D35231F99B33A00BC6CBF /* PinDetailsCard.xib in Resources */,
 				B96D352C1F9B006900BC6CBF /* PinComment.storyboard in Resources */,
@@ -536,6 +535,7 @@
 				B96D35211F99B32F00BC6CBF /* PinDetailsCard.swift in Sources */,
 				B9CB3D321F9425FA0023EA79 /* ImageUtils.swift in Sources */,
 				B7DE45E81F9BFB0300F2472F /* InfiniteScrollActivityView.swift in Sources */,
+				B9E7BF821F9C2BDA0063973C /* PinsMapViewController.swift in Sources */,
 				B9784BC61F9B2419009BDF14 /* PinActionsView.swift in Sources */,
 				B96D35311F9B039000BC6CBF /* FancyTextView.swift in Sources */,
 				B9CB3D171F90B57C0023EA79 /* FancyTextField.swift in Sources */,
