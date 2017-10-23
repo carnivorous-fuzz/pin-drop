@@ -48,22 +48,23 @@ class TabBarViewController: UIViewController {
     @IBAction func didPressTab(_ sender: UIButton) {
         let previousIndex = selectedIndex
         selectedIndex = sender.tag
-        buttons[previousIndex].isSelected = false
-        sender.isSelected = true
         
-        let previousVC = viewControllers[previousIndex]
-        let newVC = viewControllers[selectedIndex]
-        handleTransition(previousVC, newVC)
-        
-        
+        handleTransition(previousIndex, selectedIndex)
     }
     
-    func handleTransition(_ fromViewController: UINavigationController, _ toViewController: UINavigationController) {
+    func handleTransition(_ fromIdx: Int, _ toIdx: Int) {
+        
+        let fromViewController = viewControllers[fromIdx]
+        let toViewController = viewControllers[toIdx]
         
         if isCreateTransition(toViewController) {
             // special case to handle create transition animation
             present(toViewController, animated: true, completion: nil)
         } else {
+            // set tab selection
+            buttons[fromIdx].isSelected = false
+            buttons[toIdx].isSelected = true
+            
             // previous view controller removal/cleanup
             fromViewController.willMove(toParentViewController: nil)
             fromViewController.view.removeFromSuperview()
