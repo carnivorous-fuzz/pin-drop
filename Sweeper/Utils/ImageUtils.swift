@@ -33,9 +33,7 @@ class ImageUtils {
 }
 
 extension UIImage {
-    func compress() -> UIImage {
-        let maxHeight = CGFloat(400)
-        let maxWidth = CGFloat(600)
+    func compress(maxWidth: CGFloat = 600, maxHeight: CGFloat = 400) -> UIImage {
         let compressionQuality = CGFloat(0.4)
         var imgRatio = size.width / size.height
         let maxRatio = maxWidth / maxHeight
