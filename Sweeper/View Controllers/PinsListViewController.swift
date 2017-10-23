@@ -42,15 +42,6 @@ class PinsListViewController: UIViewController, UITableViewDataSource {
         locationManager.distanceFilter = 200
         locationManager.startUpdatingLocation()
     }
-    
-    // MARK: Action handlers
-    @IBAction func onChangeViewType(_ sender: Any) {
-        UIView.beginAnimations("animation", context: nil)
-        UIView.setAnimationDuration(1.0)
-        navigationController!.pushViewController(UIStoryboard.pinsMapVC, animated: false)
-        UIView.setAnimationTransition(UIViewAnimationTransition.flipFromLeft, for: self.navigationController!.view, cache: false)
-        UIView.commitAnimations()
-    }
 
 }
 
