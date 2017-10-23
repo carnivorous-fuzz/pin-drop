@@ -31,7 +31,18 @@ class LoginViewController: UIViewController {
                                                selector: #selector(keyboardWillHide),
                                                name: .UIKeyboardWillHide,
                                                object: nil)
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
         
+        navigationController?.setNavigationBarHidden(true, animated: false)
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        
+        navigationController?.setNavigationBarHidden(false, animated: false)
     }
     
     deinit {
@@ -65,13 +76,10 @@ class LoginViewController: UIViewController {
         let username = usernameView.getText()
         let password = passwordView.getText()
         
-        UserService.sharedInstance.signup(username: username, password: password) { (success: Bool, error: Error?) in
-            if success {
-                self.segueToHome()
-            } else {
-                self.showLoginError()
-            }
-        }
+        let signUpVC = UIStoryboard.signUpVC
+        signUpVC.email = username
+        signUpVC.password = password
+        show(signUpVC, sender: nil)
     }
     
     @objc private func keyboardWillShow(notification: Notification) {
@@ -108,6 +116,6 @@ class LoginViewController: UIViewController {
     }
     
     private func segueToHome() {
-        present(UIStoryboard.homeViewNC, animated: true, completion: nil)
+        present(UIStoryboard.tabBarVC, animated: true, completion: nil)
     }
 }

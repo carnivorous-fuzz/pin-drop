@@ -16,7 +16,7 @@ class User: PFUser {
     @NSManaged var firstName: String?
     @NSManaged var lastName: String?
     @NSManaged var caption: String?
-    @NSManaged var profileImageUrl: URL?
+    @NSManaged var profileImageUrl: String?
     
     private static var _currentUser: User?
     static var currentUser: User? {

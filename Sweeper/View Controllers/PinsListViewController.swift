@@ -42,7 +42,6 @@ class PinsListViewController: UIViewController, UITableViewDataSource {
         locationManager.distanceFilter = 200
         locationManager.startUpdatingLocation()
     }
-
 }
 
 // MARK: Location manager delegate
