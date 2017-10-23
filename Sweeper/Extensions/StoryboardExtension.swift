@@ -51,8 +51,8 @@ extension UIStoryboard {
     }
 
     // MARK: View controllers
-    static var loginVC: LoginViewController {
-        return UIStoryboard.main.instantiateInitialViewController() as! LoginViewController
+    static var loginVC: UINavigationController {
+        return UIStoryboard.main.instantiateInitialViewController() as! UINavigationController
     }
 
     static var signUpVC: SignUpViewController {

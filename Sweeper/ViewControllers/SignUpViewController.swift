@@ -24,7 +24,8 @@ class SignUpViewController: UIViewController {
     var password: String?
     
     private let missingInfo = "Did you fill all the required fields?"
-    private let mismatchedPasswords = "Your passwords did not match. Please type again"
+    private let mismatchedPasswords = "Your passwords did not match. Please make sure they are correct"
+    private let tryAgain = "Something went wrong. Try tapping sign up again."
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -73,7 +74,32 @@ class SignUpViewController: UIViewController {
             }
         }
         
-        let password = passwordField.getText()
+        let password = passwordField.getExactText()
+        let confirmPassword = confirmPasswordField.getExactText()
+        if password != nil && password != confirmPassword {
+            showError(message: mismatchedPasswords)
+            return
+        }
+        
+        let email = emailTextField.getText()
+        let firstName = firstNameTextField.getText()
+        let lastName = lastNameTextField.getText()
+        let image = profileImageView.image == #imageLiteral(resourceName: "default_profile") ? nil : profileImageView.image
+        UserService.sharedInstance.signUp(username: email, password: password!, firstName: firstName, lastName: lastName, image: image) { (error) in
+            if error == nil {
+                let homeNC = UIStoryboard.homeViewNC
+                let scavengerHuntNC = UIStoryboard.scavengerHuntNC
+                let createPinNC = UIStoryboard.createPinNC
+                let viewedPinsNC = UIStoryboard.viewedPinsNC
+                let profileNC = UIStoryboard.profileNC
+                let controllers = [homeNC, scavengerHuntNC, createPinNC, viewedPinsNC, profileNC]
+                let tabBarController = Theme.TabBar().initTabBarController(with: controllers)
+                
+                self.present(tabBarController, animated: false, completion: nil)
+            } else {
+                self.showError(message: self.tryAgain)
+            }
+        }
     }
     
     private func showPicker(style: UIImagePickerControllerSourceType) {
@@ -85,7 +111,9 @@ class SignUpViewController: UIViewController {
     }
     
     private func showError(message: String) {
-        let alertController = UIAlertController(title: "Whoops", message: message, preferredStyle: .actionSheet)
+        let alertController = UIAlertController(title: "Whoops", message: message, preferredStyle: .alert)
+        alertController.addAction(UIAlertAction(title: "Ok", style: .cancel, handler: nil))
+        present(alertController, animated: true, completion: nil)
     }
 }
 
