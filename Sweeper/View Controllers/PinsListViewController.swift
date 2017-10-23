@@ -43,6 +43,9 @@ class PinsListViewController: UIViewController, UITableViewDataSource {
         locationManager.startUpdatingLocation()
     }
 
+    @IBAction func onLogout(_ sender: UIBarButtonItem) {
+        UserService.sharedInstance.logout()
+    }
 }
 
 // MARK: Location manager delegate
