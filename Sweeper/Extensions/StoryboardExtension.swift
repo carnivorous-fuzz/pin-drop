@@ -62,7 +62,9 @@ extension UIStoryboard {
     static var pinDetailsVC: PinDetailsViewController {
         return UIStoryboard.pinDetails.instantiateViewController(withIdentifier: "PinDetailsViewController") as! PinDetailsViewController
     }
-    
+
+
+    // MARK: Scavenger Hunt related View Controllers
     static var tagsSelectorVC: TagSelectorViewController {
         return UIStoryboard.scavengerHunt.instantiateViewController(withIdentifier: "TagSelectorViewController") as! TagSelectorViewController
     }
@@ -108,6 +110,10 @@ extension UIStoryboard {
         controller.tabBarItem.image = UIImage(named: "profile")?.withRenderingMode(.alwaysOriginal)
         controller.tabBarItem.selectedImage = UIImage(named: "profile-selected")?.withRenderingMode(.alwaysOriginal)
         return controller
+    }
+
+    static var SHNavigationNC: UINavigationController {
+        return UIStoryboard.scavengerHunt.instantiateViewController(withIdentifier: "SHNavigationNavViewController") as! UINavigationController
     }
 
     // MARK: Pin comment related controllers

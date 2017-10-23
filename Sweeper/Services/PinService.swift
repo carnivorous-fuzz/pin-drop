@@ -69,6 +69,20 @@ class PinService {
         }
     }
 
+    func fetchPins(with tags: [Tag], in radius: Double, for currentLocation: CLLocation, completion: @escaping ([Pin]?, Error?) -> Void) {
+        let userGeo:PFGeoPoint = PFGeoPoint(location: currentLocation)
+        let kiloRadius: Double = Conversions.milesToKilometers(mile: radius)
+        let pinsQuery = Pin.query() as! PFQuery<Pin>
+
+        pinsQuery.limit = 5
+        pinsQuery.whereKey("tags", containedIn: tags)
+        pinsQuery.whereKey("location", nearGeoPoint: userGeo, withinKilometers: kiloRadius)
+        pinsQuery.clearCachedResult()
+        pinsQuery.findObjectsInBackground { (pins: [Pin]?, error: Error?) in
+            completion(pins, error)
+        }
+    }
+
     func fetchArchievedPins(for user: User, completion: @escaping ([Pin], Error?) -> Void) {
         var viewedPinIds = [String]()
         let viewedPinsQuery = ViewedPin.query() as! PFQuery<ViewedPin>

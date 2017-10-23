@@ -7,12 +7,15 @@
 //
 
 import UIKit
+import CoreLocation
 
 class SHGenerateViewController: UIViewController {
     @IBOutlet weak var sliderVal: UILabel!
     @IBOutlet weak var radiusSlider: UISlider!
     @IBOutlet weak var stopsCollectionView: UICollectionView!
     @IBOutlet weak var tagSelectionCollectionView: UICollectionView!
+
+    fileprivate var scavengerHunt: ScavengerHunt?
 
     fileprivate let maxTagOrStops = 5
     fileprivate var selectedTagCount: Int!
@@ -24,6 +27,11 @@ class SHGenerateViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+
+        navigationController?.navigationBar.barTintColor = UIColor.white
+        navigationController?.navigationBar.tintColor = Theme.Colors().green
+        navigationController?.navigationBar.titleTextAttributes = [NSAttributedStringKey.foregroundColor: UIColor.gray]
+
         selectedTags = [Tag]()
         tagSelectionCollectionView.delegate = self
         tagSelectionCollectionView.dataSource = self
@@ -50,20 +58,27 @@ class SHGenerateViewController: UIViewController {
 
     @IBAction func onGenerate(_ sender: Any) {
         // TODO: loading animation
+        // TODO: Improve pin filter based on count
         var selectedStopCount = 1
         let selectedStopCountIndex = stopsCollectionView.indexPathsForSelectedItems
 
         if let selectedStopCountIndexFirst = selectedStopCountIndex?.first {
             selectedStopCount = selectedStopCountIndexFirst.row + 1
-            print(selectedStopCount) // number of pins we want to generate
         }
 
         let sliderValue = Double(radiusSlider.value).rounded(toPlaces: 1)
-        print(sliderValue)
-        print(selectedTags)
+
+        let scavengerHunt = ScavengerHunt()
+        scavengerHunt.pinCount = selectedStopCount as NSNumber
+        scavengerHunt.radius = sliderValue as NSNumber
+        scavengerHunt.user = User.currentUser
+        scavengerHunt.selectedTags = selectedTags
+        scavengerHunt.saveInBackground()
+        self.scavengerHunt = scavengerHunt
+        self.performSegue(withIdentifier: "SHNavigationSegue", sender: self)
     }
-    
-    func deleteTag(with selectedCell: TagSelectedCollectionCell) {
+
+    fileprivate func deleteTag(with selectedCell: TagSelectedCollectionCell) {
         UIView.animate(withDuration: 1) {
             if let index = self.selectedTags.index(of: selectedCell.selectedTag) {
                 self.selectedTags.remove(at: index)
@@ -71,6 +86,13 @@ class SHGenerateViewController: UIViewController {
             }
         }
     }
+    override func prepare(for segue: UIStoryboardSegue, sender: Any!) {
+        if segue.identifier == "SHNavigationSegue" {
+            let destination = segue.destination as! UINavigationController
+            let SHNavVC = destination.topViewController as! SHNavigationViewController
+            SHNavVC.scavengerHunt = self.scavengerHunt
+        }
+	}
 }
 
 // MARK: UICollectionView delegate
@@ -144,4 +166,3 @@ extension SHGenerateViewController: TagSelectorViewControllerDelegate {
         }
     }
 }
-
