@@ -131,6 +131,13 @@
                         <viewLayoutGuide key="safeArea" id="Jgu-hL-r4Z"/>
                     </view>
                     <navigationItem key="navigationItem" title="Profile" id="eME-3d-MZx"/>
+                    <connections>
+                        <outlet property="editProfileButton" destination="GXc-rC-yz7" id="Oea-KM-6j6"/>
+                        <outlet property="emailLabel" destination="c28-mc-to1" id="vV0-MJ-3Oz"/>
+                        <outlet property="nameLabel" destination="paC-p4-HJu" id="9Ne-jc-n4X"/>
+                        <outlet property="profileImageView" destination="3P2-Kb-FUw" id="EDj-ak-vtd"/>
+                        <outlet property="usernameLabel" destination="AjD-fv-cfG" id="IvJ-fQ-yzw"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="mqA-c6-nHf" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -139,7 +146,7 @@
         <!--Edit Profile-->
         <scene sceneID="Tst-jn-l3G">
             <objects>
-                <viewController title="Edit Profile" id="J4Q-4e-14B" sceneMemberID="viewController">
+                <viewController title="Edit Profile" id="J4Q-4e-14B" customClass="EditProfileViewController" customModule="Sweeper" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="m85-dY-hdZ">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
