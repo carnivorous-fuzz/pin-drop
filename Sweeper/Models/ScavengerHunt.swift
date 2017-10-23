@@ -14,6 +14,7 @@ class ScavengerHunt: PFObject, PFSubclassing {
     @NSManaged var pinCount: NSNumber?
     @NSManaged var user: User?
     @NSManaged var pins: [Pin]?
+    @NSManaged var selectedTags: [Tag]?
 
     static func parseClassName() -> String {
         return "ScavengerHunt"

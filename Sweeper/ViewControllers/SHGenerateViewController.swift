@@ -15,8 +15,6 @@ class SHGenerateViewController: UIViewController {
     @IBOutlet weak var stopsCollectionView: UICollectionView!
     @IBOutlet weak var tagSelectionCollectionView: UICollectionView!
 
-    fileprivate var currentLocation: CLLocation?
-    fileprivate var locationManager: CLLocationManager!
     fileprivate var scavengerHunt: ScavengerHunt?
 
     fileprivate let maxTagOrStops = 5
@@ -30,7 +28,6 @@ class SHGenerateViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        getLocation()
         selectedTags = [Tag]()
         tagSelectionCollectionView.delegate = self
         tagSelectionCollectionView.dataSource = self
@@ -38,18 +35,6 @@ class SHGenerateViewController: UIViewController {
     @IBAction func sliderValueChanged(sender: UISlider) {
         let currentValue = Double(sender.value).rounded(toPlaces: 1)
         sliderVal.text = "\(currentValue) mi"
-    }
-
-    fileprivate func getLocation() {
-        locationManager = CLLocationManager()
-        if CLLocationManager.authorizationStatus() == .notDetermined {
-            locationManager.requestWhenInUseAuthorization()
-        }
-        locationManager.requestWhenInUseAuthorization()
-        locationManager.delegate = self
-        locationManager.desiredAccuracy = kCLLocationAccuracyBest
-        locationManager.distanceFilter = 200
-        locationManager.startUpdatingLocation()
     }
 
     fileprivate func onTagChooserTap() {
@@ -78,25 +63,15 @@ class SHGenerateViewController: UIViewController {
         }
 
         let sliderValue = Double(radiusSlider.value).rounded(toPlaces: 1)
-        if self.currentLocation != nil {
-            PinService.sharedInstance.fetchPins(with: selectedTags, in: sliderValue, for: self.currentLocation!) {
-                (pins: [Pin]?, error: Error?) in
-                if pins != nil {
-                    let scavengerHunt = ScavengerHunt()
-                    scavengerHunt.pinCount = pins!.count as NSNumber
-                    scavengerHunt.radius = sliderValue as NSNumber
-                    scavengerHunt.pins = pins!
-                    scavengerHunt.user = User.currentUser
-                    scavengerHunt.saveInBackground()
-                    self.scavengerHunt = scavengerHunt
-                    self.performSegue(withIdentifier: "SHNavigationSegue", sender: self)
-                } else {
-                    print("Sorry, there's no match within your location")
-                }
-            }
-        } else {
-            print("Can't get your current location")
-        }
+
+        let scavengerHunt = ScavengerHunt()
+        scavengerHunt.pinCount = selectedStopCount as NSNumber
+        scavengerHunt.radius = sliderValue as NSNumber
+        scavengerHunt.user = User.currentUser
+        scavengerHunt.selectedTags = selectedTags
+        scavengerHunt.saveInBackground()
+        self.scavengerHunt = scavengerHunt
+        self.performSegue(withIdentifier: "SHNavigationSegue", sender: self)
     }
 
     fileprivate func deleteTag(with selectedCell: TagSelectedCollectionCell) {
@@ -187,13 +162,3 @@ extension SHGenerateViewController: TagSelectorViewControllerDelegate {
         }
     }
 }
-
-// MARK: Location manager delegate
-extension SHGenerateViewController: CLLocationManagerDelegate {
-    func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
-        if let location = locations.last {
-            self.currentLocation = location
-        }
-    }
-}
-

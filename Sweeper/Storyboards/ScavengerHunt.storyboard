@@ -284,7 +284,7 @@
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="94.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Egp-qd-C78">
+                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Egp-qd-C78">
                                                     <rect key="frame" x="47.5" y="15" width="65" height="65"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="65" id="8m1-Dm-OnB"/>
@@ -358,6 +358,9 @@
                         </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" title="Start" id="566-fH-hr5">
                             <color key="tintColor" red="0.39506444330000001" green="0.92943114039999997" blue="0.77035498619999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            <connections>
+                                <action selector="onStart:" destination="O9S-3b-NMs" id="nOM-AO-IZ6"/>
+                            </connections>
                         </barButtonItem>
                     </navigationItem>
                     <connections>
