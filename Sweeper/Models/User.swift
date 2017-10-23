@@ -50,4 +50,12 @@ class User: PFUser {
         }
         return result.characters.count > 0 ? result : nil
     }
+    
+    func getImageUrl() -> URL? {
+        if let profileImageUrl = profileImageUrl {
+            return URL(string: profileImageUrl)
+        } else {
+            return nil
+        }
+    }
 }

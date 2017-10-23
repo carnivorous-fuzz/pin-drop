@@ -24,14 +24,16 @@ class ProfileViewController: UIViewController {
         editProfileButton.backgroundColor = Theme.Colors().green
         editProfileButton.layer.cornerRadius = 7
         editProfileButton.layer.borderWidth = 1
-        editProfileButton.layer.borderColor = (Theme.Colors().lightGray as! CGColor)
+        editProfileButton.layer.borderColor = Theme.Colors().lightGray.cgColor
         
-        if user.profileImageUrl != nil {
-            profileImageView.setImageWith(user.profileImageUrl!)
+        if let imageUrl = user.getImageUrl() {
+            profileImageView.setImageWith(imageUrl)
+        } else {
+            profileImageView.image = UIImage(named: "default_profile")
         }
         nameLabel.text = user.getFullName()
         usernameLabel.text = user.username ?? ""
-        emailLabel.text = user.email ?? ""
+        emailLabel.text = user.email ?? "youremail@you.com"
     }
 
 }
