@@ -42,10 +42,6 @@ class PinsListViewController: UIViewController, UITableViewDataSource {
         locationManager.distanceFilter = 200
         locationManager.startUpdatingLocation()
     }
-
-    @IBAction func onLogout(_ sender: UIBarButtonItem) {
-        UserService.sharedInstance.logout()
-    }
 }
 
 // MARK: Location manager delegate

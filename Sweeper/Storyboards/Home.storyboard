@@ -21,6 +21,11 @@
                         <viewLayoutGuide key="safeArea" id="8y8-Vr-iRV"/>
                     </view>
                     <navigationItem key="navigationItem" id="4hZ-kU-sIO">
+                        <barButtonItem key="leftBarButtonItem" title="Logout" id="Len-Ld-Qev">
+                            <connections>
+                                <action selector="onLogout:" destination="Q8S-h3-SmR" id="NOY-bH-CVn"/>
+                            </connections>
+                        </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" title="Toggle" image="view-list" id="FgZ-hq-dWV">
                             <connections>
                                 <action selector="onToggleView:" destination="Q8S-h3-SmR" id="tRE-ap-bOr"/>
