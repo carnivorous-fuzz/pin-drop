@@ -116,6 +116,6 @@ class LoginViewController: UIViewController {
     }
     
     private func segueToHome() {
-        present(UIStoryboard.homeViewNC, animated: true, completion: nil)
+        present(UIStoryboard.tabBarVC, animated: true, completion: nil)
     }
 }

@@ -87,15 +87,7 @@ class SignUpViewController: UIViewController {
         let image = profileImageView.image == #imageLiteral(resourceName: "default_profile") ? nil : profileImageView.image
         UserService.sharedInstance.signUp(username: email, password: password!, firstName: firstName, lastName: lastName, image: image) { (error) in
             if error == nil {
-                let homeNC = UIStoryboard.homeViewNC
-                let scavengerHuntNC = UIStoryboard.scavengerHuntNC
-                let createPinNC = UIStoryboard.createPinNC
-                let viewedPinsNC = UIStoryboard.viewedPinsNC
-                let profileNC = UIStoryboard.profileNC
-                let controllers = [homeNC, scavengerHuntNC, createPinNC, viewedPinsNC, profileNC]
-                let tabBarController = Theme.TabBar().initTabBarController(with: controllers)
-                
-                self.present(tabBarController, animated: false, completion: nil)
+                self.present(UIStoryboard.tabBarVC, animated: false, completion: nil)
             } else {
                 self.showError(message: self.tryAgain)
             }
