@@ -16,7 +16,9 @@ class PinOverviewCell: UITableViewCell {
 
     var pin: Pin! {
         didSet {
-            pinImageView.setImageWith(pin.getImageUrl()!)
+            if pin.getImageUrl() != nil {
+                pinImageView.setImageWith(pin.getImageUrl()!)
+            }
             pinMsgLabel.text = pin.message!
             pinBlurbLabel.text = pin.blurb!
         }
