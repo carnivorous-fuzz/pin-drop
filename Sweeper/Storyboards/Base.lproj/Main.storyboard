@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13196" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13196" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="Fd6-Ne-rqC">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13173"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13174"/>
         <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -24,14 +24,14 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="QHE-7n-lM7" customClass="FancyTextField" customModule="Sweeper" customModuleProvider="target">
-                                <rect key="frame" x="38" y="80" width="300" height="80"/>
+                                <rect key="frame" x="38" y="124" width="300" height="80"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="80" id="7R1-s9-hHD"/>
                                 </constraints>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="EUC-6b-4EL" customClass="FancyTextField" customModule="Sweeper" customModuleProvider="target">
-                                <rect key="frame" x="38" y="168" width="300" height="80"/>
+                                <rect key="frame" x="38" y="212" width="300" height="80"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="80" id="NRa-I4-cDk"/>
@@ -62,7 +62,7 @@
                                     <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 </state>
                                 <connections>
-                                    <action selector="onSignUp:" destination="BYZ-38-t0r" eventType="touchUpInside" id="G16-NU-MPH"/>
+                                    <action selector="onSignUp:" destination="BYZ-38-t0r" eventType="touchUpInside" id="eFb-fJ-oC5"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -87,10 +87,12 @@
                             <outletCollection property="gestureRecognizers" destination="d28-vq-HZ1" appends="YES" id="zYl-mA-xHa"/>
                         </connections>
                     </view>
+                    <navigationItem key="navigationItem" id="Lds-Kq-Q4M"/>
                     <connections>
                         <outlet property="bottomConstraint" destination="3vw-YK-T28" id="iie-2L-UA1"/>
                         <outlet property="passwordView" destination="EUC-6b-4EL" id="3dI-96-5RT"/>
                         <outlet property="usernameView" destination="QHE-7n-lM7" id="mm2-JD-QAw"/>
+                        <segue destination="WJ3-Eb-lSx" kind="show" identifier="signUpSegue" id="aJm-Dm-1oq"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
@@ -100,7 +102,170 @@
                     </connections>
                 </tapGestureRecognizer>
             </objects>
-            <point key="canvasLocation" x="141.59999999999999" y="133.5832083958021"/>
+            <point key="canvasLocation" x="480.80000000000001" y="133.5832083958021"/>
+        </scene>
+        <!--Sign Up View Controller-->
+        <scene sceneID="fQa-KI-soU">
+            <objects>
+                <viewController storyboardIdentifier="SignUpViewController" id="WJ3-Eb-lSx" customClass="SignUpViewController" customModule="Sweeper" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="X6R-vj-Ly6">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="olH-hT-LPI" customClass="FancyTextField" customModule="Sweeper" customModuleProvider="target">
+                                <rect key="frame" x="47" y="124" width="281" height="60"/>
+                                <color key="backgroundColor" red="0.1137254902" green="0.79215686269999996" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="60" id="hdp-ui-nx8"/>
+                                </constraints>
+                            </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="xAQ-pt-TGX" customClass="FancyTextField" customModule="Sweeper" customModuleProvider="target">
+                                <rect key="frame" x="47" y="184" width="281" height="60"/>
+                                <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="60" id="P0S-EO-Y88"/>
+                                </constraints>
+                            </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="vyU-JI-KXx" customClass="FancyTextField" customModule="Sweeper" customModuleProvider="target">
+                                <rect key="frame" x="47" y="244" width="281" height="60"/>
+                                <color key="backgroundColor" red="1" green="0.87586594210000002" blue="0.28114153289999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="60" id="xyF-6T-wxi"/>
+                                </constraints>
+                            </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="pQS-PB-epM" customClass="FancyTextField" customModule="Sweeper" customModuleProvider="target">
+                                <rect key="frame" x="47" y="304" width="281" height="60"/>
+                                <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="60" id="pfN-8o-ezi"/>
+                                </constraints>
+                            </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="136-Mf-r8c" customClass="FancyTextField" customModule="Sweeper" customModuleProvider="target">
+                                <rect key="frame" x="47" y="364" width="281" height="60"/>
+                                <color key="backgroundColor" red="0.1137254902" green="0.79215686269999996" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="60" id="CE7-Gd-B6c"/>
+                                </constraints>
+                            </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="VW4-jB-hcr" userLabel="Profile Image View">
+                                <rect key="frame" x="47" y="440" width="281" height="120"/>
+                                <subviews>
+                                    <imageView contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="default_profile" translatesAutoresizingMaskIntoConstraints="NO" id="PQD-1R-WbG">
+                                        <rect key="frame" x="161" y="0.0" width="120" height="120"/>
+                                        <gestureRecognizers/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="120" id="Cyc-WO-iMa"/>
+                                            <constraint firstAttribute="height" constant="120" id="aKv-pX-Jcq"/>
+                                        </constraints>
+                                        <connections>
+                                            <outletCollection property="gestureRecognizers" destination="XYx-BH-DAT" appends="YES" id="bur-kM-GJ3"/>
+                                        </connections>
+                                    </imageView>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Profile Image" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="62E-1p-Zvm">
+                                        <rect key="frame" x="0.0" y="0.0" width="100" height="21"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="120" id="666-86-r2P"/>
+                                    <constraint firstItem="PQD-1R-WbG" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="62E-1p-Zvm" secondAttribute="trailing" constant="4" id="Bjj-OD-VGp"/>
+                                    <constraint firstItem="62E-1p-Zvm" firstAttribute="leading" secondItem="VW4-jB-hcr" secondAttribute="leading" id="E4g-P0-jfK"/>
+                                    <constraint firstItem="62E-1p-Zvm" firstAttribute="top" secondItem="VW4-jB-hcr" secondAttribute="top" id="GcE-Ay-2Y1"/>
+                                    <constraint firstItem="PQD-1R-WbG" firstAttribute="top" secondItem="VW4-jB-hcr" secondAttribute="top" id="RAj-2c-HO3"/>
+                                    <constraint firstAttribute="trailing" secondItem="PQD-1R-WbG" secondAttribute="trailing" id="hBb-IP-NCV"/>
+                                    <constraint firstAttribute="bottom" secondItem="PQD-1R-WbG" secondAttribute="bottom" id="lPr-xZ-u8m"/>
+                                </constraints>
+                            </view>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="MLY-P8-Pee">
+                                <rect key="frame" x="147" y="576" width="80" height="30"/>
+                                <color key="backgroundColor" red="0.1137254902" green="0.63137254899999995" blue="0.94901960780000005" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="80" id="H4X-Jx-Cb4"/>
+                                </constraints>
+                                <state key="normal" title="Sign up">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                                <connections>
+                                    <action selector="onSignUp" destination="WJ3-Eb-lSx" eventType="touchUpInside" id="HbW-uX-vsz"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <gestureRecognizers/>
+                        <constraints>
+                            <constraint firstItem="SXH-nF-qK2" firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="MLY-P8-Pee" secondAttribute="bottom" constant="8" id="1M2-8u-KJX"/>
+                            <constraint firstItem="vyU-JI-KXx" firstAttribute="top" secondItem="xAQ-pt-TGX" secondAttribute="bottom" id="4Sd-X7-nRX"/>
+                            <constraint firstItem="pQS-PB-epM" firstAttribute="top" secondItem="vyU-JI-KXx" secondAttribute="bottom" id="782-sN-dc0"/>
+                            <constraint firstItem="olH-hT-LPI" firstAttribute="top" secondItem="SXH-nF-qK2" secondAttribute="top" constant="60" id="CuH-dL-L9g"/>
+                            <constraint firstItem="136-Mf-r8c" firstAttribute="centerX" secondItem="X6R-vj-Ly6" secondAttribute="centerX" id="DOL-56-KmE"/>
+                            <constraint firstItem="pQS-PB-epM" firstAttribute="width" secondItem="olH-hT-LPI" secondAttribute="width" id="JIU-2P-l0u"/>
+                            <constraint firstItem="MLY-P8-Pee" firstAttribute="top" secondItem="VW4-jB-hcr" secondAttribute="bottom" constant="16" id="Jdu-TW-bLH"/>
+                            <constraint firstItem="xAQ-pt-TGX" firstAttribute="centerX" secondItem="X6R-vj-Ly6" secondAttribute="centerX" id="W86-9d-Ga3"/>
+                            <constraint firstItem="xAQ-pt-TGX" firstAttribute="top" secondItem="olH-hT-LPI" secondAttribute="bottom" id="Yyi-0h-YWt"/>
+                            <constraint firstItem="VW4-jB-hcr" firstAttribute="top" secondItem="136-Mf-r8c" secondAttribute="bottom" constant="16" id="bpl-Ox-tlN"/>
+                            <constraint firstItem="VW4-jB-hcr" firstAttribute="centerX" secondItem="X6R-vj-Ly6" secondAttribute="centerX" id="d7Q-iP-M8a"/>
+                            <constraint firstItem="olH-hT-LPI" firstAttribute="width" secondItem="X6R-vj-Ly6" secondAttribute="width" multiplier="0.75" id="e0L-Ei-F1D"/>
+                            <constraint firstItem="vyU-JI-KXx" firstAttribute="centerX" secondItem="X6R-vj-Ly6" secondAttribute="centerX" id="f2i-ue-U39"/>
+                            <constraint firstItem="vyU-JI-KXx" firstAttribute="width" secondItem="olH-hT-LPI" secondAttribute="width" id="hUZ-7q-0cv"/>
+                            <constraint firstItem="136-Mf-r8c" firstAttribute="top" secondItem="pQS-PB-epM" secondAttribute="bottom" id="hdy-ob-qwu"/>
+                            <constraint firstItem="xAQ-pt-TGX" firstAttribute="width" secondItem="olH-hT-LPI" secondAttribute="width" id="kAn-n2-N1e"/>
+                            <constraint firstItem="pQS-PB-epM" firstAttribute="centerX" secondItem="X6R-vj-Ly6" secondAttribute="centerX" id="kp8-1h-i15"/>
+                            <constraint firstItem="olH-hT-LPI" firstAttribute="centerX" secondItem="X6R-vj-Ly6" secondAttribute="centerX" id="ozK-qq-uSe"/>
+                            <constraint firstItem="MLY-P8-Pee" firstAttribute="centerX" secondItem="X6R-vj-Ly6" secondAttribute="centerX" id="pFH-un-1qj"/>
+                            <constraint firstItem="136-Mf-r8c" firstAttribute="width" secondItem="olH-hT-LPI" secondAttribute="width" id="yvX-uu-JyV"/>
+                            <constraint firstItem="VW4-jB-hcr" firstAttribute="width" secondItem="olH-hT-LPI" secondAttribute="width" id="zhb-wl-Tj7"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="SXH-nF-qK2"/>
+                        <connections>
+                            <outletCollection property="gestureRecognizers" destination="4w6-Rp-c9C" appends="YES" id="v3R-QU-91b"/>
+                        </connections>
+                    </view>
+                    <connections>
+                        <outlet property="confirmPasswordField" destination="136-Mf-r8c" id="RkG-BQ-2wl"/>
+                        <outlet property="emailTextField" destination="olH-hT-LPI" id="JoF-Sh-jll"/>
+                        <outlet property="firstNameTextField" destination="xAQ-pt-TGX" id="0ct-jv-1Mh"/>
+                        <outlet property="lastNameTextField" destination="vyU-JI-KXx" id="baK-sf-wsr"/>
+                        <outlet property="passwordField" destination="pQS-PB-epM" id="Lx8-4d-Cse"/>
+                        <outlet property="profileImageView" destination="PQD-1R-WbG" id="4EC-kN-axX"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="iHb-1y-yFn" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <tapGestureRecognizer id="4w6-Rp-c9C">
+                    <connections>
+                        <action selector="onTap:" destination="WJ3-Eb-lSx" id="wEg-F4-YaU"/>
+                    </connections>
+                </tapGestureRecognizer>
+                <tapGestureRecognizer id="XYx-BH-DAT">
+                    <connections>
+                        <action selector="onProfileImageTap:" destination="WJ3-Eb-lSx" id="cFx-38-P7V"/>
+                    </connections>
+                </tapGestureRecognizer>
+            </objects>
+            <point key="canvasLocation" x="1199.2" y="133.5832083958021"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="aGa-YK-pg3">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="Fd6-Ne-rqC" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="RXt-s8-sif">
+                        <rect key="frame" x="0.0" y="20" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="rootViewController" id="87w-9F-nRX"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="mmQ-Py-qod" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-252" y="134"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="default_profile" width="24" height="24"/>
+    </resources>
 </document>
