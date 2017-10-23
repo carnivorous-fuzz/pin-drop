@@ -54,6 +54,10 @@ class PinDetailsCard: UIView {
             ImageUtils.loadImage(forView: imageView, defaultImage: nil, url: URL(string: imageUrlStr)!)
         }
         
+        if let userProfileUrlStr = pin.creator?.profileImageUrl {
+            ImageUtils.loadImage(forView: profileImageView, defaultImage: #imageLiteral(resourceName: "default_profile"), url: URL(string: userProfileUrlStr)!)
+        }
+        
         titleLabel.text = pin.blurb
         timeAgoLabel.text = TimeUtils.getPrettyTimeAgoString(pin.createdAt!)
         messageLabel.text = pin.message
