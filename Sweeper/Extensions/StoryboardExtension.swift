@@ -13,7 +13,7 @@ extension UIStoryboard {
     static var tabBar: UIStoryboard {
         return getStoryboardNamed("TabBar")
     }
-    
+
     static var main: UIStoryboard {
         return getStoryboardNamed("Main")
     }
@@ -21,7 +21,7 @@ extension UIStoryboard {
     static var createPin: UIStoryboard {
         return getStoryboardNamed("CreatePin")
     }
-    
+
     static var home: UIStoryboard {
         return getStoryboardNamed("Home")
     }
@@ -33,11 +33,11 @@ extension UIStoryboard {
     static var scavengerHunt: UIStoryboard {
         return getStoryboardNamed("ScavengerHunt")
     }
-    
+
     static var profile: UIStoryboard {
         return getStoryboardNamed("Profile")
     }
-    
+
     static var viewedPins: UIStoryboard {
         return getStoryboardNamed("ViewedPins")
     }
@@ -54,11 +54,15 @@ extension UIStoryboard {
     static var loginVC: LoginViewController {
         return UIStoryboard.main.instantiateInitialViewController() as! LoginViewController
     }
-    
+
+    static var signUpVC: SignUpViewController {
+        return UIStoryboard.main.instantiateViewController(withIdentifier: "SignUpViewController") as! SignUpViewController
+    }
+
     static var pinsMapVC: PinsMapViewController {
         return UIStoryboard.home.instantiateViewController(withIdentifier: "PinsMapViewController") as! PinsMapViewController
     }
-    
+
     static var pinsListVC: PinsListViewController {
         return UIStoryboard.home.instantiateViewController(withIdentifier: "PinsListViewController") as! PinsListViewController
     }
@@ -72,28 +76,28 @@ extension UIStoryboard {
     static var tagsSelectorVC: TagSelectorViewController {
         return UIStoryboard.scavengerHunt.instantiateViewController(withIdentifier: "TagSelectorViewController") as! TagSelectorViewController
     }
-    
+
     static var tabBarVC: TabBarViewController {
         return UIStoryboard.tabBar.instantiateViewController(withIdentifier: "TabBarViewController") as! TabBarViewController
     }
-    
+
     // MARK tab-bar Navigation controllers
     static var homeViewNC: UINavigationController {
         return UIStoryboard.home.instantiateViewController(withIdentifier: "HomeNC") as! UINavigationController
     }
-    
+
     static var scavengerHuntNC: UINavigationController {
         return UIStoryboard.scavengerHunt.instantiateViewController(withIdentifier: "ScavengerHuntNC") as! UINavigationController
     }
-    
+
     static var createPinNC: UINavigationController {
         return UIStoryboard.createPin.instantiateViewController(withIdentifier: "CreatePinNC") as! UINavigationController
     }
-    
+
     static var viewedPinsNC: UINavigationController {
         return UIStoryboard.viewedPins.instantiateViewController(withIdentifier: "ViewedPinsNC") as! UINavigationController
     }
-    
+
     static var profileNC: UINavigationController {
         return UIStoryboard.profile.instantiateViewController(withIdentifier: "ProfileNC") as! UINavigationController
     }
