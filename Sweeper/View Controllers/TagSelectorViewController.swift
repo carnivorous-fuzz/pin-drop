@@ -54,6 +54,7 @@ class TagSelectorViewController: UIViewController {
                 self.currentPage += 1
             }
             self.loadingMoreView!.stopAnimating()
+            self.isMoreDataLoading = false
         }
     }
 }

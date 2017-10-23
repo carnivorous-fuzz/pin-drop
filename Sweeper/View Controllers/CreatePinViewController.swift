@@ -24,6 +24,7 @@ class CreatePinViewController: UIViewController, UINavigationControllerDelegate 
 
     override func viewDidLoad() {
         super.viewDidLoad()
+
         createDismissBarItem()
         getLocation()
         titleField.fieldLabel.text = "Add a Title"
@@ -49,6 +50,9 @@ class CreatePinViewController: UIViewController, UINavigationControllerDelegate 
     
     private func getLocation() {
         locationManager = CLLocationManager()
+        if CLLocationManager.authorizationStatus() == .notDetermined {
+            locationManager.requestWhenInUseAuthorization()
+        }
         locationManager.delegate = self
         locationManager.desiredAccuracy = kCLLocationAccuracyBest
         locationManager.distanceFilter = 200
