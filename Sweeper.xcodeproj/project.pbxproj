@@ -22,6 +22,8 @@
 		37F3FA721F9C29E200287F61 /* ViewedPins.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 37F3FA711F9C29E200287F61 /* ViewedPins.storyboard */; };
 		37F3FA741F9C2ADE00287F61 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37F3FA731F9C2ADE00287F61 /* ProfileViewController.swift */; };
 		37F3FA761F9C2AEB00287F61 /* ViewedPinsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37F3FA751F9C2AEB00287F61 /* ViewedPinsViewController.swift */; };
+		37F3FA7F1F9D5DBC00287F61 /* TabBar.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 37F3FA7E1F9D5DBC00287F61 /* TabBar.storyboard */; };
+		37F3FA811F9D603400287F61 /* TabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37F3FA801F9D603400287F61 /* TabBarViewController.swift */; };
 		5B4C8AEAC3C694DCF2E8D6DB /* Pods_Sweeper.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B9002B9427295A5C4DB280EB /* Pods_Sweeper.framework */; };
 		7C1A43141F96B6FD00E3E6E0 /* PinAnnotationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C1A43131F96B6FD00E3E6E0 /* PinAnnotationView.swift */; };
 		7C1A43181F96C82F00E3E6E0 /* PinAnnotation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C1A43171F96C82F00E3E6E0 /* PinAnnotation.swift */; };
@@ -94,6 +96,8 @@
 		37F3FA711F9C29E200287F61 /* ViewedPins.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = ViewedPins.storyboard; sourceTree = "<group>"; };
 		37F3FA731F9C2ADE00287F61 /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
 		37F3FA751F9C2AEB00287F61 /* ViewedPinsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewedPinsViewController.swift; sourceTree = "<group>"; };
+		37F3FA7E1F9D5DBC00287F61 /* TabBar.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = TabBar.storyboard; sourceTree = "<group>"; };
+		37F3FA801F9D603400287F61 /* TabBarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarViewController.swift; sourceTree = "<group>"; };
 		7C1A43131F96B6FD00E3E6E0 /* PinAnnotationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PinAnnotationView.swift; sourceTree = "<group>"; };
 		7C1A43171F96C82F00E3E6E0 /* PinAnnotation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PinAnnotation.swift; sourceTree = "<group>"; };
 		7C1A43201F994CC000E3E6E0 /* StoryboardExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoryboardExtension.swift; sourceTree = "<group>"; };
@@ -236,6 +240,7 @@
 				37F3FA6F1F9C29C100287F61 /* Profile.storyboard */,
 				37F3FA711F9C29E200287F61 /* ViewedPins.storyboard */,
 				B96D352B1F9B006900BC6CBF /* PinComment.storyboard */,
+				37F3FA7E1F9D5DBC00287F61 /* TabBar.storyboard */,
 			);
 			path = Storyboards;
 			sourceTree = "<group>";
@@ -311,7 +316,7 @@
 				B79291FC1F91CD0700069144 /* Storyboards */,
 				B9CB3D181F90C8B30023EA79 /* Utils */,
 				B9CB3D051F9056500023EA79 /* Views */,
-				B9CB3D031F90563E0023EA79 /* ViewControllers */,
+				B9CB3D031F90563E0023EA79 /* View Controllers */,
 				374C23EC1F91D0A3000C0ECE /* Services */,
 				374C23EB1F91D082000C0ECE /* Models */,
 				B9CB3CF01F9056060023EA79 /* AppDelegate.swift */,
@@ -322,7 +327,7 @@
 			path = Sweeper;
 			sourceTree = "<group>";
 		};
-		B9CB3D031F90563E0023EA79 /* ViewControllers */ = {
+		B9CB3D031F90563E0023EA79 /* View Controllers */ = {
 			isa = PBXGroup;
 			children = (
 				B9CB3D061F9056720023EA79 /* LoginViewController.swift */,
@@ -335,9 +340,10 @@
 				37F3FA731F9C2ADE00287F61 /* ProfileViewController.swift */,
 				37F3FA751F9C2AEB00287F61 /* ViewedPinsViewController.swift */,
 				B96D352D1F9B008E00BC6CBF /* PinCommentViewController.swift */,
+				37F3FA801F9D603400287F61 /* TabBarViewController.swift */,
 				B71D02A11F9C54770090DD9D /* SHNavigationViewController.swift */,
 			);
-			path = ViewControllers;
+			path = "View Controllers";
 			sourceTree = "<group>";
 		};
 		B9CB3D051F9056500023EA79 /* Views */ = {
@@ -466,6 +472,7 @@
 				B9CB3D261F92C6170023EA79 /* PinDetails.storyboard in Resources */,
 				B96D35231F99B33A00BC6CBF /* PinDetailsCard.xib in Resources */,
 				B96D352C1F9B006900BC6CBF /* PinComment.storyboard in Resources */,
+				37F3FA7F1F9D5DBC00287F61 /* TabBar.storyboard in Resources */,
 				B9CB3CF61F9056060023EA79 /* Main.storyboard in Resources */,
 				B9CB3D2E1F94143B0023EA79 /* ProfileView.xib in Resources */,
 				B79291FB1F91CD0100069144 /* CreatePin.storyboard in Resources */,
@@ -589,6 +596,7 @@
 			files = (
 				B9CB3D281F92C6970023EA79 /* PinDetailsViewController.swift in Sources */,
 				7C1A43181F96C82F00E3E6E0 /* PinAnnotation.swift in Sources */,
+				37F3FA811F9D603400287F61 /* TabBarViewController.swift in Sources */,
 				B96D352E1F9B008E00BC6CBF /* PinCommentViewController.swift in Sources */,
 				37731ECD1F92C093009E0603 /* AppService.swift in Sources */,
 				B96D35211F99B32F00BC6CBF /* PinDetailsCard.swift in Sources */,

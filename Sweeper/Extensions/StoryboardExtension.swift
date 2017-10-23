@@ -10,6 +10,10 @@ import UIKit
 
 extension UIStoryboard {
     // MARK:- Storyboards
+    static var tabBar: UIStoryboard {
+        return getStoryboardNamed("TabBar")
+    }
+    
     static var main: UIStoryboard {
         return getStoryboardNamed("Main")
     }
@@ -67,6 +71,10 @@ extension UIStoryboard {
     // MARK: Scavenger Hunt related View Controllers
     static var tagsSelectorVC: TagSelectorViewController {
         return UIStoryboard.scavengerHunt.instantiateViewController(withIdentifier: "TagSelectorViewController") as! TagSelectorViewController
+    }
+    
+    static var tabBarVC: TabBarViewController {
+        return UIStoryboard.tabBar.instantiateViewController(withIdentifier: "TabBarViewController") as! TabBarViewController
     }
     
     // MARK tab-bar Navigation controllers

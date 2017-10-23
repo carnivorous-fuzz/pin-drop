@@ -1,0 +1,157 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13196" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13174"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Tab Bar View Controller-->
+        <scene sceneID="6IF-ix-Abz">
+            <objects>
+                <viewController storyboardIdentifier="TabBarViewController" id="5HF-WP-7PN" customClass="TabBarViewController" customModule="Sweeper" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="XRe-gs-tlH">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ea5-5z-dfo" userLabel="Content View">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="592"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="qpV-wM-4Nn" userLabel="Tab Bar View">
+                                <rect key="frame" x="0.0" y="592" width="375" height="75"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="OoH-xs-nI6" userLabel="Home Button">
+                                        <rect key="frame" x="8" y="13" width="50" height="50"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="50" id="FYD-GH-Chu"/>
+                                            <constraint firstAttribute="height" constant="50" id="M0p-Wc-jrX"/>
+                                        </constraints>
+                                        <state key="normal" image="home"/>
+                                        <connections>
+                                            <action selector="didPressTab:" destination="5HF-WP-7PN" eventType="touchUpInside" id="gOI-04-02f"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="JTj-X1-2do" userLabel="Scavenger Button">
+                                        <rect key="frame" x="85" y="13" width="50" height="50"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="50" id="8iN-Y9-E7a"/>
+                                            <constraint firstAttribute="width" constant="50" id="Tnm-hn-C0O"/>
+                                        </constraints>
+                                        <state key="normal" image="scavenger"/>
+                                        <connections>
+                                            <action selector="didPressTab:" destination="5HF-WP-7PN" eventType="touchUpInside" id="rMl-qj-2cj"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" tag="2" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="p2z-m7-cfS" userLabel="Create Button">
+                                        <rect key="frame" x="162.5" y="12" width="50" height="50"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="50" id="Dee-Nv-hmp"/>
+                                            <constraint firstAttribute="height" constant="50" id="TR5-2z-lbn"/>
+                                        </constraints>
+                                        <state key="normal" image="create-pin"/>
+                                        <connections>
+                                            <action selector="didPressTab:" destination="5HF-WP-7PN" eventType="touchUpInside" id="Og6-he-bT7"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" tag="3" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5Tf-Ix-f8I" userLabel="Visited Button">
+                                        <rect key="frame" x="240" y="12" width="50" height="50"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="50" id="5Dg-bx-zUg"/>
+                                            <constraint firstAttribute="height" constant="50" id="udf-lS-9as"/>
+                                        </constraints>
+                                        <state key="normal" image="visited"/>
+                                        <connections>
+                                            <action selector="didPressTab:" destination="5HF-WP-7PN" eventType="touchUpInside" id="bbt-g3-xZl"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" tag="4" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hqW-0o-fia" userLabel="Profile Button">
+                                        <rect key="frame" x="317" y="12" width="50" height="50"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="50" id="stc-8B-DD5"/>
+                                            <constraint firstAttribute="height" constant="50" id="th0-0C-nZS"/>
+                                        </constraints>
+                                        <state key="normal" image="profile"/>
+                                        <connections>
+                                            <action selector="didPressTab:" destination="5HF-WP-7PN" eventType="touchUpInside" id="FBQ-Te-sZW"/>
+                                        </connections>
+                                    </button>
+                                    <view contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="pIQ-aV-xGW" userLabel="Spacer 1">
+                                        <rect key="frame" x="58" y="13" width="27" height="50"/>
+                                        <color key="backgroundColor" red="0.0" green="0.67450980390000004" blue="0.92941176469999998" alpha="1" colorSpace="calibratedRGB"/>
+                                    </view>
+                                    <view contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="wlW-vb-KIc" userLabel="Spacer 2">
+                                        <rect key="frame" x="135" y="12" width="27.5" height="50"/>
+                                        <color key="backgroundColor" red="0.0" green="0.67450980390000004" blue="0.92941176469999998" alpha="1" colorSpace="calibratedRGB"/>
+                                    </view>
+                                    <view contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="n9r-lX-Xm4" userLabel="Spacer 3">
+                                        <rect key="frame" x="213" y="13" width="27" height="50"/>
+                                        <color key="backgroundColor" red="0.0" green="0.67450980390000004" blue="0.92941176469999998" alpha="1" colorSpace="calibratedRGB"/>
+                                    </view>
+                                    <view contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="BV1-Tm-Xx3" userLabel="Spacer 4">
+                                        <rect key="frame" x="290" y="13" width="27" height="50"/>
+                                        <color key="backgroundColor" red="0.0" green="0.67450980390000004" blue="0.92941176469999998" alpha="1" colorSpace="calibratedRGB"/>
+                                    </view>
+                                </subviews>
+                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstItem="p2z-m7-cfS" firstAttribute="leading" secondItem="wlW-vb-KIc" secondAttribute="trailing" id="5kL-3q-R6H"/>
+                                    <constraint firstItem="n9r-lX-Xm4" firstAttribute="leading" secondItem="p2z-m7-cfS" secondAttribute="trailing" id="9Z4-FR-dlo"/>
+                                    <constraint firstItem="BV1-Tm-Xx3" firstAttribute="leading" secondItem="5Tf-Ix-f8I" secondAttribute="trailing" id="MCS-Fe-VHZ"/>
+                                    <constraint firstItem="p2z-m7-cfS" firstAttribute="centerX" secondItem="qpV-wM-4Nn" secondAttribute="centerX" id="N9L-rz-61d"/>
+                                    <constraint firstItem="pIQ-aV-xGW" firstAttribute="leading" secondItem="OoH-xs-nI6" secondAttribute="trailing" id="O5U-0D-gJW"/>
+                                    <constraint firstItem="p2z-m7-cfS" firstAttribute="centerY" secondItem="qpV-wM-4Nn" secondAttribute="centerY" id="OE9-h7-sH9"/>
+                                    <constraint firstItem="hqW-0o-fia" firstAttribute="centerY" secondItem="qpV-wM-4Nn" secondAttribute="centerY" id="OUO-cN-bcH"/>
+                                    <constraint firstItem="hqW-0o-fia" firstAttribute="leading" secondItem="BV1-Tm-Xx3" secondAttribute="trailing" id="QN2-py-1B0"/>
+                                    <constraint firstAttribute="height" constant="75" id="SGu-2H-c1z"/>
+                                    <constraint firstItem="5Tf-Ix-f8I" firstAttribute="leading" secondItem="n9r-lX-Xm4" secondAttribute="trailing" id="VSj-kg-bkd"/>
+                                    <constraint firstItem="n9r-lX-Xm4" firstAttribute="width" secondItem="pIQ-aV-xGW" secondAttribute="width" id="Zmi-mJ-x6M"/>
+                                    <constraint firstItem="OoH-xs-nI6" firstAttribute="centerY" secondItem="qpV-wM-4Nn" secondAttribute="centerY" id="e3O-M8-jZF"/>
+                                    <constraint firstAttribute="trailing" secondItem="hqW-0o-fia" secondAttribute="trailing" constant="8" id="ef4-3g-oUL"/>
+                                    <constraint firstItem="wlW-vb-KIc" firstAttribute="width" secondItem="pIQ-aV-xGW" secondAttribute="width" id="ev2-aF-0ue"/>
+                                    <constraint firstItem="JTj-X1-2do" firstAttribute="centerY" secondItem="qpV-wM-4Nn" secondAttribute="centerY" id="fwt-Ob-r3X"/>
+                                    <constraint firstItem="BV1-Tm-Xx3" firstAttribute="width" secondItem="pIQ-aV-xGW" secondAttribute="width" id="ivf-iv-cde"/>
+                                    <constraint firstItem="OoH-xs-nI6" firstAttribute="leading" secondItem="qpV-wM-4Nn" secondAttribute="leading" constant="8" id="q7l-00-tpy"/>
+                                    <constraint firstItem="wlW-vb-KIc" firstAttribute="leading" secondItem="JTj-X1-2do" secondAttribute="trailing" id="saQ-dM-wHm"/>
+                                    <constraint firstItem="JTj-X1-2do" firstAttribute="leading" secondItem="pIQ-aV-xGW" secondAttribute="trailing" id="wmW-UG-FeR"/>
+                                    <constraint firstItem="5Tf-Ix-f8I" firstAttribute="centerY" secondItem="qpV-wM-4Nn" secondAttribute="centerY" id="xaP-Sq-Gos"/>
+                                </constraints>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="ea5-5z-dfo" firstAttribute="top" secondItem="XRe-gs-tlH" secondAttribute="top" id="KT7-tq-nl0"/>
+                            <constraint firstItem="ea5-5z-dfo" firstAttribute="trailing" secondItem="HK7-0C-l7I" secondAttribute="trailing" id="Qef-9W-p0l"/>
+                            <constraint firstItem="qpV-wM-4Nn" firstAttribute="leading" secondItem="HK7-0C-l7I" secondAttribute="leading" id="Qtz-17-tRV"/>
+                            <constraint firstItem="HK7-0C-l7I" firstAttribute="trailing" secondItem="qpV-wM-4Nn" secondAttribute="trailing" id="kn2-p3-x5y"/>
+                            <constraint firstItem="qpV-wM-4Nn" firstAttribute="top" secondItem="ea5-5z-dfo" secondAttribute="bottom" id="m2r-SN-ZMw"/>
+                            <constraint firstItem="ea5-5z-dfo" firstAttribute="leading" secondItem="HK7-0C-l7I" secondAttribute="leading" id="so5-EM-AoI"/>
+                            <constraint firstItem="HK7-0C-l7I" firstAttribute="bottom" secondItem="qpV-wM-4Nn" secondAttribute="bottom" id="wtT-op-HVJ"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="HK7-0C-l7I"/>
+                    </view>
+                    <connections>
+                        <outlet property="contentView" destination="ea5-5z-dfo" id="lMd-sN-TqG"/>
+                        <outletCollection property="buttons" destination="OoH-xs-nI6" collectionClass="NSMutableArray" id="jpo-nL-aP1"/>
+                        <outletCollection property="buttons" destination="JTj-X1-2do" collectionClass="NSMutableArray" id="Nj8-5t-Wn6"/>
+                        <outletCollection property="buttons" destination="p2z-m7-cfS" collectionClass="NSMutableArray" id="qVw-Oe-hNW"/>
+                        <outletCollection property="buttons" destination="5Tf-Ix-f8I" collectionClass="NSMutableArray" id="wMK-wW-UnJ"/>
+                        <outletCollection property="buttons" destination="hqW-0o-fia" collectionClass="NSMutableArray" id="AjB-iF-9dA"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Qj1-cZ-Rk7" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-380" y="111.99400299850076"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="create-pin" width="25" height="25"/>
+        <image name="home" width="25" height="25"/>
+        <image name="profile" width="25" height="25"/>
+        <image name="scavenger" width="25" height="25"/>
+        <image name="visited" width="25" height="25"/>
+    </resources>
+</document>
