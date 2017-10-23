@@ -31,6 +31,11 @@ class SHNavigationViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+
+        navigationController?.navigationBar.barTintColor = UIColor.white
+        navigationController?.navigationBar.tintColor = Theme.Colors().green
+        navigationController?.navigationBar.titleTextAttributes = [NSAttributedStringKey.foregroundColor: UIColor.gray]
+
         getLocation()
 
         tableView.tableFooterView = UIView(frame: CGRect.zero)
