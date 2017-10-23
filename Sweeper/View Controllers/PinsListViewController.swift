@@ -19,11 +19,15 @@ class PinsListViewController: UIViewController, UITableViewDataSource {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-    
+        Timer.scheduledTimer(timeInterval: 2, target: self, selector: #selector(PinsListViewController.loadPins), userInfo: nil, repeats: true)
+
         tableView.delegate = self
         tableView.dataSource = self
         
         getLocation()
+        loadPins()
+    }
+    @objc fileprivate func loadPins() {
         PinService.sharedInstance.fetchPins { (pins: [Pin]?, error: Error?) in
             if let pins = pins {
                 self.pins = pins
@@ -32,7 +36,6 @@ class PinsListViewController: UIViewController, UITableViewDataSource {
                 print(error.debugDescription)
             }
         }
-        
     }
     
     private func getLocation() {
