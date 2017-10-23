@@ -12,7 +12,7 @@ import AWSCore
 import AWSCognito
 
 @UIApplicationMain
-class AppDelegate: UIResponder, UIApplicationDelegate {
+class AppDelegate: UIResponder, UIApplicationDelegate, UITabBarControllerDelegate {
 
     var window: UIWindow?
 
@@ -32,14 +32,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         // apply global themes
         Theme.applyNavigationTheme()
-        let homeNC = UIStoryboard.homeViewNC
-        let scavengerHuntNC = UIStoryboard.scavengerHuntNC
-        let createPinNC = UIStoryboard.createPinNC
-        let viewedPinsNC = UIStoryboard.viewedPinsNC
-        let profileNC = UIStoryboard.profileNC
-        let controllers = [homeNC, scavengerHuntNC, createPinNC, viewedPinsNC, profileNC]
-        let tabBarController = Theme.TabBar().initTabBarController(with: controllers)
-        //window?.makeKeyAndVisible()
+       let tabBarController = UIStoryboard.tabBarVC
+        window?.makeKeyAndVisible()
         
         // init starting view
         if User.currentUser != nil {

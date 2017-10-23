@@ -19,13 +19,13 @@ struct Theme {
         var darkGray = UIColor(displayP3Red: CGFloat(150)/255, green: CGFloat(159)/255, blue: CGFloat(170)/255, alpha: 1.0)
     }
     
-    struct TabBar {
-        func initTabBarController(with: [UINavigationController]) -> UITabBarController {
-            let tabBarController = UITabBarController()
-            tabBarController.viewControllers = with
-            return tabBarController
-        }
-    }
+//    struct TabBar {
+//        func initTabBarController(with: [UINavigationController]) -> UITabBarController {
+//            let tabBarController = UITabBarController()
+//            tabBarController.viewControllers = with
+//            return tabBarController
+//        }
+//    }
     
     static func applyNavigationTheme() {
         UINavigationBar.appearance().barTintColor = Colors().green
