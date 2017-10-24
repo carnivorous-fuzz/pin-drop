@@ -22,6 +22,7 @@ class TabBarViewController: UIViewController {
     var viewControllers: [UINavigationController]!
     var selectedIndex: Int = 0
     
+    // MARK: lifecycle functions
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -39,21 +40,20 @@ class TabBarViewController: UIViewController {
             visitedPinsViewController,
             profileViewController
         ]
-
+        
         // init selected vc
-        buttons[selectedIndex].isSelected = true
         didPressTab(buttons[selectedIndex])
     }
     
+    // MARK: IB actions
     @IBAction func didPressTab(_ sender: UIButton) {
         let previousIndex = selectedIndex
-        selectedIndex = sender.tag
-        
-        handleTransition(previousIndex, selectedIndex)
+        let touchedIndex = sender.tag
+        handleTransition(previousIndex, touchedIndex)
     }
     
+    // MARK: helpers
     func handleTransition(_ fromIdx: Int, _ toIdx: Int) {
-        
         let fromViewController = viewControllers[fromIdx]
         let toViewController = viewControllers[toIdx]
         
@@ -61,9 +61,10 @@ class TabBarViewController: UIViewController {
             // special case to handle create transition animation
             present(toViewController, animated: true, completion: nil)
         } else {
-            // set tab selection
-            buttons[fromIdx].isSelected = false
-            buttons[toIdx].isSelected = true
+            selectedIndex = toIdx
+            
+            // set tab selection state/colors
+            setButtonStyles(buttons[toIdx], buttons[fromIdx])
             
             // previous view controller removal/cleanup
             fromViewController.willMove(toParentViewController: nil)
@@ -79,12 +80,28 @@ class TabBarViewController: UIViewController {
         
     }
     
+    
     func isCreateTransition (_ toViewController: UINavigationController) -> Bool {
         if let _ = toViewController.topViewController as? CreatePinViewController {
             return true
         }
         
         return false
+    }
+    
+    func setButtonStyles (_ selectedButton: UIButton, _ deselectedButton: UIButton) {
+        deselectedButton.isSelected = false
+        selectedButton.isSelected = true
+        
+        var imageCopy = deselectedButton.currentImage
+        let unselectedImage = imageCopy?.withRenderingMode(.alwaysTemplate)
+        deselectedButton.setImage(unselectedImage, for: .normal)
+        deselectedButton.tintColor = Theme.Colors().lightGray
+        
+        imageCopy = selectedButton.currentImage
+        let selectedImage = imageCopy?.withRenderingMode(.alwaysTemplate)
+        selectedButton.setImage(selectedImage, for: .selected)
+        selectedButton.tintColor = Theme.Colors().green
     }
     
 }
