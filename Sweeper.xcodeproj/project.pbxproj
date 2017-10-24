@@ -13,6 +13,7 @@
 		37731ECB1F92BE6D009E0603 /* UserService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37731ECA1F92BE6D009E0603 /* UserService.swift */; };
 		37731ECD1F92C093009E0603 /* AppService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37731ECC1F92C093009E0603 /* AppService.swift */; };
 		377DAA721F9D9AB100C7143A /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 377DAA711F9D9AB100C7143A /* HomeViewController.swift */; };
+		377DAA741F9DB94E00C7143A /* EditProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 377DAA731F9DB94E00C7143A /* EditProfileViewController.swift */; };
 		3786F8481F94071D0009F05B /* Tag.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3786F8471F94071D0009F05B /* Tag.swift */; };
 		3786F84A1F9414120009F05B /* TagService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3786F8491F9414120009F05B /* TagService.swift */; };
 		37B4E2531F99B9440090B168 /* PinsListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37B4E2521F99B9440090B168 /* PinsListViewController.swift */; };
@@ -89,6 +90,7 @@
 		37731ECA1F92BE6D009E0603 /* UserService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserService.swift; sourceTree = "<group>"; };
 		37731ECC1F92C093009E0603 /* AppService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppService.swift; sourceTree = "<group>"; };
 		377DAA711F9D9AB100C7143A /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
+		377DAA731F9DB94E00C7143A /* EditProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditProfileViewController.swift; sourceTree = "<group>"; };
 		3786F8471F94071D0009F05B /* Tag.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tag.swift; sourceTree = "<group>"; };
 		3786F8491F9414120009F05B /* TagService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TagService.swift; sourceTree = "<group>"; };
 		37B4E2521F99B9440090B168 /* PinsListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PinsListViewController.swift; sourceTree = "<group>"; };
@@ -347,6 +349,7 @@
 				37F3FA801F9D603400287F61 /* TabBarViewController.swift */,
 				B71D02A11F9C54770090DD9D /* SHNavigationViewController.swift */,
 				377DAA711F9D9AB100C7143A /* HomeViewController.swift */,
+				377DAA731F9DB94E00C7143A /* EditProfileViewController.swift */,
 				B98C87331F9D548600F078BB /* SignUpViewController.swift */,
 			);
 			path = "View Controllers";
@@ -634,6 +637,7 @@
 				B763C35D1F932DD600DA8311 /* UIViewExtension.swift in Sources */,
 				B9CB3D071F9056720023EA79 /* LoginViewController.swift in Sources */,
 				37F3FA6E1F9C148200287F61 /* Theme.swift in Sources */,
+				377DAA741F9DB94E00C7143A /* EditProfileViewController.swift in Sources */,
 				374C23E81F91BDA5000C0ECE /* Pin.swift in Sources */,
 				B77121091F9AFD50004BD7D7 /* DoubleExtension.swift in Sources */,
 				37731EC91F92BE5F009E0603 /* PinService.swift in Sources */,

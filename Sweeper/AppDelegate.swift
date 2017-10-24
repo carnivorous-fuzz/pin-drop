@@ -12,7 +12,7 @@ import AWSCore
 import AWSCognito
 
 @UIApplicationMain
-class AppDelegate: UIResponder, UIApplicationDelegate, UITabBarControllerDelegate {
+class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
 
