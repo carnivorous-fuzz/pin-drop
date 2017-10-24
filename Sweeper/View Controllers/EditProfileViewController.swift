@@ -77,10 +77,12 @@ class EditProfileViewController: UIViewController {
         user.lastName = lastNameTextField.text
         user.username = usernameTextField.text
         print("touched save")
+        saveButton.isEnabled = false
         //TODO: password updates, image updates
         
         user.saveInBackground { (success: Bool, error: Error?) in
             if success {
+                self.navigationController?.popViewController(animated: true)
                 print("User saved!")
             } else {
                 print("error: \(error!.localizedDescription)")
