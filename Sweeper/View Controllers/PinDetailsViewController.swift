@@ -11,16 +11,21 @@ import UIKit
 class PinDetailsViewController: UIViewController {
     
     @IBOutlet weak var pinCard: PinDetailsCard!
-    @IBOutlet weak var pinCardHeightConstraint: NSLayoutConstraint!
+    @IBOutlet var pinCardHeightConstraint: NSLayoutConstraint!
+    //@IBOutlet weak var pinCardBottomConstraint: NSLayoutConstraint!
     @IBOutlet weak var commentsTableView: UITableView!
     
     var pinAnnotation: PinAnnotation!
     fileprivate var comments: [PinComment] = []
 
+    override func loadView() {
+        super.loadView()
+        NSLayoutConstraint.deactivate([pinCardHeightConstraint])
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        commentsTableView.contentInset = UIEdgeInsetsMake(pinCard.frame.height, 0, 0, 0)
         commentsTableView.tableFooterView = UIView()
         commentsTableView.rowHeight = UITableViewAutomaticDimension
         commentsTableView.estimatedRowHeight = 80
@@ -55,12 +60,7 @@ class PinDetailsViewController: UIViewController {
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
         
-        let size = pinCard.systemLayoutSizeFitting(UILayoutFittingCompressedSize)
-        if pinCard.frame.height != size.height {
-            pinCardHeightConstraint.constant = size.height
-            commentsTableView.contentInset = UIEdgeInsetsMake(pinCard.frame.height, 0, 0, 0)
-            view.layoutIfNeeded()
-        }
+        commentsTableView.contentInset = UIEdgeInsetsMake(pinCard.frame.height, 0, 0, 0)
     }
 }
 

@@ -85,20 +85,20 @@
                             <nil key="textColor"/>
                             <nil key="highlightedColor"/>
                         </label>
-                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="251" text="Blue bottle" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qLY-hE-gnp">
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="251" verticalCompressionResistancePriority="1000" text="Blue bottle" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qLY-hE-gnp">
                             <rect key="frame" x="76" y="8" width="89" height="21"/>
                             <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
                             <nil key="textColor"/>
                             <nil key="highlightedColor"/>
                         </label>
-                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Philz coffee is pretty good! I’d totally eat an avocado toast from there right now." textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5yT-SR-tiH">
-                            <rect key="frame" x="76" y="37" width="291" height="61"/>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="1000" text="Philz coffee is pretty good! I’d totally eat an avocado toast from there right now." textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5yT-SR-tiH">
+                            <rect key="frame" x="76" y="37" width="291" height="72"/>
                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                             <nil key="textColor"/>
                             <nil key="highlightedColor"/>
                         </label>
-                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="5Hi-BK-8Et" customClass="PinActionsView" customModule="Sweeper" customModuleProvider="target">
-                            <rect key="frame" x="76" y="106" width="291" height="36"/>
+                        <view contentMode="scaleToFill" verticalCompressionResistancePriority="1000" translatesAutoresizingMaskIntoConstraints="NO" id="5Hi-BK-8Et" customClass="PinActionsView" customModule="Sweeper" customModuleProvider="target">
+                            <rect key="frame" x="76" y="117" width="291" height="36"/>
                             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             <constraints>
                                 <constraint firstAttribute="height" constant="36" id="yLY-ay-LoL"/>
@@ -122,7 +122,7 @@
                         <constraint firstItem="5yT-SR-tiH" firstAttribute="leading" secondItem="qLY-hE-gnp" secondAttribute="leading" id="RLj-a6-882"/>
                         <constraint firstItem="5Hi-BK-8Et" firstAttribute="top" secondItem="5yT-SR-tiH" secondAttribute="bottom" constant="8" id="TQ6-fV-gZC"/>
                         <constraint firstItem="Gmi-CO-0ZI" firstAttribute="width" secondItem="bIm-zH-6Ij" secondAttribute="width" id="ZbV-5S-epc"/>
-                        <constraint firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="5Hi-BK-8Et" secondAttribute="bottom" constant="8" id="b82-qq-lco"/>
+                        <constraint firstAttribute="bottom" secondItem="5Hi-BK-8Et" secondAttribute="bottom" constant="8" id="b82-qq-lco"/>
                         <constraint firstItem="Gmi-CO-0ZI" firstAttribute="top" secondItem="bIm-zH-6Ij" secondAttribute="bottom" constant="8" id="bZo-kk-ca3"/>
                         <constraint firstItem="5Hi-BK-8Et" firstAttribute="leading" secondItem="qLY-hE-gnp" secondAttribute="leading" id="c2T-Qd-CGS"/>
                         <constraint firstItem="bIm-zH-6Ij" firstAttribute="top" secondItem="24U-0a-5DH" secondAttribute="top" constant="8" id="clY-CM-GWS"/>
