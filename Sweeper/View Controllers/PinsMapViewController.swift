@@ -16,10 +16,12 @@ class PinsMapViewController: UIViewController {
     var currentLocation: CLLocation?
     var mapView: MGLMapView!
     var zoomLevel = 15.0
-    var pins: [Pin]!
+    var pins: [Pin] = []
+    var annotations: [PinAnnotation] = []
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        Timer.scheduledTimer(timeInterval: 2, target: self, selector: #selector(PinsMapViewController.loadPins), userInfo: nil, repeats: true)
 
         // Request location
         requestLocationPermission()
@@ -32,18 +34,21 @@ class PinsMapViewController: UIViewController {
         mapView.delegate = self
         mapView.isHidden = true
         view.addSubview(mapView)
-        
-        var annotations: [PinAnnotation] = []
+        loadPins()
+    }
+    @objc fileprivate func loadPins() {
         PinService.sharedInstance.fetchPins { (pins, error) in
             if let pins = pins {
-                self.pins = pins
-                self.pins.forEach({ (pin) in
-                    if pin.location != nil {
-                        let point = PinAnnotation(fromPin: pin)
-                        annotations.append(point)
+                pins.forEach({ (pin) in
+                    if !self.pins.contains(pin) {
+                        self.pins.append(pin)
+                        if pin.location != nil {
+                            let point = PinAnnotation(fromPin: pin)
+                            self.annotations.append(point)
+                        }
                     }
                 })
-                self.mapView.addAnnotations(annotations)
+                self.mapView.addAnnotations(self.annotations)
             } else {
                 print(error.debugDescription)
             }

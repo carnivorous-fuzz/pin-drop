@@ -48,11 +48,7 @@
                         <viewLayoutGuide key="safeArea" id="hFo-SU-imR"/>
                     </view>
                     <navigationItem key="navigationItem" id="9sP-HK-WAH">
-                        <barButtonItem key="rightBarButtonItem" title="Toggle" image="view-list" id="4pV-2b-f1Q">
-                            <connections>
-                                <action selector="onToggleView:" destination="6MM-aJ-zjn" id="zCI-Uu-hbd"/>
-                            </connections>
-                        </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" title="Toggle" image="view-list" id="4pV-2b-f1Q"/>
                     </navigationItem>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Vv1-FE-hX7" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -194,11 +190,7 @@
                         <viewLayoutGuide key="safeArea" id="Yeq-J8-lfe"/>
                     </view>
                     <navigationItem key="navigationItem" id="tRl-bG-GHv">
-                        <barButtonItem key="leftBarButtonItem" title="Logout" id="Sxy-5J-ALL">
-                            <connections>
-                                <action selector="onLogout:" destination="Qkg-fS-K8W" id="RbY-XQ-1N3"/>
-                            </connections>
-                        </barButtonItem>
+                        <barButtonItem key="leftBarButtonItem" title="Logout" id="Sxy-5J-ALL"/>
                         <barButtonItem key="rightBarButtonItem" title="Post" id="qjh-Yg-lDy"/>
                     </navigationItem>
                     <connections>
