@@ -28,7 +28,7 @@
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="gOr-Jw-1uQ">
                     <rect key="frame" x="0.0" y="0.0" width="62.5" height="51"/>
                     <subviews>
-                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="heart" translatesAutoresizingMaskIntoConstraints="NO" id="qQb-F5-BMz">
+                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="favorite" translatesAutoresizingMaskIntoConstraints="NO" id="qQb-F5-BMz">
                             <rect key="frame" x="0.0" y="15.5" width="20" height="20"/>
                             <constraints>
                                 <constraint firstAttribute="width" constant="20" id="QAj-07-YjZ"/>
@@ -99,6 +99,6 @@
     </objects>
     <resources>
         <image name="comment" width="120" height="120"/>
-        <image name="heart" width="120" height="120"/>
+        <image name="favorite" width="16" height="16"/>
     </resources>
 </document>

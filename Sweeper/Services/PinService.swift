@@ -150,4 +150,31 @@ class PinService {
             })
         }
     }
+    
+    func likesOnPin(_ pin: Pin, completion: @escaping (Int) -> ()) {
+        if let likesQuery = PinLike.query() as? PFQuery<PinLike> {
+            likesQuery.whereKey("likedPin", equalTo: pin)
+            .countObjectsInBackground(block: { (count, error) in
+                completion(Int(count))
+            })
+        }
+    }
+    
+    func likedPin(_ pin: Pin, completion: @escaping (PinLike?) -> ()) {
+        if let likesQuery = PinLike.query() as? PFQuery<PinLike> {
+            likesQuery.whereKey("likedPin", equalTo: pin)
+                .whereKey("user", equalTo: User.currentUser as Any)
+                .findObjectsInBackground(block: { (pinLikes, error) in
+                    completion(pinLikes?[0])
+                })
+        }
+    }
+//
+//    func unlikePin(_ pinLike: PinLike) {
+//        pinLike.fetchInBackground(block: { (pinLikeFetched, error) in
+//            if let pinLikeFetched = pinLikeFetched as? PinLike {
+//                pinLikeFetched.deleteInBackground()
+//            }
+//        })
+//    }
 }

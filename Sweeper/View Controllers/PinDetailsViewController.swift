@@ -12,11 +12,13 @@ class PinDetailsViewController: UIViewController {
     
     @IBOutlet weak var pinCard: PinDetailsCard!
     @IBOutlet var pinCardHeightConstraint: NSLayoutConstraint!
-    //@IBOutlet weak var pinCardBottomConstraint: NSLayoutConstraint!
     @IBOutlet weak var commentsTableView: UITableView!
     
     var pinAnnotation: PinAnnotation!
     fileprivate var comments: [PinComment] = []
+    fileprivate var likes = 0
+    fileprivate var liked: PinLike?
+    fileprivate var likeEditedTo: Bool?
 
     override func loadView() {
         super.loadView()
@@ -39,8 +41,9 @@ class PinDetailsViewController: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        
-        PinService.sharedInstance.getComments(forPin: pinAnnotation.pin) { (comments, error) in
+        let pin = pinAnnotation.pin!
+        let pinService = PinService.sharedInstance
+        pinService.getComments(forPin: pin) { (comments, error) in
             if let comments = comments {
                 if self.comments.count != comments.count {
                     self.comments = comments
@@ -50,9 +53,35 @@ class PinDetailsViewController: UIViewController {
             }
         }
         
-        PinService.sharedInstance.commentedOnPin(pinAnnotation.pin) { (hasCommented) in
+        pinService.commentedOnPin(pin) { (hasCommented) in
             if hasCommented {
                 self.pinCard.pinActionsView.updateCommentIcon(toColor: UIColor.green)
+            }
+        }
+        
+        pinService.likesOnPin(pin) { (count) in
+            self.likes = count
+            self.pinCard.pinActionsView.updateLikesCount(animated: false, count: self.likes)
+        }
+        
+        pinService.likedPin(pin) { (pinLike) in
+            self.liked = pinLike
+            self.pinCard.pinActionsView.updateLikeIcon(animated: false, liked: self.liked != nil)
+        }
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        
+        if likeEditedTo != nil && likeEditedTo! != (liked != nil) {
+            let pinLike = PinLike()
+            pinLike.user = User.currentUser
+            pinLike.likedPin = pinAnnotation.pin
+            
+            if likeEditedTo! {
+                pinLike.saveInBackground()
+            } else {
+                liked!.deleteInBackground()
             }
         }
     }
@@ -79,7 +108,8 @@ extension PinDetailsViewController: UITableViewDelegate, UITableViewDataSource {
 
 extension PinDetailsViewController: PinActionsViewDelegate {
     func pinActionsDidLike(_ pinActionsView: PinActionsView) {
-        
+        likeEditedTo = likeEditedTo == nil ? !(liked != nil) : !likeEditedTo!
+        pinCard.pinActionsView.updateLikeIcon(animated: true, liked: likeEditedTo!)
     }
     
     func pinActionsDidComment(_ pinActionsView: PinActionsView) {

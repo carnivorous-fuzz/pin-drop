@@ -67,6 +67,7 @@
 		B9784BC61F9B2419009BDF14 /* PinActionsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9784BC51F9B2419009BDF14 /* PinActionsView.swift */; };
 		B98C87341F9D548700F078BB /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B98C87331F9D548600F078BB /* SignUpViewController.swift */; };
 		B9BC3F1B1FA0345D00D4CC7A /* PinCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B9BC3F191FA0345D00D4CC7A /* PinCell.xib */; };
+		B9BC3F1D1FA0481200D4CC7A /* PinLike.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9BC3F1C1FA0481200D4CC7A /* PinLike.swift */; };
 		B9CB3CF11F9056060023EA79 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9CB3CF01F9056060023EA79 /* AppDelegate.swift */; };
 		B9CB3CF61F9056060023EA79 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B9CB3CF41F9056060023EA79 /* Main.storyboard */; };
 		B9CB3CF81F9056060023EA79 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B9CB3CF71F9056060023EA79 /* Assets.xcassets */; };
@@ -148,6 +149,7 @@
 		B9784BC51F9B2419009BDF14 /* PinActionsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PinActionsView.swift; sourceTree = "<group>"; };
 		B98C87331F9D548600F078BB /* SignUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
 		B9BC3F191FA0345D00D4CC7A /* PinCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PinCell.xib; sourceTree = "<group>"; };
+		B9BC3F1C1FA0481200D4CC7A /* PinLike.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PinLike.swift; sourceTree = "<group>"; };
 		B9CB3CED1F9056060023EA79 /* Sweeper.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Sweeper.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B9CB3CF01F9056060023EA79 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		B9CB3CF51F9056060023EA79 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -183,6 +185,7 @@
 		374C23EB1F91D082000C0ECE /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				B9BC3F1C1FA0481200D4CC7A /* PinLike.swift */,
 				374C23E71F91BDA5000C0ECE /* Pin.swift */,
 				374C23E91F91BDAE000C0ECE /* User.swift */,
 				3786F8471F94071D0009F05B /* Tag.swift */,
@@ -625,6 +628,7 @@
 				B9CB3D281F92C6970023EA79 /* PinDetailsViewController.swift in Sources */,
 				7C1A43181F96C82F00E3E6E0 /* PinAnnotation.swift in Sources */,
 				37F3FA811F9D603400287F61 /* TabBarViewController.swift in Sources */,
+				B9BC3F1D1FA0481200D4CC7A /* PinLike.swift in Sources */,
 				B96D352E1F9B008E00BC6CBF /* PinCommentViewController.swift in Sources */,
 				37731ECD1F92C093009E0603 /* AppService.swift in Sources */,
 				B96D35211F99B32F00BC6CBF /* PinDetailsCard.swift in Sources */,
