@@ -14,7 +14,7 @@ class PinDetailsViewController: UIViewController {
     @IBOutlet var pinCardHeightConstraint: NSLayoutConstraint!
     @IBOutlet weak var commentsTableView: UITableView!
     
-    var pinAnnotation: PinAnnotation!
+    var pin: Pin!
     fileprivate var comments: [PinComment] = []
     fileprivate var likes = 0
     fileprivate var liked: PinLike?
@@ -35,13 +35,12 @@ class PinDetailsViewController: UIViewController {
         commentsTableView.delegate = self
         commentsTableView.dataSource = self
         
-        pinCard.prepare(withPin: pinAnnotation.pin)
+        pinCard.prepare(withPin: pin)
         pinCard.pinActionsView.delegate = self
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        let pin = pinAnnotation.pin!
         let pinService = PinService.sharedInstance
         pinService.getComments(forPin: pin) { (comments, error) in
             if let comments = comments {
@@ -76,7 +75,7 @@ class PinDetailsViewController: UIViewController {
         if likeEditedTo != nil && likeEditedTo! != (liked != nil) {
             let pinLike = PinLike()
             pinLike.user = User.currentUser
-            pinLike.likedPin = pinAnnotation.pin
+            pinLike.likedPin = pin
             
             if likeEditedTo! {
                 pinLike.saveInBackground()
@@ -115,7 +114,7 @@ extension PinDetailsViewController: PinActionsViewDelegate {
     func pinActionsDidComment(_ pinActionsView: PinActionsView) {
         let navigationController = UIStoryboard.pinCommentNC
         let vc = navigationController.topViewController as! PinCommentViewController
-        vc.commnentedPin = pinAnnotation.pin
+        vc.commnentedPin = pin
         present(navigationController, animated: true, completion: nil)
     }
 }

@@ -82,6 +82,7 @@ class PinCell: UITableViewCell {
         pinImageView.clipsToBounds  = true
 
         // Custom looks/behaviors
+        titleLabel.textColor = UIConstants.Theme.titleBlack
         usernameLabel.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(onNameTap)))
         actionsView.commentView.isHidden = true
         

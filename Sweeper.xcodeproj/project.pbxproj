@@ -20,7 +20,6 @@
 		37B4E2551F99C6AA0090B168 /* PinCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37B4E2541F99C6AA0090B168 /* PinCell.swift */; };
 		37D2A0D31F9F126300273B20 /* ViewedPinCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37D2A0D21F9F126200273B20 /* ViewedPinCell.swift */; };
 		37F3FA6B1F9B16A300287F61 /* Time.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37F3FA6A1F9B16A300287F61 /* Time.swift */; };
-		37F3FA6E1F9C148200287F61 /* Theme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37F3FA6D1F9C148200287F61 /* Theme.swift */; };
 		37F3FA701F9C29C100287F61 /* Profile.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 37F3FA6F1F9C29C100287F61 /* Profile.storyboard */; };
 		37F3FA721F9C29E200287F61 /* ViewedPins.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 37F3FA711F9C29E200287F61 /* ViewedPins.storyboard */; };
 		37F3FA741F9C2ADE00287F61 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37F3FA731F9C2ADE00287F61 /* ProfileViewController.swift */; };
@@ -101,7 +100,6 @@
 		37B4E2541F99C6AA0090B168 /* PinCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PinCell.swift; sourceTree = "<group>"; };
 		37D2A0D21F9F126200273B20 /* ViewedPinCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewedPinCell.swift; sourceTree = "<group>"; };
 		37F3FA6A1F9B16A300287F61 /* Time.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Time.swift; sourceTree = "<group>"; };
-		37F3FA6D1F9C148200287F61 /* Theme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Theme.swift; sourceTree = "<group>"; };
 		37F3FA6F1F9C29C100287F61 /* Profile.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Profile.storyboard; sourceTree = "<group>"; };
 		37F3FA711F9C29E200287F61 /* ViewedPins.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = ViewedPins.storyboard; sourceTree = "<group>"; };
 		37F3FA731F9C2ADE00287F61 /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
@@ -206,14 +204,6 @@
 				3786F8491F9414120009F05B /* TagService.swift */,
 			);
 			path = Services;
-			sourceTree = "<group>";
-		};
-		37F3FA6C1F9C146F00287F61 /* Themes */ = {
-			isa = PBXGroup;
-			children = (
-				37F3FA6D1F9C148200287F61 /* Theme.swift */,
-			);
-			path = Themes;
 			sourceTree = "<group>";
 		};
 		766016692BDDF89522F0D054 /* Pods */ = {
@@ -335,7 +325,6 @@
 		B9CB3CEF1F9056060023EA79 /* Sweeper */ = {
 			isa = PBXGroup;
 			children = (
-				37F3FA6C1F9C146F00287F61 /* Themes */,
 				B763C35B1F932DBB00DA8311 /* Extensions */,
 				B79291FC1F91CD0700069144 /* Storyboards */,
 				B9CB3D181F90C8B30023EA79 /* Utils */,
@@ -658,7 +647,6 @@
 				B79291FE1F91CE7400069144 /* CreatePinViewController.swift in Sources */,
 				B763C35D1F932DD600DA8311 /* UIViewExtension.swift in Sources */,
 				B9CB3D071F9056720023EA79 /* LoginViewController.swift in Sources */,
-				37F3FA6E1F9C148200287F61 /* Theme.swift in Sources */,
 				B7E1C73F1FA01FAF00DB0CCE /* UserLocationButton.swift in Sources */,
 				377DAA741F9DB94E00C7143A /* EditProfileViewController.swift in Sources */,
 				374C23E81F91BDA5000C0ECE /* Pin.swift in Sources */,

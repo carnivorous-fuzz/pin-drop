@@ -70,20 +70,10 @@ extension PinsListViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return pins?.count ?? 0
     }
-//    
-//    func tableView(_ tableView: UITableView, didEndDisplaying cell: UITableViewCell, forRowAt indexPath: IndexPath) {
-//        if let pinCell = cell as? PinCell {
-//            let liked = pinCell.pinLike != nil
-//            if pinCell.likeChangedTo != nil && pinCell.likeChangedTo! != liked {
-//                if pinCell.likeChangedTo! {
-//                    let pinLike = PinLike()
-//                    pinLike.user = User.currentUser
-//                    pinLike.likedPin = pinCell.pin
-//                    pinLike.saveInBackground()
-//                } else {
-//                    pinCell.pinLike?.deleteInBackground()
-//                }
-//            }
-//        }
-//    }
+
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let detailsVC = UIStoryboard.pinDetailsVC
+        detailsVC.pin = pins[indexPath.row]
+        show(detailsVC, sender: nil)
+    }
 }

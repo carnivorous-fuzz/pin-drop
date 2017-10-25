@@ -23,10 +23,10 @@ class EditProfileViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        saveButton.backgroundColor = Theme.Colors().green
+        saveButton.backgroundColor = UIConstants.Theme.green
         saveButton.layer.cornerRadius = 7
         saveButton.layer.borderWidth = 1
-        saveButton.layer.borderColor = Theme.Colors().lightGray.cgColor
+        saveButton.layer.borderColor = UIConstants.Theme.lightGray.cgColor
         saveButton.isEnabled = false
         
         if let imageUrl = user.getImageUrl() {

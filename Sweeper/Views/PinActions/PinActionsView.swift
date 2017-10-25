@@ -87,19 +87,18 @@ class PinActionsView: UIView {
     }
     
     func updateLikeIcon(animated: Bool, liked: Bool) {
-        let color = liked ? UIColor.red : UIColor.gray
         if animated {
             UIView.animate(withDuration: 0.2, animations: {
-                self.updateLikeIcon(toColor: color)
-                self.likeImageView.transform = CGAffineTransform(scaleX: 1.2, y: 1.2)
+                self.likeImageView.transform = CGAffineTransform(scaleX: 1.5, y: 1.5)
             }) { (finished) in
                 self.updateLikesCount(animated: true, count: liked ? self.likesCount + 1 : self.likesCount - 1)
                 UIView.animate(withDuration: 0.2) {
+                    self.updateLikeIcon(liked: liked)
                     self.likeImageView.transform = CGAffineTransform.identity
                 }
             }
         } else {
-            updateLikeIcon(toColor: color)
+            self.updateLikeIcon(liked: liked)
         }
     }
     
@@ -129,7 +128,9 @@ class PinActionsView: UIView {
         likeCountLabel.text = "\(likesCount)"
     }
     
-    private func updateLikeIcon(toColor color: UIColor) {
+    private func updateLikeIcon(liked: Bool) {
+        let color = liked ? UIColor.red : UIColor.gray
+        likeImageView.image = liked ? #imageLiteral(resourceName: "heart_filled") : #imageLiteral(resourceName: "heart_open")
         likeImageView.tintColor = color
     }
     
