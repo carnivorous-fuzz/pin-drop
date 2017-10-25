@@ -36,6 +36,7 @@ class PinDetailsViewController: UIViewController {
         commentsTableView.dataSource = self
         
         pinCard.prepare(withPin: pin)
+        pinCard.delegate = self
         pinCard.pinActionsView.delegate = self
     }
     
@@ -102,6 +103,15 @@ extension PinDetailsViewController: UITableViewDelegate, UITableViewDataSource {
         let comment = comments[indexPath.row]
         cell.prepare(withComment: comment)
         return cell
+    }
+}
+
+extension PinDetailsViewController: PinDetailsCardDelegate {
+    func pinDetailsDidTapProfile() {
+        let profileNC = UIStoryboard.profileNC
+        let profileVC = profileNC.topViewController as! ProfileViewController
+        profileVC.user = pin.creator
+        show(profileVC, sender: nil)
     }
 }
 
