@@ -300,6 +300,14 @@
 			path = PinActions;
 			sourceTree = "<group>";
 		};
+		B9BC3F151FA0339D00D4CC7A /* PinCell */ = {
+			isa = PBXGroup;
+			children = (
+				37B4E2541F99C6AA0090B168 /* PinCell.swift */,
+			);
+			path = PinCell;
+			sourceTree = "<group>";
+		};
 		B9CB3CE41F9056060023EA79 = {
 			isa = PBXGroup;
 			children = (
@@ -362,6 +370,7 @@
 		B9CB3D051F9056500023EA79 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				B9BC3F151FA0339D00D4CC7A /* PinCell */,
 				B9784BC21F9B23F6009BDF14 /* PinActions */,
 				B9784BC11F9B2194009BDF14 /* PinDetailsCard */,
 				B96D35241F99CAEF00BC6CBF /* PinCommentCell */,
@@ -374,7 +383,6 @@
 				B7DE45E11F9B2D4A00F2472F /* TagSelectorCell.swift */,
 				B7DE45E31F9BE03C00F2472F /* TagSelectedCollectionCell.swift */,
 				B7DE45E71F9BFB0300F2472F /* InfiniteScrollActivityView.swift */,
-				37B4E2541F99C6AA0090B168 /* PinCell.swift */,
 				B71D02A31F9C7AE20090DD9D /* PinOverviewCell.swift */,
 				B7E1C73E1FA01FAF00DB0CCE /* UserLocationButton.swift */,
 				37D2A0D21F9F126200273B20 /* ViewedPinCell.swift */,
