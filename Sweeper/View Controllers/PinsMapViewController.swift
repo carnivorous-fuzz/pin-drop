@@ -56,18 +56,6 @@ class PinsMapViewController: UIViewController {
             }
         }
     }
-
-    @IBAction func onPost(_ sender: UIBarButtonItem) {
-        present(UIStoryboard.createPinNC, animated: true, completion: nil)
-    }
-    
-    @IBAction func onToggleView(_ sender: Any) {
-        UIView.beginAnimations("animation", context: nil)
-        UIView.setAnimationDuration(1.0)
-        navigationController!.pushViewController(UIStoryboard.pinsListVC, animated: false)
-        UIView.setAnimationTransition(UIViewAnimationTransition.flipFromRight, for: self.navigationController!.view, cache: false)
-        UIView.commitAnimations()
-    }
     
     private func requestLocationPermission() {
         locationManager = CLLocationManager()
