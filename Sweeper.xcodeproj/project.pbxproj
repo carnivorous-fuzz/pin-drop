@@ -50,6 +50,7 @@
 		B7DE45E21F9B2D4A00F2472F /* TagSelectorCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7DE45E11F9B2D4A00F2472F /* TagSelectorCell.swift */; };
 		B7DE45E41F9BE03C00F2472F /* TagSelectedCollectionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7DE45E31F9BE03C00F2472F /* TagSelectedCollectionCell.swift */; };
 		B7DE45E81F9BFB0300F2472F /* InfiniteScrollActivityView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7DE45E71F9BFB0300F2472F /* InfiniteScrollActivityView.swift */; };
+		B7E1C73F1FA01FAF00DB0CCE /* UserLocationButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7E1C73E1FA01FAF00DB0CCE /* UserLocationButton.swift */; };
 		B7E83F231F92AFFA00FA9D88 /* Location.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7E83F221F92AFFA00FA9D88 /* Location.swift */; };
 		B7E83F261F92EA9000FA9D88 /* AWSS3Service.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7E83F251F92EA9000FA9D88 /* AWSS3Service.swift */; };
 		B7EBCA121F94331B00D5795D /* ViewedPin.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7EBCA111F94331B00D5795D /* ViewedPin.swift */; };
@@ -128,6 +129,7 @@
 		B7DE45E11F9B2D4A00F2472F /* TagSelectorCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TagSelectorCell.swift; sourceTree = "<group>"; };
 		B7DE45E31F9BE03C00F2472F /* TagSelectedCollectionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TagSelectedCollectionCell.swift; sourceTree = "<group>"; };
 		B7DE45E71F9BFB0300F2472F /* InfiniteScrollActivityView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfiniteScrollActivityView.swift; sourceTree = "<group>"; };
+		B7E1C73E1FA01FAF00DB0CCE /* UserLocationButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserLocationButton.swift; sourceTree = "<group>"; };
 		B7E83F221F92AFFA00FA9D88 /* Location.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Location.swift; sourceTree = "<group>"; };
 		B7E83F251F92EA9000FA9D88 /* AWSS3Service.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AWSS3Service.swift; sourceTree = "<group>"; };
 		B7EBCA111F94331B00D5795D /* ViewedPin.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewedPin.swift; sourceTree = "<group>"; };
@@ -374,6 +376,7 @@
 				B7DE45E71F9BFB0300F2472F /* InfiniteScrollActivityView.swift */,
 				37B4E2541F99C6AA0090B168 /* PinCell.swift */,
 				B71D02A31F9C7AE20090DD9D /* PinOverviewCell.swift */,
+				B7E1C73E1FA01FAF00DB0CCE /* UserLocationButton.swift */,
 				37D2A0D21F9F126200273B20 /* ViewedPinCell.swift */,
 			);
 			path = Views;
@@ -640,6 +643,7 @@
 				B763C35D1F932DD600DA8311 /* UIViewExtension.swift in Sources */,
 				B9CB3D071F9056720023EA79 /* LoginViewController.swift in Sources */,
 				37F3FA6E1F9C148200287F61 /* Theme.swift in Sources */,
+				B7E1C73F1FA01FAF00DB0CCE /* UserLocationButton.swift in Sources */,
 				377DAA741F9DB94E00C7143A /* EditProfileViewController.swift in Sources */,
 				374C23E81F91BDA5000C0ECE /* Pin.swift in Sources */,
 				B77121091F9AFD50004BD7D7 /* DoubleExtension.swift in Sources */,
@@ -799,7 +803,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 58727B98H6;
+				DEVELOPMENT_TEAM = MCU29NU8L3;
 				INFOPLIST_FILE = Sweeper/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.team11.Sweeper;
@@ -815,7 +819,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 58727B98H6;
+				DEVELOPMENT_TEAM = MCU29NU8L3;
 				INFOPLIST_FILE = Sweeper/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.team11.Sweeper;

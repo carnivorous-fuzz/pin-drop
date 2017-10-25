@@ -18,6 +18,7 @@ class PinsMapViewController: UIViewController {
     var zoomLevel = 15.0
     var pins: [Pin] = []
     var annotations: [PinAnnotation] = []
+    var userLocationButton: UserLocationButton!
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -27,7 +28,7 @@ class PinsMapViewController: UIViewController {
         requestLocationPermission()
 
         // Create map
-        mapView = MGLMapView(frame: view.bounds, styleURL: MGLStyle.darkStyleURL(withVersion: 9))
+        mapView = MGLMapView(frame: view.bounds, styleURL: MGLStyle.streetsStyleURL())
         mapView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
         mapView.setCenter(defaultLocation.coordinate, zoomLevel: zoomLevel, animated: false)
         mapView.showsUserLocation = true
@@ -35,6 +36,7 @@ class PinsMapViewController: UIViewController {
         mapView.isHidden = true
         view.addSubview(mapView)
         loadPins()
+        setupLocationButton()
     }
     @objc fileprivate func loadPins() {
         PinService.sharedInstance.fetchPins { (pins, error) in
@@ -62,6 +64,46 @@ class PinsMapViewController: UIViewController {
         locationManager.distanceFilter = 200
         locationManager.requestWhenInUseAuthorization()
         locationManager.startUpdatingLocation()
+    }
+
+    @IBAction func locationButtonTapped() {
+        var mode: MGLUserTrackingMode
+
+        switch (mapView.userTrackingMode) {
+        case .none:
+            mode = .follow
+            break
+        case .follow:
+            mode = .followWithHeading
+            break
+        case .followWithHeading:
+            mode = .followWithCourse
+            break
+        case .followWithCourse:
+            mode = .none
+            break
+        }
+
+        mapView.userTrackingMode = mode
+    }
+
+    func setupLocationButton() {
+        userLocationButton = UserLocationButton()
+        userLocationButton.addTarget(self, action: #selector(locationButtonTapped), for: .touchUpInside)
+        userLocationButton.tintColor = Theme.Colors().green
+        view.addSubview(userLocationButton)
+
+        // Do some basic auto layout.
+        userLocationButton.translatesAutoresizingMaskIntoConstraints = false
+
+        let constraints = [
+            NSLayoutConstraint(item: userLocationButton, attribute: .top, relatedBy: .greaterThanOrEqual, toItem: topLayoutGuide, attribute: .bottom, multiplier: 1, constant: 10),
+            NSLayoutConstraint(item: userLocationButton, attribute: .leading, relatedBy: .equal, toItem: view, attribute: .leading, multiplier: 1, constant: 10),
+            NSLayoutConstraint(item: userLocationButton, attribute: .height, relatedBy: .equal, toItem: nil, attribute: .notAnAttribute, multiplier: 1, constant: userLocationButton.frame.size.height),
+            NSLayoutConstraint(item: userLocationButton, attribute: .width, relatedBy: .equal, toItem: nil, attribute: .notAnAttribute, multiplier: 1, constant: userLocationButton.frame.size.width)
+        ]
+
+        view.addConstraints(constraints)
     }
 }
 
@@ -129,5 +171,9 @@ extension PinsMapViewController: MGLMapViewDelegate {
         let vc = UIStoryboard.pinDetailsVC
         vc.pinAnnotation = annotation as! PinAnnotation
         show(vc, sender: nil)
+    }
+
+    func mapView(_ mapView: MGLMapView, didChange mode: MGLUserTrackingMode, animated: Bool) {
+        userLocationButton.updateArrow(for: mode)
     }
 }
