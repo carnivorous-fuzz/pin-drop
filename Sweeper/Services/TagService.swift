@@ -19,16 +19,15 @@ class TagService {
         for name in forNames {
             // remove white spaces and include only unique names in final array
             let formattedName = name.trimmingCharacters(in: NSCharacterSet.whitespacesAndNewlines).lowercased()
-            if !trimmedTags.contains(formattedName) {
+            if !formattedName.isEmpty && !trimmedTags.contains(formattedName) {
                 trimmedTags.append(formattedName)
             }
         }
         
-        let tagsQuery = Pin.query() as! PFQuery<Tag>
+        let tagsQuery = Tag.query() as! PFQuery<Tag>
         tagsQuery.whereKey("name", containedIn: trimmedTags)
         
         tagsQuery.findObjectsInBackground { (tags: [Tag]?, error: Error?) in
-            print("fetched!")
             if error == nil {
                 if tags!.count == trimmedTags.count { // all tags already existed, return
                     completion(tags, error)
@@ -46,7 +45,6 @@ class TagService {
                 
                     Tag.saveAll(inBackground: tagsToCreate, block: { (success: Bool, error: Error?) in
                         if success {
-                            print(tagsToCreate)
                             returnTags = returnTags + tagsToCreate
                             completion(returnTags, error)
                         } else {
