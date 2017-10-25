@@ -44,9 +44,9 @@ class PinActionsView: UIView {
         addSubview(actionsView)
         
         likeImageView.image = likeImageView.image?.withRenderingMode(.alwaysTemplate)
-        likeImageView.tintColor = UIColor.gray
         commentImageView.image = commentImageView.image?.withRenderingMode(.alwaysTemplate)
-        commentImageView.tintColor = UIColor.gray
+        
+        reset()
         
         likeView.addGestureRecognizer(
             UITapGestureRecognizer(target: self, action: #selector(onLike))
@@ -55,6 +55,15 @@ class PinActionsView: UIView {
         commentView.addGestureRecognizer(
             UITapGestureRecognizer(target: self, action: #selector(onComment))
         )
+    }
+    
+    func reset() {
+        likeImageView.tintColor = UIColor.gray
+        commentImageView.tintColor = UIColor.gray
+        likesCount = 0
+        updateLikesCount()
+        commentCount = 0
+        updateCommentsCount()
     }
     
     func updateCommentIcon(toColor color: UIColor) {

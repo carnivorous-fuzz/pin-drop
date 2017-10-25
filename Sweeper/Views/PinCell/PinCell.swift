@@ -17,15 +17,20 @@ class PinCell: UITableViewCell {
     @IBOutlet weak var usernameLabel: UILabel!
     @IBOutlet weak var timestampLabel: UILabel!
     @IBOutlet weak var blurbLabel: UILabel!
-//    @IBOutlet weak var likeCountLabel: UILabel!
-//    @IBOutlet weak var commentCountLabel: UILabel!
+    @IBOutlet weak var actionsView: PinActionsView!
+    @IBOutlet weak var clockImageView: UIImageView!
     
+    let pinService = PinService.sharedInstance
     var currentLocation: CLLocation?
     var pinLocation: CLLocation?
+    var likesCount = 0
+    var pinLike: PinLike?
     var pin: Pin! {
         didSet {
             if let imageUrl = pin.getImageUrl() {
-                pinImageView.setImageWith(imageUrl)
+                ImageUtils.loadImage(forView: pinImageView, defaultImage: #imageLiteral(resourceName: "cancel"), url: imageUrl)
+            } else {
+                pinImageView.image = #imageLiteral(resourceName: "cancel")
             }
             
             if let lat = pin.location?.latitude,
@@ -49,16 +54,69 @@ class PinCell: UITableViewCell {
             }
             
             blurbLabel.text = pin.blurb
-//            likeCountLabel.text = "16"
-//            commentCountLabel.text = "5"
+            
+            // Set like state and count
+            actionsView.delegate = self
+            pinService.likesOnPin(pin) { (count) in
+                self.likesCount = count
+                self.actionsView.updateLikesCount(animated: false, count: count)
+            }
+            
+            pinService.likedPin(pin) { (pinLike) in
+                self.pinLike = pinLike
+                if let _ = pinLike {
+                    self.actionsView.updateLikeIcon(animated: false, liked: true)
+                }
+            }
         }
     }
     
     override func awakeFromNib() {
         super.awakeFromNib()
         
-        pinImageView.layer.cornerRadius = 7 //pinImageView.frame.size.width / 2
+        // Disable selection
+        selectionStyle = .none
+        
+        // Change image radius
+        pinImageView.layer.cornerRadius = 12
         pinImageView.clipsToBounds  = true
+
+        // Custom looks/behaviors
+        usernameLabel.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(onNameTap)))
+        actionsView.commentView.isHidden = true
+        
+        clockImageView.tintColor = UIColor.gray
+    }
+    
+    override func prepareForReuse() {
+        actionsView.reset()
     }
 
+    @objc private func onNameTap(_ sender: UITapGestureRecognizer) {
+        print("Put segue here")
+    }
+}
+
+extension PinCell: PinActionsViewDelegate {
+    func pinActionsDidLike(_ pinActionsView: PinActionsView) {
+        var likeChangedTo = false
+        if let pinLike = pinLike {
+            pinLike.deleteInBackground(block: { (result, error) in
+                if result {
+                    self.pinLike = nil
+                }
+            })
+        } else {
+            pinLike = PinLike()
+            pinLike?.user = User.currentUser
+            pinLike?.likedPin = pin
+            pinLike?.saveInBackground()
+            likeChangedTo = true
+        }
+        actionsView.updateLikeIcon(animated: true, liked: likeChangedTo)
+    }
+    
+    func pinActionsDidComment(_ pinActionsView: PinActionsView) {
+        // Do nothing
+    }
 }

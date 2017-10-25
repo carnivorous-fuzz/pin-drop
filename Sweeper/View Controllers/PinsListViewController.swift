@@ -27,6 +27,7 @@ class PinsListViewController: UIViewController, UITableViewDataSource {
         getLocation()
         loadPins()
     }
+    
     @objc fileprivate func loadPins() {
         PinService.sharedInstance.fetchPins { (pins: [Pin]?, error: Error?) in
             if let pins = pins {
@@ -69,8 +70,20 @@ extension PinsListViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return pins?.count ?? 0
     }
-
-    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        tableView.deselectRow(at: indexPath, animated: false)
-    }
+//    
+//    func tableView(_ tableView: UITableView, didEndDisplaying cell: UITableViewCell, forRowAt indexPath: IndexPath) {
+//        if let pinCell = cell as? PinCell {
+//            let liked = pinCell.pinLike != nil
+//            if pinCell.likeChangedTo != nil && pinCell.likeChangedTo! != liked {
+//                if pinCell.likeChangedTo! {
+//                    let pinLike = PinLike()
+//                    pinLike.user = User.currentUser
+//                    pinLike.likedPin = pinCell.pin
+//                    pinLike.saveInBackground()
+//                } else {
+//                    pinCell.pinLike?.deleteInBackground()
+//                }
+//            }
+//        }
+//    }
 }

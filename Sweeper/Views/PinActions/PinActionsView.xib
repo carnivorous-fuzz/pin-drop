@@ -4,7 +4,7 @@
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13174"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13173"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -48,8 +48,8 @@
                         <constraint firstItem="wEf-Pd-net" firstAttribute="leading" secondItem="qQb-F5-BMz" secondAttribute="trailing" constant="8" id="Bya-eK-ceO"/>
                         <constraint firstItem="qQb-F5-BMz" firstAttribute="leading" secondItem="gOr-Jw-1uQ" secondAttribute="leading" id="Ocz-FE-Gav"/>
                         <constraint firstAttribute="trailing" secondItem="wEf-Pd-net" secondAttribute="trailing" constant="24" id="OuH-xT-dge"/>
-                        <constraint firstItem="qQb-F5-BMz" firstAttribute="top" relation="greaterThanOrEqual" secondItem="gOr-Jw-1uQ" secondAttribute="top" constant="8" id="Qnb-tO-3nk"/>
-                        <constraint firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="qQb-F5-BMz" secondAttribute="bottom" constant="8" id="qXU-dk-4yr"/>
+                        <constraint firstItem="qQb-F5-BMz" firstAttribute="top" relation="greaterThanOrEqual" secondItem="gOr-Jw-1uQ" secondAttribute="top" id="Qnb-tO-3nk"/>
+                        <constraint firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="qQb-F5-BMz" secondAttribute="bottom" id="qXU-dk-4yr"/>
                         <constraint firstItem="wEf-Pd-net" firstAttribute="height" secondItem="qQb-F5-BMz" secondAttribute="height" id="qvP-rp-PIG"/>
                         <constraint firstItem="qQb-F5-BMz" firstAttribute="centerY" secondItem="gOr-Jw-1uQ" secondAttribute="centerY" id="w59-vM-vg0"/>
                     </constraints>
