@@ -116,8 +116,4 @@ extension PinCell: PinActionsViewDelegate {
         }
         actionsView.updateLikeIcon(animated: true, liked: likeChangedTo)
     }
-    
-    func pinActionsDidComment(_ pinActionsView: PinActionsView) {
-        // Do nothing
-    }
 }
