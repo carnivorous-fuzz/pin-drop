@@ -19,7 +19,6 @@ class PinsListViewController: UIViewController, UITableViewDataSource {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        Timer.scheduledTimer(timeInterval: 2, target: self, selector: #selector(PinsListViewController.loadPins), userInfo: nil, repeats: true)
 
         tableView.delegate = self
         tableView.dataSource = self
