@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="13196" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13174"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="PinCell" rowHeight="118" id="78s-gC-jWi" customClass="PinCell" customModule="Sweeper" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="357" height="118"/>
+            <autoresizingMask key="autoresizingMask"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="78s-gC-jWi" id="lKi-dA-oZz">
+                <rect key="frame" x="0.0" y="0.0" width="357" height="117.5"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="251" horizontalCompressionResistancePriority="749" text="Good Mong Kok Bakery" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ecq-cx-PKN">
+                        <rect key="frame" x="67" y="8" width="180" height="19.5"/>
+                        <fontDescription key="fontDescription" type="boldSystem" pointSize="16"/>
+                        <nil key="textColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalCompressionResistancePriority="760" text="The best shumai and pork dumplings!" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QI0-d0-B7s">
+                        <rect key="frame" x="67" y="47.5" width="243" height="26"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                        <nil key="textColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="751" text="1 hr" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VgQ-vr-NON">
+                        <rect key="frame" x="146.5" y="30.5" width="21" height="14"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                        <nil key="textColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="749" text="Paul Sokolik" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Aqs-kK-gkN">
+                        <rect key="frame" x="67" y="30.5" width="71.5" height="14"/>
+                        <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="12"/>
+                        <nil key="textColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="752" text="0.5 mi" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4zO-3F-7HM">
+                        <rect key="frame" x="305" y="10.5" width="40" height="17"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                        <nil key="textColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Fu5-O7-QSg">
+                        <rect key="frame" x="12" y="8" width="50" height="50"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="50" id="Doh-be-4Fo"/>
+                            <constraint firstAttribute="height" constant="50" id="Eea-UR-C7M"/>
+                        </constraints>
+                    </imageView>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="QPk-Gj-pTG" customClass="PinActionsView" customModule="Sweeper" customModuleProvider="target">
+                        <rect key="frame" x="67" y="77.5" width="278" height="36"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="36" id="8bL-dc-puN"/>
+                        </constraints>
+                    </view>
+                </subviews>
+                <constraints>
+                    <constraint firstAttribute="trailingMargin" relation="greaterThanOrEqual" secondItem="VgQ-vr-NON" secondAttribute="trailing" constant="8" id="7cM-jB-aFg"/>
+                    <constraint firstItem="4zO-3F-7HM" firstAttribute="bottom" secondItem="ecq-cx-PKN" secondAttribute="bottom" id="8NI-hf-2cD"/>
+                    <constraint firstAttribute="bottom" secondItem="QPk-Gj-pTG" secondAttribute="bottom" constant="4" id="9jr-TF-xtU"/>
+                    <constraint firstItem="Fu5-O7-QSg" firstAttribute="leading" secondItem="lKi-dA-oZz" secondAttribute="leading" constant="12" id="Au2-pQ-rh1"/>
+                    <constraint firstAttribute="trailingMargin" relation="greaterThanOrEqual" secondItem="QI0-d0-B7s" secondAttribute="trailing" constant="12" id="MVX-UY-Rmb"/>
+                    <constraint firstItem="Aqs-kK-gkN" firstAttribute="leading" secondItem="ecq-cx-PKN" secondAttribute="leading" id="NOI-OK-6gx"/>
+                    <constraint firstItem="Fu5-O7-QSg" firstAttribute="top" secondItem="lKi-dA-oZz" secondAttribute="top" constant="8" id="Nd9-RA-LK4"/>
+                    <constraint firstItem="QI0-d0-B7s" firstAttribute="leading" secondItem="ecq-cx-PKN" secondAttribute="leading" id="OJS-as-YZj"/>
+                    <constraint firstItem="VgQ-vr-NON" firstAttribute="top" secondItem="ecq-cx-PKN" secondAttribute="bottom" constant="3" id="QyT-zT-bXy"/>
+                    <constraint firstItem="QI0-d0-B7s" firstAttribute="top" secondItem="VgQ-vr-NON" secondAttribute="bottom" constant="3" id="UII-Kd-E6l"/>
+                    <constraint firstItem="VgQ-vr-NON" firstAttribute="leading" secondItem="Aqs-kK-gkN" secondAttribute="trailing" constant="8" id="XEM-d1-AP5"/>
+                    <constraint firstItem="QPk-Gj-pTG" firstAttribute="top" secondItem="QI0-d0-B7s" secondAttribute="bottom" constant="4" id="XZM-eV-b83"/>
+                    <constraint firstItem="4zO-3F-7HM" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="ecq-cx-PKN" secondAttribute="trailing" constant="8" id="YCs-Ay-5oZ"/>
+                    <constraint firstItem="Aqs-kK-gkN" firstAttribute="top" secondItem="ecq-cx-PKN" secondAttribute="bottom" constant="3" id="ZAD-vW-Nv1"/>
+                    <constraint firstItem="VgQ-vr-NON" firstAttribute="bottom" secondItem="Aqs-kK-gkN" secondAttribute="bottom" id="Zg7-Kf-pYH"/>
+                    <constraint firstItem="ecq-cx-PKN" firstAttribute="top" secondItem="lKi-dA-oZz" secondAttribute="top" constant="8" id="drS-Zb-JEV"/>
+                    <constraint firstItem="4zO-3F-7HM" firstAttribute="trailing" secondItem="QPk-Gj-pTG" secondAttribute="trailing" id="g2h-GM-Www"/>
+                    <constraint firstItem="QPk-Gj-pTG" firstAttribute="leading" secondItem="ecq-cx-PKN" secondAttribute="leading" id="nQf-vY-euJ"/>
+                    <constraint firstItem="ecq-cx-PKN" firstAttribute="leading" secondItem="Fu5-O7-QSg" secondAttribute="trailing" constant="5" id="oA9-8d-egz"/>
+                    <constraint firstAttribute="trailing" secondItem="4zO-3F-7HM" secondAttribute="trailing" constant="12" id="yYY-FJ-TKA"/>
+                </constraints>
+            </tableViewCellContentView>
+            <connections>
+                <outlet property="blurbLabel" destination="QI0-d0-B7s" id="Lhl-6a-39h"/>
+                <outlet property="distanceLabel" destination="4zO-3F-7HM" id="9FY-20-Tim"/>
+                <outlet property="pinImageView" destination="Fu5-O7-QSg" id="xKG-3i-3xi"/>
+                <outlet property="timestampLabel" destination="VgQ-vr-NON" id="hOK-gx-H10"/>
+                <outlet property="titleLabel" destination="ecq-cx-PKN" id="hfk-UR-HFa"/>
+                <outlet property="usernameLabel" destination="Aqs-kK-gkN" id="F2f-SM-yMd"/>
+            </connections>
+            <point key="canvasLocation" x="55.5" y="-71"/>
+        </tableViewCell>
+    </objects>
+</document>

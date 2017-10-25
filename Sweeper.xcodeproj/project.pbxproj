@@ -66,6 +66,7 @@
 		B9784BC41F9B240E009BDF14 /* PinActionsView.xib in Resources */ = {isa = PBXBuildFile; fileRef = B9784BC31F9B240D009BDF14 /* PinActionsView.xib */; };
 		B9784BC61F9B2419009BDF14 /* PinActionsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9784BC51F9B2419009BDF14 /* PinActionsView.swift */; };
 		B98C87341F9D548700F078BB /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B98C87331F9D548600F078BB /* SignUpViewController.swift */; };
+		B9BC3F1B1FA0345D00D4CC7A /* PinCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B9BC3F191FA0345D00D4CC7A /* PinCell.xib */; };
 		B9CB3CF11F9056060023EA79 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9CB3CF01F9056060023EA79 /* AppDelegate.swift */; };
 		B9CB3CF61F9056060023EA79 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B9CB3CF41F9056060023EA79 /* Main.storyboard */; };
 		B9CB3CF81F9056060023EA79 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B9CB3CF71F9056060023EA79 /* Assets.xcassets */; };
@@ -146,6 +147,7 @@
 		B9784BC31F9B240D009BDF14 /* PinActionsView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PinActionsView.xib; sourceTree = "<group>"; };
 		B9784BC51F9B2419009BDF14 /* PinActionsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PinActionsView.swift; sourceTree = "<group>"; };
 		B98C87331F9D548600F078BB /* SignUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
+		B9BC3F191FA0345D00D4CC7A /* PinCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PinCell.xib; sourceTree = "<group>"; };
 		B9CB3CED1F9056060023EA79 /* Sweeper.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Sweeper.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B9CB3CF01F9056060023EA79 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		B9CB3CF51F9056060023EA79 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -304,6 +306,7 @@
 			isa = PBXGroup;
 			children = (
 				37B4E2541F99C6AA0090B168 /* PinCell.swift */,
+				B9BC3F191FA0345D00D4CC7A /* PinCell.xib */,
 			);
 			path = PinCell;
 			sourceTree = "<group>";
@@ -495,6 +498,7 @@
 				B9CB3D261F92C6170023EA79 /* PinDetails.storyboard in Resources */,
 				B96D35231F99B33A00BC6CBF /* PinDetailsCard.xib in Resources */,
 				B96D352C1F9B006900BC6CBF /* PinComment.storyboard in Resources */,
+				B9BC3F1B1FA0345D00D4CC7A /* PinCell.xib in Resources */,
 				37F3FA7F1F9D5DBC00287F61 /* TabBar.storyboard in Resources */,
 				B9CB3CF61F9056060023EA79 /* Main.storyboard in Resources */,
 				B9CB3D2E1F94143B0023EA79 /* ProfileView.xib in Resources */,

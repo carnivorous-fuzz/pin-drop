@@ -17,8 +17,8 @@ class PinCell: UITableViewCell {
     @IBOutlet weak var usernameLabel: UILabel!
     @IBOutlet weak var timestampLabel: UILabel!
     @IBOutlet weak var blurbLabel: UILabel!
-    @IBOutlet weak var likeCountLabel: UILabel!
-    @IBOutlet weak var commentCountLabel: UILabel!
+//    @IBOutlet weak var likeCountLabel: UILabel!
+//    @IBOutlet weak var commentCountLabel: UILabel!
     
     var currentLocation: CLLocation?
     var pinLocation: CLLocation?
@@ -49,8 +49,8 @@ class PinCell: UITableViewCell {
             }
             
             blurbLabel.text = pin.blurb
-            likeCountLabel.text = "16"
-            commentCountLabel.text = "5"
+//            likeCountLabel.text = "16"
+//            commentCountLabel.text = "5"
         }
     }
     

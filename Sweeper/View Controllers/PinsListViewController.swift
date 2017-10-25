@@ -12,14 +12,15 @@ import CoreLocation
 class PinsListViewController: UIViewController, UITableViewDataSource {
 
     @IBOutlet weak var tableView: UITableView!
-    
+
     fileprivate var pins: [Pin]!
     fileprivate var currentLocation: CLLocation?
     fileprivate var locationManager: CLLocationManager!
-    
+
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        tableView.register(UINib(nibName: "PinCell", bundle: nil), forCellReuseIdentifier: "PinCell")
         tableView.delegate = self
         tableView.dataSource = self
         
@@ -36,7 +37,7 @@ class PinsListViewController: UIViewController, UITableViewDataSource {
             }
         }
     }
-    
+
     private func getLocation() {
         locationManager = CLLocationManager()
         locationManager.delegate = self
@@ -64,11 +65,11 @@ extension PinsListViewController: UITableViewDelegate {
         cell?.currentLocation = currentLocation
         return cell!
     }
-    
+
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return pins?.count ?? 0
     }
-    
+
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: false)
     }
