@@ -74,7 +74,7 @@
                     <rect key="frame" x="0.0" y="188" width="375" height="161"/>
                     <subviews>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="240" verticalCompressionResistancePriority="1000" text="Philz coffee is pretty good! I’d totally eat an avocado toast from there right now." textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5yT-SR-tiH">
-                            <rect key="frame" x="76" y="37" width="291" height="72"/>
+                            <rect key="frame" x="76" y="45" width="291" height="64"/>
                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                             <nil key="textColor"/>
                             <nil key="highlightedColor"/>
@@ -130,7 +130,7 @@
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     <constraints>
                         <constraint firstItem="5yT-SR-tiH" firstAttribute="leading" secondItem="qLY-hE-gnp" secondAttribute="leading" id="3Ta-bE-2bJ"/>
-                        <constraint firstItem="5yT-SR-tiH" firstAttribute="top" secondItem="4gl-JJ-bOx" secondAttribute="bottom" constant="8" id="8I7-65-1oL"/>
+                        <constraint firstItem="5yT-SR-tiH" firstAttribute="top" relation="greaterThanOrEqual" secondItem="4gl-JJ-bOx" secondAttribute="bottom" constant="8" id="8I7-65-1oL"/>
                         <constraint firstItem="Zsf-pQ-Grs" firstAttribute="leading" secondItem="24U-0a-5DH" secondAttribute="leading" constant="8" id="D7U-Da-bu5"/>
                         <constraint firstAttribute="trailing" secondItem="4gl-JJ-bOx" secondAttribute="trailing" constant="8" id="MCo-B4-wsV"/>
                         <constraint firstItem="qLY-hE-gnp" firstAttribute="top" secondItem="Zsf-pQ-Grs" secondAttribute="top" id="NKV-xJ-KDO"/>
@@ -141,6 +141,7 @@
                         <constraint firstItem="qLY-hE-gnp" firstAttribute="leading" secondItem="Zsf-pQ-Grs" secondAttribute="trailing" constant="8" id="fSa-n2-jLo"/>
                         <constraint firstItem="4gl-JJ-bOx" firstAttribute="top" secondItem="qLY-hE-gnp" secondAttribute="top" id="hf1-N3-fsa"/>
                         <constraint firstAttribute="trailing" secondItem="5Hi-BK-8Et" secondAttribute="trailing" constant="8" id="hgS-c2-7XG"/>
+                        <constraint firstItem="5yT-SR-tiH" firstAttribute="top" secondItem="qLY-hE-gnp" secondAttribute="bottom" constant="16" id="ipX-2Q-CIK"/>
                         <constraint firstItem="4gl-JJ-bOx" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="qLY-hE-gnp" secondAttribute="trailing" constant="8" id="p9v-ve-NWa"/>
                         <constraint firstItem="4gl-JJ-bOx" firstAttribute="trailing" secondItem="5yT-SR-tiH" secondAttribute="trailing" id="yoe-lt-dJe"/>
                     </constraints>
