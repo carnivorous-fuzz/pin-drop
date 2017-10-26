@@ -10,30 +10,46 @@ import UIKit
 import CoreLocation
 import KMPlaceholderTextView
 import Parse
+import Fusuma
 
 class CreatePinViewController: UIViewController, UINavigationControllerDelegate {
+//    @IBOutlet weak var contentView: UIView!
+
+    @IBOutlet weak var profileImage: UIImageView!
     @IBOutlet weak var locationBanner: LocationBanner!
-    @IBOutlet weak var titleField: FancyTextField!
-    @IBOutlet weak var tagsField: FancyTextField!
+    @IBOutlet weak var titleField: UITextField!
     @IBOutlet weak var messageTextView: KMPlaceholderTextView!
     @IBOutlet weak var importedImageView: UIImageView!
     @IBOutlet weak var editingView: UIView!
     
     fileprivate var currentLocation: CLLocation?
     fileprivate var locationManager: CLLocationManager!
+    fileprivate var fusuma = FusumaViewController()
+
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+
+        self.navigationController?.navigationBar.isHidden = true
+
+        fusuma.delegate = self
+        addChildViewController(fusuma)
+        fusuma.view.frame = view.bounds
+        view.addSubview(fusuma.view)
+        fusuma.didMove(toParentViewController: self)
+    }
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        titleField.borderStyle = UITextBorderStyle.none
+
+        let user = User.current()
+        if let url = user?.getImageUrl() {
+            profileImage.setImageWith(url)
+            profileImage.layer.cornerRadius = 20
+        }
 
         createDismissBarItem()
         getLocation()
-        titleField.fieldLabel.text = "Add a Title"
-        tagsField.fieldLabel.text = "Add Tags"
-        editingView.layer.borderWidth = 1
-        editingView.layer.cornerRadius = 10
-        editingView.layer.borderColor = UIConstants.Theme.mediumGray.cgColor
-        editingView.dropShadow(color: UIConstants.Theme.mediumGray, offSet: CGSize(width: -1, height: 1), radius: 2)
-        importedImageView.layer.cornerRadius = 20
     }
     
     private func createDismissBarItem() {
@@ -60,52 +76,28 @@ class CreatePinViewController: UIViewController, UINavigationControllerDelegate 
     }
     
     @IBAction func onPost(_ sender: Any) {
-        let tags = tagsField.getText()
-        let tagNames = tags.components(separatedBy: ",")
+//        let tags = tagsField.getText()
+//        let tagNames = tags.components(separatedBy: ",")
 
-        let pin = Pin()
-        pin.blurb = titleField.getText()
-        pin.latitude = currentLocation?.coordinate.latitude
-        pin.longitude = currentLocation?.coordinate.longitude
-        pin.setLocation()
-        pin.message = messageTextView.text
-
-        // TODO: animation while waiting for the image saving
-        PinService.sharedInstance.create(pin: pin, withImage: importedImageView.image ?? nil, tagNames: tagNames) { (success: Bool, error: Error?) in
-            if success {
-                print("saved!")
-                print(pin.blurb!)
-                self.dismiss(animated: true, completion: nil)
-            }
-        }
-    }
-    
-    @IBAction func importImage(_ sender: Any) {
-        let alertController = UIAlertController(title: "Choose image", message: nil, preferredStyle: .actionSheet)
-        alertController.addAction(UIAlertAction(title: "Camera", style: .default, handler: { (action) in
-            self.showPicker(with: UIImagePickerControllerSourceType.camera)
-        }))
-        alertController.addAction(UIAlertAction(title: "Photo Library", style: .default, handler: { (action) in
-            self.showPicker(with: UIImagePickerControllerSourceType.photoLibrary)
-        }))
-        alertController.addAction(UIAlertAction(title: "Cancel", style: .default, handler: nil))
-        self.present(alertController, animated: true, completion: nil)
+//        let pin = Pin()
+//        pin.blurb = titleField.getText()
+//        pin.latitude = currentLocation?.coordinate.latitude
+//        pin.longitude = currentLocation?.coordinate.longitude
+//        pin.setLocation()
+//        pin.message = messageTextView.text
+//
+//        // TODO: animation while waiting for the image saving
+//        PinService.sharedInstance.create(pin: pin, withImage: importedImageView.image ?? nil, tagNames: tagNames) { (success: Bool, error: Error?) in
+//            if success {
+//                print("saved!")
+//                print(pin.blurb!)
+//                self.dismiss(animated: true, completion: nil)
+//            }
+//        }
     }
     
     @objc func onCancel() {
         dismiss(animated: true, completion: nil)
-    }
-
-    fileprivate func showPicker(with type: UIImagePickerControllerSourceType) {
-        if UIImagePickerController.isSourceTypeAvailable(type) {
-            let image = UIImagePickerController()
-            image.delegate = self
-            image.sourceType = type
-            image.allowsEditing = false
-            self.present(image, animated: true)
-        } else {
-            print("Media type is not supported")
-        }
     }
 }
 
@@ -119,15 +111,34 @@ extension CreatePinViewController: CLLocationManagerDelegate {
     }
 }
 
-// MARK: Image Picker delegate
-extension CreatePinViewController: UIImagePickerControllerDelegate {
-    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
-        if let image = info[UIImagePickerControllerOriginalImage] as? UIImage {
-            self.importedImageView.image = image.compress()
-            // TODO: should do some animation for uploading the image
-        } else {
-            print("No image was selected")
-        }
-        self.dismiss(animated: true, completion: nil)
+// MARK: Fusuma delegate
+extension CreatePinViewController: FusumaDelegate {
+    func fusumaMultipleImageSelected(_ images: [UIImage], source: FusumaMode) {
+    }
+
+    func fusumaVideoCompleted(withFileURL fileURL: URL) {
+    }
+
+    func fusumaImageSelected(_ image: UIImage, source: FusumaMode) {
+        fusuma.willMove(toParentViewController: nil)
+        fusuma.view.removeFromSuperview()
+        fusuma.removeFromParentViewController()
+
+        self.navigationController?.navigationBar.isHidden = false
+        importedImageView.image = image
+        importedImageView.layer.cornerRadius = 20
+        titleField.becomeFirstResponder()
+    }
+    // Return the image but called after is dismissed.
+    func fusumaDismissedWithImage(image: UIImage, source: FusumaMode) {
+        print("Called just after FusumaViewController is dismissed.")
+    }
+
+    // When camera roll is not authorized, this method is called.
+    func fusumaCameraRollUnauthorized() {
+        print("Camera roll unauthorized")
+    }
+
+    func fusumaImageSelected(_ image: UIImage, source: FusumaMode, metaData: ImageMetadata) {
     }
 }
