@@ -8,6 +8,10 @@
 
 import UIKit
 
+@objc protocol PinDetailsCardDelegate: class {
+    @objc optional func pinDetailsDidTapProfile()
+}
+
 class PinDetailsCard: UIView {
 
     @IBOutlet var contentView: UIView!
@@ -15,6 +19,7 @@ class PinDetailsCard: UIView {
     @IBOutlet weak var imagePageControl: UIPageControl!
     @IBOutlet weak var imageView: UIImageView!
     
+    @IBOutlet weak var profileView: UIView!
     @IBOutlet weak var profileImageView: UIImageView!
     @IBOutlet weak var nameLabel: UILabel!
     @IBOutlet weak var titleLabel: UILabel!
@@ -24,6 +29,7 @@ class PinDetailsCard: UIView {
     @IBOutlet weak var pinActionsView: PinActionsView!
     
     var pin: Pin!
+    var delegate: PinDetailsCardDelegate?
     
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
@@ -45,6 +51,9 @@ class PinDetailsCard: UIView {
         profileImageView.layer.cornerRadius = profileImageView.bounds.size.width / 2.0
         profileImageView.clipsToBounds = true
         profileImageView.image = #imageLiteral(resourceName: "default_profile")
+        
+        profileView.isUserInteractionEnabled = true
+        profileView.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(onProfileTap)))
     }
     
     func prepare(withPin pin: Pin) {
@@ -54,9 +63,17 @@ class PinDetailsCard: UIView {
             ImageUtils.loadImage(forView: imageView, defaultImage: nil, url: URL(string: imageUrlStr)!)
         }
         
+        if let userProfileUrlStr = pin.creator?.profileImageUrl {
+            ImageUtils.loadImage(forView: profileImageView, defaultImage: #imageLiteral(resourceName: "default_profile"), url: URL(string: userProfileUrlStr)!)
+        }
+        
         titleLabel.text = pin.blurb
         timeAgoLabel.text = TimeUtils.getPrettyTimeAgoString(pin.createdAt!)
         messageLabel.text = pin.message
-        nameLabel.text = pin.creator?.username
+        nameLabel.text = pin.creator?.getFullName()
+    }
+    
+    @objc private func onProfileTap() {
+        delegate?.pinDetailsDidTapProfile?()
     }
 }

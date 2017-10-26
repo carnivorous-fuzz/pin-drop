@@ -96,12 +96,12 @@ class TabBarViewController: UIViewController {
         var imageCopy = deselectedButton.currentImage
         let unselectedImage = imageCopy?.withRenderingMode(.alwaysTemplate)
         deselectedButton.setImage(unselectedImage, for: .normal)
-        deselectedButton.tintColor = Theme.Colors().lightGray
+        deselectedButton.tintColor = UIConstants.Theme.lightGray
         
         imageCopy = selectedButton.currentImage
         let selectedImage = imageCopy?.withRenderingMode(.alwaysTemplate)
         selectedButton.setImage(selectedImage, for: .selected)
-        selectedButton.tintColor = Theme.Colors().green
+        selectedButton.tintColor = UIConstants.Theme.green
     }
     
 }

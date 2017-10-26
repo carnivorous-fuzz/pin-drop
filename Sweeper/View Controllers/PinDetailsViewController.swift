@@ -11,16 +11,23 @@ import UIKit
 class PinDetailsViewController: UIViewController {
     
     @IBOutlet weak var pinCard: PinDetailsCard!
-    @IBOutlet weak var pinCardHeightConstraint: NSLayoutConstraint!
+    @IBOutlet var pinCardHeightConstraint: NSLayoutConstraint!
     @IBOutlet weak var commentsTableView: UITableView!
     
-    var pinAnnotation: PinAnnotation!
+    var pin: Pin!
     fileprivate var comments: [PinComment] = []
+    fileprivate var likes = 0
+    fileprivate var liked: PinLike?
+    fileprivate var likeEditedTo: Bool?
 
+    override func loadView() {
+        super.loadView()
+        NSLayoutConstraint.deactivate([pinCardHeightConstraint])
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        commentsTableView.contentInset = UIEdgeInsetsMake(pinCard.frame.height, 0, 0, 0)
         commentsTableView.tableFooterView = UIView()
         commentsTableView.rowHeight = UITableViewAutomaticDimension
         commentsTableView.estimatedRowHeight = 80
@@ -28,14 +35,15 @@ class PinDetailsViewController: UIViewController {
         commentsTableView.delegate = self
         commentsTableView.dataSource = self
         
-        pinCard.prepare(withPin: pinAnnotation.pin)
+        pinCard.prepare(withPin: pin)
+        pinCard.delegate = self
         pinCard.pinActionsView.delegate = self
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        
-        PinService.sharedInstance.getComments(forPin: pinAnnotation.pin) { (comments, error) in
+        let pinService = PinService.sharedInstance
+        pinService.getComments(forPin: pin) { (comments, error) in
             if let comments = comments {
                 if self.comments.count != comments.count {
                     self.comments = comments
@@ -45,9 +53,35 @@ class PinDetailsViewController: UIViewController {
             }
         }
         
-        PinService.sharedInstance.commentedOnPin(pinAnnotation.pin) { (hasCommented) in
+        pinService.commentedOnPin(pin) { (hasCommented) in
             if hasCommented {
                 self.pinCard.pinActionsView.updateCommentIcon(toColor: UIColor.green)
+            }
+        }
+        
+        pinService.likesOnPin(pin) { (count) in
+            self.likes = count
+            self.pinCard.pinActionsView.updateLikesCount(animated: false, count: self.likes)
+        }
+        
+        pinService.likedPin(pin) { (pinLike) in
+            self.liked = pinLike
+            self.pinCard.pinActionsView.updateLikeIcon(animated: false, liked: self.liked != nil)
+        }
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        
+        if likeEditedTo != nil && likeEditedTo! != (liked != nil) {
+            let pinLike = PinLike()
+            pinLike.user = User.currentUser
+            pinLike.likedPin = pin
+            
+            if likeEditedTo! {
+                pinLike.saveInBackground()
+            } else {
+                liked!.deleteInBackground()
             }
         }
     }
@@ -55,12 +89,7 @@ class PinDetailsViewController: UIViewController {
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
         
-        let size = pinCard.systemLayoutSizeFitting(UILayoutFittingCompressedSize)
-        if pinCard.frame.height != size.height {
-            pinCardHeightConstraint.constant = size.height
-            commentsTableView.contentInset = UIEdgeInsetsMake(pinCard.frame.height, 0, 0, 0)
-            view.layoutIfNeeded()
-        }
+        commentsTableView.contentInset = UIEdgeInsetsMake(pinCard.frame.height, 0, 0, 0)
     }
 }
 
@@ -77,15 +106,25 @@ extension PinDetailsViewController: UITableViewDelegate, UITableViewDataSource {
     }
 }
 
+extension PinDetailsViewController: PinDetailsCardDelegate {
+    func pinDetailsDidTapProfile() {
+        let profileNC = UIStoryboard.profileNC
+        let profileVC = profileNC.topViewController as! ProfileViewController
+        profileVC.user = pin.creator
+        show(profileVC, sender: nil)
+    }
+}
+
 extension PinDetailsViewController: PinActionsViewDelegate {
     func pinActionsDidLike(_ pinActionsView: PinActionsView) {
-        
+        likeEditedTo = likeEditedTo == nil ? !(liked != nil) : !likeEditedTo!
+        pinCard.pinActionsView.updateLikeIcon(animated: true, liked: likeEditedTo!)
     }
     
     func pinActionsDidComment(_ pinActionsView: PinActionsView) {
         let navigationController = UIStoryboard.pinCommentNC
         let vc = navigationController.topViewController as! PinCommentViewController
-        vc.commnentedPin = pinAnnotation.pin
+        vc.commnentedPin = pin
         present(navigationController, animated: true, completion: nil)
     }
 }

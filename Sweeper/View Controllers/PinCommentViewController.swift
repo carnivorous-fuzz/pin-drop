@@ -98,6 +98,4 @@ extension PinCommentViewController: FancyTextViewDelegate {
         pinComment.saveInBackground()
         dismissController()
     }
-    
-    
 }

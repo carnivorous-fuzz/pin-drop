@@ -31,8 +31,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         AWSServiceManager.default().defaultServiceConfiguration = awsConfiguration
         
         // apply global themes
-        Theme.applyNavigationTheme()
-       let tabBarController = UIStoryboard.tabBarVC
+        UIConstants.Theme.applyNavigationTheme()
+        let tabBarController = UIStoryboard.tabBarVC
         window?.makeKeyAndVisible()
         
         // init starting view

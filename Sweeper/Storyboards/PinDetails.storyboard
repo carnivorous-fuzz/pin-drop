@@ -4,7 +4,7 @@
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13173"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13174"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -21,11 +21,11 @@
                                 <rect key="frame" x="0.0" y="64" width="375" height="603"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </tableView>
-                            <view contentMode="scaleAspectFit" translatesAutoresizingMaskIntoConstraints="NO" id="kU7-St-wIR" customClass="PinDetailsCard" customModule="Sweeper" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="64" width="375" height="300"/>
+                            <view contentMode="scaleAspectFit" verticalHuggingPriority="249" translatesAutoresizingMaskIntoConstraints="NO" id="kU7-St-wIR" customClass="PinDetailsCard" customModule="Sweeper" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="64" width="375" height="400"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="300" id="o6k-71-CeS"/>
+                                    <constraint firstAttribute="height" constant="400" id="TnM-6d-NBp"/>
                                 </constraints>
                             </view>
                         </subviews>
@@ -45,7 +45,7 @@
                     <connections>
                         <outlet property="commentsTableView" destination="wfI-BK-dTe" id="sRL-JA-cq0"/>
                         <outlet property="pinCard" destination="kU7-St-wIR" id="xM9-8v-cle"/>
-                        <outlet property="pinCardHeightConstraint" destination="o6k-71-CeS" id="Ukb-61-hMr"/>
+                        <outlet property="pinCardHeightConstraint" destination="TnM-6d-NBp" id="n0U-a7-Pyf"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="sjo-JF-p6t" userLabel="First Responder" sceneMemberID="firstResponder"/>

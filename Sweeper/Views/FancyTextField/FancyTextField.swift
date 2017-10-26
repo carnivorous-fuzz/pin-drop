@@ -95,13 +95,13 @@ class FancyTextField: UIView {
     // MARK: Action handlers
     @objc private func beganEditingHandler() {
         setHighlightedColors()
-        moveLabel(isEditing: true)
+        moveLabel(animated: true, isEditing: true)
     }
     
     @objc private func endEditingHandler() {
         setDefaultColors()
         if textField.text == nil || textField.text!.isEmpty {
-            moveLabel(isEditing: false)
+            moveLabel(animated: true, isEditing: false)
         }
     }
     
@@ -112,9 +112,12 @@ class FancyTextField: UIView {
     // MARK: Helpers
     private func moveLabel(animated: Bool, isEditing: Bool) {
         if animated {
-            UIView.animate(withDuration: 0.35) {
-                self.moveLabel(isEditing: isEditing)
-            }
+            UIView.animate(
+                withDuration: 0.35,
+                delay: 0.0, options: [.curveEaseInOut],
+                animations: {
+                    self.moveLabel(isEditing: isEditing)
+            }, completion: nil)
         } else {
             moveLabel(isEditing: isEditing)
         }

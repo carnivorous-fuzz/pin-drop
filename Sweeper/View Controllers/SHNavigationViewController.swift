@@ -33,7 +33,7 @@ class SHNavigationViewController: UIViewController {
         super.viewDidLoad()
 
         navigationController?.navigationBar.barTintColor = UIColor.white
-        navigationController?.navigationBar.tintColor = Theme.Colors().green
+        navigationController?.navigationBar.tintColor = UIConstants.Theme.green
         navigationController?.navigationBar.titleTextAttributes = [NSAttributedStringKey.foregroundColor: UIColor.gray]
 
         getLocation()

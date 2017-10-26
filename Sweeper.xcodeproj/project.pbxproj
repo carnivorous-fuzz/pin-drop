@@ -20,7 +20,6 @@
 		37B4E2551F99C6AA0090B168 /* PinCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37B4E2541F99C6AA0090B168 /* PinCell.swift */; };
 		37D2A0D31F9F126300273B20 /* ViewedPinCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37D2A0D21F9F126200273B20 /* ViewedPinCell.swift */; };
 		37F3FA6B1F9B16A300287F61 /* Time.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37F3FA6A1F9B16A300287F61 /* Time.swift */; };
-		37F3FA6E1F9C148200287F61 /* Theme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37F3FA6D1F9C148200287F61 /* Theme.swift */; };
 		37F3FA701F9C29C100287F61 /* Profile.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 37F3FA6F1F9C29C100287F61 /* Profile.storyboard */; };
 		37F3FA721F9C29E200287F61 /* ViewedPins.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 37F3FA711F9C29E200287F61 /* ViewedPins.storyboard */; };
 		37F3FA741F9C2ADE00287F61 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37F3FA731F9C2ADE00287F61 /* ProfileViewController.swift */; };
@@ -66,6 +65,8 @@
 		B9784BC41F9B240E009BDF14 /* PinActionsView.xib in Resources */ = {isa = PBXBuildFile; fileRef = B9784BC31F9B240D009BDF14 /* PinActionsView.xib */; };
 		B9784BC61F9B2419009BDF14 /* PinActionsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9784BC51F9B2419009BDF14 /* PinActionsView.swift */; };
 		B98C87341F9D548700F078BB /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B98C87331F9D548600F078BB /* SignUpViewController.swift */; };
+		B9BC3F1B1FA0345D00D4CC7A /* PinCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B9BC3F191FA0345D00D4CC7A /* PinCell.xib */; };
+		B9BC3F1D1FA0481200D4CC7A /* PinLike.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9BC3F1C1FA0481200D4CC7A /* PinLike.swift */; };
 		B9CB3CF11F9056060023EA79 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9CB3CF01F9056060023EA79 /* AppDelegate.swift */; };
 		B9CB3CF61F9056060023EA79 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B9CB3CF41F9056060023EA79 /* Main.storyboard */; };
 		B9CB3CF81F9056060023EA79 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B9CB3CF71F9056060023EA79 /* Assets.xcassets */; };
@@ -99,7 +100,6 @@
 		37B4E2541F99C6AA0090B168 /* PinCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PinCell.swift; sourceTree = "<group>"; };
 		37D2A0D21F9F126200273B20 /* ViewedPinCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewedPinCell.swift; sourceTree = "<group>"; };
 		37F3FA6A1F9B16A300287F61 /* Time.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Time.swift; sourceTree = "<group>"; };
-		37F3FA6D1F9C148200287F61 /* Theme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Theme.swift; sourceTree = "<group>"; };
 		37F3FA6F1F9C29C100287F61 /* Profile.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Profile.storyboard; sourceTree = "<group>"; };
 		37F3FA711F9C29E200287F61 /* ViewedPins.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = ViewedPins.storyboard; sourceTree = "<group>"; };
 		37F3FA731F9C2ADE00287F61 /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
@@ -146,6 +146,8 @@
 		B9784BC31F9B240D009BDF14 /* PinActionsView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PinActionsView.xib; sourceTree = "<group>"; };
 		B9784BC51F9B2419009BDF14 /* PinActionsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PinActionsView.swift; sourceTree = "<group>"; };
 		B98C87331F9D548600F078BB /* SignUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
+		B9BC3F191FA0345D00D4CC7A /* PinCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PinCell.xib; sourceTree = "<group>"; };
+		B9BC3F1C1FA0481200D4CC7A /* PinLike.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PinLike.swift; sourceTree = "<group>"; };
 		B9CB3CED1F9056060023EA79 /* Sweeper.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Sweeper.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B9CB3CF01F9056060023EA79 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		B9CB3CF51F9056060023EA79 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -181,6 +183,7 @@
 		374C23EB1F91D082000C0ECE /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				B9BC3F1C1FA0481200D4CC7A /* PinLike.swift */,
 				374C23E71F91BDA5000C0ECE /* Pin.swift */,
 				374C23E91F91BDAE000C0ECE /* User.swift */,
 				3786F8471F94071D0009F05B /* Tag.swift */,
@@ -201,14 +204,6 @@
 				3786F8491F9414120009F05B /* TagService.swift */,
 			);
 			path = Services;
-			sourceTree = "<group>";
-		};
-		37F3FA6C1F9C146F00287F61 /* Themes */ = {
-			isa = PBXGroup;
-			children = (
-				37F3FA6D1F9C148200287F61 /* Theme.swift */,
-			);
-			path = Themes;
 			sourceTree = "<group>";
 		};
 		766016692BDDF89522F0D054 /* Pods */ = {
@@ -300,6 +295,15 @@
 			path = PinActions;
 			sourceTree = "<group>";
 		};
+		B9BC3F151FA0339D00D4CC7A /* PinCell */ = {
+			isa = PBXGroup;
+			children = (
+				37B4E2541F99C6AA0090B168 /* PinCell.swift */,
+				B9BC3F191FA0345D00D4CC7A /* PinCell.xib */,
+			);
+			path = PinCell;
+			sourceTree = "<group>";
+		};
 		B9CB3CE41F9056060023EA79 = {
 			isa = PBXGroup;
 			children = (
@@ -321,7 +325,6 @@
 		B9CB3CEF1F9056060023EA79 /* Sweeper */ = {
 			isa = PBXGroup;
 			children = (
-				37F3FA6C1F9C146F00287F61 /* Themes */,
 				B763C35B1F932DBB00DA8311 /* Extensions */,
 				B79291FC1F91CD0700069144 /* Storyboards */,
 				B9CB3D181F90C8B30023EA79 /* Utils */,
@@ -362,6 +365,7 @@
 		B9CB3D051F9056500023EA79 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				B9BC3F151FA0339D00D4CC7A /* PinCell */,
 				B9784BC21F9B23F6009BDF14 /* PinActions */,
 				B9784BC11F9B2194009BDF14 /* PinDetailsCard */,
 				B96D35241F99CAEF00BC6CBF /* PinCommentCell */,
@@ -374,7 +378,6 @@
 				B7DE45E11F9B2D4A00F2472F /* TagSelectorCell.swift */,
 				B7DE45E31F9BE03C00F2472F /* TagSelectedCollectionCell.swift */,
 				B7DE45E71F9BFB0300F2472F /* InfiniteScrollActivityView.swift */,
-				37B4E2541F99C6AA0090B168 /* PinCell.swift */,
 				B71D02A31F9C7AE20090DD9D /* PinOverviewCell.swift */,
 				B7E1C73E1FA01FAF00DB0CCE /* UserLocationButton.swift */,
 				37D2A0D21F9F126200273B20 /* ViewedPinCell.swift */,
@@ -487,6 +490,7 @@
 				B9CB3D261F92C6170023EA79 /* PinDetails.storyboard in Resources */,
 				B96D35231F99B33A00BC6CBF /* PinDetailsCard.xib in Resources */,
 				B96D352C1F9B006900BC6CBF /* PinComment.storyboard in Resources */,
+				B9BC3F1B1FA0345D00D4CC7A /* PinCell.xib in Resources */,
 				37F3FA7F1F9D5DBC00287F61 /* TabBar.storyboard in Resources */,
 				B9CB3CF61F9056060023EA79 /* Main.storyboard in Resources */,
 				B9CB3D2E1F94143B0023EA79 /* ProfileView.xib in Resources */,
@@ -613,6 +617,7 @@
 				B9CB3D281F92C6970023EA79 /* PinDetailsViewController.swift in Sources */,
 				7C1A43181F96C82F00E3E6E0 /* PinAnnotation.swift in Sources */,
 				37F3FA811F9D603400287F61 /* TabBarViewController.swift in Sources */,
+				B9BC3F1D1FA0481200D4CC7A /* PinLike.swift in Sources */,
 				B96D352E1F9B008E00BC6CBF /* PinCommentViewController.swift in Sources */,
 				37731ECD1F92C093009E0603 /* AppService.swift in Sources */,
 				B96D35211F99B32F00BC6CBF /* PinDetailsCard.swift in Sources */,
@@ -642,7 +647,6 @@
 				B79291FE1F91CE7400069144 /* CreatePinViewController.swift in Sources */,
 				B763C35D1F932DD600DA8311 /* UIViewExtension.swift in Sources */,
 				B9CB3D071F9056720023EA79 /* LoginViewController.swift in Sources */,
-				37F3FA6E1F9C148200287F61 /* Theme.swift in Sources */,
 				B7E1C73F1FA01FAF00DB0CCE /* UserLocationButton.swift in Sources */,
 				377DAA741F9DB94E00C7143A /* EditProfileViewController.swift in Sources */,
 				374C23E81F91BDA5000C0ECE /* Pin.swift in Sources */,

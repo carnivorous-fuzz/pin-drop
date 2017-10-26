@@ -90,7 +90,7 @@ class PinsMapViewController: UIViewController {
     func setupLocationButton() {
         userLocationButton = UserLocationButton()
         userLocationButton.addTarget(self, action: #selector(locationButtonTapped), for: .touchUpInside)
-        userLocationButton.tintColor = Theme.Colors().green
+        userLocationButton.tintColor = UIConstants.Theme.green
         view.addSubview(userLocationButton)
 
         // Do some basic auto layout.
@@ -168,9 +168,11 @@ extension PinsMapViewController: MGLMapViewDelegate {
     }
     
     func mapView(_ mapView: MGLMapView, tapOnCalloutFor annotation: MGLAnnotation) {
-        let vc = UIStoryboard.pinDetailsVC
-        vc.pinAnnotation = annotation as! PinAnnotation
-        show(vc, sender: nil)
+        if let pinAnnotation = annotation as? PinAnnotation {
+            let vc = UIStoryboard.pinDetailsVC
+            vc.pin = pinAnnotation.pin
+            show(vc, sender: nil)
+        }
     }
 
     func mapView(_ mapView: MGLMapView, didChange mode: MGLUserTrackingMode, animated: Bool) {

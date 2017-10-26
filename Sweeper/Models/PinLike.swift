@@ -11,7 +11,7 @@ import Parse
 
 class PinLike: PFObject, PFSubclassing {
     @NSManaged var user: User?
-    @NSManaged var toPin: Pin?
+    @NSManaged var likedPin: Pin?
     
     static func parseClassName() -> String {
         return "PinLike"

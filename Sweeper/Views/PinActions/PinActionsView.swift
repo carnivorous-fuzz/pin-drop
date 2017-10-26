@@ -8,9 +8,9 @@
 
 import UIKit
 
-protocol PinActionsViewDelegate: class {
-    func pinActionsDidLike(_ pinActionsView: PinActionsView)
-    func pinActionsDidComment(_ pinActionsView: PinActionsView)
+@objc protocol PinActionsViewDelegate: class {
+    @objc optional func pinActionsDidLike(_ pinActionsView: PinActionsView)
+    @objc optional func pinActionsDidComment(_ pinActionsView: PinActionsView)
 }
 
 class PinActionsView: UIView {
@@ -44,9 +44,9 @@ class PinActionsView: UIView {
         addSubview(actionsView)
         
         likeImageView.image = likeImageView.image?.withRenderingMode(.alwaysTemplate)
-        likeImageView.tintColor = UIColor.gray
         commentImageView.image = commentImageView.image?.withRenderingMode(.alwaysTemplate)
-        commentImageView.tintColor = UIColor.gray
+        
+        reset()
         
         likeView.addGestureRecognizer(
             UITapGestureRecognizer(target: self, action: #selector(onLike))
@@ -55,6 +55,15 @@ class PinActionsView: UIView {
         commentView.addGestureRecognizer(
             UITapGestureRecognizer(target: self, action: #selector(onComment))
         )
+    }
+    
+    func reset() {
+        likeImageView.tintColor = UIColor.gray
+        commentImageView.tintColor = UIColor.gray
+        likesCount = 0
+        updateLikesCount()
+        commentCount = 0
+        updateCommentsCount()
     }
     
     func updateCommentIcon(toColor color: UIColor) {
@@ -77,15 +86,59 @@ class PinActionsView: UIView {
         }
     }
     
+    func updateLikeIcon(animated: Bool, liked: Bool) {
+        if animated {
+            UIView.animate(withDuration: 0.2, animations: {
+                self.likeImageView.transform = CGAffineTransform(scaleX: 1.5, y: 1.5)
+            }) { (finished) in
+                self.updateLikesCount(animated: true, count: liked ? self.likesCount + 1 : self.likesCount - 1)
+                UIView.animate(withDuration: 0.2) {
+                    self.updateLikeIcon(liked: liked)
+                    self.likeImageView.transform = CGAffineTransform.identity
+                }
+            }
+        } else {
+            self.updateLikeIcon(liked: liked)
+        }
+    }
+    
+    func updateLikesCount(animated: Bool, count: Int) {
+        if likesCount != count {
+            likesCount = count
+            if animated {
+                UIView.animate(withDuration: 0.2, animations: {
+                    self.likeCountLabel.alpha = 0.0
+                }) { (finished) in
+                    UIView.animate(withDuration: 0.2) {
+                        self.updateLikesCount()
+                        self.likeCountLabel.alpha = 1.0
+                    }
+                }
+            } else {
+                updateLikesCount()
+            }
+        }
+    }
+    
     private func updateCommentsCount() {
         commentCountLabel.text = "\(commentCount)"
     }
     
+    private func updateLikesCount() {
+        likeCountLabel.text = "\(likesCount)"
+    }
+    
+    private func updateLikeIcon(liked: Bool) {
+        let color = liked ? UIColor.red : UIColor.gray
+        likeImageView.image = liked ? #imageLiteral(resourceName: "heart_filled") : #imageLiteral(resourceName: "heart_open")
+        likeImageView.tintColor = color
+    }
+    
     @objc private func onLike() {
-        delegate?.pinActionsDidLike(self)
+        delegate?.pinActionsDidLike?(self)
     }
     
     @objc private func onComment() {
-        delegate?.pinActionsDidComment(self)
+        delegate?.pinActionsDidComment?(self)
     }
 }

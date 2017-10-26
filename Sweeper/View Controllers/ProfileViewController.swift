@@ -31,10 +31,10 @@ class ProfileViewController: UIViewController {
         
         // don't show "edit" button if we're viewing someone else's profile
         if user == User.currentUser {
-            editProfileButton.backgroundColor = Theme.Colors().green
+            editProfileButton.backgroundColor = UIConstants.Theme.green
             editProfileButton.layer.cornerRadius = 7
             editProfileButton.layer.borderWidth = 1
-            editProfileButton.layer.borderColor = Theme.Colors().lightGray.cgColor
+            editProfileButton.layer.borderColor = UIConstants.Theme.lightGray.cgColor
         } else {
             editProfileButton.isHidden = true
         }
