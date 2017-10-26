@@ -169,12 +169,4 @@ class PinService {
                 })
         }
     }
-//
-//    func unlikePin(_ pinLike: PinLike) {
-//        pinLike.fetchInBackground(block: { (pinLikeFetched, error) in
-//            if let pinLikeFetched = pinLikeFetched as? PinLike {
-//                pinLikeFetched.deleteInBackground()
-//            }
-//        })
-//    }
 }
