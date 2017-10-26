@@ -128,12 +128,9 @@ extension ViewedPinsViewController: MGLMapViewDelegate {
         var annotationView = mapView.dequeueReusableAnnotationView(withIdentifier: reuseIdentifier)
         
         if annotationView == nil {
-            annotationView = CustomAnnotationView(reuseIdentifier: reuseIdentifier)
-            annotationView!.frame = CGRect(x: 0, y: 0, width: 40, height: 40)
-            
-            // Set the annotation view’s background color to a value determined by its longitude.
-            let hue = CGFloat(annotation.coordinate.longitude) / 100
-            annotationView!.backgroundColor = UIColor(hue: hue, saturation: 0.5, brightness: 1, alpha: 1)
+            let pinAnnotation = annotation as? PinAnnotation
+            let pin = pinAnnotation?.pin
+            annotationView = PinAnnotationView(reuseIdentifier: reuseIdentifier, pin: pin!)
         }
         
         return annotationView
