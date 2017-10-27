@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="13196" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13174"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="rgA-7u-BYv" customClass="CustomPinCalloutView" customModule="Sweeper" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="350" height="115"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <subviews>
+                <view contentMode="scaleToFill" restorationIdentifier="CustomPinCalloutView" translatesAutoresizingMaskIntoConstraints="NO" id="bDX-5e-Dgv" userLabel="Content View">
+                    <rect key="frame" x="0.0" y="0.0" width="350" height="115"/>
+                    <subviews>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="2 comments" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="w9m-3X-I6B">
+                            <rect key="frame" x="12" y="82" width="70" height="14.5"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                            <color key="textColor" red="0.0" green="0.67450980390000004" blue="0.92941176469999998" alpha="1" colorSpace="calibratedRGB"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Paul Sokolik" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="omd-PU-yVD">
+                            <rect key="frame" x="12" y="34" width="71.5" height="15"/>
+                            <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="12"/>
+                            <nil key="textColor"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Sea salt chocolate chip cookies, anyone?" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XBG-HG-25t">
+                            <rect key="frame" x="12" y="54" width="280.5" height="18"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                            <nil key="textColor"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Reveille Coffee" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Hta-x1-SOu">
+                            <rect key="frame" x="12" y="12" width="120" height="21"/>
+                            <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="17"/>
+                            <nil key="textColor"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="#coffee #tea #pastries" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dyH-Py-4yQ">
+                            <rect key="frame" x="144" y="14" width="147" height="17"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                            <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                    </subviews>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    <accessibility key="accessibilityConfiguration" identifier="CustomPinCalloutView"/>
+                    <constraints>
+                        <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="XBG-HG-25t" secondAttribute="trailing" constant="12" id="0AN-bL-nTX"/>
+                        <constraint firstItem="XBG-HG-25t" firstAttribute="top" secondItem="omd-PU-yVD" secondAttribute="bottom" constant="5" id="1ZZ-45-HMC"/>
+                        <constraint firstAttribute="bottom" secondItem="w9m-3X-I6B" secondAttribute="bottom" constant="12" id="3oE-tw-1Dr"/>
+                        <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="omd-PU-yVD" secondAttribute="trailing" constant="12" id="3zZ-qx-RgB"/>
+                        <constraint firstItem="omd-PU-yVD" firstAttribute="leading" secondItem="Hta-x1-SOu" secondAttribute="leading" id="9zT-ci-qna"/>
+                        <constraint firstItem="w9m-3X-I6B" firstAttribute="leading" secondItem="Hta-x1-SOu" secondAttribute="leading" id="Iee-tL-wyj"/>
+                        <constraint firstItem="omd-PU-yVD" firstAttribute="top" secondItem="Hta-x1-SOu" secondAttribute="bottom" constant="1" id="Iki-R8-Yg8"/>
+                        <constraint firstItem="w9m-3X-I6B" firstAttribute="top" secondItem="XBG-HG-25t" secondAttribute="bottom" constant="10" id="Rdu-5V-jDW"/>
+                        <constraint firstItem="Hta-x1-SOu" firstAttribute="top" secondItem="bDX-5e-Dgv" secondAttribute="top" constant="12" id="Xof-Q2-28O"/>
+                        <constraint firstItem="Hta-x1-SOu" firstAttribute="leading" secondItem="bDX-5e-Dgv" secondAttribute="leading" constant="12" id="g9t-al-p17"/>
+                        <constraint firstItem="dyH-Py-4yQ" firstAttribute="leading" secondItem="Hta-x1-SOu" secondAttribute="trailing" constant="12" id="it9-mV-saj"/>
+                        <constraint firstItem="XBG-HG-25t" firstAttribute="leading" secondItem="Hta-x1-SOu" secondAttribute="leading" id="t5f-qe-sEA"/>
+                        <constraint firstItem="dyH-Py-4yQ" firstAttribute="centerY" secondItem="Hta-x1-SOu" secondAttribute="centerY" id="u7l-G6-xIX"/>
+                        <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="dyH-Py-4yQ" secondAttribute="trailing" constant="12" id="ujj-jJ-A8z"/>
+                    </constraints>
+                </view>
+            </subviews>
+            <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+            <accessibility key="accessibilityConfiguration" identifier="CustomCalloutView"/>
+            <constraints>
+                <constraint firstItem="bDX-5e-Dgv" firstAttribute="top" secondItem="hPv-b1-adp" secondAttribute="top" id="Ewi-6w-ECg"/>
+                <constraint firstItem="bDX-5e-Dgv" firstAttribute="leading" secondItem="hPv-b1-adp" secondAttribute="leading" id="fwZ-Bv-eid"/>
+                <constraint firstItem="hPv-b1-adp" firstAttribute="bottom" secondItem="bDX-5e-Dgv" secondAttribute="bottom" id="mvm-sM-OOp"/>
+                <constraint firstItem="hPv-b1-adp" firstAttribute="trailing" secondItem="bDX-5e-Dgv" secondAttribute="trailing" id="wK0-2F-tpc"/>
+            </constraints>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <viewLayoutGuide key="safeArea" id="hPv-b1-adp"/>
+            <connections>
+                <outlet property="blurbLabel" destination="XBG-HG-25t" id="jzP-A5-f3R"/>
+                <outlet property="commentsLabel" destination="w9m-3X-I6B" id="gFU-Y0-Q1y"/>
+                <outlet property="locationLabel" destination="Hta-x1-SOu" id="fVE-vN-4v5"/>
+                <outlet property="tagsLabel" destination="dyH-Py-4yQ" id="Y0r-bh-nuA"/>
+                <outlet property="userLabel" destination="omd-PU-yVD" id="kh7-FP-G5P"/>
+            </connections>
+            <point key="canvasLocation" x="-532" y="-137.5"/>
+        </view>
+    </objects>
+</document>

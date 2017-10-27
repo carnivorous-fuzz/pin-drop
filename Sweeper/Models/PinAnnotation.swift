@@ -1,5 +1,5 @@
 //
-//  PinAdapter.swift
+//  PinAnnotation.swift
 //  Sweeper
 //
 //  Created by wuming on 10/17/17.
@@ -17,7 +17,7 @@ class PinAnnotation: MGLPointAnnotation {
         self.init()
         self.pin = pin
         
-        title = "Message:"
+        title = "\(pin.blurb!)"
         subtitle = pin.message
         
         if let location = pin.location {

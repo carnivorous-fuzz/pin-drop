@@ -9,6 +9,9 @@
 /* Begin PBXBuildFile section */
 		374C23E81F91BDA5000C0ECE /* Pin.swift in Sources */ = {isa = PBXBuildFile; fileRef = 374C23E71F91BDA5000C0ECE /* Pin.swift */; };
 		374C23EA1F91BDAE000C0ECE /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 374C23E91F91BDAE000C0ECE /* User.swift */; };
+		3771ABBF1FA1A33A00A06F17 /* PinCalloutView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3771ABBE1FA1A33A00A06F17 /* PinCalloutView.swift */; };
+		3771ABC41FA1AA0300A06F17 /* CustomPinCalloutView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3771ABC31FA1AA0300A06F17 /* CustomPinCalloutView.xib */; };
+		3771ABC61FA2CFDC00A06F17 /* CustomPinCalloutView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3771ABC51FA2CFDC00A06F17 /* CustomPinCalloutView.swift */; };
 		37731EC91F92BE5F009E0603 /* PinService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37731EC81F92BE5F009E0603 /* PinService.swift */; };
 		37731ECB1F92BE6D009E0603 /* UserService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37731ECA1F92BE6D009E0603 /* UserService.swift */; };
 		37731ECD1F92C093009E0603 /* AppService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37731ECC1F92C093009E0603 /* AppService.swift */; };
@@ -89,6 +92,9 @@
 		1D859EDDB4E56A4A4F927E7C /* Pods-Sweeper.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Sweeper.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Sweeper/Pods-Sweeper.debug.xcconfig"; sourceTree = "<group>"; };
 		374C23E71F91BDA5000C0ECE /* Pin.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = Pin.swift; path = Sweeper/Models/Pin.swift; sourceTree = SOURCE_ROOT; };
 		374C23E91F91BDAE000C0ECE /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = User.swift; path = Sweeper/Models/User.swift; sourceTree = SOURCE_ROOT; };
+		3771ABBE1FA1A33A00A06F17 /* PinCalloutView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PinCalloutView.swift; sourceTree = "<group>"; };
+		3771ABC31FA1AA0300A06F17 /* CustomPinCalloutView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CustomPinCalloutView.xib; sourceTree = "<group>"; };
+		3771ABC51FA2CFDC00A06F17 /* CustomPinCalloutView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomPinCalloutView.swift; sourceTree = "<group>"; };
 		37731EC81F92BE5F009E0603 /* PinService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PinService.swift; sourceTree = "<group>"; };
 		37731ECA1F92BE6D009E0603 /* UserService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserService.swift; sourceTree = "<group>"; };
 		37731ECC1F92C093009E0603 /* AppService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppService.swift; sourceTree = "<group>"; };
@@ -183,6 +189,7 @@
 		374C23EB1F91D082000C0ECE /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				7C1A43171F96C82F00E3E6E0 /* PinAnnotation.swift */,
 				B9BC3F1C1FA0481200D4CC7A /* PinLike.swift */,
 				374C23E71F91BDA5000C0ECE /* Pin.swift */,
 				374C23E91F91BDAE000C0ECE /* User.swift */,
@@ -204,6 +211,17 @@
 				3786F8491F9414120009F05B /* TagService.swift */,
 			);
 			path = Services;
+			sourceTree = "<group>";
+		};
+		3771ABC01FA1A34700A06F17 /* Map Annotations */ = {
+			isa = PBXGroup;
+			children = (
+				7C1A43131F96B6FD00E3E6E0 /* PinAnnotationView.swift */,
+				3771ABBE1FA1A33A00A06F17 /* PinCalloutView.swift */,
+				3771ABC31FA1AA0300A06F17 /* CustomPinCalloutView.xib */,
+				3771ABC51FA2CFDC00A06F17 /* CustomPinCalloutView.swift */,
+			);
+			path = "Map Annotations";
 			sourceTree = "<group>";
 		};
 		766016692BDDF89522F0D054 /* Pods */ = {
@@ -373,7 +391,7 @@
 				B9CB3D2B1F9340D10023EA79 /* FancyTextField */,
 				B96D352F1F9B036F00BC6CBF /* FancyTextView */,
 				B7B862351F91E69400FB2F1E /* LocationBanner */,
-				7C1A43131F96B6FD00E3E6E0 /* PinAnnotationView.swift */,
+				3771ABC01FA1A34700A06F17 /* Map Annotations */,
 				B7DE45DD1F9B0BFF00F2472F /* SegmentControlViewCell.swift */,
 				B7DE45E11F9B2D4A00F2472F /* TagSelectorCell.swift */,
 				B7DE45E31F9BE03C00F2472F /* TagSelectedCollectionCell.swift */,
@@ -393,7 +411,6 @@
 				B763C3551F931F2700DA8311 /* AWSConstants.swift */,
 				B9CB3D1F1F91E8200023EA79 /* KeyboardNotification.swift */,
 				B9CB3D311F9425FA0023EA79 /* ImageUtils.swift */,
-				7C1A43171F96C82F00E3E6E0 /* PinAnnotation.swift */,
 				37F3FA6A1F9B16A300287F61 /* Time.swift */,
 				B71D029D1F9C28240090DD9D /* Conversions.swift */,
 			);
@@ -483,6 +500,7 @@
 				B96D35331F9B039A00BC6CBF /* FancyTextView.xib in Resources */,
 				B9CB3CFB1F9056060023EA79 /* LaunchScreen.storyboard in Resources */,
 				37F3FA701F9C29C100287F61 /* Profile.storyboard in Resources */,
+				3771ABC41FA1AA0300A06F17 /* CustomPinCalloutView.xib in Resources */,
 				B9CB3D151F90B5620023EA79 /* FancyTextField.xib in Resources */,
 				B7B862371F91E6AD00FB2F1E /* LocationBanner.xib in Resources */,
 				B9CB3CF81F9056060023EA79 /* Assets.xcassets in Resources */,
@@ -624,6 +642,7 @@
 				B9CB3D321F9425FA0023EA79 /* ImageUtils.swift in Sources */,
 				B7DE45E81F9BFB0300F2472F /* InfiniteScrollActivityView.swift in Sources */,
 				B9E7BF821F9C2BDA0063973C /* PinsMapViewController.swift in Sources */,
+				3771ABBF1FA1A33A00A06F17 /* PinCalloutView.swift in Sources */,
 				B71D02A41F9C7AE20090DD9D /* PinOverviewCell.swift in Sources */,
 				B9784BC61F9B2419009BDF14 /* PinActionsView.swift in Sources */,
 				377DAA721F9D9AB100C7143A /* HomeViewController.swift in Sources */,
@@ -656,6 +675,7 @@
 				B9CB3CF11F9056060023EA79 /* AppDelegate.swift in Sources */,
 				B9CB3D201F91E8200023EA79 /* KeyboardNotification.swift in Sources */,
 				B71D02A21F9C54770090DD9D /* SHNavigationViewController.swift in Sources */,
+				3771ABC61FA2CFDC00A06F17 /* CustomPinCalloutView.swift in Sources */,
 				B9CB3D1A1F90C8BF0023EA79 /* UIConstants.swift in Sources */,
 				37F3FA741F9C2ADE00287F61 /* ProfileViewController.swift in Sources */,
 				B763C3581F9322C500DA8311 /* StringExtension.swift in Sources */,
