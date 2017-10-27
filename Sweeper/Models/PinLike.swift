@@ -9,7 +9,17 @@
 import Foundation
 import Parse
 
+enum PinLikeLiveQueryEventType {
+    case like, unlike
+}
+
 class PinLike: PFObject, PFSubclassing {
+    static let pinIdKey = "likedPinId"
+    static let typeKey = "eventType"
+    static let likeLiveQueryNotification = Notification.Name("pin-like-livequery")
+    static let unlikeLiveQueryNotification = Notification.Name("pin-unlike-livequery")
+    static let pinLikeLiveQueryNotification = Notification.Name("pinlike-livequery-notification")
+    
     @NSManaged var user: User?
     @NSManaged var likedPin: Pin?
     

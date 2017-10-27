@@ -27,6 +27,8 @@ class PinCell: UITableViewCell {
     var pinLike: PinLike?
     var pin: Pin! {
         didSet {
+            removeObserver()
+            
             if let imageUrl = pin.getImageUrl() {
                 ImageUtils.loadImage(forView: pinImageView, defaultImage: #imageLiteral(resourceName: "cancel"), url: imageUrl)
             } else {
@@ -68,6 +70,8 @@ class PinCell: UITableViewCell {
                     self.actionsView.updateLikeIcon(animated: false, liked: true)
                 }
             }
+            
+            addObserver()
         }
     }
     
@@ -89,12 +93,42 @@ class PinCell: UITableViewCell {
         clockImageView.tintColor = UIColor.gray
     }
     
+    deinit {
+        removeObserver()
+    }
+    
     override func prepareForReuse() {
         actionsView.reset()
     }
 
     @objc private func onNameTap(_ sender: UITapGestureRecognizer) {
         print("Put segue here")
+    }
+    
+    @objc private func pinLikeLiveQueryHandler(_ notification: Notification) {
+        if let pinId = notification.userInfo?[PinLike.pinIdKey] as? String {
+            if pin != nil && pin.objectId! == pinId {
+                guard let type = notification.userInfo?[PinLike.typeKey] as? PinLikeLiveQueryEventType else {
+                    return
+                }
+                
+                likesCount += type == .like ? 1 : -1
+                actionsView.updateLikesCount(animated: true, count: likesCount)
+            }
+        }
+    }
+    
+    func addObserver() {
+        NotificationCenter.default.addObserver(self,
+                                               selector: #selector(pinLikeLiveQueryHandler),
+                                               name: PinLike.pinLikeLiveQueryNotification,
+                                               object: nil)
+    }
+    
+    func removeObserver() {
+        NotificationCenter.default.removeObserver(self,
+                                                  name: PinLike.pinLikeLiveQueryNotification,
+                                                  object: nil)
     }
 }
 
