@@ -42,6 +42,7 @@
 		B763C3561F931F2700DA8311 /* AWSConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = B763C3551F931F2700DA8311 /* AWSConstants.swift */; };
 		B763C3581F9322C500DA8311 /* StringExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = B763C3571F9322C500DA8311 /* StringExtension.swift */; };
 		B763C35D1F932DD600DA8311 /* UIViewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = B763C35C1F932DD600DA8311 /* UIViewExtension.swift */; };
+		B76CF4091FA313B9007B08FD /* AddTagCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B76CF4081FA313B9007B08FD /* AddTagCollectionViewCell.swift */; };
 		B77121091F9AFD50004BD7D7 /* DoubleExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = B77121081F9AFD50004BD7D7 /* DoubleExtension.swift */; };
 		B79291FB1F91CD0100069144 /* CreatePin.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B79291FA1F91CD0100069144 /* CreatePin.storyboard */; };
 		B79291FE1F91CE7400069144 /* CreatePinViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B79291FD1F91CE7400069144 /* CreatePinViewController.swift */; };
@@ -125,6 +126,7 @@
 		B763C3551F931F2700DA8311 /* AWSConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AWSConstants.swift; sourceTree = "<group>"; };
 		B763C3571F9322C500DA8311 /* StringExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StringExtension.swift; sourceTree = "<group>"; };
 		B763C35C1F932DD600DA8311 /* UIViewExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewExtension.swift; sourceTree = "<group>"; };
+		B76CF4081FA313B9007B08FD /* AddTagCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddTagCollectionViewCell.swift; sourceTree = "<group>"; };
 		B77121081F9AFD50004BD7D7 /* DoubleExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DoubleExtension.swift; sourceTree = "<group>"; };
 		B79291FA1F91CD0100069144 /* CreatePin.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = CreatePin.storyboard; sourceTree = "<group>"; };
 		B79291FD1F91CE7400069144 /* CreatePinViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreatePinViewController.swift; sourceTree = "<group>"; };
@@ -399,6 +401,7 @@
 				B71D02A31F9C7AE20090DD9D /* PinOverviewCell.swift */,
 				B7E1C73E1FA01FAF00DB0CCE /* UserLocationButton.swift */,
 				37D2A0D21F9F126200273B20 /* ViewedPinCell.swift */,
+				B76CF4081FA313B9007B08FD /* AddTagCollectionViewCell.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -555,6 +558,7 @@
 				"${BUILT_PRODUCTS_DIR}/AWSS3/AWSS3.framework",
 				"${BUILT_PRODUCTS_DIR}/Bolts-Swift/BoltsSwift.framework",
 				"${BUILT_PRODUCTS_DIR}/Bolts/Bolts.framework",
+				"${BUILT_PRODUCTS_DIR}/Fusuma/Fusuma.framework",
 				"${BUILT_PRODUCTS_DIR}/KMPlaceholderTextView/KMPlaceholderTextView.framework",
 				"${PODS_ROOT}/Mapbox-iOS-SDK/dynamic/Mapbox.framework",
 				"${PODS_ROOT}/Mapbox-iOS-SDK/dynamic/Mapbox.framework.dSYM",
@@ -582,6 +586,7 @@
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/AWSS3.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/BoltsSwift.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Bolts.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Fusuma.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/KMPlaceholderTextView.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Mapbox.framework",
 				"${DWARF_DSYM_FOLDER_PATH}/Mapbox.framework.dSYM",
@@ -682,6 +687,7 @@
 				B7EBCA121F94331B00D5795D /* ViewedPin.swift in Sources */,
 				37B4E2531F99B9440090B168 /* PinsListViewController.swift in Sources */,
 				B7E83F261F92EA9000FA9D88 /* AWSS3Service.swift in Sources */,
+				B76CF4091FA313B9007B08FD /* AddTagCollectionViewCell.swift in Sources */,
 				B9CB3D301F94144B0023EA79 /* ProfileView.swift in Sources */,
 				B71D029E1F9C28240090DD9D /* Conversions.swift in Sources */,
 				B7286D691F99CA1C00CD9C0E /* SHGenerateViewController.swift in Sources */,

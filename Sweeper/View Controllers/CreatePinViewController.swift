@@ -10,32 +10,117 @@ import UIKit
 import CoreLocation
 import KMPlaceholderTextView
 import Parse
+import Fusuma
 
 class CreatePinViewController: UIViewController, UINavigationControllerDelegate {
+    @IBOutlet weak var maskView: UIView!
+    @IBOutlet weak var profileImage: UIImageView!
     @IBOutlet weak var locationBanner: LocationBanner!
-    @IBOutlet weak var titleField: FancyTextField!
-    @IBOutlet weak var tagsField: FancyTextField!
+    @IBOutlet weak var titleField: UITextField!
     @IBOutlet weak var messageTextView: KMPlaceholderTextView!
     @IBOutlet weak var importedImageView: UIImageView!
     @IBOutlet weak var editingView: UIView!
-    
+    @IBOutlet weak var tagsView: UIView!
+    @IBOutlet weak var addTagButton: UIButton!
+    @IBOutlet weak var tagsCollectionView: UICollectionView!
+    @IBOutlet weak var tagTextView: UITextField!
+    @IBOutlet weak var tagsViewTop: NSLayoutConstraint!
+
     fileprivate var currentLocation: CLLocation?
     fileprivate var locationManager: CLLocationManager!
+    fileprivate var fusuma: FusumaViewController!
+    fileprivate var tags = [String]()
+
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        showImagePicker()
+    }
+
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        self.view.endEditing(true)
+    }
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        titleField.delegate = self
+        messageTextView.delegate = self
+        tagTextView.delegate = self
+        titleField.borderStyle = UITextBorderStyle.none
+        tagTextView.borderStyle = UITextBorderStyle.none
+
+        let user = User.current()
+        if let url = user?.getImageUrl() {
+            profileImage.setImageWith(url)
+            profileImage.layer.cornerRadius = 20
+            profileImage.layer.masksToBounds = true
+        }
+
+        addTagButton.layer.cornerRadius = 10
+        addTagButton.layer.masksToBounds = true
 
         createDismissBarItem()
         getLocation()
-        titleField.fieldLabel.text = "Add a Title"
-        tagsField.fieldLabel.text = "Add Tags"
-        editingView.layer.borderWidth = 1
-        editingView.layer.cornerRadius = 10
-        editingView.layer.borderColor = UIConstants.Theme.mediumGray.cgColor
-        editingView.dropShadow(color: UIConstants.Theme.mediumGray, offSet: CGSize(width: -1, height: 1), radius: 2)
-        importedImageView.layer.cornerRadius = 20
     }
-    
+
+    fileprivate func showImagePicker() {
+        self.navigationController?.navigationBar.isHidden = true
+        fusuma = FusumaViewController()
+        fusuma.delegate = self
+        fusuma.defaultMode = .camera
+        updateActiveVC(activeVC: fusuma, parentView: view)
+    }
+
+    fileprivate func hideImagePicker() {
+        self.navigationController?.navigationBar.isHidden = false
+        removeInactiveVC(inactiveVC: fusuma)
+    }
+
+    fileprivate func updateActiveVC(activeVC: UIViewController, parentView: UIView) {
+        addChildViewController(activeVC)
+        activeVC.willMove(toParentViewController: self)
+        activeVC.view.frame = parentView.bounds
+        activeVC.view.frame.origin.y = activeVC.view.frame.origin.y + 10
+        activeVC.view.frame.size.height = parentView.frame.height - 10
+        parentView.addSubview(activeVC.view)
+        activeVC.didMove(toParentViewController: self)
+    }
+    fileprivate func removeInactiveVC(inactiveVC: UIViewController?) {
+        inactiveVC?.willMove(toParentViewController: nil)
+        inactiveVC?.view.removeFromSuperview()
+        inactiveVC?.removeFromParentViewController()
+        inactiveVC?.didMove(toParentViewController: nil)
+    }
+
+    fileprivate func blackOut() {
+        UIView.animate(withDuration: 0.3) {
+            self.maskView.backgroundColor = UIColor.black
+            self.view.bringSubview(toFront: self.maskView)
+            self.view.bringSubview(toFront: self.editingView)
+        }
+    }
+
+    fileprivate func deBlackOut() {
+        UIView.animate(withDuration: 0.3) {
+            self.maskView.backgroundColor = UIColor.clear
+            self.view.sendSubview(toBack: self.editingView)
+            self.view.sendSubview(toBack: self.maskView)
+        }
+    }
+
+    fileprivate func tagsViewSlideUp() {
+        tagsViewTop.constant = 71
+        UIView.animate(withDuration: 0.3) {
+            self.view.layoutIfNeeded()
+        }
+    }
+
+    fileprivate func tagsViewSlideDown() {
+        tagsViewTop.constant = 252
+        UIView.animate(withDuration: 0.3) {
+            self.view.layoutIfNeeded()
+        }
+    }
+
     private func createDismissBarItem() {
         guard let count = navigationController?.viewControllers.count else {
             return
@@ -48,7 +133,7 @@ class CreatePinViewController: UIViewController, UINavigationControllerDelegate 
         navigationItem.leftBarButtonItem = UIBarButtonItem(image: #imageLiteral(resourceName: "cancel"), style: .plain, target: self, action: #selector(onCancel))
     }
     
-    private func getLocation() {
+    fileprivate func getLocation() {
         locationManager = CLLocationManager()
         if CLLocationManager.authorizationStatus() == .notDetermined {
             locationManager.requestWhenInUseAuthorization()
@@ -58,20 +143,30 @@ class CreatePinViewController: UIViewController, UINavigationControllerDelegate 
         locationManager.distanceFilter = 200
         locationManager.startUpdatingLocation()
     }
+    @IBAction func onImportedImageTap(_ sender: UITapGestureRecognizer) {
+        showImagePicker()
+    }
     
-    @IBAction func onPost(_ sender: Any) {
-        let tags = tagsField.getText()
-        let tagNames = tags.components(separatedBy: ",")
+    @IBAction func onAddTag(_ sender: Any) {
+        if (tagTextView.text != nil) && !tagTextView.text!.isEmpty {
+            tags.append(tagTextView.text!)
+            tagTextView.text = ""
+            UIView.animate(withDuration: 0.3) {
+                self.tagsCollectionView.reloadData()
+            }
+        }
+    }
 
+    @IBAction func onPost(_ sender: Any) {
         let pin = Pin()
-        pin.blurb = titleField.getText()
+        pin.blurb = titleField.text
         pin.latitude = currentLocation?.coordinate.latitude
         pin.longitude = currentLocation?.coordinate.longitude
         pin.setLocation()
         pin.message = messageTextView.text
 
         // TODO: animation while waiting for the image saving
-        PinService.sharedInstance.create(pin: pin, withImage: importedImageView.image ?? nil, tagNames: tagNames) { (success: Bool, error: Error?) in
+        PinService.sharedInstance.create(pin: pin, withImage: importedImageView.image ?? nil, tagNames: self.tags) { (success: Bool, error: Error?) in
             if success {
                 print("saved!")
                 print(pin.blurb!)
@@ -80,32 +175,8 @@ class CreatePinViewController: UIViewController, UINavigationControllerDelegate 
         }
     }
     
-    @IBAction func importImage(_ sender: Any) {
-        let alertController = UIAlertController(title: "Choose image", message: nil, preferredStyle: .actionSheet)
-        alertController.addAction(UIAlertAction(title: "Camera", style: .default, handler: { (action) in
-            self.showPicker(with: UIImagePickerControllerSourceType.camera)
-        }))
-        alertController.addAction(UIAlertAction(title: "Photo Library", style: .default, handler: { (action) in
-            self.showPicker(with: UIImagePickerControllerSourceType.photoLibrary)
-        }))
-        alertController.addAction(UIAlertAction(title: "Cancel", style: .default, handler: nil))
-        self.present(alertController, animated: true, completion: nil)
-    }
-    
     @objc func onCancel() {
         dismiss(animated: true, completion: nil)
-    }
-
-    fileprivate func showPicker(with type: UIImagePickerControllerSourceType) {
-        if UIImagePickerController.isSourceTypeAvailable(type) {
-            let image = UIImagePickerController()
-            image.delegate = self
-            image.sourceType = type
-            image.allowsEditing = false
-            self.present(image, animated: true)
-        } else {
-            print("Media type is not supported")
-        }
     }
 }
 
@@ -119,15 +190,90 @@ extension CreatePinViewController: CLLocationManagerDelegate {
     }
 }
 
-// MARK: Image Picker delegate
-extension CreatePinViewController: UIImagePickerControllerDelegate {
-    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
-        if let image = info[UIImagePickerControllerOriginalImage] as? UIImage {
-            self.importedImageView.image = image.compress()
-            // TODO: should do some animation for uploading the image
+// MARK: Fusuma delegate
+extension CreatePinViewController: FusumaDelegate {
+    func fusumaMultipleImageSelected(_ images: [UIImage], source: FusumaMode) {
+    }
+
+    func fusumaVideoCompleted(withFileURL fileURL: URL) {
+    }
+
+    func fusumaImageSelected(_ image: UIImage, source: FusumaMode) {
+        hideImagePicker()
+
+        importedImageView.image = image.compress()
+        importedImageView.layer.cornerRadius = 20
+        importedImageView.layer.masksToBounds = true
+        titleField.becomeFirstResponder()
+    }
+    // Return the image but called after is dismissed.
+    func fusumaDismissedWithImage(image: UIImage, source: FusumaMode) {
+        print("Called just after FusumaViewController is dismissed.")
+    }
+
+    // When camera roll is not authorized, this method is called.
+    func fusumaCameraRollUnauthorized() {
+        print("Camera roll unauthorized")
+    }
+
+    func fusumaImageSelected(_ image: UIImage, source: FusumaMode, metaData: ImageMetadata) {
+    }
+}
+
+// MARK: text view delegate
+extension CreatePinViewController: UITextViewDelegate {
+    func textViewDidBeginEditing(_ textView: UITextView) {
+        blackOut()
+    }
+    func textViewDidEndEditing(_ textView: UITextView) {
+        deBlackOut()
+    }
+}
+
+// MARK: text feild delegate
+extension CreatePinViewController: UITextFieldDelegate {
+    func textFieldDidBeginEditing(_ textField: UITextField) {
+        if textField == tagTextView {
+            tagsViewSlideUp()
         } else {
-            print("No image was selected")
+            blackOut()
         }
-        self.dismiss(animated: true, completion: nil)
+    }
+    func textFieldDidEndEditing(_ textField: UITextField) {
+        if textField == tagTextView {
+            tagsViewSlideDown()
+        } else {
+            deBlackOut()
+        }
+    }
+}
+
+// MARK: collection view delegate
+extension CreatePinViewController: UICollectionViewDelegate, UICollectionViewDataSource {
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        return tags.count
+    }
+
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        if let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "AddTagCollectionViewCell", for: indexPath)
+            as? AddTagCollectionViewCell
+        {
+            cell.tagLabel.text = tags[indexPath.row]
+            cell.delegate = self
+            return cell
+        }
+        return AddTagCollectionViewCell()
+    }
+}
+
+// MARK: tag collection cell delegate
+extension CreatePinViewController: AddTagCollectionViewCellDelegate {
+    func removeTag(addTagCollectionViewCell: AddTagCollectionViewCell, didRemoveTag tag: String) {
+        if let index = tags.index(of: tag) {
+            tags.remove(at: index)
+            tagsCollectionView.reloadData()
+        } else {
+            print("no index")
+        }
     }
 }
