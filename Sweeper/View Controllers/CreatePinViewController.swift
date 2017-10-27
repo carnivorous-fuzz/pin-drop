@@ -13,8 +13,6 @@ import Parse
 import Fusuma
 
 class CreatePinViewController: UIViewController, UINavigationControllerDelegate {
-//    @IBOutlet weak var contentView: UIView!
-
     @IBOutlet weak var maskView: UIView!
     @IBOutlet weak var profileImage: UIImageView!
     @IBOutlet weak var locationBanner: LocationBanner!
@@ -81,6 +79,8 @@ class CreatePinViewController: UIViewController, UINavigationControllerDelegate 
         addChildViewController(activeVC)
         activeVC.willMove(toParentViewController: self)
         activeVC.view.frame = parentView.bounds
+        activeVC.view.frame.origin.y = activeVC.view.frame.origin.y + 10
+        activeVC.view.frame.size.height = parentView.frame.height - 10
         parentView.addSubview(activeVC.view)
         activeVC.didMove(toParentViewController: self)
     }
