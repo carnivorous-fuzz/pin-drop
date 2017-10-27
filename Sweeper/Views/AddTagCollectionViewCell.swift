@@ -20,7 +20,10 @@ class AddTagCollectionViewCell: UICollectionViewCell {
     override func awakeFromNib() {
         self.layer.cornerRadius = 10
         self.layer.masksToBounds = true
-        removeButton.tintColor = UIColor.gray
+        let origCloseImage = UIImage(named: "exit")
+        let tintedImage = origCloseImage?.withRenderingMode(.alwaysTemplate)
+        removeButton.setImage(tintedImage, for: .normal)
+        removeButton.tintColor = UIConstants.Theme.green
     }
     @IBAction func removeTag(_ sender: Any) {
         delegate?.removeTag?(addTagCollectionViewCell: self, didRemoveTag: tagLabel.text!)

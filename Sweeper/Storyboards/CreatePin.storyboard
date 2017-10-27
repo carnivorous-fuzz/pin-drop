@@ -139,6 +139,7 @@
                                                                 <constraint firstAttribute="width" constant="20" id="39z-5F-ICC"/>
                                                                 <constraint firstAttribute="height" constant="20" id="jct-lK-eC5"/>
                                                             </constraints>
+                                                            <color key="tintColor" red="0.39506444330000001" green="0.92943114039999997" blue="0.77035498619999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                             <state key="normal" image="exit">
                                                                 <color key="titleColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                                             </state>
@@ -229,6 +230,7 @@
                     </view>
                     <navigationItem key="navigationItem" title="New Pin" id="v7B-Da-iAm">
                         <barButtonItem key="rightBarButtonItem" title="Share" id="OLr-L2-g9t">
+                            <color key="tintColor" red="0.39506444330000001" green="0.92943114039999997" blue="0.77035498619999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             <connections>
                                 <action selector="onPost:" destination="c74-9K-Gpk" id="uAP-eH-rxq"/>
                             </connections>
