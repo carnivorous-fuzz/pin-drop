@@ -26,4 +26,20 @@ class PinLike: PFObject, PFSubclassing {
     static func parseClassName() -> String {
         return "PinLike"
     }
+    
+    static func getIdFromNotification(_ notification: Notification) -> String? {
+        guard let pinId = notification.userInfo?[pinIdKey] as? String else {
+            return nil
+        }
+        
+        return pinId
+    }
+    
+    static func getEventTypeFromNotification(_ notification: Notification) -> PinLikeLiveQueryEventType? {
+        guard let type = notification.userInfo?[typeKey] as? PinLikeLiveQueryEventType else {
+            return nil
+        }
+        
+        return type
+    }
 }

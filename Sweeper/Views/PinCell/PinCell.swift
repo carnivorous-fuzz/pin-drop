@@ -106,15 +106,10 @@ class PinCell: UITableViewCell {
     }
     
     @objc private func pinLikeLiveQueryHandler(_ notification: Notification) {
-        if let pinId = notification.userInfo?[PinLike.pinIdKey] as? String {
-            if pin != nil && pin.objectId! == pinId {
-                guard let type = notification.userInfo?[PinLike.typeKey] as? PinLikeLiveQueryEventType else {
-                    return
-                }
-                
-                likesCount += type == .like ? 1 : -1
-                actionsView.updateLikesCount(animated: true, count: likesCount)
-            }
+        if let pinId = PinLike.getIdFromNotification(notification), pin != nil, pinId == pin.objectId!,
+            let type = PinLike.getEventTypeFromNotification(notification) {
+            likesCount += type == .like ? 1 : -1
+            actionsView.updateLikesCount(animated: true, count: likesCount)
         }
     }
     
