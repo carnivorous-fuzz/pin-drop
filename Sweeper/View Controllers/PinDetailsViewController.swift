@@ -68,11 +68,17 @@ class PinDetailsViewController: UIViewController {
             self.liked = pinLike
             self.pinCard.pinActionsView.updateLikeIcon(animated: false, liked: self.liked != nil)
         }
+        
+        NotificationCenter.default.addObserver(self,
+                                               selector: #selector(pinLikeLiveQueryNotificationHandler),
+                                               name: PinLike.pinLikeLiveQueryNotification,
+                                               object: nil)
     }
     
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
         
+        NotificationCenter.default.removeObserver(self, name: PinLike.pinLikeLiveQueryNotification, object: nil)
         if likeEditedTo != nil && likeEditedTo! != (liked != nil) {
             let pinLike = PinLike()
             pinLike.user = User.currentUser
@@ -90,6 +96,14 @@ class PinDetailsViewController: UIViewController {
         super.viewDidLayoutSubviews()
         
         commentsTableView.contentInset = UIEdgeInsetsMake(pinCard.frame.height, 0, 0, 0)
+    }
+    
+    @objc private func pinLikeLiveQueryNotificationHandler(_ notification: Notification) {
+        if let pinId = PinLike.getIdFromNotification(notification), pinId == pin.objectId!,
+            let type = PinLike.getEventTypeFromNotification(notification) {
+            likes += type == .like ? 1 : -1
+            pinCard.pinActionsView.updateLikesCount(animated: true, count: likes)
+        }
     }
 }
 
