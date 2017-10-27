@@ -58,6 +58,7 @@ class PinActionsView: UIView {
     }
     
     func reset() {
+        likeImageView.image = #imageLiteral(resourceName: "heart_open")
         likeImageView.tintColor = UIColor.gray
         commentImageView.tintColor = UIColor.gray
         likesCount = 0
