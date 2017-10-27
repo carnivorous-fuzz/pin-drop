@@ -36,19 +36,22 @@ class PinCalloutView: UIView, MGLCalloutView {
     let tipHeight: CGFloat = 10.0
     let tipWidth: CGFloat = 20.0
     
-    let mainBody: UIButton
+    let mainBody: CustomPinCalloutView
     
     required init(representedObject: MGLAnnotation) {
         self.representedObject = representedObject
-        self.mainBody = UIButton(type: .system)
+        if let pinAnnotation = representedObject as? PinAnnotation {
+            mainBody = CustomPinCalloutView().loadViewFromNib() as! CustomPinCalloutView
+            mainBody.pin = pinAnnotation.pin
+        } else {
+            self.mainBody = UIView() as! CustomPinCalloutView
+        }
         
         super.init(frame: .zero)
         
         backgroundColor = .clear
         
-        mainBody.backgroundColor = UIConstants.Theme.lightGray
-        mainBody.tintColor = .black
-        mainBody.contentEdgeInsets = UIEdgeInsets(top: 10.0, left: 10.0, bottom: 10.0, right: 10.0)
+        mainBody.backgroundColor = .white
         mainBody.layer.cornerRadius = 4.0
         
         addSubview(mainBody)
@@ -67,12 +70,12 @@ class PinCalloutView: UIView, MGLCalloutView {
         view.addSubview(self)
         
         // Prepare title label
-        mainBody.setTitle(representedObject.title!, for: .normal)
         mainBody.sizeToFit()
         
         if isCalloutTappable() {
             // Handle taps and eventually try to send them to the delegate (usually the map view)
-            mainBody.addTarget(self, action: #selector(PinCalloutView.calloutTapped), for: .touchUpInside)
+            let pan = UIPanGestureRecognizer(target: self, action: #selector(PinCalloutView.calloutTapped))
+            mainBody.addGestureRecognizer(pan)
         } else {
             // Disable tapping and highlighting
             mainBody.isUserInteractionEnabled = false
@@ -109,7 +112,6 @@ class PinCalloutView: UIView, MGLCalloutView {
     }
     
     // MARK: - Callout interaction handlers
-    
     func isCalloutTappable() -> Bool {
         if let delegate = delegate {
             if delegate.responds(to: #selector(MGLCalloutViewDelegate.calloutViewShouldHighlight)) {
@@ -125,11 +127,10 @@ class PinCalloutView: UIView, MGLCalloutView {
         }
     }
     
-    // MARK: - Custom view styling
-    
+    // MARK: - Custom tooltip styling
     override func draw(_ rect: CGRect) {
         // Draw the pointed tip at the bottom
-        let fillColor : UIColor = UIConstants.Theme.lightGray
+        let fillColor : UIColor = .white
         
         let tipLeft = rect.origin.x + (rect.size.width / 2.0) - (tipWidth / 2.0)
         let tipBottom = CGPoint(x: rect.origin.x + (rect.size.width / 2.0), y: rect.origin.y + rect.size.height)
@@ -148,3 +149,4 @@ class PinCalloutView: UIView, MGLCalloutView {
         currentContext.fillPath()
     }
 }
+

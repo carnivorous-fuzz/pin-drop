@@ -34,7 +34,7 @@ class ViewedPinsViewController: UIViewController {
         collectionView.dataSource = self
         
         // map setup
-        mapView = MGLMapView(frame: mapContainerView.bounds, styleURL: MGLStyle.darkStyleURL(withVersion: 9))
+        mapView = MGLMapView(frame: mapContainerView.bounds, styleURL: MGLStyle.streetsStyleURL())
         mapView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
         mapView.setCenter(defaultLocation.coordinate, zoomLevel: zoomLevel, animated: false)
         mapView.showsUserLocation = true

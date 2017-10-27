@@ -34,6 +34,8 @@ class PinAnnotationView: MGLAnnotationView {
             profileImageView = UIImageView(image: profileImage!)
         }
         
+        profileImageView.layer.borderWidth = 1
+        profileImageView.layer.borderColor = UIColor.white.cgColor
         profileImageView.frame = CGRect(x: 0, y: 0, width: 30, height: 30)
         profileImageView.center = CGPoint(x: pinImageView.center.x, y:pinImageView.center.y - 6)
         profileImageView.layer.cornerRadius = 15

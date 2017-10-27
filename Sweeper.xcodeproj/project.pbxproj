@@ -10,7 +10,8 @@
 		374C23E81F91BDA5000C0ECE /* Pin.swift in Sources */ = {isa = PBXBuildFile; fileRef = 374C23E71F91BDA5000C0ECE /* Pin.swift */; };
 		374C23EA1F91BDAE000C0ECE /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 374C23E91F91BDAE000C0ECE /* User.swift */; };
 		3771ABBF1FA1A33A00A06F17 /* PinCalloutView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3771ABBE1FA1A33A00A06F17 /* PinCalloutView.swift */; };
-		3771ABC41FA1AA0300A06F17 /* PinCalloutView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3771ABC31FA1AA0300A06F17 /* PinCalloutView.xib */; };
+		3771ABC41FA1AA0300A06F17 /* CustomPinCalloutView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3771ABC31FA1AA0300A06F17 /* CustomPinCalloutView.xib */; };
+		3771ABC61FA2CFDC00A06F17 /* CustomPinCalloutView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3771ABC51FA2CFDC00A06F17 /* CustomPinCalloutView.swift */; };
 		37731EC91F92BE5F009E0603 /* PinService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37731EC81F92BE5F009E0603 /* PinService.swift */; };
 		37731ECB1F92BE6D009E0603 /* UserService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37731ECA1F92BE6D009E0603 /* UserService.swift */; };
 		37731ECD1F92C093009E0603 /* AppService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37731ECC1F92C093009E0603 /* AppService.swift */; };
@@ -92,7 +93,8 @@
 		374C23E71F91BDA5000C0ECE /* Pin.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = Pin.swift; path = Sweeper/Models/Pin.swift; sourceTree = SOURCE_ROOT; };
 		374C23E91F91BDAE000C0ECE /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = User.swift; path = Sweeper/Models/User.swift; sourceTree = SOURCE_ROOT; };
 		3771ABBE1FA1A33A00A06F17 /* PinCalloutView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PinCalloutView.swift; sourceTree = "<group>"; };
-		3771ABC31FA1AA0300A06F17 /* PinCalloutView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PinCalloutView.xib; sourceTree = "<group>"; };
+		3771ABC31FA1AA0300A06F17 /* CustomPinCalloutView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CustomPinCalloutView.xib; sourceTree = "<group>"; };
+		3771ABC51FA2CFDC00A06F17 /* CustomPinCalloutView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomPinCalloutView.swift; sourceTree = "<group>"; };
 		37731EC81F92BE5F009E0603 /* PinService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PinService.swift; sourceTree = "<group>"; };
 		37731ECA1F92BE6D009E0603 /* UserService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserService.swift; sourceTree = "<group>"; };
 		37731ECC1F92C093009E0603 /* AppService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppService.swift; sourceTree = "<group>"; };
@@ -216,7 +218,8 @@
 			children = (
 				7C1A43131F96B6FD00E3E6E0 /* PinAnnotationView.swift */,
 				3771ABBE1FA1A33A00A06F17 /* PinCalloutView.swift */,
-				3771ABC31FA1AA0300A06F17 /* PinCalloutView.xib */,
+				3771ABC31FA1AA0300A06F17 /* CustomPinCalloutView.xib */,
+				3771ABC51FA2CFDC00A06F17 /* CustomPinCalloutView.swift */,
 			);
 			path = "Map Annotations";
 			sourceTree = "<group>";
@@ -497,7 +500,7 @@
 				B96D35331F9B039A00BC6CBF /* FancyTextView.xib in Resources */,
 				B9CB3CFB1F9056060023EA79 /* LaunchScreen.storyboard in Resources */,
 				37F3FA701F9C29C100287F61 /* Profile.storyboard in Resources */,
-				3771ABC41FA1AA0300A06F17 /* PinCalloutView.xib in Resources */,
+				3771ABC41FA1AA0300A06F17 /* CustomPinCalloutView.xib in Resources */,
 				B9CB3D151F90B5620023EA79 /* FancyTextField.xib in Resources */,
 				B7B862371F91E6AD00FB2F1E /* LocationBanner.xib in Resources */,
 				B9CB3CF81F9056060023EA79 /* Assets.xcassets in Resources */,
@@ -672,6 +675,7 @@
 				B9CB3CF11F9056060023EA79 /* AppDelegate.swift in Sources */,
 				B9CB3D201F91E8200023EA79 /* KeyboardNotification.swift in Sources */,
 				B71D02A21F9C54770090DD9D /* SHNavigationViewController.swift in Sources */,
+				3771ABC61FA2CFDC00A06F17 /* CustomPinCalloutView.swift in Sources */,
 				B9CB3D1A1F90C8BF0023EA79 /* UIConstants.swift in Sources */,
 				37F3FA741F9C2ADE00287F61 /* ProfileViewController.swift in Sources */,
 				B763C3581F9322C500DA8311 /* StringExtension.swift in Sources */,
