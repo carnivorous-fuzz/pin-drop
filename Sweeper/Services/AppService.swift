@@ -45,13 +45,13 @@ class AppService {
     
     private init() {}
     
-    func createPinLikeSubscription() {
+    func subscribeToPinLikeUpdates() {
         if pinLikeSubscription == nil {
             pinLikeSubscription = pinLikeSubscriptionCreator()
         }
     }
     
-    func unsubscribePinLikes() {
+    func unsubscribePinLikeUpdates() {
         if pinLikeSubscription != nil {
             client.unsubscribe(pinLikeQuery as! PFQuery<PFObject>)
             pinLikeSubscription = nil
