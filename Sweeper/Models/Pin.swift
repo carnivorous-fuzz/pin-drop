@@ -11,7 +11,11 @@ import UIKit
 import Parse
 
 class Pin: PFObject, PFSubclassing {
-    //MARK: DB properties
+    // MARK: Static properties
+    static let pinLiveQueryNotification = Notification.Name("pin-livequery-notification")
+    static let pinKey = "pin-notification-key"
+    
+    // MARK: DB properties
     @NSManaged var userId: String?
     @NSManaged var creator: User?
     @NSManaged var blurb: String?
@@ -26,10 +30,20 @@ class Pin: PFObject, PFSubclassing {
     var latitude: Double?
     var longitude: Double?
     
+    // MARK: Static functions
     static func parseClassName() -> String {
         return "Pin"
     }
     
+    static func getPinFromNotification(_ notification: Notification) -> Pin? {
+        guard let pin = notification.userInfo?[pinKey] as? Pin else {
+            return nil
+        }
+        
+        return pin
+    }
+    
+    // MARK: Helpers
     func setLocation() {
         if latitude != nil && longitude != nil {
             location = PFGeoPoint(latitude: latitude!, longitude: longitude!)

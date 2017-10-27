@@ -49,6 +49,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         }
         
         AppService.sharedInstance.createPinLikeSubscription()
+        AppService.sharedInstance.subscribeToPinCreation()
         return true
     }
 }
