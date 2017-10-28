@@ -103,7 +103,7 @@ class SignUpViewController: UIViewController {
     }
     
     private func showError(message: String) {
-        let cancel = Dialog.button(title: "ok", type: .cancl, action: nil)
+        let cancel = Dialog.button(title: "ok", type: .cancel, action: nil)
         Dialog.show(controller: self, title: "Whoops", message: message, buttons: [cancel], image: nil, dismissAfter: nil, completion: nil)
     }
 }

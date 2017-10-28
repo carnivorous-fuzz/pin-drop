@@ -87,14 +87,14 @@ class SHNavigationViewController: UIViewController, NVActivityIndicatorViewable 
                     self.scavengerHunt.saveInBackground()
                     self.tableView.reloadData()
                 } else {
-                    let cancel = Dialog.button(title: "ok", type: .cancl, action: nil)
-                    Dialog.show(controller: self, title: "Uhhh", message: "Sorry, there's no match within your location. Please try again.", buttons: [cancel], image: nil, dismissAfter: nil, completion: {
+                    let cancel = Dialog.button(title: "ok", type: .cancel) {
                         self.dismiss(animated: true, completion: nil)
-                    })
+                    }
+                    Dialog.show(controller: self, title: "Uhhh", message: "Sorry, there's no match within your location. Please try again.", buttons: [cancel], image: nil, dismissAfter: nil, completion: nil)
                 }
             }
         } else {
-            let cancel = Dialog.button(title: "ok", type: .cancl, action: nil)
+            let cancel = Dialog.button(title: "ok", type: .cancel, action: nil)
             Dialog.show(controller: self, title: "Unable to get your location", message: "Please check your location privacy", buttons: [cancel], image: nil, dismissAfter: nil, completion: nil)
         }
     }
@@ -138,7 +138,7 @@ extension SHNavigationViewController: CLLocationManagerDelegate {
             self.startAnimating()
             fetchPins()
         } else {
-            let cancel = Dialog.button(title: "ok", type: .cancl, action: nil)
+            let cancel = Dialog.button(title: "ok", type: .cancel, action: nil)
             Dialog.show(controller: self, title: "Unable to get your location", message: "Please check your location privacy", buttons: [cancel], image: nil, dismissAfter: nil, completion: nil)
         }
     }

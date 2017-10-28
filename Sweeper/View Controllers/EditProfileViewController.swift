@@ -85,7 +85,7 @@ class EditProfileViewController: UIViewController {
                 self.navigationController?.popViewController(animated: true)
                 print("User saved!")
             } else {
-                let cancel = Dialog.button(title: "ok", type: .cancl, action: nil)
+                let cancel = Dialog.button(title: "ok", type: .cancel, action: nil)
                 Dialog.show(controller: self, title: "Error saving you profile", message: error?.localizedDescription ?? "Error", buttons: [cancel], image: nil, dismissAfter: nil, completion: nil)
             }
         }
