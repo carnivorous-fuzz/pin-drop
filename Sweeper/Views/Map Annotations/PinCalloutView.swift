@@ -36,18 +36,25 @@ class PinCalloutView: UIView, MGLCalloutView {
     let tipHeight: CGFloat = 10.0
     let tipWidth: CGFloat = 20.0
     
-    let mainBody: CustomPinCalloutView
+    let customPinCalloutView: CustomPinCalloutView!
+    let mainBody: UIView!
     
     required init(representedObject: MGLAnnotation) {
         self.representedObject = representedObject
+        customPinCalloutView = CustomPinCalloutView(frame: .zero)
         if let pinAnnotation = representedObject as? PinAnnotation {
-            mainBody = CustomPinCalloutView().loadViewFromNib() as! CustomPinCalloutView
-            mainBody.pin = pinAnnotation.pin
+            customPinCalloutView.pin = pinAnnotation.pin
+            mainBody = customPinCalloutView.contentView
+            
+            // Resize here otherwise mapview does some crazy magic
+            let size = mainBody.systemLayoutSizeFitting(UILayoutFittingCompressedSize)
+            mainBody.frame.size.width = size.width
+            mainBody.frame.size.height = size.height
         } else {
-            self.mainBody = UIView() as! CustomPinCalloutView
+            self.mainBody = UIView()
         }
         
-        super.init(frame: .zero)
+        super.init(frame: mainBody.frame)
         
         backgroundColor = .clear
         
@@ -67,11 +74,7 @@ class PinCalloutView: UIView, MGLCalloutView {
             return
         }
         
-        view.addSubview(self)
-        
         // Prepare title label
-        mainBody.sizeToFit()
-        
         if isCalloutTappable() {
             // Handle taps and eventually try to send them to the delegate (usually the map view)
             let tapRecognizer = UITapGestureRecognizer(target: self, action: #selector(PinCalloutView.calloutTapped))
@@ -88,9 +91,11 @@ class PinCalloutView: UIView, MGLCalloutView {
         let frameOriginY = rect.origin.y - frameHeight
         frame = CGRect(x: frameOriginX, y: frameOriginY, width: frameWidth, height: frameHeight)
         
+        view.addSubview(self)
+        
         if animated {
             alpha = 0
-            
+
             UIView.animate(withDuration: 0.2) { [weak self] in
                 self?.alpha = 1
             }
