@@ -74,7 +74,7 @@ class PinCalloutView: UIView, MGLCalloutView {
         
         if isCalloutTappable() {
             // Handle taps and eventually try to send them to the delegate (usually the map view)
-            let pan = UIPanGestureRecognizer(target: self, action: #selector(PinCalloutView.calloutTapped))
+            let pan = UITapGestureRecognizer(target: self, action: #selector(PinCalloutView.calloutTapped))
             mainBody.addGestureRecognizer(pan)
         } else {
             // Disable tapping and highlighting
