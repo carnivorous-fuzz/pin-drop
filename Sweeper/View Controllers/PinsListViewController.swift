@@ -13,6 +13,7 @@ class PinsListViewController: UIViewController, UITableViewDataSource {
 
     @IBOutlet weak var tableView: UITableView!
 
+    fileprivate var refreshControl: UIRefreshControl!
     fileprivate var pins: [Pin]!
     fileprivate var currentLocation: CLLocation?
     fileprivate var locationManager: CLLocationManager!
@@ -23,6 +24,10 @@ class PinsListViewController: UIViewController, UITableViewDataSource {
         tableView.register(UINib(nibName: "PinCell", bundle: nil), forCellReuseIdentifier: "PinCell")
         tableView.delegate = self
         tableView.dataSource = self
+        
+        refreshControl = UIRefreshControl()
+        refreshControl.addTarget(self, action: #selector(onRefresh), for: .valueChanged)
+        tableView.insertSubview(refreshControl, at: 0)
         
         getLocation()
         loadPins()
@@ -36,6 +41,13 @@ class PinsListViewController: UIViewController, UITableViewDataSource {
             } else {
                 print(error.debugDescription)
             }
+        }
+    }
+    
+    @objc fileprivate func onRefresh(_ control: UIRefreshControl) {
+        DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 1.0) {
+            self.loadPins()
+            control.endRefreshing()
         }
     }
 
