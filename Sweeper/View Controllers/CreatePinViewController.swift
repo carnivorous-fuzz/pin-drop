@@ -163,12 +163,12 @@ class CreatePinViewController: UIViewController, UINavigationControllerDelegate 
         pin.latitude = currentLocation?.coordinate.latitude
         pin.longitude = currentLocation?.coordinate.longitude
         pin.setLocation()
+        pin.locationName = locationBanner.addressLabel.text
         pin.message = messageTextView.text
 
         // TODO: animation while waiting for the image saving
         PinService.sharedInstance.create(pin: pin, withImage: importedImageView.image ?? nil, tagNames: self.tags) { (success: Bool, error: Error?) in
             if success {
-                print("saved!")
                 print(pin.blurb!)
                 self.dismiss(animated: true, completion: nil)
             }
