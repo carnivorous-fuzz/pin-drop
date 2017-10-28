@@ -48,15 +48,15 @@ class SHNavigationViewController: UIViewController {
             (scavengerHunt.pins != nil) &&
             (currentPinIndex <= scavengerHunt.pins!.count)
         {
-            var waypoints = [Waypoint]()
             let origin = Waypoint(coordinate: currentLocation!.coordinate, name: "Your location")
-            waypoints.append(origin)
-            for pin in scavengerHunt.pins! {
-                let pinLatitude = pin.location?.latitude
-                let pinLongitude = pin.location?.longitude
-                waypoints.append(Waypoint(coordinate: CLLocationCoordinate2D(latitude: pinLatitude!, longitude: pinLongitude!), name: pin.blurb))
+            let currentPin = scavengerHunt.pins?[currentPinIndex]
+            if let currentPin = currentPin {
+                let pinLatitude = currentPin.location?.latitude
+                let pinLongitude = currentPin.location?.longitude
+                let destination = Waypoint(coordinate: CLLocationCoordinate2D(latitude: pinLatitude!, longitude: pinLongitude!), name: currentPin.blurb)
+                return RouteOptions(waypoints: [origin, destination])
             }
-            return RouteOptions(waypoints: waypoints)
+            return nil
         }
         return nil
     }
@@ -71,6 +71,7 @@ class SHNavigationViewController: UIViewController {
             guard let route = routes?.first else { return }
 
             let viewController = NavigationViewController(for: route)
+            viewController.navigationDelegate = self
             self.present(viewController, animated: true, completion: nil)
         }
     }
@@ -130,5 +131,36 @@ extension SHNavigationViewController: CLLocationManagerDelegate {
             self.currentLocation = location
             fetchPins()
         }
+    }
+}
+
+extension SHNavigationViewController: NavigationViewControllerDelegate {
+    func navigationViewController(_ navigationViewController: NavigationViewController, didArriveAt waypoint: Waypoint) {
+        navigationViewController.dismiss(animated: true) {
+            let justVisitedPin = self.scavengerHunt.pins![self.currentPinIndex]
+
+            PinService.sharedInstance.markAsViewed(by: User.current()!, with: justVisitedPin)
+
+            let pinDetailsNC = UIStoryboard.pinDetailsNC
+            let pinDetailsVC = pinDetailsNC.topViewController as! PinDetailsViewController
+
+            self.currentPinIndex += 1
+
+            pinDetailsVC.pin = justVisitedPin
+            pinDetailsVC.delegate = self
+
+            let hasNext = self.currentPinIndex <= self.scavengerHunt.pins!.count - 1
+            pinDetailsVC.hasNext = hasNext
+            self.present(pinDetailsNC, animated: true, completion: nil)
+        }
+    }
+}
+
+extension SHNavigationViewController: PinDetailsViewControllerDelegate {
+    func onNextPin(pinDetailsViewController: PinDetailsViewController) {
+        onStart(self)
+    }
+    func onEndTour(pinDetailsViewController: PinDetailsViewController) {
+        dismiss(animated: true, completion: nil)
     }
 }

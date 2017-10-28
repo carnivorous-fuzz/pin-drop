@@ -61,7 +61,7 @@ class TagService {
 
     func fetchTags(with page: Int, completion: @escaping ([Tag]?, Error?) -> Void) {
         // How much you want on a page
-        let displayLimit = 10
+        let displayLimit = 20
         let query = Tag.query() as! PFQuery<Tag>
         query.limit = displayLimit
         query.skip = page * displayLimit
