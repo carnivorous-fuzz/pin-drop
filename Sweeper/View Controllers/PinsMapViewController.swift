@@ -160,7 +160,6 @@ extension PinsMapViewController: CLLocationManagerDelegate {
 
 // MARK:- Mapbox map view delegate
 extension PinsMapViewController: MGLMapViewDelegate {
-    
     func mapView(_ mapView: MGLMapView, viewFor annotation: MGLAnnotation) -> MGLAnnotationView? {
         guard annotation is MGLPointAnnotation else {
             return nil
@@ -179,6 +178,10 @@ extension PinsMapViewController: MGLMapViewDelegate {
         }
         
         return annotationView
+    }
+    
+    func mapView(_ mapView: MGLMapView, didSelect annotation: MGLAnnotation) {
+        mapView.setCenter(annotation.coordinate, animated: true)
     }
     
     func mapView(_ mapView: MGLMapView, calloutViewFor annotation: MGLAnnotation) -> MGLCalloutView? {
