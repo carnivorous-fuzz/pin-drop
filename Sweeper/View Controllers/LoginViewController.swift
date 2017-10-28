@@ -7,12 +7,15 @@
 //
 
 import UIKit
-//import Parse
+import FBSDKLoginKit
+import ParseFacebookUtilsV4
 
 class LoginViewController: UIViewController {
     @IBOutlet weak var usernameView: FancyTextField!
     @IBOutlet weak var passwordView: FancyTextField!
     @IBOutlet weak var bottomConstraint: NSLayoutConstraint!
+    @IBOutlet weak var fbLoginView: UIView!
+    @IBOutlet weak var fbLogoImageView: UIImageView!
     
     // MARK: Lifecycle functions
     override func viewDidLoad() {
@@ -22,6 +25,12 @@ class LoginViewController: UIViewController {
         usernameView.textField.keyboardType = .emailAddress
         
         passwordView.textField.isSecureTextEntry = true
+        
+        fbLoginView.layer.cornerRadius = 7.0
+        fbLoginView.clipsToBounds = true
+        fbLoginView.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(loginWithFacebook)))
+        fbLogoImageView.image = #imageLiteral(resourceName: "fblogo").withRenderingMode(.alwaysTemplate)
+        fbLogoImageView.tintColor = .white
         
         NotificationCenter.default.addObserver(self,
                                                selector: #selector(keyboardWillShow),
@@ -55,6 +64,17 @@ class LoginViewController: UIViewController {
     }
     
     // MARK: IBAction outlets
+    @IBAction func loginWithFacebook(_ sender: UITapGestureRecognizer) {
+        UserService.sharedInstance.loginWithFacebook { (user, error) in
+            if let user = user {
+                User.currentUser = user
+                DispatchQueue.main.async {
+                    self.segueToHome()
+                }
+            }
+        }
+    }
+    
     @IBAction func onBackgroundTap(_ sender: UITapGestureRecognizer) {
         view.endEditing(true)
     }
@@ -112,6 +132,10 @@ class LoginViewController: UIViewController {
     }
     
     private func segueToHome() {
-        present(UIStoryboard.tabBarVC, animated: true, completion: nil)
+        if UIApplication.shared.keyWindow?.rootViewController != nil {
+            UIApplication.shared.keyWindow!.rootViewController = UIStoryboard.tabBarVC
+        } else {
+            present(UIStoryboard.tabBarVC, animated: true, completion: nil)
+        }
     }
 }

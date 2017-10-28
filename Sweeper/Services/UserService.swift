@@ -9,9 +9,11 @@
 import Foundation
 import UIKit
 import Parse
+import ParseFacebookUtilsV4
 
 class UserService {    
     static let sharedInstance = UserService()
+    private static let permissions = ["public_profile"]
     
     func signUp(username: String, password: String, firstName: String, lastName: String, image: UIImage?, completion: @escaping (Error?) -> Void) {
         if let image = image {
@@ -44,6 +46,49 @@ class UserService {
         }
     }
     
+    func loginWithFacebook(completion: @escaping (User?, Error?) -> ()) {
+        PFFacebookUtils.logInInBackground(withReadPermissions: UserService.permissions) { (pfUser, error) in
+            if let pfUser = pfUser {
+                do {
+                    let user = try User.query()!.getObjectWithId(pfUser.objectId!) as! User
+                    if pfUser.isNew {
+                        let request = FBSDKGraphRequest(graphPath: "me", parameters: [:])
+                        let connection = FBSDKGraphRequestConnection()
+                        connection.add(request) { (requestConnection, result, connectionError) in
+                            if connectionError == nil, let result = result as? NSDictionary {
+                                //let ourUser = User(user: user)
+                                if let fbId = result["id"] as? String {
+                                    user.profileImageUrl = "https://graph.facebook.com/\(fbId)/picture?type=large&return_ssl_resources=1"
+                                }
+                                
+                                if let name = result["name"] as? String {
+                                    let parts = name.split(separator: " ")
+                                    user.firstName = String(parts[0])
+                                    if parts.count > 1 {
+                                        user.lastName = String(parts[parts.count - 1])
+                                    }
+                                }
+                                
+                                User.currentUser = user
+                                completion(user, nil)
+                            } else {
+                                completion(nil, connectionError)
+                            }
+                        }
+                        connection.start()
+                    } else {
+                        User.currentUser = user
+                        completion(user, nil)
+                    }
+                } catch {
+                    completion(nil, LoginError.unknown)
+                }
+            } else {
+                completion(nil, error)
+            }
+        }
+    }
+    
     // remove stored user. View controller is responsible for view segue
     func logout() {
         User.logOut() // this will automatically set current user to nil
@@ -65,4 +110,8 @@ class UserService {
             completion(error)
         })
     }
+}
+
+enum LoginError: Error {
+    case unknown
 }
