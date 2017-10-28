@@ -11,7 +11,7 @@ import UIKit
 class CustomPinCalloutView: UIView{
 
     @IBOutlet var contentView: UIView!
-    var pinCount: Int?
+    var pinCount: Int! = 0
     var pin: Pin? {
         didSet {
             PinService.sharedInstance.getComments(forPin: pin!) { (comments: [PinComment]?, error: Error?) in
