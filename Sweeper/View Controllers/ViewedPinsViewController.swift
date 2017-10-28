@@ -19,9 +19,10 @@ class ViewedPinsViewController: UIViewController {
     var currentLocation: CLLocation?
     var mapView: MGLMapView!
     var zoomLevel = 15.0
-    var columns: Int! = 3
     var pins: [Pin]!
     var user: User!
+    fileprivate let sectionInsets = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0)
+    fileprivate var cellsPerRow: CGFloat! = 3
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -78,7 +79,7 @@ class ViewedPinsViewController: UIViewController {
 }
 
 // MARK: collection view delegate
-extension ViewedPinsViewController: UICollectionViewDelegate, UICollectionViewDataSource {
+extension ViewedPinsViewController: UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return pins?.count ?? 0
@@ -90,17 +91,36 @@ extension ViewedPinsViewController: UICollectionViewDelegate, UICollectionViewDa
         return cell
     }
     
-    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAtIndexPath indexPath: NSIndexPath) -> CGSize {
-        
-        let flowLayout = collectionViewLayout as! UICollectionViewFlowLayout
-        let totalSpace = flowLayout.sectionInset.left
-                            + flowLayout.sectionInset.right
-                            + (flowLayout.minimumInteritemSpacing * CGFloat(columns - 1))
-        
-        let size = Int((collectionView.bounds.width - totalSpace) / CGFloat(columns))
-        return CGSize(width: size, height: size)
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+
+        let paddingSpace = cellsPerRow - 1
+        let availableWidth = view.frame.width - paddingSpace
+        let cellWidth = availableWidth / cellsPerRow
+        return CGSize(width: cellWidth, height: cellWidth)
     }
     
+    func collectionView(_ collectionView: UICollectionView,
+                        layout collectionViewLayout: UICollectionViewLayout,
+                        insetForSectionAt section: Int) -> UIEdgeInsets {
+        return sectionInsets
+    }
+
+    func collectionView(_ collectionView: UICollectionView,
+                        layout collectionViewLayout: UICollectionViewLayout,
+                        minimumLineSpacingForSectionAt section: Int) -> CGFloat {
+        return 1.0
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumInteritemSpacingForSectionAt section: Int) -> CGFloat {
+        return 1.0
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        let vc = UIStoryboard.pinDetailsVC
+        vc.pin = pins[indexPath.row]
+        show(vc, sender: nil)
+    }
+
 }
 
 // MARK: Location manager delegate
@@ -117,7 +137,6 @@ extension ViewedPinsViewController: CLLocationManagerDelegate {
 
 // MARK: Mapbox map view delegate
 extension ViewedPinsViewController: MGLMapViewDelegate {
-    
     func mapView(_ mapView: MGLMapView, viewFor annotation: MGLAnnotation) -> MGLAnnotationView? {
         guard annotation is MGLPointAnnotation else {
             return nil
@@ -125,8 +144,10 @@ extension ViewedPinsViewController: MGLMapViewDelegate {
         
         let reuseIdentifier = "\(annotation.coordinate.longitude)"
         
+        // For better performance, always try to reuse existing annotations.
         var annotationView = mapView.dequeueReusableAnnotationView(withIdentifier: reuseIdentifier)
         
+        // If there’s no reusable annotation view available, initialize a new one.
         if annotationView == nil {
             let pinAnnotation = annotation as? PinAnnotation
             let pin = pinAnnotation?.pin
@@ -134,6 +155,14 @@ extension ViewedPinsViewController: MGLMapViewDelegate {
         }
         
         return annotationView
+    }
+    
+    func mapView(_ mapView: MGLMapView, didSelect annotation: MGLAnnotation) {
+        mapView.setCenter(annotation.coordinate, animated: true)
+    }
+    
+    func mapView(_ mapView: MGLMapView, calloutViewFor annotation: MGLAnnotation) -> MGLCalloutView? {
+        return PinCalloutView(representedObject: annotation)
     }
     
     func mapView(_ mapView: MGLMapView, annotationCanShowCallout annotation: MGLAnnotation) -> Bool {
