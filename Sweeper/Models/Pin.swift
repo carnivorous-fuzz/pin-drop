@@ -20,6 +20,7 @@ class Pin: PFObject, PFSubclassing {
     @NSManaged var creator: User?
     @NSManaged var blurb: String?
     @NSManaged var location: PFGeoPoint?
+    @NSManaged var locationName: String?
     @NSManaged var message: String?
     @NSManaged var imageUrlStr: String?
     @NSManaged var tagIds: [String]?

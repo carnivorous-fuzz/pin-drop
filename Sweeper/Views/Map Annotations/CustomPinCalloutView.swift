@@ -11,9 +11,15 @@ import UIKit
 class CustomPinCalloutView: UIView{
 
     @IBOutlet var contentView: UIView!
+    var pinCount: Int! = 0
     var pin: Pin? {
         didSet {
-            setLabels()
+            PinService.sharedInstance.getComments(forPin: pin!) { (comments: [PinComment]?, error: Error?) in
+                if comments != nil {
+                    self.pinCount = comments!.count
+                    self.setLabels()
+                }
+            }
         }
     }
     
@@ -37,9 +43,7 @@ class CustomPinCalloutView: UIView{
     
     func setLabels() {
         
-        if let lat = pin?.location?.latitude, let lng = pin?.location?.longitude {
-            locationLabel.text = "\(lat.rounded(toPlaces: 2)), \(lng.rounded(toPlaces: 2))"
-        }
+        locationLabel.text = pin?.locationName
         var prettyTags = ""
         if let tags = pin?.tags {
             var tagNames = [String]()
@@ -51,7 +55,7 @@ class CustomPinCalloutView: UIView{
         tagsLabel.text = prettyTags
         userLabel.text = pin?.creator?.getFullName()
         blurbLabel.text = pin?.blurb
-//        commentsLabel.text = TODO
+        commentsLabel.text = "\(pinCount!) comment" + (pinCount != 1 ? "s" : "")
     }
     
     func loadViewFromNib() {
