@@ -48,7 +48,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                 self.window?.rootViewController = UIStoryboard.loginVC
         }
         
-        AppService.sharedInstance.createPinLikeSubscription()
+        AppService.sharedInstance.subscribeToPinLikeUpdates()
+        AppService.sharedInstance.subscribeToPinCreation()
         return true
     }
 }

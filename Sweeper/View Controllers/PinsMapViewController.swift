@@ -20,9 +20,9 @@ class PinsMapViewController: UIViewController {
     var annotations: [PinAnnotation] = []
     var userLocationButton: UserLocationButton!
 
+    // MARK: Lifecycle functions
     override func viewDidLoad() {
         super.viewDidLoad()
-        Timer.scheduledTimer(timeInterval: 2, target: self, selector: #selector(PinsMapViewController.loadPins), userInfo: nil, repeats: true)
 
         // Request location
         requestLocationPermission()
@@ -37,7 +37,10 @@ class PinsMapViewController: UIViewController {
         view.addSubview(mapView)
         loadPins()
         setupLocationButton()
+        registerForNotifications()
     }
+    
+    // MARK: Action handlers
     @objc fileprivate func loadPins() {
         PinService.sharedInstance.fetchPins { (pins, error) in
             if let pins = pins {
@@ -57,18 +60,9 @@ class PinsMapViewController: UIViewController {
         }
     }
     
-    private func requestLocationPermission() {
-        locationManager = CLLocationManager()
-        locationManager.delegate = self
-        locationManager.desiredAccuracy = kCLLocationAccuracyBest
-        locationManager.distanceFilter = 200
-        locationManager.requestWhenInUseAuthorization()
-        locationManager.startUpdatingLocation()
-    }
-
     @IBAction func locationButtonTapped() {
         var mode: MGLUserTrackingMode
-
+        
         switch (mapView.userTrackingMode) {
         case .none:
             mode = .follow
@@ -83,11 +77,32 @@ class PinsMapViewController: UIViewController {
             mode = .none
             break
         }
-
+        
         mapView.userTrackingMode = mode
     }
+    
+    @objc private func pinLiveQueryHandler(_ notification: Notification) {
+        if let createdPin = Pin.getPinFromNotification(notification) {
+            if createdPin.location != nil {
+                let createdPoint = PinAnnotation(fromPin: createdPin)
+                pins.append(createdPin)
+                annotations.append(createdPoint)
+                mapView.addAnnotation(createdPoint)
+            }
+        }
+    }
+    
+    // MARK: Helpers
+    private func requestLocationPermission() {
+        locationManager = CLLocationManager()
+        locationManager.delegate = self
+        locationManager.desiredAccuracy = kCLLocationAccuracyBest
+        locationManager.distanceFilter = 200
+        locationManager.requestWhenInUseAuthorization()
+        locationManager.startUpdatingLocation()
+    }
 
-    func setupLocationButton() {
+    private func setupLocationButton() {
         userLocationButton = UserLocationButton()
         userLocationButton.addTarget(self, action: #selector(locationButtonTapped), for: .touchUpInside)
         userLocationButton.tintColor = UIConstants.Theme.green
@@ -97,13 +112,20 @@ class PinsMapViewController: UIViewController {
         userLocationButton.translatesAutoresizingMaskIntoConstraints = false
 
         let constraints = [
-            NSLayoutConstraint(item: userLocationButton, attribute: .top, relatedBy: .greaterThanOrEqual, toItem: topLayoutGuide, attribute: .bottom, multiplier: 1, constant: 10),
-            NSLayoutConstraint(item: userLocationButton, attribute: .leading, relatedBy: .equal, toItem: view, attribute: .leading, multiplier: 1, constant: 10),
-            NSLayoutConstraint(item: userLocationButton, attribute: .height, relatedBy: .equal, toItem: nil, attribute: .notAnAttribute, multiplier: 1, constant: userLocationButton.frame.size.height),
-            NSLayoutConstraint(item: userLocationButton, attribute: .width, relatedBy: .equal, toItem: nil, attribute: .notAnAttribute, multiplier: 1, constant: userLocationButton.frame.size.width)
+            userLocationButton.topAnchor.constraint(equalTo: mapView.safeAreaLayoutGuide.topAnchor, constant: 10),
+            userLocationButton.leadingAnchor.constraint(equalTo: mapView.safeAreaLayoutGuide.leadingAnchor, constant: 10),
+            userLocationButton.heightAnchor.constraint(equalToConstant: userLocationButton.frame.size.height),
+            userLocationButton.widthAnchor.constraint(equalToConstant: userLocationButton.frame.size.width)
         ]
 
         view.addConstraints(constraints)
+    }
+    
+    private func registerForNotifications() {
+        NotificationCenter.default.addObserver(self,
+                                               selector: #selector(pinLiveQueryHandler),
+                                               name: Pin.pinLiveQueryNotification,
+                                               object: nil)
     }
 }
 
