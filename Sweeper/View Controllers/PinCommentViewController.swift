@@ -51,17 +51,12 @@ class PinCommentViewController: UIViewController {
 
     @IBAction func onCancel(_ sender: UIBarButtonItem) {
         if fancyTextView.hasText() {
-            let alertController = UIAlertController(title: nil, message: "You have an unfinished comment. Are you sure you want to leave this screen?", preferredStyle: .actionSheet)
-            
-            alertController.addAction(
-                UIAlertAction(title: "Discard", style: .destructive) { (action) in
-                    self.dismissController()
-                }
-            )
-            
-            alertController.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
-            
-            present(alertController, animated: true, completion: nil)
+            let cancelButton = Dialog.button(title: "Dismiss", type: .cancel, action: nil)
+            let discardButton = Dialog.button(title: "Discard", type: .destructive) {
+                self.dismissController()
+            }
+
+            Dialog.show(controller: self, title: "You have an unfinished comment", message: "Are you sure you want to leave this screen?", buttons: [discardButton, cancelButton], image: nil, dismissAfter: nil, completion: nil)
         } else {
             dismissController()
         }

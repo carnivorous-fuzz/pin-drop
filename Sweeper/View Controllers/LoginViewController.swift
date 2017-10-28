@@ -107,12 +107,8 @@ class LoginViewController: UIViewController {
     }
     
     private func showLoginError() {
-        let alertController = UIAlertController(title: "Whoops", message: "Make sure your username and email are correct", preferredStyle: .alert)
-        
-        let okAction = UIAlertAction(title: "Dismiss", style: .cancel, handler: nil)
-        alertController.addAction(okAction)
-        
-        present(alertController, animated: true, completion: nil)
+        let cancelButton = Dialog.button(title: "Dismiss", type: .cancel, action: nil)
+        Dialog.show(controller: self, title: "Login Error", message: "Make sure your username and email are correct", buttons: [cancelButton], image: nil, dismissAfter: nil, completion: nil)
     }
     
     private func segueToHome() {
