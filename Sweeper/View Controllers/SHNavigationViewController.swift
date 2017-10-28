@@ -9,8 +9,9 @@
 import UIKit
 import MapboxDirections
 import MapboxNavigation
+import NVActivityIndicatorView
 
-class SHNavigationViewController: UIViewController {
+class SHNavigationViewController: UIViewController, NVActivityIndicatorViewable {
     @IBOutlet weak var tableView: UITableView!
 
     @IBAction func onCancel(_ sender: Any) {
@@ -80,16 +81,21 @@ class SHNavigationViewController: UIViewController {
         if self.currentLocation != nil {
             PinService.sharedInstance.fetchPins(with: scavengerHunt.selectedTags!, in: scavengerHunt.radius!.doubleValue, for: self.currentLocation!) {
                 (pins: [Pin]?, error: Error?) in
+                self.stopAnimating()
                 if (pins != nil) && (pins!.count > 0) {
                     self.scavengerHunt.pins = pins
                     self.scavengerHunt.saveInBackground()
                     self.tableView.reloadData()
                 } else {
-                    print("Sorry, there's no match within your location")
+                    let cancel = Dialog.button(title: "ok", type: .cancel) {
+                        self.dismiss(animated: true, completion: nil)
+                    }
+                    Dialog.show(controller: self, title: "Uhhh", message: "Sorry, there's no match within your location. Please try again.", buttons: [cancel], image: nil, dismissAfter: nil, completion: nil)
                 }
             }
         } else {
-            print("Can't get your current location")
+            let cancel = Dialog.button(title: "ok", type: .cancel, action: nil)
+            Dialog.show(controller: self, title: "Unable to get your location", message: "Please check your location privacy", buttons: [cancel], image: nil, dismissAfter: nil, completion: nil)
         }
     }
 
@@ -129,7 +135,11 @@ extension SHNavigationViewController: CLLocationManagerDelegate {
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
         if let location = locations.last {
             self.currentLocation = location
+            self.startAnimating()
             fetchPins()
+        } else {
+            let cancel = Dialog.button(title: "ok", type: .cancel, action: nil)
+            Dialog.show(controller: self, title: "Unable to get your location", message: "Please check your location privacy", buttons: [cancel], image: nil, dismissAfter: nil, completion: nil)
         }
     }
 }

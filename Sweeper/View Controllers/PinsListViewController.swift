@@ -8,8 +8,9 @@
 
 import UIKit
 import CoreLocation
+import NVActivityIndicatorView
 
-class PinsListViewController: UIViewController, UITableViewDataSource {
+class PinsListViewController: UIViewController, UITableViewDataSource, NVActivityIndicatorViewable {
 
     @IBOutlet weak var tableView: UITableView!
 
@@ -20,6 +21,7 @@ class PinsListViewController: UIViewController, UITableViewDataSource {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        startAnimating()
 
         tableView.register(UINib(nibName: "PinCell", bundle: nil), forCellReuseIdentifier: "PinCell")
         tableView.delegate = self
@@ -38,8 +40,10 @@ class PinsListViewController: UIViewController, UITableViewDataSource {
             if let pins = pins {
                 self.pins = pins
                 self.tableView.reloadData()
+                self.stopAnimating()
             } else {
-                print(error.debugDescription)
+                let button = Dialog.button(title: "Try Again", type: .plain, action: nil)
+                Dialog.show(controller: self, title: "Unable to load pins", message: error?.localizedDescription ?? "Error", buttons: [button], image: nil, dismissAfter: nil, completion: nil)
             }
         }
     }

@@ -10,6 +10,7 @@ import UIKit
 import Parse
 import AWSCore
 import AWSCognito
+import NVActivityIndicatorView
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -50,6 +51,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         AppService.sharedInstance.subscribeToPinLikeUpdates()
         AppService.sharedInstance.subscribeToPinCreation()
+
+        // set loading style globally
+        NVActivityIndicatorView.DEFAULT_TYPE = .ballPulse
         return true
     }
 }

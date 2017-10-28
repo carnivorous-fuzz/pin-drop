@@ -10,6 +10,8 @@ target 'Sweeper' do
   pod 'KMPlaceholderTextView', '~> 1.3.0'
   pod 'AFNetworking'
   pod 'Fusuma'
+  pod 'NVActivityIndicatorView'
+  pod 'PopupDialog', '~> 0.6'
 
   # AWS SDKs
   pod 'AWSCognito'

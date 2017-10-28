@@ -37,6 +37,7 @@
 		B71D02A01F9C2F740090DD9D /* ScavengerHunt.swift in Sources */ = {isa = PBXBuildFile; fileRef = B71D029F1F9C2F740090DD9D /* ScavengerHunt.swift */; };
 		B71D02A21F9C54770090DD9D /* SHNavigationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B71D02A11F9C54770090DD9D /* SHNavigationViewController.swift */; };
 		B71D02A41F9C7AE20090DD9D /* PinOverviewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B71D02A31F9C7AE20090DD9D /* PinOverviewCell.swift */; };
+		B71F5AF01FA529ED009B0E60 /* DialogBox.swift in Sources */ = {isa = PBXBuildFile; fileRef = B71F5AEF1FA529ED009B0E60 /* DialogBox.swift */; };
 		B7286D671F99C83300CD9C0E /* ScavengerHunt.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B7286D661F99C83300CD9C0E /* ScavengerHunt.storyboard */; };
 		B7286D691F99CA1C00CD9C0E /* SHGenerateViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7286D681F99CA1C00CD9C0E /* SHGenerateViewController.swift */; };
 		B763C3561F931F2700DA8311 /* AWSConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = B763C3551F931F2700DA8311 /* AWSConstants.swift */; };
@@ -121,6 +122,7 @@
 		B71D029F1F9C2F740090DD9D /* ScavengerHunt.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScavengerHunt.swift; sourceTree = "<group>"; };
 		B71D02A11F9C54770090DD9D /* SHNavigationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SHNavigationViewController.swift; sourceTree = "<group>"; };
 		B71D02A31F9C7AE20090DD9D /* PinOverviewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PinOverviewCell.swift; sourceTree = "<group>"; };
+		B71F5AEF1FA529ED009B0E60 /* DialogBox.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DialogBox.swift; sourceTree = "<group>"; };
 		B7286D661F99C83300CD9C0E /* ScavengerHunt.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = ScavengerHunt.storyboard; sourceTree = "<group>"; };
 		B7286D681F99CA1C00CD9C0E /* SHGenerateViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SHGenerateViewController.swift; sourceTree = "<group>"; };
 		B763C3551F931F2700DA8311 /* AWSConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AWSConstants.swift; sourceTree = "<group>"; };
@@ -402,6 +404,7 @@
 				B7E1C73E1FA01FAF00DB0CCE /* UserLocationButton.swift */,
 				37D2A0D21F9F126200273B20 /* ViewedPinCell.swift */,
 				B76CF4081FA313B9007B08FD /* AddTagCollectionViewCell.swift */,
+				B71F5AEF1FA529ED009B0E60 /* DialogBox.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -566,10 +569,12 @@
 				"${BUILT_PRODUCTS_DIR}/MapboxDirections.swift/MapboxDirections.framework",
 				"${BUILT_PRODUCTS_DIR}/MapboxMobileEvents/MapboxMobileEvents.framework",
 				"${BUILT_PRODUCTS_DIR}/MapboxNavigation/MapboxNavigation.framework",
+				"${BUILT_PRODUCTS_DIR}/NVActivityIndicatorView/NVActivityIndicatorView.framework",
 				"${BUILT_PRODUCTS_DIR}/OSRMTextInstructions/OSRMTextInstructions.framework",
 				"${BUILT_PRODUCTS_DIR}/Parse/Parse.framework",
 				"${BUILT_PRODUCTS_DIR}/ParseLiveQuery/ParseLiveQuery.framework",
 				"${BUILT_PRODUCTS_DIR}/Polyline/Polyline.framework",
+				"${BUILT_PRODUCTS_DIR}/PopupDialog/PopupDialog.framework",
 				"${BUILT_PRODUCTS_DIR}/Pulley/Pulley.framework",
 				"${BUILT_PRODUCTS_DIR}/SDWebImage/SDWebImage.framework",
 				"${BUILT_PRODUCTS_DIR}/Solar/Solar.framework",
@@ -594,10 +599,12 @@
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/MapboxDirections.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/MapboxMobileEvents.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/MapboxNavigation.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/NVActivityIndicatorView.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/OSRMTextInstructions.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Parse.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ParseLiveQuery.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Polyline.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/PopupDialog.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Pulley.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SDWebImage.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Solar.framework",
@@ -643,6 +650,7 @@
 				B9BC3F1D1FA0481200D4CC7A /* PinLike.swift in Sources */,
 				B96D352E1F9B008E00BC6CBF /* PinCommentViewController.swift in Sources */,
 				37731ECD1F92C093009E0603 /* AppService.swift in Sources */,
+				B71F5AF01FA529ED009B0E60 /* DialogBox.swift in Sources */,
 				B96D35211F99B32F00BC6CBF /* PinDetailsCard.swift in Sources */,
 				B9CB3D321F9425FA0023EA79 /* ImageUtils.swift in Sources */,
 				B7DE45E81F9BFB0300F2472F /* InfiniteScrollActivityView.swift in Sources */,

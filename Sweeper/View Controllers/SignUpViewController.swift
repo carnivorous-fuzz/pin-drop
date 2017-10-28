@@ -103,9 +103,8 @@ class SignUpViewController: UIViewController {
     }
     
     private func showError(message: String) {
-        let alertController = UIAlertController(title: "Whoops", message: message, preferredStyle: .alert)
-        alertController.addAction(UIAlertAction(title: "Ok", style: .cancel, handler: nil))
-        present(alertController, animated: true, completion: nil)
+        let cancel = Dialog.button(title: "ok", type: .cancel, action: nil)
+        Dialog.show(controller: self, title: "Whoops", message: message, buttons: [cancel], image: nil, dismissAfter: nil, completion: nil)
     }
 }
 

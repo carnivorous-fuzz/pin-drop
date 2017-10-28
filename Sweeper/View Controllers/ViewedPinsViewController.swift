@@ -8,8 +8,9 @@
 
 import UIKit
 import Mapbox
+import NVActivityIndicatorView
 
-class ViewedPinsViewController: UIViewController {
+class ViewedPinsViewController: UIViewController, NVActivityIndicatorViewable {
 
     @IBOutlet weak var mapContainerView: UIView!
     @IBOutlet weak var collectionView: UICollectionView!
@@ -49,7 +50,9 @@ class ViewedPinsViewController: UIViewController {
         
         // TODO: make this fetchArchivedPins once done testing
         var annotations = [PinAnnotation]()
+        startAnimating()
         PinService.sharedInstance.fetchPins { (pins: [Pin]?, error: Error?) in
+            self.stopAnimating()
             if error == nil {
                 self.pins = pins!
                 // init collection view
@@ -63,7 +66,9 @@ class ViewedPinsViewController: UIViewController {
                     }
                 })
                 self.mapView.addAnnotations(annotations)
-                
+            } else {
+                let button = Dialog.button(title: "Try Again", type: .plain, action: nil)
+                Dialog.show(controller: self, title: "Unable to load pins", message: error?.localizedDescription ?? "Error", buttons: [button], image: nil, dismissAfter: nil, completion: nil)
             }
         }
     }
