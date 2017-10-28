@@ -26,7 +26,6 @@ class TagSelectorViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        selectorView.slightlyRoundBorder()
         tableView.tableFooterView = UIView(frame: CGRect.zero)
 
         // Set up Infinite Scroll loading indicator
@@ -38,14 +37,9 @@ class TagSelectorViewController: UIViewController {
         loadTags(page: currentPage)
     }
     @IBAction func onCancel(_ sender: Any) {
-        removeSelf()
+        dismiss(animated: true, completion: nil)
     }
 
-	func removeSelf() {
-        self.willMove(toParentViewController: nil)
-        self.view.removeFromSuperview()
-        self.removeFromParentViewController()
-    }
     fileprivate func loadTags(page: Int) {
         TagService.sharedInstance.fetchTags(with: page) { (tags: [Tag]?, error: Error?) in
             if tags != nil {
@@ -66,7 +60,7 @@ extension TagSelectorViewController: UITableViewDelegate, UITableViewDataSource 
             return TagSelectorCell()
         }
         let tag = tags[indexPath.row]
-        cell.textLabel?.text = tag.name
+        cell.tagLabel.text = tag.name
         return cell
     }
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -79,7 +73,7 @@ extension TagSelectorViewController: UITableViewDelegate, UITableViewDataSource 
             delegate?.tagSelected?(tagSelectorViewController: self, didSelectTag: tag)
         }
 
-        removeSelf()
+        dismiss(animated: true, completion: nil)
     }
 }
 

@@ -8,6 +8,11 @@
 
 import UIKit
 
+@objc protocol PinDetailsViewControllerDelegate {
+    @objc optional func onNextPin(pinDetailsViewController: PinDetailsViewController)
+    @objc optional func onEndTour(pinDetailsViewController: PinDetailsViewController)
+}
+
 class PinDetailsViewController: UIViewController {
     
     @IBOutlet weak var pinCard: PinDetailsCard!
@@ -15,6 +20,8 @@ class PinDetailsViewController: UIViewController {
     @IBOutlet weak var commentsTableView: UITableView!
     
     var pin: Pin!
+    var hasNext: Bool?
+    var delegate: PinDetailsViewControllerDelegate?
     fileprivate var comments: [PinComment] = []
     fileprivate var likes = 0
     fileprivate var liked: PinLike?
@@ -23,6 +30,9 @@ class PinDetailsViewController: UIViewController {
     override func loadView() {
         super.loadView()
         NSLayoutConstraint.deactivate([pinCardHeightConstraint])
+        if hasNext != nil {
+            addBarButtonItemToDetailsView(hasNext: hasNext!)
+        }
     }
     
     override func viewDidLoad() {
@@ -38,8 +48,31 @@ class PinDetailsViewController: UIViewController {
         pinCard.prepare(withPin: pin)
         pinCard.delegate = self
         pinCard.pinActionsView.delegate = self
+
     }
-    
+
+    func addBarButtonItemToDetailsView(hasNext: Bool) {
+        let endButton = UIBarButtonItem(title: "End", style: .plain, target: self, action: #selector(endTour))
+        endButton.tintColor = UIConstants.Theme.red
+        navigationItem.leftBarButtonItem = endButton
+
+        if hasNext {
+            let nextButton = UIBarButtonItem(title: "Next", style: .plain, target: self, action: #selector(nextPin))
+            nextButton.tintColor = UIConstants.Theme.green
+            navigationItem.rightBarButtonItem = nextButton
+        }
+    }
+    @objc func endTour() {
+        dismiss(animated: true, completion: {
+            self.delegate?.onEndTour?(pinDetailsViewController: self)
+        })
+    }
+    @objc func nextPin() {
+        dismiss(animated: true, completion: {
+            self.delegate?.onNextPin?(pinDetailsViewController: self)
+        })
+    }
+
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         let pinService = PinService.sharedInstance

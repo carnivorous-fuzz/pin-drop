@@ -42,18 +42,10 @@ class SHGenerateViewController: UIViewController {
     }
 
     fileprivate func onTagChooserTap() {
-        let tagSelectorView = UIStoryboard.tagsSelectorVC
-        tagSelectorView.delegate = self
-
-        // TODO: make this transition look nicer
-        tagSelectorView.modalPresentationStyle = UIModalPresentationStyle.formSheet
-        tagSelectorView.modalTransitionStyle = UIModalTransitionStyle.partialCurl
-        tagSelectorView.willMove(toParentViewController: self)
-        self.addChildViewController(tagSelectorView)
-        UIView.animate(withDuration: 0.3) {
-            self.view.addSubview(tagSelectorView.view)
-        }
-        tagSelectorView.didMove(toParentViewController: self)
+        let tagSelectorNC = UIStoryboard.tagsSelectorNC
+        let tagSelectorVC = tagSelectorNC.topViewController as! TagSelectorViewController
+        tagSelectorVC.delegate = self
+        present(tagSelectorNC, animated: true, completion: nil)
     }
 
     @IBAction func onGenerate(_ sender: Any) {
@@ -120,13 +112,15 @@ extension SHGenerateViewController: UICollectionViewDelegate, UICollectionViewDa
             {
                 if (indexPath.row == selectedTagCount) && (selectedTagCount < maxTagOrStops)  {
                     cell.selectedTagLabel.text = "Add"
+                    cell.removeButton.isHidden = true
                 } else if selectedTags.count > 0 {
                     let currentTag = selectedTags[indexPath.row]
+                    cell.delegate = self
                     cell.selectedTagLabel.text = currentTag.name
                     cell.selectedTag = currentTag
+                    cell.removeButton.isHidden = false
                 }
 
-                cell.slightlyRoundBorder()
                 return cell
             }
             return TagSelectedCollectionCell()
@@ -141,9 +135,6 @@ extension SHGenerateViewController: UICollectionViewDelegate, UICollectionViewDa
         } else {
             if (indexPath.row == selectedTagCount) && (selectedTagCount < maxTagOrStops)  {
                 onTagChooserTap()
-            } else {
-                let cell = collectionView.cellForItem(at: indexPath) as! TagSelectedCollectionCell
-                deleteTag(with: cell)
             }
         }
     }
@@ -163,6 +154,18 @@ extension SHGenerateViewController: TagSelectorViewControllerDelegate {
         if (tag != nil) && (self.selectedTags.count < maxTagOrStops) {
             self.selectedTags.append(tag!)
             tagSelectionCollectionView.reloadData()
+        }
+    }
+}
+
+// MARK: tag selected collection cell delegate
+extension SHGenerateViewController: TagSelectedCollectionCellDelegate {
+    func removeTag(tagSelectedCollectionCell: TagSelectedCollectionCell, didRemoveTag tag: Tag) {
+        if let index = selectedTags.index(of: tag) {
+            selectedTags.remove(at: index)
+            tagSelectionCollectionView.reloadData()
+        } else {
+            print("no index")
         }
     }
 }
