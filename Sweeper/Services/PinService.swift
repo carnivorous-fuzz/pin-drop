@@ -106,25 +106,16 @@ class PinService {
         }
     }
 
-    func fetchArchievedPins(for user: User, completion: @escaping ([Pin], Error?) -> Void) {
-        var viewedPinIds = [String]()
-        let viewedPinsQuery = ViewedPin.query() as! PFQuery<ViewedPin>
-        viewedPinsQuery.whereKey("userId", equalTo: user.objectId!)
-        viewedPinsQuery.findObjectsInBackground { (viewedPins: [ViewedPin]?, error: Error?) in
-            if viewedPins != nil {
-                for viewedPin in viewedPins! {
-                    viewedPinIds.append(viewedPin.pinId!)
-                }
-
-                let pinQuery = Pin.query() as! PFQuery<Pin>
-
-                pinQuery.whereKey("objectId", containedIn: viewedPinIds)
-                pinQuery.findObjectsInBackground(block: { (pins: [Pin]?, error: Error?) in
-                    if pins != nil {
-                        completion(pins!, error)
-                    }
-                })
-            }
+    func fetchPins(by user: User, completion: @escaping ([Pin]?, Error?) -> Void) {
+        let pinsQuery = Pin.query() as! PFQuery<Pin>
+        pinsQuery.order(byDescending: "createdAt")
+        pinsQuery.includeKey("tags")
+        pinsQuery.includeKey("creator")
+        pinsQuery.whereKey("creator", equalTo: user)
+        pinsQuery.clearCachedResult()
+        
+        pinsQuery.findObjectsInBackground { (pins: [Pin]?, error: Error?) in
+            completion(pins, error)
         }
     }
 

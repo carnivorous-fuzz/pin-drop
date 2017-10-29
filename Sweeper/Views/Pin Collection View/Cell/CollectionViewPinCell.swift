@@ -9,6 +9,7 @@
 import UIKit
 
 class CollectionViewPinCell: UICollectionViewCell {
+    
     @IBOutlet weak var imageView: UIImageView!
     
     var pin: Pin! {

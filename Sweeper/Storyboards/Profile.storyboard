@@ -320,61 +320,15 @@
                                 <rect key="frame" x="0.0" y="64" width="375" height="603"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="Iyl-xQ-5jT">
-                                    <size key="itemSize" width="50" height="50"/>
+                                    <size key="itemSize" width="123" height="92"/>
                                     <size key="headerReferenceSize" width="50" height="250"/>
                                     <size key="footerReferenceSize" width="0.0" height="0.0"/>
                                     <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                 </collectionViewFlowLayout>
-                                <cells>
-                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="18D-fs-vaH">
-                                        <rect key="frame" x="0.0" y="250" width="50" height="50"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO">
-                                            <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
-                                            <autoresizingMask key="autoresizingMask"/>
-                                        </view>
-                                    </collectionViewCell>
-                                </cells>
-                                <collectionReusableView key="sectionHeaderView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" reuseIdentifier="CollectionViewHeader" id="yj2-4M-XwQ" userLabel="Collection Header">
+                                <cells/>
+                                <collectionReusableView key="sectionHeaderView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" reuseIdentifier="ProfileHeaderCell" id="yj2-4M-XwQ" userLabel="Collection Header" customClass="ProfileHeaderCell" customModule="Sweeper" customModuleProvider="target">
                                     <rect key="frame" x="0.0" y="0.0" width="375" height="250"/>
                                     <autoresizingMask key="autoresizingMask"/>
-                                    <subviews>
-                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="VDM-b2-Vhc" userLabel="Separator">
-                                            <rect key="frame" x="0.0" y="200" width="375" height="50"/>
-                                            <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Created Pins" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uZx-mb-y6U">
-                                                    <rect key="frame" x="12" y="12" width="113" height="26.5"/>
-                                                    <fontDescription key="fontDescription" type="system" weight="ultraLight" pointSize="22"/>
-                                                    <nil key="textColor"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
-                                            </subviews>
-                                            <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                            <constraints>
-                                                <constraint firstItem="uZx-mb-y6U" firstAttribute="leading" secondItem="VDM-b2-Vhc" secondAttribute="leading" constant="12" id="U1v-US-DhY"/>
-                                                <constraint firstItem="uZx-mb-y6U" firstAttribute="centerY" secondItem="VDM-b2-Vhc" secondAttribute="centerY" id="lgO-JC-REC"/>
-                                            </constraints>
-                                        </view>
-                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="i9c-sT-Osu" userLabel="Map Container">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="200"/>
-                                            <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                            <constraints>
-                                                <constraint firstAttribute="height" constant="200" id="zDl-BX-u1E"/>
-                                            </constraints>
-                                        </view>
-                                    </subviews>
-                                    <constraints>
-                                        <constraint firstAttribute="bottom" secondItem="VDM-b2-Vhc" secondAttribute="bottom" id="Qpw-du-oM0"/>
-                                        <constraint firstItem="i9c-sT-Osu" firstAttribute="leading" secondItem="yj2-4M-XwQ" secondAttribute="leading" id="R1a-d0-rg7"/>
-                                        <constraint firstItem="VDM-b2-Vhc" firstAttribute="leading" secondItem="yj2-4M-XwQ" secondAttribute="leading" id="dzW-ca-24y"/>
-                                        <constraint firstItem="VDM-b2-Vhc" firstAttribute="leading" secondItem="yj2-4M-XwQ" secondAttribute="leading" id="fhm-fh-hbf"/>
-                                        <constraint firstItem="VDM-b2-Vhc" firstAttribute="top" secondItem="i9c-sT-Osu" secondAttribute="bottom" id="hpg-oT-YI1"/>
-                                        <constraint firstAttribute="trailing" secondItem="i9c-sT-Osu" secondAttribute="trailing" id="it9-ci-TJj"/>
-                                        <constraint firstAttribute="bottom" secondItem="VDM-b2-Vhc" secondAttribute="bottom" id="oxd-YC-Pcw"/>
-                                        <constraint firstItem="i9c-sT-Osu" firstAttribute="top" secondItem="yj2-4M-XwQ" secondAttribute="top" id="pvN-Hl-lfK"/>
-                                        <constraint firstAttribute="trailing" secondItem="VDM-b2-Vhc" secondAttribute="trailing" id="vyo-GW-vQp"/>
-                                        <constraint firstAttribute="trailing" secondItem="VDM-b2-Vhc" secondAttribute="trailing" id="yLJ-wT-S2K"/>
-                                    </constraints>
                                 </collectionReusableView>
                             </collectionView>
                         </subviews>
@@ -389,9 +343,7 @@
                     </view>
                     <navigationItem key="navigationItem" id="qsm-zg-Tf6"/>
                     <connections>
-                        <outlet property="collectionView" destination="nnm-TQ-gEP" id="WKA-p1-Byu"/>
-                        <outlet property="mapContainerView" destination="i9c-sT-Osu" id="r5R-Ut-Dzm"/>
-                        <outlet property="separatorLabel" destination="uZx-mb-y6U" id="Kh2-c0-1mw"/>
+                        <outlet property="collectionView" destination="nnm-TQ-gEP" id="xK0-M3-MJw"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="OfQ-S0-YIK" userLabel="First Responder" sceneMemberID="firstResponder"/>

@@ -50,30 +50,7 @@
                                     <size key="footerReferenceSize" width="0.0" height="0.0"/>
                                     <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                 </collectionViewFlowLayout>
-                                <cells>
-                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="CollectionViewPinCell" id="Mlr-bf-pON" customClass="CollectionViewPinCell">
-                                        <rect key="frame" x="0.0" y="0.0" width="130" height="108"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO">
-                                            <rect key="frame" x="0.0" y="0.0" width="130" height="108"/>
-                                            <autoresizingMask key="autoresizingMask"/>
-                                            <subviews>
-                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="ciQ-Pv-MGR">
-                                                    <rect key="frame" x="0.0" y="0.0" width="130" height="108"/>
-                                                </imageView>
-                                            </subviews>
-                                        </view>
-                                        <constraints>
-                                            <constraint firstItem="ciQ-Pv-MGR" firstAttribute="leading" secondItem="Mlr-bf-pON" secondAttribute="leading" id="10t-Ew-A1S"/>
-                                            <constraint firstAttribute="trailing" secondItem="ciQ-Pv-MGR" secondAttribute="trailing" id="TyC-3z-bVT"/>
-                                            <constraint firstAttribute="bottom" secondItem="ciQ-Pv-MGR" secondAttribute="bottom" id="dR4-tM-1tm"/>
-                                            <constraint firstItem="ciQ-Pv-MGR" firstAttribute="top" secondItem="Mlr-bf-pON" secondAttribute="top" id="zns-dN-ch6"/>
-                                        </constraints>
-                                        <connections>
-                                            <outlet property="imageView" destination="ciQ-Pv-MGR" id="9ri-n4-eep"/>
-                                        </connections>
-                                    </collectionViewCell>
-                                </cells>
+                                <cells/>
                             </collectionView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>

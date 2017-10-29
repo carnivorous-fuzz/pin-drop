@@ -10,7 +10,7 @@ import UIKit
 import Mapbox
 import NVActivityIndicatorView
 
-class PinsMapViewController: UIViewController, NVActivityIndicatorViewable{
+class PinsMapViewController: UIViewController, NVActivityIndicatorViewable {
     
     let user = User.currentUser
     let defaultLocation = CLLocation(latitude: 37.787353, longitude: -122.421561)

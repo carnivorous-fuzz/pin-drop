@@ -34,6 +34,8 @@ class ViewedPinsViewController: UIViewController, NVActivityIndicatorViewable {
         // collection view setup
         collectionView.delegate = self
         collectionView.dataSource = self
+        let nib = UINib(nibName: "CollectionViewPinCell", bundle: nil)
+        collectionView.register(nib, forCellWithReuseIdentifier: "CollectionViewPinCell")
         
         // map setup
         mapView = MGLMapView(frame: mapContainerView.bounds, styleURL: MGLStyle.streetsStyleURL())
@@ -85,7 +87,6 @@ class ViewedPinsViewController: UIViewController, NVActivityIndicatorViewable {
 
 // MARK: collection view delegate
 extension ViewedPinsViewController: UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
-    
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return pins?.count ?? 0
     }
