@@ -18,6 +18,8 @@ class PinOverviewCell: UITableViewCell {
         didSet {
             if let imageUrl = pin.getImageUrl() {
                 pinImageView.setImageWith(imageUrl)
+                pinImageView.layer.cornerRadius = 10
+                pinImageView.layer.masksToBounds = true
             }
             pinMsgLabel.text = pin.message!
             pinBlurbLabel.text = pin.blurb!

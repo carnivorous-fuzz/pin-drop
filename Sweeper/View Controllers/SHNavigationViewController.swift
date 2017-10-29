@@ -35,7 +35,6 @@ class SHNavigationViewController: UIViewController, NVActivityIndicatorViewable 
 
         navigationController?.navigationBar.barTintColor = UIColor.white
         navigationController?.navigationBar.tintColor = UIConstants.Theme.green
-        navigationController?.navigationBar.titleTextAttributes = [NSAttributedStringKey.foregroundColor: UIColor.gray]
 
         getLocation()
 
@@ -113,6 +112,7 @@ class SHNavigationViewController: UIViewController, NVActivityIndicatorViewable 
     }
 }
 
+// MARK: table view delegate
 extension SHNavigationViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return self.scavengerHunt.pinCount?.intValue ?? 0
@@ -127,6 +127,10 @@ extension SHNavigationViewController: UITableViewDelegate, UITableViewDataSource
             }
         }
         return PinOverviewCell()
+    }
+
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        tableView.deselectRow(at: indexPath, animated: true)
     }
 }
 
@@ -144,6 +148,7 @@ extension SHNavigationViewController: CLLocationManagerDelegate {
     }
 }
 
+// MARK: navigation view controller delegate
 extension SHNavigationViewController: NavigationViewControllerDelegate {
     func navigationViewController(_ navigationViewController: NavigationViewController, didArriveAt waypoint: Waypoint) {
         navigationViewController.dismiss(animated: true) {
@@ -166,6 +171,7 @@ extension SHNavigationViewController: NavigationViewControllerDelegate {
     }
 }
 
+// MARK: pin details view delegate
 extension SHNavigationViewController: PinDetailsViewControllerDelegate {
     func onNextPin(pinDetailsViewController: PinDetailsViewController) {
         onStart(self)

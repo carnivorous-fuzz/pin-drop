@@ -4,10 +4,18 @@
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13174"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13173"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
+    <customFonts key="customFonts">
+        <array key="Lato-Light.ttf">
+            <string>Lato-Light</string>
+        </array>
+        <array key="Lato-Regular.ttf">
+            <string>Lato-Regular</string>
+        </array>
+    </customFonts>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="CustomPinCalloutView" customModule="Sweeper" customModuleProvider="target">
             <connections>
@@ -25,27 +33,27 @@
             <autoresizingMask key="autoresizingMask"/>
             <subviews>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Paul Sokolik" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="omd-PU-yVD">
-                    <rect key="frame" x="12" y="43.5" width="71.5" height="15"/>
-                    <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="12"/>
-                    <nil key="textColor"/>
+                    <rect key="frame" x="12" y="39.5" width="74" height="17"/>
+                    <fontDescription key="fontDescription" name="Lato-Regular" family="Lato" pointSize="14"/>
+                    <color key="textColor" red="0.2769674063" green="0.3208824992" blue="0.36670404670000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     <nil key="highlightedColor"/>
                 </label>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Sea salt chocolate chip cookies, anyone?" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XBG-HG-25t">
-                    <rect key="frame" x="12" y="62.5" width="280.5" height="18"/>
-                    <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                    <rect key="frame" x="12" y="62.5" width="260" height="18"/>
+                    <fontDescription key="fontDescription" name="Lato-Light" family="Lato" pointSize="15"/>
                     <nil key="textColor"/>
                     <nil key="highlightedColor"/>
                 </label>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" text="Reveille Coffee" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Hta-x1-SOu">
-                    <rect key="frame" x="12" y="12" width="120" height="24"/>
-                    <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="17"/>
-                    <nil key="textColor"/>
+                    <rect key="frame" x="12" y="12" width="118.5" height="22.5"/>
+                    <fontDescription key="fontDescription" name="Lato-Regular" family="Lato" pointSize="18"/>
+                    <color key="textColor" red="0.2769674063" green="0.3208824992" blue="0.36670404670000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     <nil key="highlightedColor"/>
                 </label>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="249" verticalHuggingPriority="251" horizontalCompressionResistancePriority="749" text="#coffee #tea #pastries" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dyH-Py-4yQ">
-                    <rect key="frame" x="144" y="16" width="147" height="17"/>
-                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                    <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                    <rect key="frame" x="142.5" y="15.5" width="135" height="17"/>
+                    <fontDescription key="fontDescription" name="Lato-Light" family="Lato" pointSize="14"/>
+                    <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                     <nil key="highlightedColor"/>
                 </label>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="2 comments" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="w9m-3X-I6B">
@@ -61,14 +69,14 @@
                 <constraint firstItem="w9m-3X-I6B" firstAttribute="top" secondItem="XBG-HG-25t" secondAttribute="bottom" constant="8" id="6bm-kP-Dmt"/>
                 <constraint firstItem="w9m-3X-I6B" firstAttribute="leading" secondItem="Hta-x1-SOu" secondAttribute="leading" id="Ajk-D5-xzZ"/>
                 <constraint firstItem="hPv-b1-adp" firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="omd-PU-yVD" secondAttribute="trailing" constant="12" id="Ln4-Hr-vgu"/>
-                <constraint firstItem="XBG-HG-25t" firstAttribute="top" secondItem="omd-PU-yVD" secondAttribute="bottom" constant="4" id="RCk-qw-NTw"/>
+                <constraint firstItem="XBG-HG-25t" firstAttribute="top" secondItem="omd-PU-yVD" secondAttribute="bottom" constant="6" id="RCk-qw-NTw"/>
                 <constraint firstItem="dyH-Py-4yQ" firstAttribute="leading" secondItem="Hta-x1-SOu" secondAttribute="trailing" constant="12" id="RNd-Zu-LDe"/>
                 <constraint firstItem="hPv-b1-adp" firstAttribute="bottom" secondItem="w9m-3X-I6B" secondAttribute="bottom" constant="12" id="dWT-Qo-nta"/>
                 <constraint firstItem="hPv-b1-adp" firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="XBG-HG-25t" secondAttribute="trailing" constant="12" id="drd-ct-coF"/>
                 <constraint firstItem="dyH-Py-4yQ" firstAttribute="centerY" secondItem="Hta-x1-SOu" secondAttribute="centerY" id="f4S-bY-mdz"/>
                 <constraint firstItem="Hta-x1-SOu" firstAttribute="leading" secondItem="hPv-b1-adp" secondAttribute="leading" constant="12" id="ftb-ng-xvG"/>
                 <constraint firstItem="hPv-b1-adp" firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="dyH-Py-4yQ" secondAttribute="trailing" constant="12" id="o65-tR-epb"/>
-                <constraint firstItem="omd-PU-yVD" firstAttribute="top" secondItem="Hta-x1-SOu" secondAttribute="bottom" constant="8" id="ss8-P0-l4W"/>
+                <constraint firstItem="omd-PU-yVD" firstAttribute="top" secondItem="Hta-x1-SOu" secondAttribute="bottom" constant="5" id="ss8-P0-l4W"/>
                 <constraint firstItem="omd-PU-yVD" firstAttribute="leading" secondItem="Hta-x1-SOu" secondAttribute="leading" id="tvh-No-mHi"/>
                 <constraint firstItem="XBG-HG-25t" firstAttribute="leading" secondItem="Hta-x1-SOu" secondAttribute="leading" id="vbT-EA-92W"/>
                 <constraint firstItem="Hta-x1-SOu" firstAttribute="top" secondItem="hPv-b1-adp" secondAttribute="top" constant="12" id="zVm-9c-N0y"/>

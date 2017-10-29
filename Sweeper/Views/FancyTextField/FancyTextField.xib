@@ -9,8 +9,8 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <customFonts key="customFonts">
-        <array key="HelveticaNeueLights.ttc">
-            <string>HelveticaNeue-Light</string>
+        <array key="Lato-Light.ttf">
+            <string>Lato-Light</string>
         </array>
     </customFonts>
     <objects>
@@ -35,9 +35,9 @@
                     <textInputTraits key="textInputTraits"/>
                 </textField>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Password" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IG0-r0-0Yo">
-                    <rect key="frame" x="3" y="69.5" width="78" height="22"/>
-                    <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="18"/>
-                    <nil key="textColor"/>
+                    <rect key="frame" x="10" y="72" width="65.5" height="19.5"/>
+                    <fontDescription key="fontDescription" name="Lato-Light" family="Lato" pointSize="16"/>
+                    <color key="textColor" red="0.2769674063" green="0.3208824992" blue="0.36670404670000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     <nil key="highlightedColor"/>
                 </label>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="zJr-EU-OH8">
@@ -54,7 +54,7 @@
                 <constraint firstItem="zJr-EU-OH8" firstAttribute="width" secondItem="auG-ZA-5Zc" secondAttribute="width" id="Kkc-2d-mTU"/>
                 <constraint firstItem="auG-ZA-5Zc" firstAttribute="centerY" secondItem="iN0-l3-epB" secondAttribute="centerY" id="Lk9-7v-2lm"/>
                 <constraint firstItem="zJr-EU-OH8" firstAttribute="leading" secondItem="auG-ZA-5Zc" secondAttribute="leading" id="Ptv-eE-55P"/>
-                <constraint firstItem="IG0-r0-0Yo" firstAttribute="leading" secondItem="auG-ZA-5Zc" secondAttribute="leading" constant="3" id="feE-BD-rvv"/>
+                <constraint firstItem="IG0-r0-0Yo" firstAttribute="leading" secondItem="auG-ZA-5Zc" secondAttribute="leading" constant="10" id="feE-BD-rvv"/>
                 <constraint firstItem="auG-ZA-5Zc" firstAttribute="bottom" secondItem="IG0-r0-0Yo" secondAttribute="bottom" id="wcY-Oq-uu3"/>
                 <constraint firstItem="auG-ZA-5Zc" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="zp6-Ht-7Kv"/>
                 <constraint firstItem="zJr-EU-OH8" firstAttribute="top" secondItem="auG-ZA-5Zc" secondAttribute="bottom" constant="1" id="zwI-Kk-cRg"/>

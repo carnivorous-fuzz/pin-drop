@@ -33,9 +33,15 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         // apply global themes
 //        UIConstants.Theme.applyNavigationTheme()
+
+        UINavigationBar.appearance().titleTextAttributes = [
+            NSAttributedStringKey.font: UIFont(name: "Lato-Regular", size: 18)!,
+            NSAttributedStringKey.foregroundColor: UIColor.gray
+        ]
+
         let tabBarController = UIStoryboard.tabBarVC
         window?.makeKeyAndVisible()
-        
+
         // init starting view
         if User.currentUser != nil {
             window?.rootViewController = tabBarController
