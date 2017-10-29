@@ -8,6 +8,11 @@
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
+    <customFonts key="customFonts">
+        <array key="Lato-Light.ttf">
+            <string>Lato-Light</string>
+        </array>
+    </customFonts>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="PinActionsView" customModule="Sweeper" customModuleProvider="target">
             <connections>
@@ -26,7 +31,7 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="gOr-Jw-1uQ">
-                    <rect key="frame" x="0.0" y="0.0" width="61" height="51"/>
+                    <rect key="frame" x="0.0" y="0.0" width="60" height="51"/>
                     <subviews>
                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="heart_open" translatesAutoresizingMaskIntoConstraints="NO" id="qQb-F5-BMz">
                             <rect key="frame" x="0.0" y="15.5" width="20" height="20"/>
@@ -36,8 +41,8 @@
                             </constraints>
                         </imageView>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wEf-Pd-net">
-                            <rect key="frame" x="28" y="15.5" width="9" height="20"/>
-                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                            <rect key="frame" x="28" y="15.5" width="8" height="20"/>
+                            <fontDescription key="fontDescription" name="Lato-Light" family="Lato" pointSize="14"/>
                             <nil key="textColor"/>
                             <nil key="highlightedColor"/>
                         </label>
@@ -55,11 +60,11 @@
                     </constraints>
                 </view>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="3Wg-L8-12j">
-                    <rect key="frame" x="61" y="0.0" width="45" height="51"/>
+                    <rect key="frame" x="60" y="0.0" width="44" height="51"/>
                     <subviews>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eJn-Qu-IcW">
-                            <rect key="frame" x="28" y="15.5" width="9" height="20"/>
-                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                            <rect key="frame" x="28" y="15.5" width="8" height="20"/>
+                            <fontDescription key="fontDescription" name="Lato-Light" family="Lato" pointSize="14"/>
                             <nil key="textColor"/>
                             <nil key="highlightedColor"/>
                         </label>

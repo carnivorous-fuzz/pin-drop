@@ -30,7 +30,6 @@ class SHGenerateViewController: UIViewController {
 
         navigationController?.navigationBar.barTintColor = UIColor.white
         navigationController?.navigationBar.tintColor = UIConstants.Theme.green
-        navigationController?.navigationBar.titleTextAttributes = [NSAttributedStringKey.foregroundColor: UIColor.gray]
 
         selectedTags = [Tag]()
         tagSelectionCollectionView.delegate = self

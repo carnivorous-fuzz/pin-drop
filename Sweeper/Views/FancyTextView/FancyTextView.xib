@@ -4,10 +4,18 @@
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13174"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13173"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
+    <customFonts key="customFonts">
+        <array key="Lato-Light.ttf">
+            <string>Lato-Light</string>
+        </array>
+        <array key="Lato-Regular.ttf">
+            <string>Lato-Regular</string>
+        </array>
+    </customFonts>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="FancyTextView" customModule="Sweeper" customModuleProvider="target">
             <connections>
@@ -28,18 +36,21 @@
                     <rect key="frame" x="0.0" y="607" width="375" height="60"/>
                     <subviews>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="114-eh-n5n">
-                            <rect key="frame" x="295" y="0.0" width="80" height="60"/>
+                            <rect key="frame" x="280" y="0.0" width="80" height="60"/>
                             <constraints>
                                 <constraint firstAttribute="width" constant="80" id="dqx-bI-5eW"/>
                             </constraints>
-                            <state key="normal" title="Comment"/>
+                            <fontDescription key="fontDescription" name="Lato-Regular" family="Lato" pointSize="18"/>
+                            <state key="normal" title="Comment">
+                                <color key="titleColor" red="0.39506444330000001" green="0.92943114039999997" blue="0.77035498619999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            </state>
                             <connections>
                                 <action selector="onComplete:" destination="-1" eventType="touchUpInside" id="3kl-lL-Jy2"/>
                             </connections>
                         </button>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="AIa-Ud-Iue">
-                            <rect key="frame" x="237" y="20" width="42" height="21"/>
-                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                            <rect key="frame" x="222.5" y="19.5" width="41.5" height="22"/>
+                            <fontDescription key="fontDescription" name="Lato-Light" family="Lato" pointSize="18"/>
                             <nil key="textColor"/>
                             <nil key="highlightedColor"/>
                         </label>
@@ -50,21 +61,22 @@
                         <constraint firstItem="114-eh-n5n" firstAttribute="top" secondItem="4I7-Ug-ZbW" secondAttribute="top" id="S8C-dJ-zty"/>
                         <constraint firstItem="114-eh-n5n" firstAttribute="leading" secondItem="AIa-Ud-Iue" secondAttribute="trailing" constant="16" id="SZl-A8-mkO"/>
                         <constraint firstAttribute="bottom" secondItem="114-eh-n5n" secondAttribute="bottom" id="YHQ-xj-Z9f"/>
-                        <constraint firstAttribute="trailing" secondItem="114-eh-n5n" secondAttribute="trailing" id="mAW-hD-Wcj"/>
+                        <constraint firstAttribute="trailing" secondItem="114-eh-n5n" secondAttribute="trailing" constant="15" id="mAW-hD-Wcj"/>
                         <constraint firstItem="114-eh-n5n" firstAttribute="centerY" secondItem="AIa-Ud-Iue" secondAttribute="centerY" id="vre-lx-a9J"/>
                     </constraints>
                 </view>
                 <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="ubu-v1-SB4">
                     <rect key="frame" x="0.0" y="0.0" width="375" height="607"/>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                    <color key="textColor" red="0.2769674063" green="0.3208824992" blue="0.36670404670000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    <fontDescription key="fontDescription" name="Lato-Light" family="Lato" pointSize="18"/>
                     <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                 </textView>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="What do you think of this pin?" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="efM-Dw-D8w">
-                    <rect key="frame" x="16" y="20" width="192" height="17"/>
+                    <rect key="frame" x="16" y="20" width="240" height="22"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                    <color key="textColor" white="0.66666666669999997" alpha="1" colorSpace="calibratedWhite"/>
+                    <fontDescription key="fontDescription" name="Lato-Light" family="Lato" pointSize="18"/>
+                    <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                     <nil key="highlightedColor"/>
                 </label>
             </subviews>
