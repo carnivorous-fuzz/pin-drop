@@ -15,7 +15,7 @@ extension UIStoryboard {
     }
 
     static var main: UIStoryboard {
-        return getStoryboardNamed("Main")
+        return getStoryboardNamed("Login")
     }
 
     static var createPin: UIStoryboard {
