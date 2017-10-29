@@ -11,20 +11,16 @@ import FBSDKLoginKit
 import ParseFacebookUtilsV4
 
 class LoginViewController: UIViewController {
-    @IBOutlet weak var usernameView: FancyTextField!
-    @IBOutlet weak var passwordView: FancyTextField!
-    @IBOutlet weak var bottomConstraint: NSLayoutConstraint!
+    @IBOutlet weak var introScrollView: UIScrollView!
+    @IBOutlet weak var introPageControl: UIPageControl!
     @IBOutlet weak var fbLoginView: UIView!
     @IBOutlet weak var fbLogoImageView: UIImageView!
+    
+    private var pages = 4
     
     // MARK: Lifecycle functions
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        usernameView.fieldLabel.text = "Email"
-        usernameView.textField.keyboardType = .emailAddress
-        
-        passwordView.textField.isSecureTextEntry = true
         
         fbLoginView.layer.cornerRadius = 7.0
         fbLoginView.clipsToBounds = true
@@ -32,14 +28,25 @@ class LoginViewController: UIViewController {
         fbLogoImageView.image = #imageLiteral(resourceName: "fblogo").withRenderingMode(.alwaysTemplate)
         fbLogoImageView.tintColor = .white
         
-        NotificationCenter.default.addObserver(self,
-                                               selector: #selector(keyboardWillShow),
-                                               name: .UIKeyboardWillShow,
-                                               object: nil)
-        NotificationCenter.default.addObserver(self,
-                                               selector: #selector(keyboardWillHide),
-                                               name: .UIKeyboardWillHide,
-                                               object: nil)
+        let pageWidth = introScrollView.bounds.width
+        let pageHeight = introScrollView.bounds.height
+        introScrollView.delegate = self
+        introScrollView.contentSize = CGSize(width: pageWidth * CGFloat(pages), height: pageHeight)
+        introScrollView.isPagingEnabled = true
+        introPageControl.numberOfPages = pages
+        
+        let view1 = UIView(frame: CGRect(x: 0, y: 0, width: pageWidth, height: pageHeight))
+        view1.backgroundColor = .blue
+        let view2 = UIView(frame: CGRect(x: pageWidth, y: 0, width: pageWidth, height: pageHeight))
+        view2.backgroundColor = .orange
+        let view3 = UIView(frame: CGRect(x: 2.0 * pageWidth, y: 0, width: pageWidth, height: pageHeight))
+        view3.backgroundColor = .purple
+        let view4 = UIView(frame: CGRect(x: 3.0 * pageWidth, y: 0, width: pageWidth, height: pageHeight))
+        
+        introScrollView.addSubview(view1)
+        introScrollView.addSubview(view2)
+        introScrollView.addSubview(view3)
+        introScrollView.addSubview(view4)
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -54,15 +61,6 @@ class LoginViewController: UIViewController {
         navigationController?.setNavigationBarHidden(false, animated: false)
     }
     
-    deinit {
-        NotificationCenter.default.removeObserver(self,
-                                                  name: .UIKeyboardWillShow,
-                                                  object: nil)
-        NotificationCenter.default.removeObserver(self,
-                                                  name: .UIKeyboardWillHide,
-                                                  object: nil)
-    }
-    
     // MARK: IBAction outlets
     @IBAction func loginWithFacebook(_ sender: UITapGestureRecognizer) {
         UserService.sharedInstance.loginWithFacebook { (user, error) in
@@ -75,55 +73,9 @@ class LoginViewController: UIViewController {
         }
     }
     
-    @IBAction func onBackgroundTap(_ sender: UITapGestureRecognizer) {
-        view.endEditing(true)
-    }
-    
-    @IBAction func onLogin(_ sender: UIButton) {
-        let username = usernameView.getText()
-        let password = passwordView.getText()
-        
-        UserService.sharedInstance.login(username: username, password: password) { (success: Bool, error: Error?) in
-            if success {
-                self.segueToHome()
-            } else {
-                self.showLoginError()
-            }
-        }
-    }
-    
-    @IBAction func onSignUp(_ sender: UIButton) {
-        let username = usernameView.getText()
-        let password = passwordView.getText()
-        
-        let signUpVC = UIStoryboard.signUpVC
-        signUpVC.email = username
-        signUpVC.password = password
-        show(signUpVC, sender: nil)
-    }
-    
-    @objc private func keyboardWillShow(notification: Notification) {
-        updateLayout(isKeyboardShowing: true, notification: notification)
-    }
-    
-    @objc private func keyboardWillHide(notificaiton: Notification) {
-        updateLayout(isKeyboardShowing: false, notification: notificaiton)
-    }
-    
-    private func updateLayout(isKeyboardShowing: Bool, notification: Notification) {
-        let keyboardNotification = KeyboardNotification(notification)
-        let height = keyboardNotification.frameEnd.height
-        
-        UIView.animate(
-            withDuration: keyboardNotification.animationDuration,
-            delay: 0,
-            options: [keyboardNotification.animationCurve],
-            animations: {
-                self.bottomConstraint.constant = isKeyboardShowing ? height + 8.0 : 60.0
-                self.view.layoutIfNeeded()
-            },
-            completion: nil
-        )
+    @IBAction func pageDidChange(_ sender: UIPageControl) {
+        let xOffSet = introScrollView.bounds.width * CGFloat(sender.currentPage)
+        introScrollView.setContentOffset(CGPoint(x: xOffSet, y: 0), animated: true)
     }
     
     private func showLoginError() {
@@ -137,5 +89,13 @@ class LoginViewController: UIViewController {
         } else {
             present(UIStoryboard.tabBarVC, animated: true, completion: nil)
         }
+    }
+}
+
+extension LoginViewController: UIScrollViewDelegate {
+    func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
+        var page = Int(round(scrollView.contentOffset.x / view.bounds.width))
+        
+        introPageControl.currentPage = page
     }
 }
