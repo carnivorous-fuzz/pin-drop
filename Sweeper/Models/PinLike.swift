@@ -14,10 +14,9 @@ enum PinLikeLiveQueryEventType {
 }
 
 class PinLike: PFObject, PFSubclassing {
-    static let pinIdKey = "likedPinId"
-    static let typeKey = "eventType"
-    static let likeLiveQueryNotification = Notification.Name("pin-like-livequery")
-    static let unlikeLiveQueryNotification = Notification.Name("pin-unlike-livequery")
+    static let pinIdKey = "pinlike-likedpinid-key"
+    static let typeKey = "pinlike-eventtype-key"
+    static let creatorKey = "pinlike-creator-key"
     static let pinLikeLiveQueryNotification = Notification.Name("pinlike-livequery-notification")
     
     @NSManaged var user: User?
@@ -27,7 +26,7 @@ class PinLike: PFObject, PFSubclassing {
         return "PinLike"
     }
     
-    static func getIdFromNotification(_ notification: Notification) -> String? {
+    static func getPinIdFromNotification(_ notification: Notification) -> String? {
         guard let pinId = notification.userInfo?[pinIdKey] as? String else {
             return nil
         }
@@ -41,5 +40,13 @@ class PinLike: PFObject, PFSubclassing {
         }
         
         return type
+    }
+    
+    static func getCreatorIdFromNotification(_ notification: Notification) -> String? {
+        guard let id = notification.userInfo?[creatorKey] as? String else {
+            return nil
+        }
+        
+        return id
     }
 }

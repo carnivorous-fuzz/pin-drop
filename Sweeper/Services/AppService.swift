@@ -73,10 +73,15 @@ class AppService {
     
     private func pinLikeLiveQueryHandler(_ pinLike: PinLike, type: PinLikeLiveQueryEventType) {
         if let likedPinId = pinLike.likedPin?.objectId {
+            let info: [AnyHashable: Any] = [
+                PinLike.pinIdKey: likedPinId,
+                PinLike.typeKey: type,
+                PinLike.creatorKey: pinLike.user!.objectId!
+            ]
             DispatchQueue.main.async {
                 NotificationCenter.default.post(name: PinLike.pinLikeLiveQueryNotification,
                                                 object: nil,
-                                                userInfo: [PinLike.pinIdKey: likedPinId, PinLike.typeKey: type])
+                                                userInfo: info)
             }
         }
     }
