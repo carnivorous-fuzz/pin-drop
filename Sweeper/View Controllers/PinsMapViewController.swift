@@ -8,7 +8,6 @@
 
 import UIKit
 import Mapbox
-import Parse
 
 class PinsMapViewController: UIViewController {
     
