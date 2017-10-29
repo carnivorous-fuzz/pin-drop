@@ -149,7 +149,16 @@ class PinService {
         viewedPin.pinId = pin.objectId
         viewedPin.toPin = pin
         pin.visited = true
-        viewedPin.saveInBackground()
+        
+        // don't duplicate "viewed" records
+        let viewedPinsQuery = ViewedPin.query() as! PFQuery<ViewedPin>
+        viewedPinsQuery.whereKey("userId", equalTo: user.objectId!)
+        viewedPinsQuery.whereKey("pinId", equalTo: pin.objectId!)
+        viewedPinsQuery.getFirstObjectInBackground { (existingViewedPin: ViewedPin?, error: Error?) in
+            if existingViewedPin == nil {
+                viewedPin.saveInBackground()
+            }
+        }
     }
     
     func getComments(forPin pin: Pin, completion: @escaping ([PinComment]?, Error?) -> ()) {
