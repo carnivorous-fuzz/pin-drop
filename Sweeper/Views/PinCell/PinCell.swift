@@ -38,7 +38,7 @@ class PinCell: UITableViewCell {
             if let lat = pin.location?.latitude,
                let lng = pin.location?.longitude {
                 pinLocation = CLLocation(latitude: lat, longitude: lng)
-                Location.getAddress(from: pinLocation!, success: { (address: String) in
+                Location.getSubLocality(from: pinLocation!, success: { (address: String) in
                     self.titleLabel.text = address
                 }) { (error: Error) in
                     print("couldn't get address string")
