@@ -51,7 +51,7 @@ class ViewedPinsViewController: UIViewController, NVActivityIndicatorViewable {
         // TODO: make this fetchArchivedPins once done testing
         var annotations = [PinAnnotation]()
         startAnimating()
-        PinService.sharedInstance.fetchPins { (pins: [Pin]?, error: Error?) in
+        PinService.sharedInstance.fetchPins(for: user, visited: true, near: user.currentLocation) { (pins: [Pin]?, error: Error?) in
             self.stopAnimating()
             if error == nil {
                 self.pins = pins!

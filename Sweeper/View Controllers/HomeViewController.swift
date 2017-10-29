@@ -34,11 +34,17 @@ class HomeViewController: UIViewController {
         if currentViewMode == ViewMode.map {
             handleViewTransition(mapViewController, listViewController, .flipFromRight)
             currentViewMode = ViewMode.list
-            sender.image = UIImage(named: "view-map")
+            let originalImage = UIImage(named: "view-map")
+            let templateImage = originalImage?.withRenderingMode(UIImageRenderingMode.alwaysTemplate)
+            sender.image = templateImage
+            sender.tintColor = UIConstants.Theme.green
         } else {
             handleViewTransition(listViewController, mapViewController, .flipFromLeft)
             currentViewMode = ViewMode.map
-            sender.image = UIImage(named: "view-list")
+            let originalImage = UIImage(named: "view-list")
+            let templateImage = originalImage?.withRenderingMode(UIImageRenderingMode.alwaysTemplate)
+            sender.image = templateImage
+            sender.tintColor = UIConstants.Theme.green
         }
     }
     

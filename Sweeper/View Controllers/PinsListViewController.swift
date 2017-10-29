@@ -14,11 +14,13 @@ class PinsListViewController: UIViewController, UITableViewDataSource, NVActivit
 
     @IBOutlet weak var tableView: UITableView!
 
+    let user = User.currentUser
     fileprivate var refreshControl: UIRefreshControl!
-    fileprivate var pins: [Pin]!
+    fileprivate var pins: [Pin] = []
     fileprivate var currentLocation: CLLocation?
     fileprivate var locationManager: CLLocationManager!
 
+    // MARK: lifecycle functions
     override func viewDidLoad() {
         super.viewDidLoad()
         startAnimating()
@@ -30,20 +32,30 @@ class PinsListViewController: UIViewController, UITableViewDataSource, NVActivit
         refreshControl = UIRefreshControl()
         refreshControl.addTarget(self, action: #selector(onRefresh), for: .valueChanged)
         tableView.insertSubview(refreshControl, at: 0)
-        
         getLocation()
-        loadPins()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        // refilter on every load in case pins were visited on the details page
+        pins = pins.filter { (pin: Pin) -> Bool in
+            let visited = pin.visited ?? false
+            return !visited
+        }
     }
     
     @objc fileprivate func loadPins() {
-        PinService.sharedInstance.fetchPins { (pins: [Pin]?, error: Error?) in
-            if let pins = pins {
-                self.pins = pins
-                self.tableView.reloadData()
-                self.stopAnimating()
-            } else {
-                let button = Dialog.button(title: "Try Again", type: .plain, action: nil)
-                Dialog.show(controller: self, title: "Unable to load pins", message: error?.localizedDescription ?? "Error", buttons: [button], image: nil, dismissAfter: nil, completion: nil)
+        if let currentLocation = user?.currentLocation {
+            PinService.sharedInstance.fetchPins(for: user!, visited: false, near: currentLocation) { (pins: [Pin]?, error: Error?) in
+                if let pins = pins {
+                    self.pins = pins
+                    self.tableView.reloadData()
+                    self.stopAnimating()
+                } else {
+                    let button = Dialog.button(title: "Try Again", type: .plain, action: nil)
+                    Dialog.show(controller: self, title: "Unable to load pins", message: error?.localizedDescription ?? "Error", buttons: [button], image: nil, dismissAfter: nil, completion: nil)
+                }
             }
         }
     }
@@ -69,7 +81,8 @@ extension PinsListViewController: CLLocationManagerDelegate {
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
         if let location = locations.last {
             self.currentLocation = location
-            self.tableView.reloadData()
+            user?.currentLocation = location
+            loadPins()
         }
     }
 }
@@ -78,18 +91,22 @@ extension PinsListViewController: CLLocationManagerDelegate {
 extension PinsListViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "PinCell", for: indexPath) as? PinCell
-        cell?.pin = pins[indexPath.row]
+        if !pins.isEmpty {
+            cell?.pin = pins[indexPath.row]
+        }
         cell?.currentLocation = currentLocation
         return cell!
     }
 
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return pins?.count ?? 0
+        return pins.count
     }
 
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let detailsVC = UIStoryboard.pinDetailsVC
-        detailsVC.pin = pins[indexPath.row]
+        if !pins.isEmpty {
+            detailsVC.pin = pins[indexPath.row]
+        }
         show(detailsVC, sender: nil)
     }
 }

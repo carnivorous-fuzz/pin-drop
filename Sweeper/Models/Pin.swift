@@ -27,6 +27,7 @@ class Pin: PFObject, PFSubclassing {
     @NSManaged var tags: [Tag]?
     
     // MARK: non-DB properties
+    var visited: Bool?
     var imageUrl: URL?
     var latitude: Double?
     var longitude: Double?
@@ -49,7 +50,7 @@ class Pin: PFObject, PFSubclassing {
         if latitude != nil && longitude != nil {
             location = PFGeoPoint(latitude: latitude!, longitude: longitude!)
         } else {
-            print("OH NO! Lat and long not set! Set both to use this function")
+            print("OH NO! Lat and lng not set! Set both to use this function")
         }
     }
     
