@@ -50,22 +50,44 @@ class PinService {
         })
     }
     
-    func fetchPins(completion: @escaping ([Pin]?, Error?) -> Void) {
-//      client = ParseLiveQuery.Client()
-//      TODO: subscription livequery closure
-        
-        let pinsQuery = Pin.query() as! PFQuery<Pin>
-        pinsQuery.order(byDescending: "createdAt")
-        pinsQuery.limit = 20
-        pinsQuery.includeKey("tags")
-        pinsQuery.includeKey("creator")
-        pinsQuery.clearCachedResult()
-        
-        pinsQuery.findObjectsInBackground { (pins: [Pin]?, error: Error?) in
-            if pins != nil {
-                _pins = pins!
+    // fetches EITHER visited pins OR un-visited pins. Always fetches near indicated location. Never gets user's created pins.
+    func fetchPins(for user: User, visited: Bool, near: PFGeoPoint?, completion: @escaping ([Pin]?, Error?) -> Void) {
+        var viewedPinIds = [String]()
+        let viewedPinsQuery = ViewedPin.query() as! PFQuery<ViewedPin>
+        viewedPinsQuery.whereKey("userId", equalTo: user.objectId!)
+        viewedPinsQuery.selectKeys(["pinId"])
+        viewedPinsQuery.findObjectsInBackground { (viewedPins: [ViewedPin]?, error: Error?) in
+            if viewedPins != nil {
+                for viewedPin in viewedPins! {
+                    viewedPinIds.append(viewedPin.pinId!)
+                }
+
+                let pinsQuery = Pin.query() as! PFQuery<Pin>
+                pinsQuery.order(byDescending: "createdAt")
+                pinsQuery.limit = 20
+                pinsQuery.includeKey("tags")
+                pinsQuery.includeKey("creator")
+                let defaultLocation = PFGeoPoint(location: CLLocation(latitude: 37.787353, longitude: -122.421561))
+                pinsQuery.whereKey("location", nearGeoPoint: near ?? defaultLocation)
+                
+                if visited {
+                    pinsQuery.whereKey("objectId", containedIn: viewedPinIds)
+                } else {
+                    pinsQuery.whereKey("objectId", notContainedIn: viewedPinIds)
+                }
+                
+                pinsQuery.clearCachedResult()
+                
+                pinsQuery.findObjectsInBackground { (pins: [Pin]?, error: Error?) in
+                    if pins != nil {
+                        for pin in pins! {
+                            pin.visited = visited
+                        }
+                        _pins = pins!
+                    }
+                    completion(pins, error)
+                }
             }
-            completion(pins, error)
         }
     }
 
@@ -125,6 +147,7 @@ class PinService {
         viewedPin.user = user
         viewedPin.pinId = pin.objectId
         viewedPin.toPin = pin
+        pin.visited = true
         viewedPin.saveInBackground()
     }
     

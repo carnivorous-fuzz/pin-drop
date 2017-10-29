@@ -18,6 +18,8 @@ class User: PFUser {
     @NSManaged var caption: String?
     @NSManaged var profileImageUrl: String?
     
+    var currentLocation: PFGeoPoint?
+    
     private static var _currentUser: User?
     static var currentUser: User? {
         get {
@@ -56,6 +58,14 @@ class User: PFUser {
             return URL(string: profileImageUrl)
         } else {
             return nil
+        }
+    }
+    
+    func setCurrentLocation(lat: Double, lng: Double) {
+        if self.objectId! == User.currentUser?.objectId {
+            self.currentLocation = PFGeoPoint(latitude: lat, longitude: lng)
+        } else {
+            print("can only set current location for logged in user")
         }
     }
 }

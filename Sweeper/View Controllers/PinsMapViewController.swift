@@ -8,9 +8,11 @@
 
 import UIKit
 import Mapbox
+import Parse
 
 class PinsMapViewController: UIViewController {
     
+    let user = User.currentUser
     let defaultLocation = CLLocation(latitude: 37.787353, longitude: -122.421561)
     var locationManager: CLLocationManager!
     var currentLocation: CLLocation?
@@ -35,27 +37,49 @@ class PinsMapViewController: UIViewController {
         mapView.delegate = self
         mapView.isHidden = true
         view.addSubview(mapView)
-        loadPins()
         setupLocationButton()
         registerForNotifications()
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        // refilter on every load in case pins were visited on the details page
+        pins = pins.filter { (pin: Pin) -> Bool in
+            let visited = pin.visited ?? false
+            if visited {
+                let idx = self.annotations.index(where: { (annotation: PinAnnotation) -> Bool in
+                    return annotation.pin == pin
+                })
+                
+                if let idx = idx {
+                    mapView.removeAnnotation(annotations[idx])
+                    annotations.remove(at: idx)
+                }
+                
+            }
+            return !visited
+        }
+    }
+    
     // MARK: Action handlers
     @objc fileprivate func loadPins() {
-        PinService.sharedInstance.fetchPins { (pins, error) in
-            if let pins = pins {
-                pins.forEach({ (pin) in
-                    if !self.pins.contains(pin) {
-                        self.pins.append(pin)
-                        if pin.location != nil {
-                            let point = PinAnnotation(fromPin: pin)
-                            self.annotations.append(point)
+        if let currentLocation = user?.currentLocation {
+            PinService.sharedInstance.fetchPins(for: user!, visited: false, near: currentLocation) {  (pins, error) in
+                if let pins = pins {
+                    pins.forEach({ (pin) in
+                        if !self.pins.contains(pin) {
+                            self.pins.append(pin)
+                            if pin.location != nil {
+                                let point = PinAnnotation(fromPin: pin)
+                                self.annotations.append(point)
+                            }
                         }
-                    }
-                })
-                self.mapView.addAnnotations(self.annotations)
-            } else {
-                print(error.debugDescription)
+                    })
+                    self.mapView.addAnnotations(self.annotations)
+                } else {
+                    print(error.debugDescription)
+                }
             }
         }
     }
@@ -133,6 +157,9 @@ class PinsMapViewController: UIViewController {
 extension PinsMapViewController: CLLocationManagerDelegate {
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
         if let location = locations.last {
+            currentLocation = location
+            user?.setCurrentLocation(lat: location.coordinate.latitude, lng: location.coordinate.longitude)
+            loadPins()
             mapView?.setCenter(location.coordinate, zoomLevel: mapView?.zoomLevel ?? zoomLevel, animated: !mapView.isHidden)
             if mapView.isHidden {
                 mapView.isHidden = false

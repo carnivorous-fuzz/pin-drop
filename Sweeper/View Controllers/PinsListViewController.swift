@@ -13,11 +13,13 @@ class PinsListViewController: UIViewController, UITableViewDataSource {
 
     @IBOutlet weak var tableView: UITableView!
 
+    let user = User.currentUser
     fileprivate var refreshControl: UIRefreshControl!
     fileprivate var pins: [Pin]!
     fileprivate var currentLocation: CLLocation?
     fileprivate var locationManager: CLLocationManager!
 
+    // MARK: lifecycle functions
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -28,18 +30,28 @@ class PinsListViewController: UIViewController, UITableViewDataSource {
         refreshControl = UIRefreshControl()
         refreshControl.addTarget(self, action: #selector(onRefresh), for: .valueChanged)
         tableView.insertSubview(refreshControl, at: 0)
-        
         getLocation()
-        loadPins()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        // refilter on every load in case pins were visited on the details page
+        pins = pins.filter { (pin: Pin) -> Bool in
+            let visited = pin.visited ?? false
+            return !visited
+        }
     }
     
     @objc fileprivate func loadPins() {
-        PinService.sharedInstance.fetchPins { (pins: [Pin]?, error: Error?) in
-            if let pins = pins {
-                self.pins = pins
-                self.tableView.reloadData()
-            } else {
-                print(error.debugDescription)
+        if let currentLocation = user?.currentLocation {
+            PinService.sharedInstance.fetchPins(for: user!, visited: false, near: currentLocation) { (pins: [Pin]?, error: Error?) in
+                if let pins = pins {
+                    self.pins = pins
+                    self.tableView.reloadData()
+                } else {
+                    print(error.debugDescription)
+                }
             }
         }
     }
@@ -65,7 +77,8 @@ extension PinsListViewController: CLLocationManagerDelegate {
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
         if let location = locations.last {
             self.currentLocation = location
-            self.tableView.reloadData()
+            user?.setCurrentLocation(lat: location.coordinate.latitude, lng: location.coordinate.longitude)
+            loadPins()
         }
     }
 }

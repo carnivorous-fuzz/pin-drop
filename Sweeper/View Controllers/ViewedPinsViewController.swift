@@ -49,7 +49,7 @@ class ViewedPinsViewController: UIViewController {
         
         // TODO: make this fetchArchivedPins once done testing
         var annotations = [PinAnnotation]()
-        PinService.sharedInstance.fetchPins { (pins: [Pin]?, error: Error?) in
+        PinService.sharedInstance.fetchPins(for: user, visited: true, near: user.currentLocation) { (pins: [Pin]?, error: Error?) in
             if error == nil {
                 self.pins = pins!
                 // init collection view

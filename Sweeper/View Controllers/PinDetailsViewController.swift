@@ -102,6 +102,8 @@ class PinDetailsViewController: UIViewController {
             self.pinCard.pinActionsView.updateLikeIcon(animated: false, liked: self.liked != nil)
         }
         
+        pinService.markAsViewed(by: User.currentUser!, with: pin)
+        
         NotificationCenter.default.addObserver(self,
                                                selector: #selector(pinLikeLiveQueryNotificationHandler),
                                                name: PinLike.pinLikeLiveQueryNotification,

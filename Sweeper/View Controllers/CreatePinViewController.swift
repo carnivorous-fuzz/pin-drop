@@ -169,7 +169,6 @@ class CreatePinViewController: UIViewController, UINavigationControllerDelegate 
         // TODO: animation while waiting for the image saving
         PinService.sharedInstance.create(pin: pin, withImage: importedImageView.image ?? nil, tagNames: self.tags) { (success: Bool, error: Error?) in
             if success {
-                print(pin.blurb!)
                 self.dismiss(animated: true, completion: nil)
             }
         }

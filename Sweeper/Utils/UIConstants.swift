@@ -32,9 +32,10 @@ struct UIConstants {
         static let darkGray = UIColor(red: CGFloat(150)/255, green: CGFloat(159)/255, blue: CGFloat(170)/255, alpha: 1.0)
         
         static func applyNavigationTheme() {
-            UINavigationBar.appearance().barTintColor = Theme.green
-            UINavigationBar.appearance().tintColor = UIColor.white
-            UINavigationBar.appearance().titleTextAttributes = [NSAttributedStringKey.foregroundColor: UIColor.white]
+            let navigationBarAppearace = UINavigationBar.appearance()
+            navigationBarAppearace.barTintColor = Theme.green
+            navigationBarAppearace.tintColor = UIColor.white
+            navigationBarAppearace.titleTextAttributes = [NSAttributedStringKey.font: Theme.green, NSAttributedStringKey.foregroundColor: UIColor.white]
         }
     }
 }
