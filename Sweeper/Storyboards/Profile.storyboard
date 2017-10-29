@@ -321,15 +321,11 @@
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="Iyl-xQ-5jT">
                                     <size key="itemSize" width="123" height="92"/>
-                                    <size key="headerReferenceSize" width="50" height="250"/>
+                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
                                     <size key="footerReferenceSize" width="0.0" height="0.0"/>
                                     <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                 </collectionViewFlowLayout>
                                 <cells/>
-                                <collectionReusableView key="sectionHeaderView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" reuseIdentifier="ProfileHeaderCell" id="yj2-4M-XwQ" userLabel="Collection Header" customClass="ProfileHeaderCell" customModule="Sweeper" customModuleProvider="target">
-                                    <rect key="frame" x="0.0" y="0.0" width="375" height="250"/>
-                                    <autoresizingMask key="autoresizingMask"/>
-                                </collectionReusableView>
                             </collectionView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -344,6 +340,7 @@
                     <navigationItem key="navigationItem" id="qsm-zg-Tf6"/>
                     <connections>
                         <outlet property="collectionView" destination="nnm-TQ-gEP" id="xK0-M3-MJw"/>
+                        <segue destination="J4Q-4e-14B" kind="show" identifier="EditProfileSegue" id="b0v-2a-Csh"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="OfQ-S0-YIK" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -390,4 +387,7 @@
     <resources>
         <image name="camera" width="128" height="128"/>
     </resources>
+    <inferredMetricsTieBreakers>
+        <segue reference="b0v-2a-Csh"/>
+    </inferredMetricsTieBreakers>
 </document>

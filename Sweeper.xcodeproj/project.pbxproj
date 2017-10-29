@@ -9,7 +9,7 @@
 /* Begin PBXBuildFile section */
 		374C23E81F91BDA5000C0ECE /* Pin.swift in Sources */ = {isa = PBXBuildFile; fileRef = 374C23E71F91BDA5000C0ECE /* Pin.swift */; };
 		374C23EA1F91BDAE000C0ECE /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 374C23E91F91BDAE000C0ECE /* User.swift */; };
-		375A65821FA65C4800B3C952 /* ProfileHeaderCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 375A65811FA65C4800B3C952 /* ProfileHeaderCell.xib */; };
+		375A65821FA65C4800B3C952 /* ProfileHeader.xib in Resources */ = {isa = PBXBuildFile; fileRef = 375A65811FA65C4800B3C952 /* ProfileHeader.xib */; };
 		375A65841FA65C6800B3C952 /* CollectionViewPinCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 375A65831FA65C6800B3C952 /* CollectionViewPinCell.xib */; };
 		3771ABBF1FA1A33A00A06F17 /* PinCalloutView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3771ABBE1FA1A33A00A06F17 /* PinCalloutView.swift */; };
 		3771ABC41FA1AA0300A06F17 /* CustomPinCalloutView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3771ABC31FA1AA0300A06F17 /* CustomPinCalloutView.xib */; };
@@ -24,7 +24,7 @@
 		37B4E2531F99B9440090B168 /* PinsListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37B4E2521F99B9440090B168 /* PinsListViewController.swift */; };
 		37B4E2551F99C6AA0090B168 /* PinCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37B4E2541F99C6AA0090B168 /* PinCell.swift */; };
 		37D2A0D31F9F126300273B20 /* CollectionViewPinCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37D2A0D21F9F126200273B20 /* CollectionViewPinCell.swift */; };
-		37F14EC91FA6671400D1F8D9 /* ProfileHeaderCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37F14EC81FA6671400D1F8D9 /* ProfileHeaderCell.swift */; };
+		37F14EC91FA6671400D1F8D9 /* ProfileHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37F14EC81FA6671400D1F8D9 /* ProfileHeader.swift */; };
 		37F3FA6B1F9B16A300287F61 /* Time.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37F3FA6A1F9B16A300287F61 /* Time.swift */; };
 		37F3FA701F9C29C100287F61 /* Profile.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 37F3FA6F1F9C29C100287F61 /* Profile.storyboard */; };
 		37F3FA721F9C29E200287F61 /* ViewedPins.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 37F3FA711F9C29E200287F61 /* ViewedPins.storyboard */; };
@@ -98,7 +98,7 @@
 		1D859EDDB4E56A4A4F927E7C /* Pods-Sweeper.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Sweeper.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Sweeper/Pods-Sweeper.debug.xcconfig"; sourceTree = "<group>"; };
 		374C23E71F91BDA5000C0ECE /* Pin.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = Pin.swift; path = Sweeper/Models/Pin.swift; sourceTree = SOURCE_ROOT; };
 		374C23E91F91BDAE000C0ECE /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = User.swift; path = Sweeper/Models/User.swift; sourceTree = SOURCE_ROOT; };
-		375A65811FA65C4800B3C952 /* ProfileHeaderCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ProfileHeaderCell.xib; sourceTree = "<group>"; };
+		375A65811FA65C4800B3C952 /* ProfileHeader.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ProfileHeader.xib; sourceTree = "<group>"; };
 		375A65831FA65C6800B3C952 /* CollectionViewPinCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CollectionViewPinCell.xib; sourceTree = "<group>"; };
 		3771ABBE1FA1A33A00A06F17 /* PinCalloutView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PinCalloutView.swift; sourceTree = "<group>"; };
 		3771ABC31FA1AA0300A06F17 /* CustomPinCalloutView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CustomPinCalloutView.xib; sourceTree = "<group>"; };
@@ -113,7 +113,7 @@
 		37B4E2521F99B9440090B168 /* PinsListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PinsListViewController.swift; sourceTree = "<group>"; };
 		37B4E2541F99C6AA0090B168 /* PinCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PinCell.swift; sourceTree = "<group>"; };
 		37D2A0D21F9F126200273B20 /* CollectionViewPinCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionViewPinCell.swift; sourceTree = "<group>"; };
-		37F14EC81FA6671400D1F8D9 /* ProfileHeaderCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileHeaderCell.swift; sourceTree = "<group>"; };
+		37F14EC81FA6671400D1F8D9 /* ProfileHeader.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileHeader.swift; sourceTree = "<group>"; };
 		37F3FA6A1F9B16A300287F61 /* Time.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Time.swift; sourceTree = "<group>"; };
 		37F3FA6F1F9C29C100287F61 /* Profile.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Profile.storyboard; sourceTree = "<group>"; };
 		37F3FA711F9C29E200287F61 /* ViewedPins.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = ViewedPins.storyboard; sourceTree = "<group>"; };
@@ -246,8 +246,8 @@
 		375A65801FA65C2B00B3C952 /* Profile Header */ = {
 			isa = PBXGroup;
 			children = (
-				37F14EC81FA6671400D1F8D9 /* ProfileHeaderCell.swift */,
-				375A65811FA65C4800B3C952 /* ProfileHeaderCell.xib */,
+				37F14EC81FA6671400D1F8D9 /* ProfileHeader.swift */,
+				375A65811FA65C4800B3C952 /* ProfileHeader.xib */,
 			);
 			path = "Profile Header";
 			sourceTree = "<group>";
@@ -606,7 +606,7 @@
 				B96D35331F9B039A00BC6CBF /* FancyTextView.xib in Resources */,
 				B9CB3CFB1F9056060023EA79 /* LaunchScreen.storyboard in Resources */,
 				37F3FA701F9C29C100287F61 /* Profile.storyboard in Resources */,
-				375A65821FA65C4800B3C952 /* ProfileHeaderCell.xib in Resources */,
+				375A65821FA65C4800B3C952 /* ProfileHeader.xib in Resources */,
 				3771ABC41FA1AA0300A06F17 /* CustomPinCalloutView.xib in Resources */,
 				B9CB3D151F90B5620023EA79 /* FancyTextField.xib in Resources */,
 				B7B862371F91E6AD00FB2F1E /* LocationBanner.xib in Resources */,
@@ -761,7 +761,7 @@
 				B71F5AF01FA529ED009B0E60 /* DialogBox.swift in Sources */,
 				B96D35211F99B32F00BC6CBF /* PinDetailsCard.swift in Sources */,
 				B9CB3D321F9425FA0023EA79 /* ImageUtils.swift in Sources */,
-				37F14EC91FA6671400D1F8D9 /* ProfileHeaderCell.swift in Sources */,
+				37F14EC91FA6671400D1F8D9 /* ProfileHeader.swift in Sources */,
 				B7DE45E81F9BFB0300F2472F /* InfiniteScrollActivityView.swift in Sources */,
 				B9E7BF821F9C2BDA0063973C /* PinsMapViewController.swift in Sources */,
 				3771ABBF1FA1A33A00A06F17 /* PinCalloutView.swift in Sources */,

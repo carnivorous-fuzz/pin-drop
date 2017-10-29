@@ -25,8 +25,10 @@ class ProfileViewController: UIViewController, NVActivityIndicatorViewable {
         // collection view setup
         collectionView.delegate = self
         collectionView.dataSource = self
-        let nib = UINib(nibName: "CollectionViewPinCell", bundle: nil)
-        collectionView.register(nib, forCellWithReuseIdentifier: "CollectionViewPinCell")
+        let cellNib = UINib(nibName: "CollectionViewPinCell", bundle: nil)
+        let headerNib = UINib(nibName: "ProfileHeader", bundle: nil)
+        collectionView.register(cellNib, forCellWithReuseIdentifier: "CollectionViewPinCell")
+        collectionView.register(headerNib, forSupplementaryViewOfKind: UICollectionElementKindSectionHeader, withReuseIdentifier: "ProfileHeader")
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -53,19 +55,32 @@ class ProfileViewController: UIViewController, NVActivityIndicatorViewable {
 }
 
 // MARK: collection view delegate
-extension ProfileViewController: UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
+extension ProfileViewController: UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout, ProfileHeaderDelegate {
     
     func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
-        let headerView = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: "ProfileHeaderCell", for: indexPath) as! ProfileHeaderCell
-        if pins != nil {
-            headerView.pins = pins
+        switch kind {
+            case UICollectionElementKindSectionHeader:
+                let headerView = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: "ProfileHeader", for: indexPath) as! ProfileHeader
+                if pins != nil {
+                    headerView.pins = pins
+                }
+                if user != nil {
+                    headerView.user = user
+                }
+                headerView.delegate = self
+                
+                headerView.isUserInteractionEnabled = true
+                return headerView
+            default:  fatalError("Unexpected element kind")
         }
-        
-        return headerView
     }
     
-    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, referenceSizeForHeaderInSection section: Int) -> CGSize {
-        return CGSize(width: collectionView.bounds.width, height: 250)
+    func profileHeaderSettingsTouched(_ profileHeader: ProfileHeader) {
+        performSegue(withIdentifier: "EditProfileSegue", sender: self)
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, referenceSizeForHeaderInSection section: Int) -> CGSize { 
+        return CGSize(width: collectionView.bounds.width, height: 350)
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {

@@ -1,5 +1,5 @@
 //
-//  ProfileHeaderCell.swift
+//  ProfileHeader
 //  Sweeper
 //
 //  Created by Paul Sokolik on 10/29/17.
@@ -9,14 +9,20 @@
 import UIKit
 import Mapbox
 
-class ProfileHeaderCell: UICollectionViewCell {
+@objc protocol ProfileHeaderDelegate: class {
+    @objc optional func profileHeaderSettingsTouched(_ profileHeader: ProfileHeader)
+}
+
+class ProfileHeader: UICollectionReusableView {
     
     @IBOutlet weak var profileImageView: UIImageView!
     @IBOutlet weak var postsLabel: UILabel!
     @IBOutlet weak var visitsLabel: UILabel!
+    @IBOutlet weak var usernameLabel: UILabel!
     @IBOutlet weak var mapContainerView: UIView!
     @IBOutlet weak var separatorLabel: UILabel!
     
+    var delegate: ProfileHeaderDelegate?
     var mapView: MGLMapView!
     var zoomLevel = 15.0
     var annotations = [PinAnnotation]()
@@ -30,14 +36,27 @@ class ProfileHeaderCell: UICollectionViewCell {
                 }
             })
             self.mapView.addAnnotations(annotations)
+            postsLabel.text = "\(pins.count)"
+        }
+    }
+    var user: User! {
+        didSet {
+            if let imageUrl = user.getImageUrl() {
+                profileImageView.setImageWith(imageUrl)
+            } else {
+                profileImageView.image = UIImage(named: "default_profile")
+            }
+            usernameLabel.text = user.getFullName()
+            // TODO set "visited" label
         }
     }
     
     override func awakeFromNib() {
         super.awakeFromNib()
         
-        print("NIBBED!", mapContainerView)
-        layoutIfNeeded()
+        // image view setup
+        profileImageView.layer.cornerRadius = profileImageView.frame.width / 2
+        profileImageView.clipsToBounds = true
         
         // map setup
         mapView = MGLMapView(frame: mapContainerView.bounds, styleURL: MGLStyle.streetsStyleURL())
@@ -48,13 +67,13 @@ class ProfileHeaderCell: UICollectionViewCell {
     }
     
     @IBAction func onTouchSettings(_ sender: Any) {
-        print("touched settings")
+        delegate?.profileHeaderSettingsTouched!(self)
     }
     
 }
 
 // MARK: Mapbox map view delegate
-extension ProfileHeaderCell: MGLMapViewDelegate {
+extension ProfileHeader: MGLMapViewDelegate {
     func mapView(_ mapView: MGLMapView, viewFor annotation: MGLAnnotation) -> MGLAnnotationView? {
         guard annotation is MGLPointAnnotation else {
             return nil
@@ -89,9 +108,7 @@ extension ProfileHeaderCell: MGLMapViewDelegate {
     
     func mapView(_ mapView: MGLMapView, tapOnCalloutFor annotation: MGLAnnotation) {
         if let pinAnnotation = annotation as? PinAnnotation {
-//            let vc = UIStoryboard.pinDetailsVC
-//            vc.pin = pinAnnotation.pin
-            print("TODO! Segue to details!")
+            print("TODO! Segue to details!", pinAnnotation.pin.locationName ?? "No Name")
         }
     }
 }
