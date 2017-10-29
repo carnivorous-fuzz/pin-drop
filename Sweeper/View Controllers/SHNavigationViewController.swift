@@ -149,8 +149,6 @@ extension SHNavigationViewController: NavigationViewControllerDelegate {
         navigationViewController.dismiss(animated: true) {
             let justVisitedPin = self.scavengerHunt.pins![self.currentPinIndex]
 
-            PinService.sharedInstance.markAsViewed(by: User.current()!, with: justVisitedPin)
-
             let pinDetailsNC = UIStoryboard.pinDetailsNC
             let pinDetailsVC = pinDetailsNC.topViewController as! PinDetailsViewController
 
