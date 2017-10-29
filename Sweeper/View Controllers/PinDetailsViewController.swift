@@ -137,7 +137,7 @@ class PinDetailsViewController: UIViewController {
     }
 
     @objc private func pinLikeLiveQueryNotificationHandler(_ notification: Notification) {
-        if let pinId = PinLike.getIdFromNotification(notification), pinId == pin.objectId!,
+        if let pinId = PinLike.getPinIdFromNotification(notification), pinId == pin.objectId!,
             let type = PinLike.getEventTypeFromNotification(notification) {
             likes += type == .like ? 1 : -1
             pinCard.pinActionsView.updateLikesCount(animated: true, count: likes)
