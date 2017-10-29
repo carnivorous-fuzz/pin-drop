@@ -115,7 +115,7 @@ class SHNavigationViewController: UIViewController, NVActivityIndicatorViewable 
 
 extension SHNavigationViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return self.scavengerHunt.pinCount?.intValue ?? 0
+        return self.scavengerHunt.pins?.count ?? 0
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
