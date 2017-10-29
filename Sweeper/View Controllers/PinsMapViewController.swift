@@ -8,8 +8,9 @@
 
 import UIKit
 import Mapbox
+import NVActivityIndicatorView
 
-class PinsMapViewController: UIViewController {
+class PinsMapViewController: UIViewController, NVActivityIndicatorViewable{
     
     let user = User.currentUser
     let defaultLocation = CLLocation(latitude: 37.787353, longitude: -122.421561)
@@ -64,6 +65,7 @@ class PinsMapViewController: UIViewController {
     // MARK: Action handlers
     @objc fileprivate func loadPins() {
         if let currentLocation = user?.currentLocation {
+            startAnimating()
             PinService.sharedInstance.fetchPins(for: user!, visited: false, near: currentLocation) {  (pins, error) in
                 if let pins = pins {
                     pins.forEach({ (pin) in
@@ -76,8 +78,10 @@ class PinsMapViewController: UIViewController {
                         }
                     })
                     self.mapView.addAnnotations(self.annotations)
+                    self.stopAnimating()
                 } else {
-                    print(error.debugDescription)
+                    let button = Dialog.button(title: "Try Again", type: .plain, action: nil)
+                    Dialog.show(controller: self, title: "Unable to load pins", message: error?.localizedDescription ?? "Error", buttons: [button], image: nil, dismissAfter: nil, completion: nil)
                 }
             }
         }
@@ -168,15 +172,16 @@ extension PinsMapViewController: CLLocationManagerDelegate {
     
     // TODO: Handle authorization for the location manager.
     func locationManager(_ manager: CLLocationManager, didChangeAuthorization status: CLAuthorizationStatus) {
+        let button = Dialog.button(title: "ok", type: .cancel, action: nil)
         switch status {
         case .restricted:
-            print("Location access was restricted.")
+            Dialog.show(controller: self, title: "Unable to get your location", message: "Location access was restricted", buttons: [button], image: nil, dismissAfter: nil, completion: nil)
         case .denied:
-            print("User denied access to location.")
+            Dialog.show(controller: self, title: "Unable to get your location", message: "User denied access to location", buttons: [button], image: nil, dismissAfter: nil, completion: nil)
             // Display the map using the default location.
             mapView.isHidden = false
         case .notDetermined:
-            print("Location status not determined.")
+            Dialog.show(controller: self, title: "Unable to get your location", message: "Location status not determined", buttons: [button], image: nil, dismissAfter: nil, completion: nil)
         case .authorizedAlways: fallthrough
         case .authorizedWhenInUse:
             print("Location status is OK.")

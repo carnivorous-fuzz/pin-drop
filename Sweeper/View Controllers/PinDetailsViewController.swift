@@ -44,11 +44,10 @@ class PinDetailsViewController: UIViewController {
         commentsTableView.register(UINib(nibName: "PinCommentCell", bundle: nil) , forCellReuseIdentifier: "PinCommentCell")
         commentsTableView.delegate = self
         commentsTableView.dataSource = self
-        
+
         pinCard.prepare(withPin: pin)
         pinCard.delegate = self
         pinCard.pinActionsView.delegate = self
-
     }
 
     func addBarButtonItemToDetailsView(hasNext: Bool) {
@@ -62,6 +61,7 @@ class PinDetailsViewController: UIViewController {
             navigationItem.rightBarButtonItem = nextButton
         }
     }
+
     @objc func endTour() {
         dismiss(animated: true, completion: {
             self.delegate?.onEndTour?(pinDetailsViewController: self)
@@ -85,18 +85,18 @@ class PinDetailsViewController: UIViewController {
                 }
             }
         }
-        
+
         pinService.commentedOnPin(pin) { (hasCommented) in
             if hasCommented {
                 self.pinCard.pinActionsView.updateCommentIcon(toColor: UIColor.green)
             }
         }
-        
+
         pinService.likesOnPin(pin) { (count) in
             self.likes = count
             self.pinCard.pinActionsView.updateLikesCount(animated: false, count: self.likes)
         }
-        
+
         pinService.likedPin(pin) { (pinLike) in
             self.liked = pinLike
             self.pinCard.pinActionsView.updateLikeIcon(animated: false, liked: self.liked != nil)
@@ -112,7 +112,7 @@ class PinDetailsViewController: UIViewController {
     
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
-        
+
         NotificationCenter.default.removeObserver(self, name: PinLike.pinLikeLiveQueryNotification, object: nil)
         if likeEditedTo != nil && likeEditedTo! != (liked != nil) {
             let pinLike = PinLike()
@@ -126,13 +126,13 @@ class PinDetailsViewController: UIViewController {
             }
         }
     }
-    
+
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
-        
+
         commentsTableView.contentInset = UIEdgeInsetsMake(pinCard.frame.height, 0, 0, 0)
     }
-    
+
     @objc private func pinLikeLiveQueryNotificationHandler(_ notification: Notification) {
         if let pinId = PinLike.getIdFromNotification(notification), pinId == pin.objectId!,
             let type = PinLike.getEventTypeFromNotification(notification) {

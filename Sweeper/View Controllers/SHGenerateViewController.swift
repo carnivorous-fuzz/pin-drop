@@ -36,6 +36,7 @@ class SHGenerateViewController: UIViewController {
         tagSelectionCollectionView.delegate = self
         tagSelectionCollectionView.dataSource = self
     }
+
     @IBAction func sliderValueChanged(sender: UISlider) {
         let currentValue = Double(sender.value).rounded(toPlaces: 1)
         sliderVal.text = "\(currentValue) mi"
@@ -49,7 +50,6 @@ class SHGenerateViewController: UIViewController {
     }
 
     @IBAction func onGenerate(_ sender: Any) {
-        // TODO: loading animation
         // TODO: Improve pin filter based on count
         var selectedStopCount = 1
         let selectedStopCountIndex = stopsCollectionView.indexPathsForSelectedItems
@@ -65,9 +65,15 @@ class SHGenerateViewController: UIViewController {
         scavengerHunt.radius = sliderValue as NSNumber
         scavengerHunt.user = User.currentUser
         scavengerHunt.selectedTags = selectedTags
-        scavengerHunt.saveInBackground()
-        self.scavengerHunt = scavengerHunt
-        self.performSegue(withIdentifier: "SHNavigationSegue", sender: self)
+        scavengerHunt.saveInBackground { (success: Bool, error: Error?) in
+            if success {
+                self.scavengerHunt = scavengerHunt
+                self.performSegue(withIdentifier: "SHNavigationSegue", sender: self)
+            } else {
+                let button = Dialog.button(title: "Try Again", type: .plain, action: nil)
+                Dialog.show(controller: self, title: "Unable to generate tour", message: error?.localizedDescription ?? "Error", buttons: [button], image: nil, dismissAfter: nil, completion: nil)
+            }
+        }
     }
 
     fileprivate func deleteTag(with selectedCell: TagSelectedCollectionCell) {
@@ -165,7 +171,8 @@ extension SHGenerateViewController: TagSelectedCollectionCellDelegate {
             selectedTags.remove(at: index)
             tagSelectionCollectionView.reloadData()
         } else {
-            print("no index")
+            let button = Dialog.button(title: "ok", type: .cancel, action: nil)
+            Dialog.show(controller: self, title: "Unable to remove tag", message: "Please try again", buttons: [button], image: nil, dismissAfter: nil, completion: nil)
         }
     }
 }

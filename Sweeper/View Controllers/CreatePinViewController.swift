@@ -11,8 +11,9 @@ import CoreLocation
 import KMPlaceholderTextView
 import Parse
 import Fusuma
+import NVActivityIndicatorView
 
-class CreatePinViewController: UIViewController, UINavigationControllerDelegate {
+class CreatePinViewController: UIViewController, UINavigationControllerDelegate, NVActivityIndicatorViewable {
     @IBOutlet weak var maskView: UIView!
     @IBOutlet weak var profileImage: UIImageView!
     @IBOutlet weak var locationBanner: LocationBanner!
@@ -158,6 +159,7 @@ class CreatePinViewController: UIViewController, UINavigationControllerDelegate 
     }
 
     @IBAction func onPost(_ sender: Any) {
+        startAnimating()
         let pin = Pin()
         pin.blurb = titleField.text
         pin.latitude = currentLocation?.coordinate.latitude
@@ -166,10 +168,13 @@ class CreatePinViewController: UIViewController, UINavigationControllerDelegate 
         pin.locationName = locationBanner.addressLabel.text
         pin.message = messageTextView.text
 
-        // TODO: animation while waiting for the image saving
         PinService.sharedInstance.create(pin: pin, withImage: importedImageView.image ?? nil, tagNames: self.tags) { (success: Bool, error: Error?) in
             if success {
+                self.stopAnimating()
                 self.dismiss(animated: true, completion: nil)
+            } else {
+                let button = Dialog.button(title: "Try Again", type: .plain, action: nil)
+                Dialog.show(controller: self, title: "Post pin failed", message: error!.localizedDescription, buttons: [button], image: nil, dismissAfter: nil, completion: nil)
             }
         }
     }
@@ -192,11 +197,18 @@ extension CreatePinViewController: CLLocationManagerDelegate {
 // MARK: Fusuma delegate
 extension CreatePinViewController: FusumaDelegate {
     func fusumaMultipleImageSelected(_ images: [UIImage], source: FusumaMode) {
+        // Mandatory delegte conform method
     }
-
+    
     func fusumaVideoCompleted(withFileURL fileURL: URL) {
+        // Mandatory delegte conform method
     }
-
+    
+    func fusumaCameraRollUnauthorized() {
+        let button = Dialog.button(title: "ok", type: .cancel, action: nil)
+        Dialog.show(controller: self, title: "Unable to open camera", message: "Check you camera and library permission", buttons: [button], image: nil, dismissAfter: nil, completion: nil)
+    }
+    
     func fusumaImageSelected(_ image: UIImage, source: FusumaMode) {
         hideImagePicker()
 
@@ -204,18 +216,6 @@ extension CreatePinViewController: FusumaDelegate {
         importedImageView.layer.cornerRadius = 20
         importedImageView.layer.masksToBounds = true
         titleField.becomeFirstResponder()
-    }
-    // Return the image but called after is dismissed.
-    func fusumaDismissedWithImage(image: UIImage, source: FusumaMode) {
-        print("Called just after FusumaViewController is dismissed.")
-    }
-
-    // When camera roll is not authorized, this method is called.
-    func fusumaCameraRollUnauthorized() {
-        print("Camera roll unauthorized")
-    }
-
-    func fusumaImageSelected(_ image: UIImage, source: FusumaMode, metaData: ImageMetadata) {
     }
 }
 
@@ -272,7 +272,8 @@ extension CreatePinViewController: AddTagCollectionViewCellDelegate {
             tags.remove(at: index)
             tagsCollectionView.reloadData()
         } else {
-            print("no index")
+            let button = Dialog.button(title: "ok", type: .cancel, action: nil)
+            Dialog.show(controller: self, title: "Unable to remove tag", message: "Please try again", buttons: [button], image: nil, dismissAfter: nil, completion: nil)
         }
     }
 }

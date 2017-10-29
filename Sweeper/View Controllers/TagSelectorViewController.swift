@@ -42,13 +42,17 @@ class TagSelectorViewController: UIViewController {
 
     fileprivate func loadTags(page: Int) {
         TagService.sharedInstance.fetchTags(with: page) { (tags: [Tag]?, error: Error?) in
+            self.loadingMoreView!.stopAnimating()
+            self.isMoreDataLoading = false
+
             if tags != nil {
                 self.tags += tags!
                 self.tableView.reloadData()
                 self.currentPage += 1
+            } else {
+                let button = Dialog.button(title: "Try Again", type: .plain, action: nil)
+                Dialog.show(controller: self, title: "Unable to load tags", message: error?.localizedDescription ?? "Error", buttons: [button], image: nil, dismissAfter: nil, completion: nil)
             }
-            self.loadingMoreView!.stopAnimating()
-            self.isMoreDataLoading = false
         }
     }
 }
