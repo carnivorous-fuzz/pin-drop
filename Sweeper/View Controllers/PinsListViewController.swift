@@ -77,7 +77,7 @@ extension PinsListViewController: CLLocationManagerDelegate {
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
         if let location = locations.last {
             self.currentLocation = location
-            user?.setCurrentLocation(lat: location.coordinate.latitude, lng: location.coordinate.longitude)
+            user?.currentLocation = location
             loadPins()
         }
     }

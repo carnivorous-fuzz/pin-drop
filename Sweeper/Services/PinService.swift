@@ -51,7 +51,7 @@ class PinService {
     }
     
     // fetches EITHER visited pins OR un-visited pins. Always fetches near indicated location. Never gets user's created pins.
-    func fetchPins(for user: User, visited: Bool, near: PFGeoPoint?, completion: @escaping ([Pin]?, Error?) -> Void) {
+    func fetchPins(for user: User, visited: Bool, near: CLLocation?, completion: @escaping ([Pin]?, Error?) -> Void) {
         var viewedPinIds = [String]()
         let viewedPinsQuery = ViewedPin.query() as! PFQuery<ViewedPin>
         viewedPinsQuery.whereKey("userId", equalTo: user.objectId!)
@@ -67,8 +67,8 @@ class PinService {
                 pinsQuery.limit = 20
                 pinsQuery.includeKey("tags")
                 pinsQuery.includeKey("creator")
-                let defaultLocation = PFGeoPoint(location: CLLocation(latitude: 37.787353, longitude: -122.421561))
-                pinsQuery.whereKey("location", nearGeoPoint: near ?? defaultLocation)
+                let defaultLocation = CLLocation(latitude: 37.787353, longitude: -122.421561)
+                pinsQuery.whereKey("location", nearGeoPoint: PFGeoPoint(location: (near ?? defaultLocation)))
                 
                 if visited {
                     pinsQuery.whereKey("objectId", containedIn: viewedPinIds)

@@ -157,7 +157,7 @@ extension PinsMapViewController: CLLocationManagerDelegate {
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
         if let location = locations.last {
             currentLocation = location
-            user?.setCurrentLocation(lat: location.coordinate.latitude, lng: location.coordinate.longitude)
+            user?.currentLocation = location
             loadPins()
             mapView?.setCenter(location.coordinate, zoomLevel: mapView?.zoomLevel ?? zoomLevel, animated: !mapView.isHidden)
             if mapView.isHidden {
