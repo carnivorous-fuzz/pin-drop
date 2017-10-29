@@ -91,18 +91,22 @@ extension PinsListViewController: CLLocationManagerDelegate {
 extension PinsListViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "PinCell", for: indexPath) as? PinCell
-        cell?.pin = pins[indexPath.row]
+        if !pins.isEmpty {
+            cell?.pin = pins[indexPath.row]
+        }
         cell?.currentLocation = currentLocation
         return cell!
     }
 
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return pins.count ?? 0
+        return pins.count
     }
 
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let detailsVC = UIStoryboard.pinDetailsVC
-        detailsVC.pin = pins[indexPath.row]
+        if !pins.isEmpty {
+            detailsVC.pin = pins[indexPath.row]
+        }
         show(detailsVC, sender: nil)
     }
 }
