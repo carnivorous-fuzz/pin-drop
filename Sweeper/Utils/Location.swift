@@ -26,6 +26,30 @@ struct Location {
         return "\(roundedStr)mi"
     }
 
+    static func getSubLocality(from location: CLLocation, success: @escaping (String) -> (), failure: @escaping (Error) -> ()) {
+
+        let ceo = self.sharedInstance
+
+        ceo.reverseGeocodeLocation(location, completionHandler: { (placemarks, error) in
+            if error != nil {
+                failure(error!)
+            }
+
+            let pm = placemarks! as [CLPlacemark]
+            var addressString : String = ""
+
+            if pm.count > 0 {
+                let pm = placemarks![0]
+
+                if pm.subLocality != nil {
+                    addressString = addressString + pm.subLocality!
+                }
+            }
+
+            success(addressString)
+        })
+    }
+
     static func getAddress(from location: CLLocation, success: @escaping (String) -> (), failure: @escaping (Error) -> ()) {
         let ceo = self.sharedInstance
         
