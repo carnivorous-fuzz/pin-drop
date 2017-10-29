@@ -69,6 +69,7 @@ class PinService {
                 pinsQuery.includeKey("creator")
                 let defaultLocation = CLLocation(latitude: 37.787353, longitude: -122.421561)
                 pinsQuery.whereKey("location", nearGeoPoint: PFGeoPoint(location: (near ?? defaultLocation)))
+                pinsQuery.whereKey("creator", notEqualTo: user)
                 
                 if visited {
                     pinsQuery.whereKey("objectId", containedIn: viewedPinIds)
