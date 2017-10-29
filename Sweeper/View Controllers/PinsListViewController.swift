@@ -16,7 +16,7 @@ class PinsListViewController: UIViewController, UITableViewDataSource, NVActivit
 
     let user = User.currentUser
     fileprivate var refreshControl: UIRefreshControl!
-    fileprivate var pins: [Pin]!
+    fileprivate var pins: [Pin] = []
     fileprivate var currentLocation: CLLocation?
     fileprivate var locationManager: CLLocationManager!
 
@@ -97,7 +97,7 @@ extension PinsListViewController: UITableViewDelegate {
     }
 
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return pins?.count ?? 0
+        return pins.count ?? 0
     }
 
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
