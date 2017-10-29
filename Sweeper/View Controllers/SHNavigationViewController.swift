@@ -115,7 +115,7 @@ class SHNavigationViewController: UIViewController, NVActivityIndicatorViewable 
 // MARK: table view delegate
 extension SHNavigationViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return self.scavengerHunt.pinCount?.intValue ?? 0
+        return self.scavengerHunt.pins?.count ?? 0
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -153,8 +153,6 @@ extension SHNavigationViewController: NavigationViewControllerDelegate {
     func navigationViewController(_ navigationViewController: NavigationViewController, didArriveAt waypoint: Waypoint) {
         navigationViewController.dismiss(animated: true) {
             let justVisitedPin = self.scavengerHunt.pins![self.currentPinIndex]
-
-            PinService.sharedInstance.markAsViewed(by: User.current()!, with: justVisitedPin)
 
             let pinDetailsNC = UIStoryboard.pinDetailsNC
             let pinDetailsVC = pinDetailsNC.topViewController as! PinDetailsViewController

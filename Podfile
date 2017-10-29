@@ -6,12 +6,11 @@ target 'Sweeper' do
   use_frameworks!
 
   # Pods for Sweeper
+  # Parse
   pod 'Parse'
-  pod 'KMPlaceholderTextView', '~> 1.3.0'
-  pod 'AFNetworking'
-  pod 'Fusuma'
-  pod 'NVActivityIndicatorView'
-  pod 'PopupDialog', '~> 0.6'
+
+  pod 'ParseLiveQuery'
+  pod 'ParseFacebookUtilsV4'
 
   # AWS SDKs
   pod 'AWSCognito'
@@ -19,9 +18,18 @@ target 'Sweeper' do
   pod 'AWSS3'
   pod 'SwiftDate', '~> 4.3.0'
 
-  pod 'ParseLiveQuery'
+  #Mapbox
   pod 'Mapbox-iOS-SDK', '~> 3.6'
   pod 'MapboxNavigation', '~> 0.9'
+
+  # Other
+  pod 'KMPlaceholderTextView', '~> 1.3.0'
+  pod 'AFNetworking'
+  pod 'Fusuma'
+  pod 'NVActivityIndicatorView'
+  pod 'PopupDialog', '~> 0.6'
+  pod 'FBSDKLoginKit'
+
   post_install do |installer|
       installer.pods_project.targets.each do |target|
           target.build_configurations.each do |config|

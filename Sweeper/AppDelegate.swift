@@ -11,6 +11,8 @@ import Parse
 import AWSCore
 import AWSCognito
 import NVActivityIndicatorView
+import FBSDKLoginKit
+import ParseFacebookUtilsV4
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -25,6 +27,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             $0.isLocalDatastoreEnabled = true
         }
         Parse.initialize(with: configuration)
+        PFFacebookUtils.initializeFacebook(applicationLaunchOptions: launchOptions)
 
         // AWS S3 config
         let credentialsProvider = AWSCognitoCredentialsProvider(regionType:.USEast1, identityPoolId:"us-east-1:39325d1c-04a9-4b41-8a5c-17a7e8dc7ced")
@@ -61,6 +64,14 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // set loading style globally
         NVActivityIndicatorView.DEFAULT_TYPE = .ballPulse
         return true
+    }
+    
+    func application(_ app: UIApplication, open url: URL, options: [UIApplicationOpenURLOptionsKey : Any] = [:]) -> Bool {
+        return FBSDKApplicationDelegate.sharedInstance().application(
+            app,
+            open: url,
+            sourceApplication: options[UIApplicationOpenURLOptionsKey.sourceApplication] as! String,
+            annotation: options[UIApplicationOpenURLOptionsKey.annotation])
     }
 }
 

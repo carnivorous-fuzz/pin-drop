@@ -62,6 +62,16 @@ class CreatePinViewController: UIViewController, UINavigationControllerDelegate,
         createDismissBarItem()
         getLocation()
     }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        
+        // remove text/label values for a clean start next open
+        titleField.text = nil
+        tagTextView.text = nil
+        messageTextView.text = nil
+        tags = [String]()
+    }
 
     fileprivate func showImagePicker() {
         self.navigationController?.navigationBar.isHidden = true

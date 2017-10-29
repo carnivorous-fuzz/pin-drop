@@ -18,6 +18,8 @@ class User: PFUser {
     @NSManaged var caption: String?
     @NSManaged var profileImageUrl: String?
     
+    var currentLocation: CLLocation?
+    
     private static var _currentUser: User?
     static var currentUser: User? {
         get {
