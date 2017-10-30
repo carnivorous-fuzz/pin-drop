@@ -175,7 +175,7 @@ class CreatePinViewController: UIViewController, UINavigationControllerDelegate,
         pin.latitude = currentLocation?.coordinate.latitude
         pin.longitude = currentLocation?.coordinate.longitude
         pin.setLocation()
-        pin.locationName = locationBanner.addressLabel.text
+        pin.locationName = locationBanner.subLocality ?? locationBanner.addressLabel.text
         pin.message = messageTextView.text
 
         PinService.sharedInstance.create(pin: pin, withImage: importedImageView.image ?? nil, tagNames: self.tags) { (success: Bool, error: Error?) in

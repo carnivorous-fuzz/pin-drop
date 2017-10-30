@@ -14,6 +14,7 @@ class LocationBanner: UIView {
     @IBOutlet weak var addressLabel: UILabel!
 
     fileprivate var location: CLLocation!
+    var subLocality: String?
 
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
@@ -36,6 +37,11 @@ class LocationBanner: UIView {
         location = currentLocation
         Location.getAddress(from: location, success: { (address: String) in
             self.addressLabel.text = address
+            Location.getSubLocality(from: self.location, success: { (subLocality: String) in
+                self.subLocality = subLocality
+            }, failure: { (error: Error) in
+                print(error.localizedDescription)
+            })
         }) { (error: Error) in
             print(error.localizedDescription)
         }

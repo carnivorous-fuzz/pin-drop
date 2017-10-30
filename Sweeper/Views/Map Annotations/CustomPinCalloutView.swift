@@ -48,7 +48,7 @@ class CustomPinCalloutView: UIView{
         if let tags = pin?.tags {
             var tagNames = [String]()
             for tag in tags {
-                tagNames.append(tag.name!)
+                tagNames.append("#" + tag.name!)
             }
             prettyTags = tagNames.joined(separator: ", ")
         }

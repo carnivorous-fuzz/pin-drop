@@ -38,7 +38,7 @@ class PinCell: UITableViewCell {
             if let lat = pin.location?.latitude,
                let lng = pin.location?.longitude {
                 pinLocation = CLLocation(latitude: lat, longitude: lng)
-                Location.getAddress(from: pinLocation!, success: { (address: String) in
+                Location.getSubLocality(from: pinLocation!, success: { (address: String) in
                     self.titleLabel.text = address
                 }) { (error: Error) in
                     print("couldn't get address string")
@@ -99,6 +99,8 @@ class PinCell: UITableViewCell {
     
     override func prepareForReuse() {
         actionsView.reset()
+        pinLike = nil
+        pinImageView.image = nil
     }
 
     @objc private func onNameTap(_ sender: UITapGestureRecognizer) {
@@ -106,7 +108,8 @@ class PinCell: UITableViewCell {
     }
     
     @objc private func pinLikeLiveQueryHandler(_ notification: Notification) {
-        if let pinId = PinLike.getIdFromNotification(notification), pin != nil, pinId == pin.objectId!,
+        if let likerId = PinLike.getCreatorIdFromNotification(notification), likerId != User.currentUser?.objectId!,
+            let pinId = PinLike.getPinIdFromNotification(notification), pin != nil, pinId == pin.objectId!,
             let type = PinLike.getEventTypeFromNotification(notification) {
             likesCount += type == .like ? 1 : -1
             actionsView.updateLikesCount(animated: true, count: likesCount)
