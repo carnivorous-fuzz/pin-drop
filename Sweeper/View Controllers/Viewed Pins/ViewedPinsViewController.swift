@@ -45,12 +45,15 @@ class ViewedPinsViewController: UIViewController, NVActivityIndicatorViewable {
         mapView.delegate = self
         mapView.isHidden = true
         mapContainerView.addSubview(mapView)
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
         
         if user == nil {
             user = User.currentUser
         }
         
-        // TODO: make this fetchArchivedPins once done testing
         var annotations = [PinAnnotation]()
         startAnimating()
         PinService.sharedInstance.fetchPins(for: user, visited: true, near: user.currentLocation) { (pins: [Pin]?, error: Error?) in
