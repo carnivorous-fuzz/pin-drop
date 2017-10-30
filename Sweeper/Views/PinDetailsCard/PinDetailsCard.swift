@@ -10,6 +10,7 @@ import UIKit
 
 @objc protocol PinDetailsCardDelegate: class {
     @objc optional func pinDetailsDidTapProfile()
+    @objc optional func pinDetailsDidTapImage(pinDetailsCard: PinDetailsCard, imageTapped: UIImage?)
 }
 
 class PinDetailsCard: UIView {
@@ -17,7 +18,7 @@ class PinDetailsCard: UIView {
     @IBOutlet var contentView: UIView!
     @IBOutlet weak var imageScrollView: UIScrollView!
     @IBOutlet weak var imagePageControl: UIPageControl!
-    @IBOutlet weak var imageView: UIImageView!
+    @IBOutlet weak var pinImageView: UIImageView!
     
     @IBOutlet weak var profileView: UIView!
     @IBOutlet weak var profileImageView: UIImageView!
@@ -58,9 +59,9 @@ class PinDetailsCard: UIView {
     
     func prepare(withPin pin: Pin) {
         self.pin = pin
-        imageView.image = nil
+        pinImageView.image = nil
         if let imageUrlStr = pin.imageUrlStr {
-            ImageUtils.loadImage(forView: imageView, defaultImage: nil, url: URL(string: imageUrlStr)!)
+            ImageUtils.loadImage(forView: pinImageView, defaultImage: nil, url: URL(string: imageUrlStr)!)
         }
         
         if let userProfileUrlStr = pin.creator?.profileImageUrl {
@@ -71,9 +72,16 @@ class PinDetailsCard: UIView {
         timeAgoLabel.text = TimeUtils.getPrettyTimeAgoString(pin.createdAt!)
         messageLabel.text = pin.message
         nameLabel.text = pin.creator?.getFullName()
+
+        pinImageView.isUserInteractionEnabled = true
+        pinImageView.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(onImageTap)))
     }
-    
+
     @objc private func onProfileTap() {
         delegate?.pinDetailsDidTapProfile?()
+    }
+
+    @objc private func onImageTap() {
+        delegate?.pinDetailsDidTapImage?(pinDetailsCard: self, imageTapped: pinImageView.image)
     }
 }

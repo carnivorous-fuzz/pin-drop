@@ -66,12 +66,14 @@ extension UIStoryboard {
     static var pinsListVC: PinsListViewController {
         return UIStoryboard.home.instantiateViewController(withIdentifier: "PinsListViewController") as! PinsListViewController
     }
-
     static var pinDetailsVC: PinDetailsViewController {
         return UIStoryboard.pinDetails.instantiateViewController(withIdentifier: "PinDetailsViewController") as! PinDetailsViewController
     }
     static var pinDetailsNC: UINavigationController {
         return UIStoryboard.pinDetails.instantiateViewController(withIdentifier: "PinDetailsNavigationController") as! UINavigationController
+    }
+    static var pinImageFullScreenVC: FullScreenImageViewController {
+        return UIStoryboard.pinDetails.instantiateViewController(withIdentifier: "FullScreenImageViewController") as! FullScreenImageViewController
     }
 
     // MARK: Scavenger Hunt related View Controllers

@@ -26,6 +26,7 @@ class PinDetailsViewController: UIViewController {
     fileprivate var likes = 0
     fileprivate var liked: PinLike?
     fileprivate var likeEditedTo: Bool?
+    fileprivate var imageVC: FullScreenImageViewController?
 
     override func loadView() {
         super.loadView()
@@ -40,7 +41,8 @@ class PinDetailsViewController: UIViewController {
 
         commentsTableView.tableFooterView = UIView()
         commentsTableView.rowHeight = UITableViewAutomaticDimension
-        commentsTableView.estimatedRowHeight = 80
+        commentsTableView.estimatedRowHeight = 20
+
         commentsTableView.register(UINib(nibName: "PinCommentCell", bundle: nil) , forCellReuseIdentifier: "PinCommentCell")
         commentsTableView.delegate = self
         commentsTableView.dataSource = self
@@ -143,6 +145,17 @@ class PinDetailsViewController: UIViewController {
             pinCard.pinActionsView.updateLikesCount(animated: true, count: likes)
         }
     }
+
+    @objc fileprivate func dismissFullscreenImage(sender: UITapGestureRecognizer) {
+        imageVC?.dismiss(animated: true, completion: nil)
+    }
+    @objc fileprivate func scaleImage(sender: UIPinchGestureRecognizer) {
+        if let view = sender.view {
+            UIView.animate(withDuration: 0.1, animations: {
+                  view.transform = CGAffineTransform(scaleX: sender.scale, y: sender.scale)
+            })
+        }
+    }
 }
 
 extension PinDetailsViewController: UITableViewDelegate, UITableViewDataSource {
@@ -164,6 +177,25 @@ extension PinDetailsViewController: PinDetailsCardDelegate {
         let profileVC = profileNC.topViewController as! ProfileViewController
         profileVC.user = pin.creator
         show(profileVC, sender: nil)
+    }
+
+    func pinDetailsDidTapImage(pinDetailsCard: PinDetailsCard, imageTapped: UIImage?) {
+        if let imageTapped = imageTapped {
+            imageVC = UIStoryboard.pinImageFullScreenVC
+            let fullScreenImage = UIImageView(image: imageTapped)
+            fullScreenImage.frame = UIScreen.main.bounds
+            fullScreenImage.backgroundColor = .black
+            fullScreenImage.contentMode = .scaleAspectFit
+            fullScreenImage.isUserInteractionEnabled = true
+            let tap = UITapGestureRecognizer(target: self, action: #selector(dismissFullscreenImage))
+            let pinch = UIPinchGestureRecognizer(target: self, action: #selector(scaleImage))
+            fullScreenImage.addGestureRecognizer(tap)
+            fullScreenImage.addGestureRecognizer(pinch)
+
+            imageVC!.view.addSubview(fullScreenImage)
+            imageVC!.navigationController?.isNavigationBarHidden = true
+            present(imageVC!, animated: true, completion: nil)
+        }
     }
 }
 
