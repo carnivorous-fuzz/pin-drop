@@ -22,12 +22,12 @@ class ViewedPinsViewController: UIViewController, NVActivityIndicatorViewable {
     var zoomLevel = 15.0
     var pins: [Pin]!
     var user: User!
+    var lastVcStackSize: Int!
     fileprivate let sectionInsets = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0)
     fileprivate var cellsPerRow: CGFloat! = 3
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         // Request location
         requestLocationPermission()
         
@@ -45,6 +45,8 @@ class ViewedPinsViewController: UIViewController, NVActivityIndicatorViewable {
         mapView.delegate = self
         mapView.isHidden = true
         mapContainerView.addSubview(mapView)
+        
+        lastVcStackSize = self.navigationController?.viewControllers.count
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -52,6 +54,12 @@ class ViewedPinsViewController: UIViewController, NVActivityIndicatorViewable {
         
         if user == nil {
             user = User.currentUser
+        }
+        
+        let currentCount = self.navigationController?.viewControllers.count
+        // don't reload data if we're unwinding from a child
+        if currentCount! < lastVcStackSize {
+            return
         }
         
         var annotations = [PinAnnotation]()
@@ -76,6 +84,11 @@ class ViewedPinsViewController: UIViewController, NVActivityIndicatorViewable {
                 Dialog.show(controller: self, title: "Unable to load pins", message: error?.localizedDescription ?? "Error", buttons: [button], image: nil, dismissAfter: nil, completion: nil)
             }
         }
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        lastVcStackSize = self.navigationController?.viewControllers.count
     }
     
     private func requestLocationPermission() {

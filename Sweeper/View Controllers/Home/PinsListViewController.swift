@@ -39,10 +39,17 @@ class PinsListViewController: UIViewController, UITableViewDataSource, NVActivit
         super.viewWillAppear(animated)
         
         // refilter on every load in case pins were visited on the details page
+        let originalCount = pins.count
         pins = pins.filter { (pin: Pin) -> Bool in
             let visited = pin.visited ?? false
             return !visited
         }
+        
+        // reload table data if anything changed
+        if pins.count != originalCount {
+            tableView.reloadData()
+        }
+        
     }
     
     @objc fileprivate func loadPins() {
