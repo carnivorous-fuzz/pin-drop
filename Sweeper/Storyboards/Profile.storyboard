@@ -9,128 +9,6 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Profile-->
-        <scene sceneID="eF8-xZ-FT5">
-            <objects>
-                <viewController id="NKM-r8-Y2P" customClass="ProfileViewController" customModule="Sweeper" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="j5y-pV-nkn">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="3P2-Kb-FUw">
-                                <rect key="frame" x="137.5" y="84" width="100" height="100"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="100" id="Twp-cc-gAY"/>
-                                    <constraint firstAttribute="height" constant="100" id="zI5-mQ-gxD"/>
-                                </constraints>
-                            </imageView>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="GXc-rC-yz7">
-                                <rect key="frame" x="100" y="204" width="175" height="40"/>
-                                <color key="backgroundColor" red="0.0" green="0.67450980390000004" blue="0.92941176469999998" alpha="1" colorSpace="calibratedRGB"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="40" id="OEJ-aD-18E"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
-                                <state key="normal" title="Edit Profile">
-                                    <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                </state>
-                                <connections>
-                                    <segue destination="J4Q-4e-14B" kind="show" id="pft-sv-xJJ"/>
-                                </connections>
-                            </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GSW-2B-iMR">
-                                <rect key="frame" x="12" y="264" width="40.5" height="18"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
-                                <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Paul Sokolik" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="paC-p4-HJu">
-                                <rect key="frame" x="12" y="287" width="92" height="21"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Username" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="g7m-jT-asL">
-                                <rect key="frame" x="12" y="341" width="70.5" height="21"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
-                                <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="sokolikp" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="AjD-fv-cfG">
-                                <rect key="frame" x="12" y="370" width="63" height="21"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Email" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="I3J-pj-UfM">
-                                <rect key="frame" x="12" y="408" width="37" height="21"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
-                                <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="paul.sokolik@gmail.com" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="c28-mc-to1">
-                                <rect key="frame" x="12" y="437" width="184" height="21"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <view contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="LXw-ts-fVm">
-                                <rect key="frame" x="12" y="323" width="351" height="1"/>
-                                <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
-                            </view>
-                            <view contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="GxD-BB-Cjx">
-                                <rect key="frame" x="12" y="399" width="351" height="1"/>
-                                <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
-                            </view>
-                            <view contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="B6y-yx-VPW">
-                                <rect key="frame" x="12" y="465" width="351" height="1"/>
-                                <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
-                            </view>
-                        </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        <constraints>
-                            <constraint firstItem="AjD-fv-cfG" firstAttribute="top" secondItem="g7m-jT-asL" secondAttribute="bottom" constant="5" id="3WH-I8-IXY"/>
-                            <constraint firstItem="paC-p4-HJu" firstAttribute="top" secondItem="GSW-2B-iMR" secondAttribute="bottom" constant="5" id="7ot-EH-6rK"/>
-                            <constraint firstItem="B6y-yx-VPW" firstAttribute="top" secondItem="c28-mc-to1" secondAttribute="bottom" constant="12" id="8JH-kO-2Ny"/>
-                            <constraint firstItem="3P2-Kb-FUw" firstAttribute="centerX" secondItem="j5y-pV-nkn" secondAttribute="centerX" id="94a-8Q-uWv"/>
-                            <constraint firstItem="B6y-yx-VPW" firstAttribute="leading" secondItem="GSW-2B-iMR" secondAttribute="leading" id="D8H-d1-JCg"/>
-                            <constraint firstAttribute="trailing" secondItem="GxD-BB-Cjx" secondAttribute="trailing" constant="12" id="GMq-po-iDD"/>
-                            <constraint firstItem="LXw-ts-fVm" firstAttribute="leading" secondItem="GSW-2B-iMR" secondAttribute="leading" id="Grt-vJ-TaH"/>
-                            <constraint firstItem="paC-p4-HJu" firstAttribute="leading" secondItem="GSW-2B-iMR" secondAttribute="leading" id="JFy-Mn-zat"/>
-                            <constraint firstItem="c28-mc-to1" firstAttribute="leading" secondItem="GSW-2B-iMR" secondAttribute="leading" id="Kgm-ww-NVA"/>
-                            <constraint firstItem="I3J-pj-UfM" firstAttribute="leading" secondItem="GSW-2B-iMR" secondAttribute="leading" id="MJN-kn-NuG"/>
-                            <constraint firstItem="GXc-rC-yz7" firstAttribute="top" secondItem="3P2-Kb-FUw" secondAttribute="bottom" constant="20" id="Qus-2b-HdA"/>
-                            <constraint firstItem="GSW-2B-iMR" firstAttribute="top" secondItem="GXc-rC-yz7" secondAttribute="bottom" constant="20" id="RQW-Cc-bTR"/>
-                            <constraint firstItem="GXc-rC-yz7" firstAttribute="leading" secondItem="Jgu-hL-r4Z" secondAttribute="leading" constant="100" id="Tkh-t6-GQ0"/>
-                            <constraint firstItem="g7m-jT-asL" firstAttribute="leading" secondItem="GSW-2B-iMR" secondAttribute="leading" id="UUK-Bu-Dfo"/>
-                            <constraint firstItem="Jgu-hL-r4Z" firstAttribute="trailing" secondItem="GXc-rC-yz7" secondAttribute="trailing" constant="100" id="WkK-Xz-sd2"/>
-                            <constraint firstItem="GSW-2B-iMR" firstAttribute="leading" secondItem="Jgu-hL-r4Z" secondAttribute="leading" constant="12" id="cAP-1H-N06"/>
-                            <constraint firstItem="AjD-fv-cfG" firstAttribute="leading" secondItem="GSW-2B-iMR" secondAttribute="leading" id="cLI-j5-uJR"/>
-                            <constraint firstItem="GxD-BB-Cjx" firstAttribute="leading" secondItem="GSW-2B-iMR" secondAttribute="leading" id="cUc-k5-UN2"/>
-                            <constraint firstItem="g7m-jT-asL" firstAttribute="top" secondItem="LXw-ts-fVm" secondAttribute="bottom" constant="12" id="dQ5-ld-TzY"/>
-                            <constraint firstAttribute="trailing" secondItem="LXw-ts-fVm" secondAttribute="trailing" constant="12" id="eAz-qA-bg2"/>
-                            <constraint firstItem="I3J-pj-UfM" firstAttribute="top" secondItem="GxD-BB-Cjx" secondAttribute="bottom" constant="12" id="gLT-Li-kUH"/>
-                            <constraint firstItem="3P2-Kb-FUw" firstAttribute="top" secondItem="Jgu-hL-r4Z" secondAttribute="top" constant="20" id="kVZ-OV-2XA"/>
-                            <constraint firstItem="GxD-BB-Cjx" firstAttribute="top" secondItem="AjD-fv-cfG" secondAttribute="bottom" constant="12" id="lkl-sa-ZDf"/>
-                            <constraint firstItem="LXw-ts-fVm" firstAttribute="top" secondItem="paC-p4-HJu" secondAttribute="bottom" constant="12" id="nrE-In-Mhz"/>
-                            <constraint firstAttribute="trailing" secondItem="B6y-yx-VPW" secondAttribute="trailing" constant="12" id="oVf-hw-lnq"/>
-                            <constraint firstItem="c28-mc-to1" firstAttribute="top" secondItem="I3J-pj-UfM" secondAttribute="bottom" constant="8" id="qeL-ui-yDj"/>
-                        </constraints>
-                        <viewLayoutGuide key="safeArea" id="Jgu-hL-r4Z"/>
-                    </view>
-                    <navigationItem key="navigationItem" title="Profile" id="eME-3d-MZx"/>
-                    <connections>
-                        <outlet property="editProfileButton" destination="GXc-rC-yz7" id="Oea-KM-6j6"/>
-                        <outlet property="emailLabel" destination="c28-mc-to1" id="vV0-MJ-3Oz"/>
-                        <outlet property="nameLabel" destination="paC-p4-HJu" id="9Ne-jc-n4X"/>
-                        <outlet property="profileImageView" destination="3P2-Kb-FUw" id="EDj-ak-vtd"/>
-                        <outlet property="usernameLabel" destination="AjD-fv-cfG" id="IvJ-fQ-yzw"/>
-                    </connections>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="mqA-c6-nHf" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="532" y="71.514242878560722"/>
-        </scene>
         <!--Edit Profile-->
         <scene sceneID="Tst-jn-l3G">
             <objects>
@@ -308,23 +186,62 @@
             </objects>
             <point key="canvasLocation" x="1352.8" y="71.514242878560722"/>
         </scene>
-        <!--Navigation Controller-->
-        <scene sceneID="qQf-nj-iD7">
+        <!--Profile View Controller-->
+        <scene sceneID="zG6-fe-jjv">
             <objects>
-                <navigationController storyboardIdentifier="ProfileNC" automaticallyAdjustsScrollViewInsets="NO" id="En7-nx-FZu" sceneMemberID="viewController">
+                <viewController id="PhV-cX-RxS" customClass="ProfileViewController" customModule="Sweeper" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="UF3-OY-2DF">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="nnm-TQ-gEP">
+                                <rect key="frame" x="0.0" y="64" width="375" height="603"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="Iyl-xQ-5jT">
+                                    <size key="itemSize" width="123" height="92"/>
+                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                    <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                </collectionViewFlowLayout>
+                                <cells/>
+                            </collectionView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="kM8-L1-Ht6" firstAttribute="bottom" secondItem="nnm-TQ-gEP" secondAttribute="bottom" id="dza-NK-nGv"/>
+                            <constraint firstItem="nnm-TQ-gEP" firstAttribute="top" secondItem="kM8-L1-Ht6" secondAttribute="top" id="evB-Yj-qbi"/>
+                            <constraint firstItem="nnm-TQ-gEP" firstAttribute="leading" secondItem="kM8-L1-Ht6" secondAttribute="leading" id="oql-YV-iQV"/>
+                            <constraint firstItem="kM8-L1-Ht6" firstAttribute="trailing" secondItem="nnm-TQ-gEP" secondAttribute="trailing" id="qst-h7-axw"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="kM8-L1-Ht6"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="qsm-zg-Tf6"/>
+                    <connections>
+                        <outlet property="collectionView" destination="nnm-TQ-gEP" id="xK0-M3-MJw"/>
+                        <segue destination="J4Q-4e-14B" kind="show" identifier="EditProfileSegue" id="b0v-2a-Csh"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="OfQ-S0-YIK" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="574" y="72"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="7gh-am-6mQ">
+            <objects>
+                <navigationController storyboardIdentifier="ProfileNC" automaticallyAdjustsScrollViewInsets="NO" id="iwP-8K-XoW" sceneMemberID="viewController">
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="4nL-Sg-Ptj">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="94d-ng-UXN">
                         <rect key="frame" x="0.0" y="20" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
-                        <segue destination="NKM-r8-Y2P" kind="relationship" relationship="rootViewController" id="Ur0-Iz-EcM"/>
+                        <segue destination="PhV-cX-RxS" kind="relationship" relationship="rootViewController" id="9hz-T4-ojI"/>
                     </connections>
                 </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="TcS-pw-aOJ" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="LBx-e1-til" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-322" y="72"/>
+            <point key="canvasLocation" x="-284" y="72"/>
         </scene>
     </scenes>
     <resources>

@@ -34,6 +34,8 @@ class ViewedPinsViewController: UIViewController, NVActivityIndicatorViewable {
         // collection view setup
         collectionView.delegate = self
         collectionView.dataSource = self
+        let nib = UINib(nibName: "CollectionViewPinCell", bundle: nil)
+        collectionView.register(nib, forCellWithReuseIdentifier: "CollectionViewPinCell")
         
         // map setup
         mapView = MGLMapView(frame: mapContainerView.bounds, styleURL: MGLStyle.streetsStyleURL())
@@ -43,12 +45,15 @@ class ViewedPinsViewController: UIViewController, NVActivityIndicatorViewable {
         mapView.delegate = self
         mapView.isHidden = true
         mapContainerView.addSubview(mapView)
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
         
         if user == nil {
             user = User.currentUser
         }
         
-        // TODO: make this fetchArchivedPins once done testing
         var annotations = [PinAnnotation]()
         startAnimating()
         PinService.sharedInstance.fetchPins(for: user, visited: true, near: user.currentLocation) { (pins: [Pin]?, error: Error?) in
@@ -85,13 +90,12 @@ class ViewedPinsViewController: UIViewController, NVActivityIndicatorViewable {
 
 // MARK: collection view delegate
 extension ViewedPinsViewController: UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
-    
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return pins?.count ?? 0
     }
 
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "ViewedPinCell", for: indexPath) as! ViewedPinCell
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "CollectionViewPinCell", for: indexPath) as! CollectionViewPinCell
         cell.pin = pins[indexPath.row]
         return cell
     }

@@ -14,8 +14,8 @@ extension UIStoryboard {
         return getStoryboardNamed("TabBar")
     }
 
-    static var main: UIStoryboard {
-        return getStoryboardNamed("Main")
+    static var login: UIStoryboard {
+        return getStoryboardNamed("Login")
     }
 
     static var createPin: UIStoryboard {
@@ -52,11 +52,11 @@ extension UIStoryboard {
 
     // MARK: View controllers
     static var loginVC: UINavigationController {
-        return UIStoryboard.main.instantiateInitialViewController() as! UINavigationController
+        return UIStoryboard.login.instantiateInitialViewController() as! UINavigationController
     }
 
     static var signUpVC: SignUpViewController {
-        return UIStoryboard.main.instantiateViewController(withIdentifier: "SignUpViewController") as! SignUpViewController
+        return UIStoryboard.login.instantiateViewController(withIdentifier: "SignUpViewController") as! SignUpViewController
     }
 
     static var pinsMapVC: PinsMapViewController {

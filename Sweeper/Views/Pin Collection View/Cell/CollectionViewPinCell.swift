@@ -1,5 +1,5 @@
 //
-//  ViewedPinCell.swift
+//  CollectionViewPinCell
 //  Sweeper
 //
 //  Created by Paul Sokolik on 10/23/17.
@@ -8,7 +8,8 @@
 
 import UIKit
 
-class ViewedPinCell: UICollectionViewCell {
+class CollectionViewPinCell: UICollectionViewCell {
+    
     @IBOutlet weak var imageView: UIImageView!
     
     var pin: Pin! {
