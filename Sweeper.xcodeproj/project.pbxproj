@@ -49,6 +49,7 @@
 		B79291FE1F91CE7400069144 /* CreatePinViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B79291FD1F91CE7400069144 /* CreatePinViewController.swift */; };
 		B7B862371F91E6AD00FB2F1E /* LocationBanner.xib in Resources */ = {isa = PBXBuildFile; fileRef = B7B862361F91E6AD00FB2F1E /* LocationBanner.xib */; };
 		B7B862391F91E6B900FB2F1E /* LocationBanner.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7B862381F91E6B900FB2F1E /* LocationBanner.swift */; };
+		B7D83FE61FA6FB2500F5EB97 /* FullScreenImageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7D83FE51FA6FB2500F5EB97 /* FullScreenImageViewController.swift */; };
 		B7DE45DE1F9B0BFF00F2472F /* SegmentControlViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7DE45DD1F9B0BFF00F2472F /* SegmentControlViewCell.swift */; };
 		B7DE45E01F9B214A00F2472F /* TagSelectorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7DE45DF1F9B214A00F2472F /* TagSelectorViewController.swift */; };
 		B7DE45E21F9B2D4A00F2472F /* TagSelectorCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7DE45E11F9B2D4A00F2472F /* TagSelectorCell.swift */; };
@@ -152,6 +153,7 @@
 		B79291FD1F91CE7400069144 /* CreatePinViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreatePinViewController.swift; sourceTree = "<group>"; };
 		B7B862361F91E6AD00FB2F1E /* LocationBanner.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LocationBanner.xib; sourceTree = "<group>"; };
 		B7B862381F91E6B900FB2F1E /* LocationBanner.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationBanner.swift; sourceTree = "<group>"; };
+		B7D83FE51FA6FB2500F5EB97 /* FullScreenImageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FullScreenImageViewController.swift; sourceTree = "<group>"; };
 		B7DE45DD1F9B0BFF00F2472F /* SegmentControlViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SegmentControlViewCell.swift; sourceTree = "<group>"; };
 		B7DE45DF1F9B214A00F2472F /* TagSelectorViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TagSelectorViewController.swift; sourceTree = "<group>"; };
 		B7DE45E11F9B2D4A00F2472F /* TagSelectorCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TagSelectorCell.swift; sourceTree = "<group>"; };
@@ -446,6 +448,7 @@
 				377DAA711F9D9AB100C7143A /* HomeViewController.swift */,
 				377DAA731F9DB94E00C7143A /* EditProfileViewController.swift */,
 				B98C87331F9D548600F078BB /* SignUpViewController.swift */,
+				B7D83FE51FA6FB2500F5EB97 /* FullScreenImageViewController.swift */,
 			);
 			path = "View Controllers";
 			sourceTree = "<group>";
@@ -762,6 +765,7 @@
 				3786F8481F94071D0009F05B /* Tag.swift in Sources */,
 				7C1A43211F994CC000E3E6E0 /* StoryboardExtension.swift in Sources */,
 				B7B862391F91E6B900FB2F1E /* LocationBanner.swift in Sources */,
+				B7D83FE61FA6FB2500F5EB97 /* FullScreenImageViewController.swift in Sources */,
 				B7DE45E21F9B2D4A00F2472F /* TagSelectorCell.swift in Sources */,
 				B7DE45E41F9BE03C00F2472F /* TagSelectedCollectionCell.swift in Sources */,
 				37F3FA6B1F9B16A300287F61 /* Time.swift in Sources */,
@@ -931,7 +935,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 58727B98H6;
+				DEVELOPMENT_TEAM = MCU29NU8L3;
 				INFOPLIST_FILE = Sweeper/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.team11.Sweeper;
@@ -947,7 +951,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 58727B98H6;
+				DEVELOPMENT_TEAM = MCU29NU8L3;
 				INFOPLIST_FILE = Sweeper/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.team11.Sweeper;
