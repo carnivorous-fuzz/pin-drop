@@ -52,6 +52,7 @@
 		B79291FE1F91CE7400069144 /* CreatePinViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B79291FD1F91CE7400069144 /* CreatePinViewController.swift */; };
 		B7B862371F91E6AD00FB2F1E /* LocationBanner.xib in Resources */ = {isa = PBXBuildFile; fileRef = B7B862361F91E6AD00FB2F1E /* LocationBanner.xib */; };
 		B7B862391F91E6B900FB2F1E /* LocationBanner.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7B862381F91E6B900FB2F1E /* LocationBanner.swift */; };
+		B7D83FEA1FA709BE00F5EB97 /* FullScreenImageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7D83FE91FA709BE00F5EB97 /* FullScreenImageViewController.swift */; };
 		B7DE45DE1F9B0BFF00F2472F /* SegmentControlViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7DE45DD1F9B0BFF00F2472F /* SegmentControlViewCell.swift */; };
 		B7DE45E01F9B214A00F2472F /* TagSelectorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7DE45DF1F9B214A00F2472F /* TagSelectorViewController.swift */; };
 		B7DE45E21F9B2D4A00F2472F /* TagSelectorCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7DE45E11F9B2D4A00F2472F /* TagSelectorCell.swift */; };
@@ -158,6 +159,7 @@
 		B79291FD1F91CE7400069144 /* CreatePinViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreatePinViewController.swift; sourceTree = "<group>"; };
 		B7B862361F91E6AD00FB2F1E /* LocationBanner.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LocationBanner.xib; sourceTree = "<group>"; };
 		B7B862381F91E6B900FB2F1E /* LocationBanner.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationBanner.swift; sourceTree = "<group>"; };
+		B7D83FE91FA709BE00F5EB97 /* FullScreenImageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FullScreenImageViewController.swift; sourceTree = "<group>"; };
 		B7DE45DD1F9B0BFF00F2472F /* SegmentControlViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SegmentControlViewCell.swift; sourceTree = "<group>"; };
 		B7DE45DF1F9B214A00F2472F /* TagSelectorViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TagSelectorViewController.swift; sourceTree = "<group>"; };
 		B7DE45E11F9B2D4A00F2472F /* TagSelectorCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TagSelectorCell.swift; sourceTree = "<group>"; };
@@ -333,6 +335,7 @@
 				B9CB3D271F92C6970023EA79 /* PinDetailsViewController.swift */,
 				B7DE45DF1F9B214A00F2472F /* TagSelectorViewController.swift */,
 				B96D352D1F9B008E00BC6CBF /* PinCommentViewController.swift */,
+				B7D83FE91FA709BE00F5EB97 /* FullScreenImageViewController.swift */,
 			);
 			path = Widgets;
 			sourceTree = "<group>";
@@ -861,6 +864,7 @@
 				B763C3561F931F2700DA8311 /* AWSConstants.swift in Sources */,
 				B96D352A1F9AFEA600BC6CBF /* PinComment.swift in Sources */,
 				3786F8481F94071D0009F05B /* Tag.swift in Sources */,
+				B7D83FEA1FA709BE00F5EB97 /* FullScreenImageViewController.swift in Sources */,
 				7C1A43211F994CC000E3E6E0 /* StoryboardExtension.swift in Sources */,
 				B7B862391F91E6B900FB2F1E /* LocationBanner.swift in Sources */,
 				B7DE45E21F9B2D4A00F2472F /* TagSelectorCell.swift in Sources */,
