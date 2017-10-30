@@ -28,7 +28,6 @@
 		37F3FA6B1F9B16A300287F61 /* Time.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37F3FA6A1F9B16A300287F61 /* Time.swift */; };
 		37F3FA701F9C29C100287F61 /* Profile.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 37F3FA6F1F9C29C100287F61 /* Profile.storyboard */; };
 		37F3FA721F9C29E200287F61 /* ViewedPins.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 37F3FA711F9C29E200287F61 /* ViewedPins.storyboard */; };
-		37F3FA741F9C2ADE00287F61 /* ProfileViewController2.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37F3FA731F9C2ADE00287F61 /* ProfileViewController2.swift */; };
 		37F3FA761F9C2AEB00287F61 /* ViewedPinsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37F3FA751F9C2AEB00287F61 /* ViewedPinsViewController.swift */; };
 		37F3FA7F1F9D5DBC00287F61 /* TabBar.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 37F3FA7E1F9D5DBC00287F61 /* TabBar.storyboard */; };
 		37F3FA811F9D603400287F61 /* TabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37F3FA801F9D603400287F61 /* TabBarViewController.swift */; };
@@ -135,7 +134,6 @@
 		37F3FA6A1F9B16A300287F61 /* Time.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Time.swift; sourceTree = "<group>"; };
 		37F3FA6F1F9C29C100287F61 /* Profile.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Profile.storyboard; sourceTree = "<group>"; };
 		37F3FA711F9C29E200287F61 /* ViewedPins.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = ViewedPins.storyboard; sourceTree = "<group>"; };
-		37F3FA731F9C2ADE00287F61 /* ProfileViewController2.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController2.swift; sourceTree = "<group>"; };
 		37F3FA751F9C2AEB00287F61 /* ViewedPinsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewedPinsViewController.swift; sourceTree = "<group>"; };
 		37F3FA7E1F9D5DBC00287F61 /* TabBar.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = TabBar.storyboard; sourceTree = "<group>"; };
 		37F3FA801F9D603400287F61 /* TabBarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarViewController.swift; sourceTree = "<group>"; };
@@ -344,7 +342,6 @@
 			children = (
 				377DAA731F9DB94E00C7143A /* EditProfileViewController.swift */,
 				37F811071FA58ABF004AD610 /* ProfileViewController.swift */,
-				37F3FA731F9C2ADE00287F61 /* ProfileViewController2.swift */,
 			);
 			path = Profile;
 			sourceTree = "<group>";
@@ -884,7 +881,6 @@
 				B71D02A21F9C54770090DD9D /* SHNavigationViewController.swift in Sources */,
 				3771ABC61FA2CFDC00A06F17 /* CustomPinCalloutView.swift in Sources */,
 				B9CB3D1A1F90C8BF0023EA79 /* UIConstants.swift in Sources */,
-				37F3FA741F9C2ADE00287F61 /* ProfileViewController2.swift in Sources */,
 				B763C3581F9322C500DA8311 /* StringExtension.swift in Sources */,
 				B7EBCA121F94331B00D5795D /* ViewedPin.swift in Sources */,
 				37B4E2531F99B9440090B168 /* PinsListViewController.swift in Sources */,
