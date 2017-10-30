@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		374C23E81F91BDA5000C0ECE /* Pin.swift in Sources */ = {isa = PBXBuildFile; fileRef = 374C23E71F91BDA5000C0ECE /* Pin.swift */; };
 		374C23EA1F91BDAE000C0ECE /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 374C23E91F91BDAE000C0ECE /* User.swift */; };
+		375A65821FA65C4800B3C952 /* ProfileHeader.xib in Resources */ = {isa = PBXBuildFile; fileRef = 375A65811FA65C4800B3C952 /* ProfileHeader.xib */; };
+		375A65841FA65C6800B3C952 /* CollectionViewPinCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 375A65831FA65C6800B3C952 /* CollectionViewPinCell.xib */; };
 		3771ABBF1FA1A33A00A06F17 /* PinCalloutView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3771ABBE1FA1A33A00A06F17 /* PinCalloutView.swift */; };
 		3771ABC41FA1AA0300A06F17 /* CustomPinCalloutView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3771ABC31FA1AA0300A06F17 /* CustomPinCalloutView.xib */; };
 		3771ABC61FA2CFDC00A06F17 /* CustomPinCalloutView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3771ABC51FA2CFDC00A06F17 /* CustomPinCalloutView.swift */; };
@@ -21,14 +23,15 @@
 		3786F84A1F9414120009F05B /* TagService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3786F8491F9414120009F05B /* TagService.swift */; };
 		37B4E2531F99B9440090B168 /* PinsListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37B4E2521F99B9440090B168 /* PinsListViewController.swift */; };
 		37B4E2551F99C6AA0090B168 /* PinCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37B4E2541F99C6AA0090B168 /* PinCell.swift */; };
-		37D2A0D31F9F126300273B20 /* ViewedPinCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37D2A0D21F9F126200273B20 /* ViewedPinCell.swift */; };
+		37D2A0D31F9F126300273B20 /* CollectionViewPinCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37D2A0D21F9F126200273B20 /* CollectionViewPinCell.swift */; };
+		37F14EC91FA6671400D1F8D9 /* ProfileHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37F14EC81FA6671400D1F8D9 /* ProfileHeader.swift */; };
 		37F3FA6B1F9B16A300287F61 /* Time.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37F3FA6A1F9B16A300287F61 /* Time.swift */; };
 		37F3FA701F9C29C100287F61 /* Profile.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 37F3FA6F1F9C29C100287F61 /* Profile.storyboard */; };
 		37F3FA721F9C29E200287F61 /* ViewedPins.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 37F3FA711F9C29E200287F61 /* ViewedPins.storyboard */; };
-		37F3FA741F9C2ADE00287F61 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37F3FA731F9C2ADE00287F61 /* ProfileViewController.swift */; };
 		37F3FA761F9C2AEB00287F61 /* ViewedPinsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37F3FA751F9C2AEB00287F61 /* ViewedPinsViewController.swift */; };
 		37F3FA7F1F9D5DBC00287F61 /* TabBar.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 37F3FA7E1F9D5DBC00287F61 /* TabBar.storyboard */; };
 		37F3FA811F9D603400287F61 /* TabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37F3FA801F9D603400287F61 /* TabBarViewController.swift */; };
+		37F811081FA58ABF004AD610 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37F811071FA58ABF004AD610 /* ProfileViewController.swift */; };
 		5B4C8AEAC3C694DCF2E8D6DB /* Pods_Sweeper.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B9002B9427295A5C4DB280EB /* Pods_Sweeper.framework */; };
 		7C1A43141F96B6FD00E3E6E0 /* PinAnnotationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C1A43131F96B6FD00E3E6E0 /* PinAnnotationView.swift */; };
 		7C1A43181F96C82F00E3E6E0 /* PinAnnotation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C1A43171F96C82F00E3E6E0 /* PinAnnotation.swift */; };
@@ -91,7 +94,7 @@
 		B9BC3F1B1FA0345D00D4CC7A /* PinCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B9BC3F191FA0345D00D4CC7A /* PinCell.xib */; };
 		B9BC3F1D1FA0481200D4CC7A /* PinLike.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9BC3F1C1FA0481200D4CC7A /* PinLike.swift */; };
 		B9CB3CF11F9056060023EA79 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9CB3CF01F9056060023EA79 /* AppDelegate.swift */; };
-		B9CB3CF61F9056060023EA79 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B9CB3CF41F9056060023EA79 /* Main.storyboard */; };
+		B9CB3CF61F9056060023EA79 /* Login.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B9CB3CF41F9056060023EA79 /* Login.storyboard */; };
 		B9CB3CF81F9056060023EA79 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B9CB3CF71F9056060023EA79 /* Assets.xcassets */; };
 		B9CB3CFB1F9056060023EA79 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B9CB3CF91F9056060023EA79 /* LaunchScreen.storyboard */; };
 		B9CB3D071F9056720023EA79 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9CB3D061F9056720023EA79 /* LoginViewController.swift */; };
@@ -112,6 +115,8 @@
 		1D859EDDB4E56A4A4F927E7C /* Pods-Sweeper.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Sweeper.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Sweeper/Pods-Sweeper.debug.xcconfig"; sourceTree = "<group>"; };
 		374C23E71F91BDA5000C0ECE /* Pin.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = Pin.swift; path = Sweeper/Models/Pin.swift; sourceTree = SOURCE_ROOT; };
 		374C23E91F91BDAE000C0ECE /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = User.swift; path = Sweeper/Models/User.swift; sourceTree = SOURCE_ROOT; };
+		375A65811FA65C4800B3C952 /* ProfileHeader.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ProfileHeader.xib; sourceTree = "<group>"; };
+		375A65831FA65C6800B3C952 /* CollectionViewPinCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CollectionViewPinCell.xib; sourceTree = "<group>"; };
 		3771ABBE1FA1A33A00A06F17 /* PinCalloutView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PinCalloutView.swift; sourceTree = "<group>"; };
 		3771ABC31FA1AA0300A06F17 /* CustomPinCalloutView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CustomPinCalloutView.xib; sourceTree = "<group>"; };
 		3771ABC51FA2CFDC00A06F17 /* CustomPinCalloutView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomPinCalloutView.swift; sourceTree = "<group>"; };
@@ -124,14 +129,15 @@
 		3786F8491F9414120009F05B /* TagService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TagService.swift; sourceTree = "<group>"; };
 		37B4E2521F99B9440090B168 /* PinsListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PinsListViewController.swift; sourceTree = "<group>"; };
 		37B4E2541F99C6AA0090B168 /* PinCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PinCell.swift; sourceTree = "<group>"; };
-		37D2A0D21F9F126200273B20 /* ViewedPinCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewedPinCell.swift; sourceTree = "<group>"; };
+		37D2A0D21F9F126200273B20 /* CollectionViewPinCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionViewPinCell.swift; sourceTree = "<group>"; };
+		37F14EC81FA6671400D1F8D9 /* ProfileHeader.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileHeader.swift; sourceTree = "<group>"; };
 		37F3FA6A1F9B16A300287F61 /* Time.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Time.swift; sourceTree = "<group>"; };
 		37F3FA6F1F9C29C100287F61 /* Profile.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Profile.storyboard; sourceTree = "<group>"; };
 		37F3FA711F9C29E200287F61 /* ViewedPins.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = ViewedPins.storyboard; sourceTree = "<group>"; };
-		37F3FA731F9C2ADE00287F61 /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
 		37F3FA751F9C2AEB00287F61 /* ViewedPinsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewedPinsViewController.swift; sourceTree = "<group>"; };
 		37F3FA7E1F9D5DBC00287F61 /* TabBar.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = TabBar.storyboard; sourceTree = "<group>"; };
 		37F3FA801F9D603400287F61 /* TabBarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarViewController.swift; sourceTree = "<group>"; };
+		37F811071FA58ABF004AD610 /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
 		7C1A43131F96B6FD00E3E6E0 /* PinAnnotationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PinAnnotationView.swift; sourceTree = "<group>"; };
 		7C1A43171F96C82F00E3E6E0 /* PinAnnotation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PinAnnotation.swift; sourceTree = "<group>"; };
 		7C1A43201F994CC000E3E6E0 /* StoryboardExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoryboardExtension.swift; sourceTree = "<group>"; };
@@ -198,7 +204,7 @@
 		B9BC3F1C1FA0481200D4CC7A /* PinLike.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PinLike.swift; sourceTree = "<group>"; };
 		B9CB3CED1F9056060023EA79 /* Sweeper.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Sweeper.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B9CB3CF01F9056060023EA79 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		B9CB3CF51F9056060023EA79 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		B9CB3CF51F9056060023EA79 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Login.storyboard; sourceTree = "<group>"; };
 		B9CB3CF71F9056060023EA79 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		B9CB3CFA1F9056060023EA79 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		B9CB3CFC1F9056060023EA79 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -255,6 +261,33 @@
 			path = Services;
 			sourceTree = "<group>";
 		};
+		375A657E1FA65BF100B3C952 /* Pin Collection View */ = {
+			isa = PBXGroup;
+			children = (
+				375A65801FA65C2B00B3C952 /* Profile Header */,
+				375A657F1FA65C2600B3C952 /* Cell */,
+			);
+			path = "Pin Collection View";
+			sourceTree = "<group>";
+		};
+		375A657F1FA65C2600B3C952 /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				37D2A0D21F9F126200273B20 /* CollectionViewPinCell.swift */,
+				375A65831FA65C6800B3C952 /* CollectionViewPinCell.xib */,
+			);
+			path = Cell;
+			sourceTree = "<group>";
+		};
+		375A65801FA65C2B00B3C952 /* Profile Header */ = {
+			isa = PBXGroup;
+			children = (
+				37F14EC81FA6671400D1F8D9 /* ProfileHeader.swift */,
+				375A65811FA65C4800B3C952 /* ProfileHeader.xib */,
+			);
+			path = "Profile Header";
+			sourceTree = "<group>";
+		};
 		3771ABC01FA1A34700A06F17 /* Map Annotations */ = {
 			isa = PBXGroup;
 			children = (
@@ -264,6 +297,77 @@
 				3771ABC51FA2CFDC00A06F17 /* CustomPinCalloutView.swift */,
 			);
 			path = "Map Annotations";
+			sourceTree = "<group>";
+		};
+		37F811091FA58E27004AD610 /* Home */ = {
+			isa = PBXGroup;
+			children = (
+				377DAA711F9D9AB100C7143A /* HomeViewController.swift */,
+				B9CB3D1D1F91D5AE0023EA79 /* PinsMapViewController.swift */,
+				37B4E2521F99B9440090B168 /* PinsListViewController.swift */,
+			);
+			path = Home;
+			sourceTree = "<group>";
+		};
+		37F8110A1FA58E30004AD610 /* Login-Signup */ = {
+			isa = PBXGroup;
+			children = (
+				B9CB3D061F9056720023EA79 /* LoginViewController.swift */,
+				B98C87331F9D548600F078BB /* SignUpViewController.swift */,
+			);
+			path = "Login-Signup";
+			sourceTree = "<group>";
+		};
+		37F8110B1FA58E7D004AD610 /* Scavenger Hunt */ = {
+			isa = PBXGroup;
+			children = (
+				B7286D681F99CA1C00CD9C0E /* SHGenerateViewController.swift */,
+				B71D02A11F9C54770090DD9D /* SHNavigationViewController.swift */,
+			);
+			path = "Scavenger Hunt";
+			sourceTree = "<group>";
+		};
+		37F8110C1FA58EC3004AD610 /* Widgets */ = {
+			isa = PBXGroup;
+			children = (
+				B9CB3D271F92C6970023EA79 /* PinDetailsViewController.swift */,
+				B7DE45DF1F9B214A00F2472F /* TagSelectorViewController.swift */,
+				B96D352D1F9B008E00BC6CBF /* PinCommentViewController.swift */,
+			);
+			path = Widgets;
+			sourceTree = "<group>";
+		};
+		37F8110D1FA58EEA004AD610 /* Profile */ = {
+			isa = PBXGroup;
+			children = (
+				377DAA731F9DB94E00C7143A /* EditProfileViewController.swift */,
+				37F811071FA58ABF004AD610 /* ProfileViewController.swift */,
+			);
+			path = Profile;
+			sourceTree = "<group>";
+		};
+		37F8110E1FA58F1C004AD610 /* Create Pin */ = {
+			isa = PBXGroup;
+			children = (
+				B79291FD1F91CE7400069144 /* CreatePinViewController.swift */,
+			);
+			path = "Create Pin";
+			sourceTree = "<group>";
+		};
+		37F8110F1FA58F6B004AD610 /* Tab Bar */ = {
+			isa = PBXGroup;
+			children = (
+				37F3FA801F9D603400287F61 /* TabBarViewController.swift */,
+			);
+			path = "Tab Bar";
+			sourceTree = "<group>";
+		};
+		37F811101FA58F8B004AD610 /* Viewed Pins */ = {
+			isa = PBXGroup;
+			children = (
+				37F3FA751F9C2AEB00287F61 /* ViewedPinsViewController.swift */,
+			);
+			path = "Viewed Pins";
 			sourceTree = "<group>";
 		};
 		766016692BDDF89522F0D054 /* Pods */ = {
@@ -297,15 +401,15 @@
 		B79291FC1F91CD0700069144 /* Storyboards */ = {
 			isa = PBXGroup;
 			children = (
-				B9CB3CF41F9056060023EA79 /* Main.storyboard */,
-				B79291FA1F91CD0100069144 /* CreatePin.storyboard */,
-				B9CB3D1B1F91D1780023EA79 /* Home.storyboard */,
-				B9CB3D251F92C6170023EA79 /* PinDetails.storyboard */,
-				B7286D661F99C83300CD9C0E /* ScavengerHunt.storyboard */,
-				37F3FA6F1F9C29C100287F61 /* Profile.storyboard */,
-				37F3FA711F9C29E200287F61 /* ViewedPins.storyboard */,
-				B96D352B1F9B006900BC6CBF /* PinComment.storyboard */,
 				37F3FA7E1F9D5DBC00287F61 /* TabBar.storyboard */,
+				B9CB3CF41F9056060023EA79 /* Login.storyboard */,
+				B9CB3D1B1F91D1780023EA79 /* Home.storyboard */,
+				B7286D661F99C83300CD9C0E /* ScavengerHunt.storyboard */,
+				B9CB3D251F92C6170023EA79 /* PinDetails.storyboard */,
+				B96D352B1F9B006900BC6CBF /* PinComment.storyboard */,
+				B79291FA1F91CD0100069144 /* CreatePin.storyboard */,
+				37F3FA711F9C29E200287F61 /* ViewedPins.storyboard */,
+				37F3FA6F1F9C29C100287F61 /* Profile.storyboard */,
 			);
 			path = Storyboards;
 			sourceTree = "<group>";
@@ -431,21 +535,14 @@
 		B9CB3D031F90563E0023EA79 /* View Controllers */ = {
 			isa = PBXGroup;
 			children = (
-				B9CB3D061F9056720023EA79 /* LoginViewController.swift */,
-				B79291FD1F91CE7400069144 /* CreatePinViewController.swift */,
-				B9CB3D1D1F91D5AE0023EA79 /* PinsMapViewController.swift */,
-				37B4E2521F99B9440090B168 /* PinsListViewController.swift */,
-				B9CB3D271F92C6970023EA79 /* PinDetailsViewController.swift */,
-				B7286D681F99CA1C00CD9C0E /* SHGenerateViewController.swift */,
-				B7DE45DF1F9B214A00F2472F /* TagSelectorViewController.swift */,
-				37F3FA731F9C2ADE00287F61 /* ProfileViewController.swift */,
-				37F3FA751F9C2AEB00287F61 /* ViewedPinsViewController.swift */,
-				B96D352D1F9B008E00BC6CBF /* PinCommentViewController.swift */,
-				37F3FA801F9D603400287F61 /* TabBarViewController.swift */,
-				B71D02A11F9C54770090DD9D /* SHNavigationViewController.swift */,
-				377DAA711F9D9AB100C7143A /* HomeViewController.swift */,
-				377DAA731F9DB94E00C7143A /* EditProfileViewController.swift */,
-				B98C87331F9D548600F078BB /* SignUpViewController.swift */,
+				37F8110F1FA58F6B004AD610 /* Tab Bar */,
+				37F8110A1FA58E30004AD610 /* Login-Signup */,
+				37F811091FA58E27004AD610 /* Home */,
+				37F8110B1FA58E7D004AD610 /* Scavenger Hunt */,
+				37F8110E1FA58F1C004AD610 /* Create Pin */,
+				37F811101FA58F8B004AD610 /* Viewed Pins */,
+				37F8110D1FA58EEA004AD610 /* Profile */,
+				37F8110C1FA58EC3004AD610 /* Widgets */,
 			);
 			path = "View Controllers";
 			sourceTree = "<group>";
@@ -462,13 +559,13 @@
 				B96D352F1F9B036F00BC6CBF /* FancyTextView */,
 				B7B862351F91E69400FB2F1E /* LocationBanner */,
 				3771ABC01FA1A34700A06F17 /* Map Annotations */,
+				375A657E1FA65BF100B3C952 /* Pin Collection View */,
 				B7DE45DD1F9B0BFF00F2472F /* SegmentControlViewCell.swift */,
 				B7DE45E11F9B2D4A00F2472F /* TagSelectorCell.swift */,
 				B7DE45E31F9BE03C00F2472F /* TagSelectedCollectionCell.swift */,
 				B7DE45E71F9BFB0300F2472F /* InfiniteScrollActivityView.swift */,
 				B71D02A31F9C7AE20090DD9D /* PinOverviewCell.swift */,
 				B7E1C73E1FA01FAF00DB0CCE /* UserLocationButton.swift */,
-				37D2A0D21F9F126200273B20 /* ViewedPinCell.swift */,
 				B76CF4081FA313B9007B08FD /* AddTagCollectionViewCell.swift */,
 				B71F5AEF1FA529ED009B0E60 /* DialogBox.swift */,
 			);
@@ -590,6 +687,7 @@
 				B96D35331F9B039A00BC6CBF /* FancyTextView.xib in Resources */,
 				B9CB3CFB1F9056060023EA79 /* LaunchScreen.storyboard in Resources */,
 				37F3FA701F9C29C100287F61 /* Profile.storyboard in Resources */,
+				375A65821FA65C4800B3C952 /* ProfileHeader.xib in Resources */,
 				3771ABC41FA1AA0300A06F17 /* CustomPinCalloutView.xib in Resources */,
 				B9CB3D151F90B5620023EA79 /* FancyTextField.xib in Resources */,
 				B7B862371F91E6AD00FB2F1E /* LocationBanner.xib in Resources */,
@@ -600,7 +698,8 @@
 				B96D352C1F9B006900BC6CBF /* PinComment.storyboard in Resources */,
 				B9BC3F1B1FA0345D00D4CC7A /* PinCell.xib in Resources */,
 				37F3FA7F1F9D5DBC00287F61 /* TabBar.storyboard in Resources */,
-				B9CB3CF61F9056060023EA79 /* Main.storyboard in Resources */,
+				375A65841FA65C6800B3C952 /* CollectionViewPinCell.xib in Resources */,
+				B9CB3CF61F9056060023EA79 /* Login.storyboard in Resources */,
 				B9CB3D2E1F94143B0023EA79 /* ProfileView.xib in Resources */,
 				B79291FB1F91CD0100069144 /* CreatePin.storyboard in Resources */,
 				37F3FA721F9C29E200287F61 /* ViewedPins.storyboard in Resources */,
@@ -743,6 +842,7 @@
 				B71F5AF01FA529ED009B0E60 /* DialogBox.swift in Sources */,
 				B96D35211F99B32F00BC6CBF /* PinDetailsCard.swift in Sources */,
 				B9CB3D321F9425FA0023EA79 /* ImageUtils.swift in Sources */,
+				37F14EC91FA6671400D1F8D9 /* ProfileHeader.swift in Sources */,
 				B7DE45E81F9BFB0300F2472F /* InfiniteScrollActivityView.swift in Sources */,
 				B9E7BF821F9C2BDA0063973C /* PinsMapViewController.swift in Sources */,
 				3771ABBF1FA1A33A00A06F17 /* PinCalloutView.swift in Sources */,
@@ -754,6 +854,7 @@
 				7C1A43141F96B6FD00E3E6E0 /* PinAnnotationView.swift in Sources */,
 				B7DE45DE1F9B0BFF00F2472F /* SegmentControlViewCell.swift in Sources */,
 				3786F84A1F9414120009F05B /* TagService.swift in Sources */,
+				37F811081FA58ABF004AD610 /* ProfileViewController.swift in Sources */,
 				B71D02A01F9C2F740090DD9D /* ScavengerHunt.swift in Sources */,
 				B96D35271F99D03700BC6CBF /* PinCommentCell.swift in Sources */,
 				B7E83F231F92AFFA00FA9D88 /* Location.swift in Sources */,
@@ -780,7 +881,6 @@
 				B71D02A21F9C54770090DD9D /* SHNavigationViewController.swift in Sources */,
 				3771ABC61FA2CFDC00A06F17 /* CustomPinCalloutView.swift in Sources */,
 				B9CB3D1A1F90C8BF0023EA79 /* UIConstants.swift in Sources */,
-				37F3FA741F9C2ADE00287F61 /* ProfileViewController.swift in Sources */,
 				B763C3581F9322C500DA8311 /* StringExtension.swift in Sources */,
 				B7EBCA121F94331B00D5795D /* ViewedPin.swift in Sources */,
 				37B4E2531F99B9440090B168 /* PinsListViewController.swift in Sources */,
@@ -790,7 +890,7 @@
 				B71D029E1F9C28240090DD9D /* Conversions.swift in Sources */,
 				B7286D691F99CA1C00CD9C0E /* SHGenerateViewController.swift in Sources */,
 				374C23EA1F91BDAE000C0ECE /* User.swift in Sources */,
-				37D2A0D31F9F126300273B20 /* ViewedPinCell.swift in Sources */,
+				37D2A0D31F9F126300273B20 /* CollectionViewPinCell.swift in Sources */,
 				B7DE45E01F9B214A00F2472F /* TagSelectorViewController.swift in Sources */,
 				37B4E2551F99C6AA0090B168 /* PinCell.swift in Sources */,
 			);
@@ -799,12 +899,12 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
-		B9CB3CF41F9056060023EA79 /* Main.storyboard */ = {
+		B9CB3CF41F9056060023EA79 /* Login.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
 				B9CB3CF51F9056060023EA79 /* Base */,
 			);
-			name = Main.storyboard;
+			name = Login.storyboard;
 			sourceTree = "<group>";
 		};
 		B9CB3CF91F9056060023EA79 /* LaunchScreen.storyboard */ = {
