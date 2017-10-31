@@ -92,17 +92,47 @@ class PinService {
         }
     }
 
-    func fetchPins(with tags: [Tag], in radius: Double, for currentLocation: CLLocation, completion: @escaping ([Pin]?, Error?) -> Void) {
+    func fetchPins(with tags: [Tag], in radius: Double, for currentLocation: CLLocation, count: NSNumber, completion: @escaping ([Pin]?, Error?) -> Void) {
         let userGeo:PFGeoPoint = PFGeoPoint(location: currentLocation)
-        let kiloRadius: Double = Conversions.milesToKilometers(mile: radius)
-        let pinsQuery = Pin.query() as! PFQuery<Pin>
 
-        pinsQuery.limit = 5
+        let pinsQuery = Pin.query() as! PFQuery<Pin>
+        pinsQuery.limit = 20
         pinsQuery.whereKey("tags", containedIn: tags)
-        pinsQuery.whereKey("location", nearGeoPoint: userGeo, withinKilometers: kiloRadius)
+        pinsQuery.whereKey("location", nearGeoPoint: userGeo, withinRadians: radius)
         pinsQuery.clearCachedResult()
         pinsQuery.findObjectsInBackground { (pins: [Pin]?, error: Error?) in
-            completion(pins, error)
+            if let pins = pins {
+                var filteredOutPins: [Pin] = []
+                // filter out pins that within certain range
+                var filteredPins = pins.filter { index in
+                    var repeatedCount = 0
+                    pins.forEach{
+                        let distance = $0.location?.distanceInKilometers(to: index.location)
+                        if distance!.rounded(toPlaces: 2) == 0 {
+                            repeatedCount += 1
+                        }
+                    }
+
+                    if repeatedCount != 1 {
+                        filteredOutPins.append(index)
+                    }
+                    return repeatedCount == 1
+                }
+
+                let finalPins: [Pin]
+
+                if count.intValue < filteredPins.count {
+                    // pins returned more than user selected
+                    filteredPins.shuffle()
+                    finalPins = filteredPins.choose(count.intValue)
+                } else {
+                    // pins returned less than user selected
+                    finalPins = filteredPins
+                }
+                completion(finalPins, error)
+            } else {
+                completion(nil, error)
+            }
         }
     }
 

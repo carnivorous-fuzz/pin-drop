@@ -43,6 +43,7 @@
 		B71F5AF01FA529ED009B0E60 /* DialogBox.swift in Sources */ = {isa = PBXBuildFile; fileRef = B71F5AEF1FA529ED009B0E60 /* DialogBox.swift */; };
 		B7286D671F99C83300CD9C0E /* ScavengerHunt.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B7286D661F99C83300CD9C0E /* ScavengerHunt.storyboard */; };
 		B7286D691F99CA1C00CD9C0E /* SHGenerateViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7286D681F99CA1C00CD9C0E /* SHGenerateViewController.swift */; };
+		B755D2701FA86B0F005FBDF9 /* ArrayExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = B755D26F1FA86B0F005FBDF9 /* ArrayExtension.swift */; };
 		B763C3561F931F2700DA8311 /* AWSConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = B763C3551F931F2700DA8311 /* AWSConstants.swift */; };
 		B763C3581F9322C500DA8311 /* StringExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = B763C3571F9322C500DA8311 /* StringExtension.swift */; };
 		B763C35D1F932DD600DA8311 /* UIViewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = B763C35C1F932DD600DA8311 /* UIViewExtension.swift */; };
@@ -148,6 +149,7 @@
 		B71F5AEF1FA529ED009B0E60 /* DialogBox.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DialogBox.swift; sourceTree = "<group>"; };
 		B7286D661F99C83300CD9C0E /* ScavengerHunt.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = ScavengerHunt.storyboard; sourceTree = "<group>"; };
 		B7286D681F99CA1C00CD9C0E /* SHGenerateViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SHGenerateViewController.swift; sourceTree = "<group>"; };
+		B755D26F1FA86B0F005FBDF9 /* ArrayExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArrayExtension.swift; sourceTree = "<group>"; };
 		B763C3551F931F2700DA8311 /* AWSConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AWSConstants.swift; sourceTree = "<group>"; };
 		B763C3571F9322C500DA8311 /* StringExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StringExtension.swift; sourceTree = "<group>"; };
 		B763C35C1F932DD600DA8311 /* UIViewExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewExtension.swift; sourceTree = "<group>"; };
@@ -401,6 +403,7 @@
 				B763C35C1F932DD600DA8311 /* UIViewExtension.swift */,
 				7C1A43201F994CC000E3E6E0 /* StoryboardExtension.swift */,
 				B77121081F9AFD50004BD7D7 /* DoubleExtension.swift */,
+				B755D26F1FA86B0F005FBDF9 /* ArrayExtension.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -868,6 +871,7 @@
 				B79291FE1F91CE7400069144 /* CreatePinViewController.swift in Sources */,
 				B763C35D1F932DD600DA8311 /* UIViewExtension.swift in Sources */,
 				B9CB3D071F9056720023EA79 /* LoginViewController.swift in Sources */,
+				B755D2701FA86B0F005FBDF9 /* ArrayExtension.swift in Sources */,
 				B7E1C73F1FA01FAF00DB0CCE /* UserLocationButton.swift in Sources */,
 				377DAA741F9DB94E00C7143A /* EditProfileViewController.swift in Sources */,
 				374C23E81F91BDA5000C0ECE /* Pin.swift in Sources */,
