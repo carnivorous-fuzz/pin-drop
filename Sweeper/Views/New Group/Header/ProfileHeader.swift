@@ -61,7 +61,7 @@ class ProfileHeader: UICollectionReusableView {
             }
             
             usernameLabel.text = user.getFullName()
-            visitsLabel.text = "0"
+            visitsLabel.text = nil
             PinService.sharedInstance.visitedPinCount(user) { (count) in
                 self.visitsLabel.text = "\(count)"
             }
