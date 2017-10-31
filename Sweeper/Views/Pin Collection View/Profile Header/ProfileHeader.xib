@@ -73,7 +73,7 @@
                             <nil key="textColor"/>
                             <nil key="highlightedColor"/>
                         </label>
-                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="VMY-DI-q2Q" userLabel="Settings Button">
+                        <button opaque="NO" contentMode="scaleAspectFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="VMY-DI-q2Q" userLabel="Settings Button">
                             <rect key="frame" x="338" y="12" width="25" height="25"/>
                             <constraints>
                                 <constraint firstAttribute="width" constant="25" id="Bus-2X-vD8"/>
@@ -131,6 +131,7 @@
                 <outlet property="postsLabel" destination="F20-Ub-5lR" id="iAn-QN-L1q"/>
                 <outlet property="profileImageView" destination="bb2-Gb-je4" id="tDw-7l-Mjt"/>
                 <outlet property="separatorLabel" destination="Bdh-hK-Zub" id="WC4-ej-dC8"/>
+                <outlet property="settingsButton" destination="VMY-DI-q2Q" id="aBS-bI-dF2"/>
                 <outlet property="usernameLabel" destination="i6g-k2-L9N" id="QnZ-Xb-30K"/>
                 <outlet property="visitsLabel" destination="Cwh-U6-l7c" id="1i1-VA-0tS"/>
             </connections>

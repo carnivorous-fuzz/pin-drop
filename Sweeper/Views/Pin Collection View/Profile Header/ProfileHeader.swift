@@ -21,6 +21,7 @@ class ProfileHeader: UICollectionReusableView {
     @IBOutlet weak var usernameLabel: UILabel!
     @IBOutlet weak var mapContainerView: UIView!
     @IBOutlet weak var separatorLabel: UILabel!
+    @IBOutlet weak var settingsButton: UIButton!
     
     var delegate: ProfileHeaderDelegate?
     var mapView: MGLMapView!
@@ -36,6 +37,7 @@ class ProfileHeader: UICollectionReusableView {
                 }
             })
             self.mapView.addAnnotations(annotations)
+            self.mapView.showAnnotations(annotations, animated: true)
             postsLabel.text = "\(pins.count)"
         }
     }
@@ -46,6 +48,13 @@ class ProfileHeader: UICollectionReusableView {
             } else {
                 profileImageView.image = UIImage(named: "default_profile")
             }
+            
+            if user != User.currentUser {
+                settingsButton.isHidden = true
+            } else {
+                settingsButton.isHidden = false
+            }
+            
             usernameLabel.text = user.getFullName()
             // TODO set "visited" label
         }
@@ -64,6 +73,13 @@ class ProfileHeader: UICollectionReusableView {
         mapView.showsUserLocation = false
         mapView.delegate = self
         mapContainerView.addSubview(mapView)
+        
+        //button styling
+        settingsButton.backgroundColor = .white
+        settingsButton.layer.cornerRadius = 3
+        settingsButton.layer.borderWidth = 1
+        settingsButton.contentEdgeInsets = UIEdgeInsetsMake(5, 5, 5, 5)
+        settingsButton.layer.borderColor = UIConstants.Theme.lightGray.cgColor
     }
     
     @IBAction func onTouchSettings(_ sender: Any) {
