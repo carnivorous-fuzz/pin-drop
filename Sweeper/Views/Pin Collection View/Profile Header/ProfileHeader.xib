@@ -74,10 +74,10 @@
                             <nil key="highlightedColor"/>
                         </label>
                         <button opaque="NO" contentMode="scaleAspectFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="VMY-DI-q2Q" userLabel="Settings Button">
-                            <rect key="frame" x="338" y="12" width="25" height="25"/>
+                            <rect key="frame" x="328" y="12" width="35" height="35"/>
                             <constraints>
-                                <constraint firstAttribute="width" constant="25" id="Bus-2X-vD8"/>
-                                <constraint firstAttribute="height" constant="25" id="rit-eJ-QgR"/>
+                                <constraint firstAttribute="width" constant="35" id="Bus-2X-vD8"/>
+                                <constraint firstAttribute="height" constant="35" id="rit-eJ-QgR"/>
                             </constraints>
                             <state key="normal" image="gear"/>
                             <connections>
@@ -96,8 +96,8 @@
                         <constraint firstItem="i6g-k2-L9N" firstAttribute="top" secondItem="F20-Ub-5lR" secondAttribute="bottom" constant="5" id="38i-ne-lrz"/>
                         <constraint firstItem="F20-Ub-5lR" firstAttribute="top" secondItem="49w-tp-DcZ" secondAttribute="bottom" constant="5" id="5VQ-V8-NmC"/>
                         <constraint firstItem="F20-Ub-5lR" firstAttribute="leading" secondItem="49w-tp-DcZ" secondAttribute="leading" id="7Gt-q7-c41"/>
-                        <constraint firstItem="VMY-DI-q2Q" firstAttribute="top" secondItem="3cq-0c-v20" secondAttribute="top" constant="12" id="HwV-Nu-wcz"/>
                         <constraint firstItem="ote-Fh-wR3" firstAttribute="bottom" secondItem="49w-tp-DcZ" secondAttribute="bottom" id="IhI-gO-Xfi"/>
+                        <constraint firstItem="VMY-DI-q2Q" firstAttribute="top" secondItem="bb2-Gb-je4" secondAttribute="top" id="Ik0-Tq-cQH"/>
                         <constraint firstItem="Cwh-U6-l7c" firstAttribute="leading" secondItem="ote-Fh-wR3" secondAttribute="leading" id="LCv-ob-P9z"/>
                         <constraint firstItem="ote-Fh-wR3" firstAttribute="leading" secondItem="49w-tp-DcZ" secondAttribute="trailing" constant="40" id="Vav-q9-PsM"/>
                         <constraint firstItem="i6g-k2-L9N" firstAttribute="leading" secondItem="bb2-Gb-je4" secondAttribute="leading" id="gSu-jp-aXd"/>
