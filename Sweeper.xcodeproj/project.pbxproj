@@ -260,7 +260,6 @@
 		375A657E1FA65BF100B3C952 /* Pin Collection View */ = {
 			isa = PBXGroup;
 			children = (
-				375A65801FA65C2B00B3C952 /* Profile Header */,
 				375A657F1FA65C2600B3C952 /* Cell */,
 			);
 			path = "Pin Collection View";
@@ -275,13 +274,13 @@
 			path = Cell;
 			sourceTree = "<group>";
 		};
-		375A65801FA65C2B00B3C952 /* Profile Header */ = {
+		375A65801FA65C2B00B3C952 /* Header */ = {
 			isa = PBXGroup;
 			children = (
 				37F14EC81FA6671400D1F8D9 /* ProfileHeader.swift */,
 				375A65811FA65C4800B3C952 /* ProfileHeader.xib */,
 			);
-			path = "Profile Header";
+			path = Header;
 			sourceTree = "<group>";
 		};
 		3771ABC01FA1A34700A06F17 /* Map Annotations */ = {
@@ -293,6 +292,15 @@
 				3771ABC51FA2CFDC00A06F17 /* CustomPinCalloutView.swift */,
 			);
 			path = "Map Annotations";
+			sourceTree = "<group>";
+		};
+		37F14ECA1FA81A3100D1F8D9 /* Profile */ = {
+			isa = PBXGroup;
+			children = (
+				375A65801FA65C2B00B3C952 /* Header */,
+			);
+			name = Profile;
+			path = "New Group";
 			sourceTree = "<group>";
 		};
 		37F811091FA58E27004AD610 /* Home */ = {
@@ -554,6 +562,7 @@
 				B96D352F1F9B036F00BC6CBF /* FancyTextView */,
 				B7B862351F91E69400FB2F1E /* LocationBanner */,
 				3771ABC01FA1A34700A06F17 /* Map Annotations */,
+				37F14ECA1FA81A3100D1F8D9 /* Profile */,
 				375A657E1FA65BF100B3C952 /* Pin Collection View */,
 				B7DE45DD1F9B0BFF00F2472F /* SegmentControlViewCell.swift */,
 				B7DE45E11F9B2D4A00F2472F /* TagSelectorCell.swift */,
