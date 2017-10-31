@@ -193,4 +193,12 @@ class PinService {
                 })
         }
     }
+    
+    func visitedPinCount(_ forUser: User, completion: @escaping (Int) -> ()) {
+        let query = ViewedPin.query() as! PFQuery<ViewedPin>
+        query.whereKey("user", equalTo: forUser)
+        query.countObjectsInBackground { (count: Int32, error: Error?) in
+            completion(Int(count))
+        }
+    }
 }

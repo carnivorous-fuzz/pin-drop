@@ -56,7 +56,10 @@ class ProfileHeader: UICollectionReusableView {
             }
             
             usernameLabel.text = user.getFullName()
-            // TODO set "visited" label
+            visitsLabel.text = "0"
+            PinService.sharedInstance.visitedPinCount(user) { (count) in
+                self.visitsLabel.text = "\(count)"
+            }
         }
     }
     
