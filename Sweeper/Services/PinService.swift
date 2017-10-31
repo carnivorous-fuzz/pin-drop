@@ -134,6 +134,11 @@ class PinService {
     }
 
     func markAsViewed(by user: User, with pin: Pin) {
+        //safeguard - don't let user's "view" their own pin
+        if user == User.currentUser {
+            return
+        }
+        
         let viewedPin = ViewedPin()
         viewedPin.userId = user.objectId
         viewedPin.user = user

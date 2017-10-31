@@ -105,7 +105,7 @@ class PinDetailsViewController: UIViewController {
         }
         
         let visited = pin.visited ?? false
-        if !visited {
+        if !visited && pin.creator != User.currentUser {
             pinService.markAsViewed(by: User.currentUser!, with: pin)
         }
 
