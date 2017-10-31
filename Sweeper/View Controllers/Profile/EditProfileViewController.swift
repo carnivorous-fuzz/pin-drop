@@ -12,9 +12,6 @@ class EditProfileViewController: UIViewController {
     @IBOutlet weak var profileImageView: UIImageView!
     @IBOutlet weak var firstNameTextField: UITextField!
     @IBOutlet weak var lastNameTextField: UITextField!
-    @IBOutlet weak var usernameTextField: UITextField!
-    @IBOutlet weak var currentPasswordTextField: UITextField!
-    @IBOutlet weak var newPasswordTextField: UITextField!
     @IBOutlet weak var saveButton: UIButton!
     
     fileprivate var user: User! = User.currentUser
@@ -23,7 +20,12 @@ class EditProfileViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        // button styles
         saveButton.backgroundColor = UIConstants.Theme.green
+        profileImageView.layer.cornerRadius = profileImageView.frame.width / 2
+        profileImageView.layer.borderWidth = 1
+        profileImageView.layer.borderColor = UIConstants.Theme.lightGray.cgColor
+        
         saveButton.layer.cornerRadius = 7
         saveButton.layer.borderWidth = 1
         saveButton.layer.borderColor = UIConstants.Theme.lightGray.cgColor
@@ -36,7 +38,6 @@ class EditProfileViewController: UIViewController {
         }
         firstNameTextField.text = user.firstName ?? ""
         lastNameTextField.text = user.lastName ?? ""
-        usernameTextField.text = user.username ?? ""
         
         let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(dismissKeyboard))
         view.addGestureRecognizer(tap)
@@ -75,8 +76,6 @@ class EditProfileViewController: UIViewController {
     @IBAction func onSave(_ sender: UIButton) {
         user.firstName = firstNameTextField.text
         user.lastName = lastNameTextField.text
-        user.username = usernameTextField.text
-        print("touched save")
         saveButton.isEnabled = false
         //TODO: password updates, image updates
         
@@ -89,6 +88,15 @@ class EditProfileViewController: UIViewController {
                 Dialog.show(controller: self, title: "Error saving you profile", message: error?.localizedDescription ?? "Error", buttons: [cancel], image: nil, dismissAfter: nil, completion: nil)
             }
         }
+    }
+    
+    @IBAction func onCancel(_ sender: Any) {
+        navigationController?.dismiss(animated: true, completion: nil)
+    }
+    
+
+    @IBAction func onLogout(_ sender: Any) {
+        UserService.sharedInstance.logout()
     }
     
     private func showPicker(style: UIImagePickerControllerSourceType) {

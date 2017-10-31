@@ -42,14 +42,17 @@ class TabBarViewController: UIViewController {
         ]
         
         // init selected vc
-        didPressTab(buttons[selectedIndex])
+        handleTransition(0, 0)
     }
     
     // MARK: IB actions
     @IBAction func didPressTab(_ sender: UIButton) {
         let previousIndex = selectedIndex
         let touchedIndex = sender.tag
-        handleTransition(previousIndex, touchedIndex)
+        
+        if previousIndex != touchedIndex {
+            handleTransition(previousIndex, touchedIndex)
+        }
     }
     
     // MARK: helpers

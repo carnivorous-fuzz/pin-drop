@@ -106,8 +106,6 @@
 		B9CB3D201F91E8200023EA79 /* KeyboardNotification.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9CB3D1F1F91E8200023EA79 /* KeyboardNotification.swift */; };
 		B9CB3D261F92C6170023EA79 /* PinDetails.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B9CB3D251F92C6170023EA79 /* PinDetails.storyboard */; };
 		B9CB3D281F92C6970023EA79 /* PinDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9CB3D271F92C6970023EA79 /* PinDetailsViewController.swift */; };
-		B9CB3D2E1F94143B0023EA79 /* ProfileView.xib in Resources */ = {isa = PBXBuildFile; fileRef = B9CB3D2D1F94143B0023EA79 /* ProfileView.xib */; };
-		B9CB3D301F94144B0023EA79 /* ProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9CB3D2F1F94144B0023EA79 /* ProfileView.swift */; };
 		B9CB3D321F9425FA0023EA79 /* ImageUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9CB3D311F9425FA0023EA79 /* ImageUtils.swift */; };
 		B9E7BF821F9C2BDA0063973C /* PinsMapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9CB3D1D1F91D5AE0023EA79 /* PinsMapViewController.swift */; };
 /* End PBXBuildFile section */
@@ -219,8 +217,6 @@
 		B9CB3D1F1F91E8200023EA79 /* KeyboardNotification.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyboardNotification.swift; sourceTree = "<group>"; };
 		B9CB3D251F92C6170023EA79 /* PinDetails.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = PinDetails.storyboard; sourceTree = "<group>"; };
 		B9CB3D271F92C6970023EA79 /* PinDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PinDetailsViewController.swift; sourceTree = "<group>"; };
-		B9CB3D2D1F94143B0023EA79 /* ProfileView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ProfileView.xib; sourceTree = "<group>"; };
-		B9CB3D2F1F94144B0023EA79 /* ProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileView.swift; sourceTree = "<group>"; };
 		B9CB3D311F9425FA0023EA79 /* ImageUtils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageUtils.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -266,7 +262,6 @@
 		375A657E1FA65BF100B3C952 /* Pin Collection View */ = {
 			isa = PBXGroup;
 			children = (
-				375A65801FA65C2B00B3C952 /* Profile Header */,
 				375A657F1FA65C2600B3C952 /* Cell */,
 			);
 			path = "Pin Collection View";
@@ -281,13 +276,13 @@
 			path = Cell;
 			sourceTree = "<group>";
 		};
-		375A65801FA65C2B00B3C952 /* Profile Header */ = {
+		375A65801FA65C2B00B3C952 /* Header */ = {
 			isa = PBXGroup;
 			children = (
 				37F14EC81FA6671400D1F8D9 /* ProfileHeader.swift */,
 				375A65811FA65C4800B3C952 /* ProfileHeader.xib */,
 			);
-			path = "Profile Header";
+			path = Header;
 			sourceTree = "<group>";
 		};
 		3771ABC01FA1A34700A06F17 /* Map Annotations */ = {
@@ -299,6 +294,15 @@
 				3771ABC51FA2CFDC00A06F17 /* CustomPinCalloutView.swift */,
 			);
 			path = "Map Annotations";
+			sourceTree = "<group>";
+		};
+		37F14ECA1FA81A3100D1F8D9 /* Profile */ = {
+			isa = PBXGroup;
+			children = (
+				375A65801FA65C2B00B3C952 /* Header */,
+			);
+			name = Profile;
+			path = "New Group";
 			sourceTree = "<group>";
 		};
 		37F811091FA58E27004AD610 /* Home */ = {
@@ -557,11 +561,11 @@
 				B9784BC21F9B23F6009BDF14 /* PinActions */,
 				B9784BC11F9B2194009BDF14 /* PinDetailsCard */,
 				B96D35241F99CAEF00BC6CBF /* PinCommentCell */,
-				B9CB3D2C1F9414110023EA79 /* Profile */,
 				B9CB3D2B1F9340D10023EA79 /* FancyTextField */,
 				B96D352F1F9B036F00BC6CBF /* FancyTextView */,
 				B7B862351F91E69400FB2F1E /* LocationBanner */,
 				3771ABC01FA1A34700A06F17 /* Map Annotations */,
+				37F14ECA1FA81A3100D1F8D9 /* Profile */,
 				375A657E1FA65BF100B3C952 /* Pin Collection View */,
 				B7DE45DD1F9B0BFF00F2472F /* SegmentControlViewCell.swift */,
 				B7DE45E11F9B2D4A00F2472F /* TagSelectorCell.swift */,
@@ -596,15 +600,6 @@
 				B9CB3D141F90B5620023EA79 /* FancyTextField.xib */,
 			);
 			path = FancyTextField;
-			sourceTree = "<group>";
-		};
-		B9CB3D2C1F9414110023EA79 /* Profile */ = {
-			isa = PBXGroup;
-			children = (
-				B9CB3D2F1F94144B0023EA79 /* ProfileView.swift */,
-				B9CB3D2D1F94143B0023EA79 /* ProfileView.xib */,
-			);
-			path = Profile;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -703,7 +698,6 @@
 				37F3FA7F1F9D5DBC00287F61 /* TabBar.storyboard in Resources */,
 				375A65841FA65C6800B3C952 /* CollectionViewPinCell.xib in Resources */,
 				B9CB3CF61F9056060023EA79 /* Login.storyboard in Resources */,
-				B9CB3D2E1F94143B0023EA79 /* ProfileView.xib in Resources */,
 				B79291FB1F91CD0100069144 /* CreatePin.storyboard in Resources */,
 				37F3FA721F9C29E200287F61 /* ViewedPins.storyboard in Resources */,
 				B9CB3D1C1F91D1780023EA79 /* Home.storyboard in Resources */,
@@ -890,7 +884,6 @@
 				37B4E2531F99B9440090B168 /* PinsListViewController.swift in Sources */,
 				B7E83F261F92EA9000FA9D88 /* AWSS3Service.swift in Sources */,
 				B76CF4091FA313B9007B08FD /* AddTagCollectionViewCell.swift in Sources */,
-				B9CB3D301F94144B0023EA79 /* ProfileView.swift in Sources */,
 				B71D029E1F9C28240090DD9D /* Conversions.swift in Sources */,
 				B7286D691F99CA1C00CD9C0E /* SHGenerateViewController.swift in Sources */,
 				374C23EA1F91BDAE000C0ECE /* User.swift in Sources */,

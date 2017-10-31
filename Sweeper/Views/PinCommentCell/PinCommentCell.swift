@@ -21,7 +21,7 @@ class PinCommentCell: UITableViewCell {
     }
     
     func prepare(withComment comment: PinComment) {
-        commenterLabel.text = comment.user?.username
+        commenterLabel.text = comment.user?.getFullName()
         commentLabel.text = comment.comment
         timeAgoLabel.text = TimeUtils.getPrettyTimeAgoString(comment.createdAt!)
     }
