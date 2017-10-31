@@ -7,6 +7,7 @@
 //
 
 import CoreLocation
+import Parse
 
 let METERS_PER_MILE = 1609.34
 
@@ -83,5 +84,9 @@ struct Location {
 
             success(addressString)
         })
+    }
+    
+    static func geoPointToCoordinate(_ location: PFGeoPoint) -> CLLocationCoordinate2D {
+        return CLLocationCoordinate2D(latitude: location.latitude, longitude: location.longitude)
     }
 }

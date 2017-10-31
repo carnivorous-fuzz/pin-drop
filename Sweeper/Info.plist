@@ -74,6 +74,8 @@
 	<string>Shows your location on the map and helps improve OpenStreetMap.</string>
 	<key>NSPhotoLibraryAddUsageDescription</key>
 	<string>We will be adding images to your photo library</string>
+	<key>NSLocationAlwaysAndWhenInUseUsageDescription</key>
+	<string>Shows your location on the map and helps improve OpenStreetMap.</string>
 	<key>NSPhotoLibraryUsageDescription</key>
 	<string>You photo library is in use</string>
 	<key>UIAppFonts</key>

@@ -8,7 +8,6 @@ target 'Sweeper' do
   # Pods for Sweeper
   # Parse
   pod 'Parse'
-
   pod 'ParseLiveQuery'
   pod 'ParseFacebookUtilsV4'
 

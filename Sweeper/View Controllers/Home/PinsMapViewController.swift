@@ -9,6 +9,7 @@
 import UIKit
 import Mapbox
 import NVActivityIndicatorView
+import PopupDialog
 
 class PinsMapViewController: UIViewController, NVActivityIndicatorViewable {
     
@@ -28,6 +29,7 @@ class PinsMapViewController: UIViewController, NVActivityIndicatorViewable {
 
         // Request location
         requestLocationPermission()
+        requestNotificationsPermission()
 
         // Create map
         mapView = MGLMapView(frame: view.bounds, styleURL: MGLStyle.streetsStyleURL())
@@ -71,6 +73,7 @@ class PinsMapViewController: UIViewController, NVActivityIndicatorViewable {
                     pins.forEach({ (pin) in
                         if !self.pins.contains(pin) {
                             self.pins.append(pin)
+                            AppService.sharedInstance.addLocalNotification(forPin: pin)
                             if pin.location != nil {
                                 let point = PinAnnotation(fromPin: pin)
                                 self.annotations.append(point)
@@ -125,8 +128,16 @@ class PinsMapViewController: UIViewController, NVActivityIndicatorViewable {
         locationManager.delegate = self
         locationManager.desiredAccuracy = kCLLocationAccuracyBest
         locationManager.distanceFilter = 200
-        locationManager.requestWhenInUseAuthorization()
+        locationManager.requestAlwaysAuthorization()
         locationManager.startUpdatingLocation()
+    }
+    
+    private func requestNotificationsPermission() {
+        AppService.sharedInstance.requestLocalNotificationsPermissions {
+            let alertController = UIAlertController(title: nil, message: "You can activate notifications from Settings at a later time", preferredStyle: .alert)
+            alertController.addAction(UIAlertAction(title: "OK", style: .cancel, handler: nil))
+            self.present(alertController, animated: true, completion: nil)
+        }
     }
 
     private func setupLocationButton() {
