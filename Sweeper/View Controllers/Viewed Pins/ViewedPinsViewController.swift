@@ -71,6 +71,7 @@ class ViewedPinsViewController: UIViewController, NVActivityIndicatorViewable {
                     }
                 })
                 self.mapView.addAnnotations(annotations)
+                self.mapView.showAnnotations(annotations, animated: true)
             } else {
                 let button = Dialog.button(title: "Try Again", type: .plain, action: nil)
                 Dialog.show(controller: self, title: "Unable to load pins", message: error?.localizedDescription ?? "Error", buttons: [button], image: nil, dismissAfter: nil, completion: nil)
