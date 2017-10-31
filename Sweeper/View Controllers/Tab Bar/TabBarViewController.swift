@@ -49,7 +49,10 @@ class TabBarViewController: UIViewController {
     @IBAction func didPressTab(_ sender: UIButton) {
         let previousIndex = selectedIndex
         let touchedIndex = sender.tag
-        handleTransition(previousIndex, touchedIndex)
+        
+        if previousIndex != touchedIndex {
+            handleTransition(previousIndex, touchedIndex)
+        }
     }
     
     // MARK: helpers
