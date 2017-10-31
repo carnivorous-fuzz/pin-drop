@@ -48,10 +48,6 @@ class HomeViewController: UIViewController {
         }
     }
     
-    @IBAction func onLogout(_ sender: UIBarButtonItem) {
-        UserService.sharedInstance.logout()
-    }
-    
     func handleViewTransition(_ fromViewController: UIViewController?, _ toViewController: UIViewController, _ animationStyle: UIViewAnimationTransition?) {
         
         // previous view controller removal/cleanup

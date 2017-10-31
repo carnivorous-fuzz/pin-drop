@@ -172,6 +172,20 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="U0f-Me-IGO"/>
                     </view>
+                    <toolbarItems/>
+                    <navigationItem key="navigationItem" title="Edit Profile" id="i8z-DW-JXl">
+                        <barButtonItem key="leftBarButtonItem" title="Cancel" id="e1E-GY-oWB">
+                            <connections>
+                                <action selector="onCancel:" destination="J4Q-4e-14B" id="piQ-T6-gyz"/>
+                            </connections>
+                        </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" title="Logout" id="Tc0-3b-Ib7">
+                            <connections>
+                                <action selector="onLogout:" destination="J4Q-4e-14B" id="8WG-cT-o2K"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
                         <outlet property="currentPasswordTextField" destination="48O-4t-Ks5" id="69i-MB-fFH"/>
                         <outlet property="firstNameTextField" destination="1mP-SL-e8r" id="CO3-lu-jGp"/>
@@ -184,7 +198,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="vVo-om-T9M" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1352.8" y="71.514242878560722"/>
+            <point key="canvasLocation" x="636" y="849"/>
         </scene>
         <!--Profile View Controller-->
         <scene sceneID="zG6-fe-jjv">
@@ -218,7 +232,7 @@
                     <navigationItem key="navigationItem" id="qsm-zg-Tf6"/>
                     <connections>
                         <outlet property="collectionView" destination="nnm-TQ-gEP" id="xK0-M3-MJw"/>
-                        <segue destination="J4Q-4e-14B" kind="show" identifier="EditProfileSegue" id="b0v-2a-Csh"/>
+                        <segue destination="d9e-Gj-rXh" kind="presentation" identifier="EditProfileSegue" id="uEH-Y5-tly"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="OfQ-S0-YIK" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -242,6 +256,24 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="LBx-e1-til" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-284" y="72"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="0ia-Gb-pYU">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="d9e-Gj-rXh" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="qrm-2A-jwU">
+                        <rect key="frame" x="0.0" y="20" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="J4Q-4e-14B" kind="relationship" relationship="rootViewController" id="ZQO-Qd-11g"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="bAR-f0-yXn" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-284" y="866"/>
         </scene>
     </scenes>
     <resources>

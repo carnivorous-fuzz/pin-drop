@@ -91,6 +91,15 @@ class EditProfileViewController: UIViewController {
         }
     }
     
+    @IBAction func onCancel(_ sender: Any) {
+        navigationController?.dismiss(animated: true, completion: nil)
+    }
+    
+
+    @IBAction func onLogout(_ sender: Any) {
+        UserService.sharedInstance.logout()
+    }
+    
     private func showPicker(style: UIImagePickerControllerSourceType) {
         let picker = UIImagePickerController()
         picker.delegate = self

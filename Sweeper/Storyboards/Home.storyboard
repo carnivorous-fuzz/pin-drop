@@ -20,12 +20,6 @@
                         <viewLayoutGuide key="safeArea" id="8y8-Vr-iRV"/>
                     </view>
                     <navigationItem key="navigationItem" id="4hZ-kU-sIO">
-                        <barButtonItem key="leftBarButtonItem" title="Logout" id="Len-Ld-Qev">
-                            <color key="tintColor" red="0.18823529410000001" green="0.90588235289999997" blue="0.69019607839999997" alpha="1" colorSpace="calibratedRGB"/>
-                            <connections>
-                                <action selector="onLogout:" destination="Q8S-h3-SmR" id="NOY-bH-CVn"/>
-                            </connections>
-                        </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" image="view-list" id="FgZ-hq-dWV">
                             <color key="tintColor" red="0.18823529411764706" green="0.90588235294117647" blue="0.69019607843137254" alpha="1" colorSpace="calibratedRGB"/>
                             <connections>
