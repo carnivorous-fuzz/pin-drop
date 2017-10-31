@@ -42,12 +42,7 @@ class ProfileHeader: UICollectionReusableView {
         }
     }
     var user: User! {
-        didSet {
-            // don't update if user remains the same
-            if oldValue == user {
-                return
-            }
-            
+        didSet {            
             if let imageUrl = user.getImageUrl() {
                 profileImageView.setImageWith(imageUrl)
             } else {
