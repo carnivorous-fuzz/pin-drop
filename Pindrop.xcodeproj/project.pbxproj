@@ -646,7 +646,7 @@
 					};
 				};
 			};
-			buildConfigurationList = B9CB3CE81F9056060023EA79 /* Build configuration list for PBXProject "Sweeper" */;
+			buildConfigurationList = B9CB3CE81F9056060023EA79 /* Build configuration list for PBXProject "Pindrop" */;
 			compatibilityVersion = "Xcode 8.0";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
@@ -1064,7 +1064,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		B9CB3CE81F9056060023EA79 /* Build configuration list for PBXProject "Sweeper" */ = {
+		B9CB3CE81F9056060023EA79 /* Build configuration list for PBXProject "Pindrop" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				B9CB3CFD1F9056060023EA79 /* Debug */,
