@@ -204,7 +204,7 @@
 		B98C87331F9D548600F078BB /* SignUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
 		B9BC3F191FA0345D00D4CC7A /* PinCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PinCell.xib; sourceTree = "<group>"; };
 		B9BC3F1C1FA0481200D4CC7A /* PinLike.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PinLike.swift; sourceTree = "<group>"; };
-		B9CB3CED1F9056060023EA79 /* Sweeper.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Sweeper.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		B9CB3CED1F9056060023EA79 /* Pindrop.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Pindrop.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B9CB3CF01F9056060023EA79 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		B9CB3CF51F9056060023EA79 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Login.storyboard; sourceTree = "<group>"; };
 		B9CB3CF71F9056060023EA79 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -511,7 +511,7 @@
 		B9CB3CEE1F9056060023EA79 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				B9CB3CED1F9056060023EA79 /* Sweeper.app */,
+				B9CB3CED1F9056060023EA79 /* Pindrop.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -627,7 +627,7 @@
 			);
 			name = Sweeper;
 			productName = Sweeper;
-			productReference = B9CB3CED1F9056060023EA79 /* Sweeper.app */;
+			productReference = B9CB3CED1F9056060023EA79 /* Pindrop.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -1039,7 +1039,7 @@
 				INFOPLIST_FILE = Sweeper/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.team11.Sweeper;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = Pindrop;
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -1055,7 +1055,7 @@
 				INFOPLIST_FILE = Sweeper/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.team11.Sweeper;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = Pindrop;
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
