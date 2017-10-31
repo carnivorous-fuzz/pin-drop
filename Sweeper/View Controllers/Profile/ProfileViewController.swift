@@ -29,14 +29,16 @@ class ProfileViewController: UIViewController, NVActivityIndicatorViewable {
         let headerNib = UINib(nibName: "ProfileHeader", bundle: nil)
         collectionView.register(cellNib, forCellWithReuseIdentifier: "CollectionViewPinCell")
         collectionView.register(headerNib, forSupplementaryViewOfKind: UICollectionElementKindSectionHeader, withReuseIdentifier: "ProfileHeader")
+        
+        // set static user data that doesn't change between views
+        if user == nil {
+            user = User.currentUser
+        }
+        navigationItem.title = user.getFullName()
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        
-        if user == nil {
-            user = User.currentUser
-        }
         
         startAnimating()
         PinService.sharedInstance.fetchPins(by: user) { (pins: [Pin]?, error: Error?) in
