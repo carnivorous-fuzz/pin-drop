@@ -25,8 +25,7 @@ class SHNavigationViewController: UIViewController, NVActivityIndicatorViewable 
         }
     }
 
-    fileprivate var currentLocation: CLLocation?
-    fileprivate var locationManager: CLLocationManager!
+    var currentLocation: CLLocation?
     var scavengerHunt: ScavengerHunt!
     var currentPinIndex: Int = 0
 
@@ -36,11 +35,11 @@ class SHNavigationViewController: UIViewController, NVActivityIndicatorViewable 
         navigationController?.navigationBar.barTintColor = UIColor.white
         navigationController?.navigationBar.tintColor = UIConstants.Theme.green
 
-        getLocation()
-
         tableView.tableFooterView = UIView(frame: CGRect.zero)
         tableView.rowHeight = UITableViewAutomaticDimension
         tableView.estimatedRowHeight = 120
+
+        fetchPins()
     }
 
     fileprivate func determineRoute() -> RouteOptions? {
@@ -78,7 +77,7 @@ class SHNavigationViewController: UIViewController, NVActivityIndicatorViewable 
 
     fileprivate func fetchPins() {
         if self.currentLocation != nil {
-            PinService.sharedInstance.fetchPins(with: scavengerHunt.selectedTags!, in: scavengerHunt.radius!.doubleValue, for: self.currentLocation!) {
+            PinService.sharedInstance.fetchPins(with: scavengerHunt.selectedTags!, in: scavengerHunt.radius!.doubleValue, for: self.currentLocation!, count: scavengerHunt.pinCount!) {
                 (pins: [Pin]?, error: Error?) in
                 self.stopAnimating()
                 if (pins != nil) && (pins!.count > 0) {
@@ -96,19 +95,6 @@ class SHNavigationViewController: UIViewController, NVActivityIndicatorViewable 
             let cancel = Dialog.button(title: "ok", type: .cancel, action: nil)
             Dialog.show(controller: self, title: "Unable to get your location", message: "Please check your location privacy", buttons: [cancel], image: nil, dismissAfter: nil, completion: nil)
         }
-    }
-
-    fileprivate func getLocation() {
-        locationManager = CLLocationManager()
-
-        if CLLocationManager.authorizationStatus() == .notDetermined {
-            locationManager.requestWhenInUseAuthorization()
-        }
-        locationManager.requestWhenInUseAuthorization()
-        locationManager.delegate = self
-        locationManager.desiredAccuracy = kCLLocationAccuracyBest
-        locationManager.distanceFilter = 200
-        locationManager.startUpdatingLocation()
     }
 }
 
@@ -131,20 +117,6 @@ extension SHNavigationViewController: UITableViewDelegate, UITableViewDataSource
 
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
-    }
-}
-
-// MARK: Location manager delegate
-extension SHNavigationViewController: CLLocationManagerDelegate {
-    func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
-        if let location = locations.last {
-            self.currentLocation = location
-            self.startAnimating()
-            fetchPins()
-        } else {
-            let cancel = Dialog.button(title: "ok", type: .cancel, action: nil)
-            Dialog.show(controller: self, title: "Unable to get your location", message: "Please check your location privacy", buttons: [cancel], image: nil, dismissAfter: nil, completion: nil)
-        }
     }
 }
 

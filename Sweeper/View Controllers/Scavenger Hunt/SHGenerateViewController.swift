@@ -16,6 +16,8 @@ class SHGenerateViewController: UIViewController {
     @IBOutlet weak var tagSelectionCollectionView: UICollectionView!
 
     fileprivate var scavengerHunt: ScavengerHunt?
+    fileprivate var currentLocation: CLLocation?
+    fileprivate var locationManager: CLLocationManager!
 
     fileprivate let maxTagOrStops = 5
     fileprivate var selectedTagCount: Int!
@@ -34,6 +36,8 @@ class SHGenerateViewController: UIViewController {
         selectedTags = [Tag]()
         tagSelectionCollectionView.delegate = self
         tagSelectionCollectionView.dataSource = self
+
+        getLocation()
     }
 
     @IBAction func sliderValueChanged(sender: UISlider) {
@@ -88,8 +92,33 @@ class SHGenerateViewController: UIViewController {
             let destination = segue.destination as! UINavigationController
             let SHNavVC = destination.topViewController as! SHNavigationViewController
             SHNavVC.scavengerHunt = self.scavengerHunt
+            SHNavVC.currentLocation = self.currentLocation
         }
 	}
+}
+// MARK: Location manager delegate
+extension SHGenerateViewController: CLLocationManagerDelegate {
+    func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
+        if let location = locations.last {
+            self.currentLocation = location
+        } else {
+            let cancel = Dialog.button(title: "ok", type: .cancel, action: nil)
+            Dialog.show(controller: self, title: "Unable to get your location", message: "Please check your location privacy", buttons: [cancel], image: nil, dismissAfter: nil, completion: nil)
+        }
+    }
+
+    fileprivate func getLocation() {
+        locationManager = CLLocationManager()
+        
+        if CLLocationManager.authorizationStatus() == .notDetermined {
+            locationManager.requestWhenInUseAuthorization()
+        }
+        locationManager.requestWhenInUseAuthorization()
+        locationManager.delegate = self
+        locationManager.desiredAccuracy = kCLLocationAccuracyBest
+        locationManager.distanceFilter = 200
+        locationManager.startUpdatingLocation()
+    }
 }
 
 // MARK: UICollectionView delegate
