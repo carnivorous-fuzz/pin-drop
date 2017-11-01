@@ -13,12 +13,15 @@ class FullScreenImageViewController: UIViewController {
     var transition: FadeTransition?
     fileprivate var fullScreenImage: UIImageView!
     fileprivate var originalCenter: CGPoint!
+    fileprivate var originalBounds: CGRect!
+    fileprivate var originalScale: CGFloat!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         fullScreenImage = UIImageView(image: pinImage)
         fullScreenImage.frame = UIScreen.main.bounds
+        originalBounds = fullScreenImage.bounds
         fullScreenImage.backgroundColor = .black
         fullScreenImage.contentMode = .scaleAspectFit
         fullScreenImage.isUserInteractionEnabled = true
@@ -39,12 +42,16 @@ class FullScreenImageViewController: UIViewController {
     @objc fileprivate func scaleImage(sender: UIPinchGestureRecognizer) {
         if let scalableView = sender.view {
             switch sender.state {
+            case .began:
+                originalScale = sender.scale
             case .changed:
-                view.transform = CGAffineTransform(scaleX: sender.scale, y: sender.scale)
+                scalableView.transform = CGAffineTransform(scaleX: sender.scale, y: sender.scale)
             case .ended:
-                let scale = max(sender.scale, 1.0)
-                UIView.animate(withDuration: 0.1) {
-                    scalableView.transform = CGAffineTransform(scaleX: scale, y: scale)
+                let transformedBounds = scalableView.bounds.applying(scalableView.transform)
+                if transformedBounds.width < originalBounds.width {
+                    UIView.animate(withDuration: 0.2) {
+                        scalableView.transform = .identity
+                    }
                 }
             default:
                 break
