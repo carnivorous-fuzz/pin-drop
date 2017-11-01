@@ -135,9 +135,15 @@ class PinsMapViewController: UIViewController, NVActivityIndicatorViewable {
     
     private func requestNotificationsPermission() {
         AppService.sharedInstance.requestLocalNotificationsPermissions {
-            let alertController = UIAlertController(title: nil, message: "You can activate notifications from Settings at a later time", preferredStyle: .alert)
-            alertController.addAction(UIAlertAction(title: "OK", style: .cancel, handler: nil))
-            self.present(alertController, animated: true, completion: nil)
+            let button = Dialog.button(title: "Got it", type: .plain, action: nil)
+            Dialog.show(controller: self,
+                        title: "No notifications",
+                        message: "You can activate notifications from Settings at a later time",
+                        buttons: [button],
+                        image: nil,
+                        dismissAfter: 10,
+                        completion: nil
+            )
         }
     }
 
