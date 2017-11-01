@@ -27,6 +27,7 @@ class PinDetailsViewController: UIViewController {
     fileprivate var liked: PinLike?
     fileprivate var likeEditedTo: Bool?
     fileprivate var imageVC: FullScreenImageViewController?
+    fileprivate lazy var transition = FadeTransition()
 
     override func loadView() {
         super.loadView()
@@ -172,6 +173,8 @@ extension PinDetailsViewController: PinDetailsCardDelegate {
         if let imageTapped = imageTapped {
             imageVC = UIStoryboard.pinImageFullScreenVC
             imageVC?.pinImage = imageTapped
+            imageVC?.transition = transition
+            imageVC?.transitioningDelegate = self
             present(imageVC!, animated: true, completion: nil)
         }
     }
@@ -188,5 +191,11 @@ extension PinDetailsViewController: PinActionsViewDelegate {
         let vc = navigationController.topViewController as! PinCommentViewController
         vc.commnentedPin = pin
         present(navigationController, animated: true, completion: nil)
+    }
+}
+
+extension PinDetailsViewController: UIViewControllerTransitioningDelegate {
+    func animationController(forDismissed dismissed: UIViewController) -> UIViewControllerAnimatedTransitioning? {
+        return transition
     }
 }
