@@ -20,6 +20,7 @@ extension UIView {
         self.layer.shouldRasterize = true
         self.layer.rasterizationScale = scale ? UIScreen.main.scale : 1
     }
+    
     func dropShadow(color: UIColor, opacity: Float = 0.5, offSet: CGSize, radius: CGFloat = 1, scale: Bool = true) {
         self.layer.masksToBounds = false
         self.layer.shadowColor = color.cgColor
@@ -31,16 +32,30 @@ extension UIView {
         self.layer.shouldRasterize = true
         self.layer.rasterizationScale = scale ? UIScreen.main.scale : 1
     }
+    
     func circleBorder() {
         self.layer.borderColor = UIConstants.Theme.turquose.cgColor
         self.layer.borderWidth = 2
         self.layer.cornerRadius = 20
         self.layer.masksToBounds = true
     }
+    
     func slightlyRoundBorder() {
         self.layer.borderWidth = 1
         self.layer.cornerRadius = 10
         self.layer.borderColor = UIConstants.Theme.turquose.cgColor
         self.layer.masksToBounds = true
+    }
+    
+    func getXScale() -> CGFloat {
+        let a = transform.a
+        let c = transform.c
+        return sqrt(a * a + c * c)
+    }
+    
+    func getYScale() -> CGFloat {
+        let b = transform.b
+        let d = transform.d
+        return sqrt(b * b + d * d)
     }
 }

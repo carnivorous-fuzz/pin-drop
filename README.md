@@ -1,4 +1,4 @@
-# *Location Messaging*
+# *PinDrop*
 
 iOS location-based media sharing app. Users are able to login to the app, and see messages left by others in an area around them. They can also upload messages of their own.
 

@@ -87,10 +87,15 @@ class AppService {
     }
     
     private func pinCreateLiveQueryHandler(_ pin: Pin) {
-        DispatchQueue.main.async {
-            NotificationCenter.default.post(name: Pin.pinLiveQueryNotification,
-                                            object: nil,
-                                            userInfo: [Pin.pinKey: pin])
+        do {
+            try pin.creator?.fetchIfNeeded()
+            DispatchQueue.main.async {
+                NotificationCenter.default.post(name: Pin.pinLiveQueryNotification,
+                                                object: nil,
+                                                userInfo: [Pin.pinKey: pin])
+            }
+        } catch {
+            // Not safe to add pin to app
         }
     }
 }
