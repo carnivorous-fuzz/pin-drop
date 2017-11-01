@@ -29,7 +29,10 @@ class LoginViewController: UIViewController {
         fbLoginView.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(loginWithFacebook)))
         fbLogoImageView.image = #imageLiteral(resourceName: "fblogo").withRenderingMode(.alwaysTemplate)
         fbLogoImageView.tintColor = .white
-        
+    }
+    
+    override func viewDidLayoutSubviews() {
+        super.viewDidLayoutSubviews()
         let pageWidth = introScrollView.bounds.width
         let pageHeight = introScrollView.bounds.height
         introScrollView.delegate = self
