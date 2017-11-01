@@ -40,13 +40,19 @@ class LoginViewController: UIViewController {
         introScrollView.isPagingEnabled = true
         introPageControl.numberOfPages = pages
         
-        let view1 = UIView(frame: CGRect(x: 0, y: 0, width: pageWidth, height: pageHeight))
-        view1.backgroundColor = .blue
-        let view2 = UIView(frame: CGRect(x: pageWidth, y: 0, width: pageWidth, height: pageHeight))
-        view2.backgroundColor = .orange
-        let view3 = UIView(frame: CGRect(x: 2.0 * pageWidth, y: 0, width: pageWidth, height: pageHeight))
-        view3.backgroundColor = .purple
-        let view4 = UIView(frame: CGRect(x: 3.0 * pageWidth, y: 0, width: pageWidth, height: pageHeight))
+        let view1 = WelcomeView(frame: CGRect(x: 0, y: 0, width: pageWidth, height: pageHeight))
+        view1.welcomeLabel.text = "Welcome!"
+        view1.welcomeImageView.image = #imageLiteral(resourceName: "pin_drop_logo").withRenderingMode(.alwaysTemplate)
+        view1.welcomeImageView.tintColor = UIConstants.Theme.turquose
+        let view2 = WelcomeView(frame: CGRect(x: pageWidth, y: 0, width: pageWidth, height: pageHeight))
+        view2.welcomeLabel.text = "View pins around your location."
+        view2.welcomeImageView.image = #imageLiteral(resourceName: "preview1")
+        let view3 = WelcomeView(frame: CGRect(x: 2.0 * pageWidth, y: 0, width: pageWidth, height: pageHeight))
+        view3.welcomeLabel.text = "See all the pins you've created."
+        view3.welcomeImageView.image = #imageLiteral(resourceName: "preview2")
+        let view4 = WelcomeView(frame: CGRect(x: 3.0 * pageWidth, y: 0, width: pageWidth, height: pageHeight))
+        view4.welcomeLabel.text = "Get notified when you're close to a pin!"
+        view4.welcomeImageView.image = #imageLiteral(resourceName: "preview3")
         
         introScrollView.addSubview(view1)
         introScrollView.addSubview(view2)

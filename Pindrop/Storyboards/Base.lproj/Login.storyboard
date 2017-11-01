@@ -18,7 +18,7 @@
         <!--Login View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController storyboardIdentifier="LoginViewController" id="BYZ-38-t0r" customClass="LoginViewController" customModule="Sweeper" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="LoginViewController" id="BYZ-38-t0r" customClass="LoginViewController" customModule="Pindrop" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -93,40 +93,40 @@
         <!--Sign Up View Controller-->
         <scene sceneID="fQa-KI-soU">
             <objects>
-                <viewController storyboardIdentifier="SignUpViewController" id="WJ3-Eb-lSx" customClass="SignUpViewController" customModule="Sweeper" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="SignUpViewController" id="WJ3-Eb-lSx" customClass="SignUpViewController" customModule="Pindrop" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="X6R-vj-Ly6">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="olH-hT-LPI" customClass="FancyTextField" customModule="Sweeper" customModuleProvider="target">
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="olH-hT-LPI" customClass="FancyTextField" customModule="Pindrop" customModuleProvider="target">
                                 <rect key="frame" x="47" y="124" width="281" height="60"/>
                                 <color key="backgroundColor" red="0.1137254902" green="0.79215686269999996" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="60" id="hdp-ui-nx8"/>
                                 </constraints>
                             </view>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="xAQ-pt-TGX" customClass="FancyTextField" customModule="Sweeper" customModuleProvider="target">
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="xAQ-pt-TGX" customClass="FancyTextField" customModule="Pindrop" customModuleProvider="target">
                                 <rect key="frame" x="47" y="184" width="281" height="60"/>
                                 <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="60" id="P0S-EO-Y88"/>
                                 </constraints>
                             </view>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="vyU-JI-KXx" customClass="FancyTextField" customModule="Sweeper" customModuleProvider="target">
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="vyU-JI-KXx" customClass="FancyTextField" customModule="Pindrop" customModuleProvider="target">
                                 <rect key="frame" x="47" y="244" width="281" height="60"/>
                                 <color key="backgroundColor" red="1" green="0.87586594210000002" blue="0.28114153289999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="60" id="xyF-6T-wxi"/>
                                 </constraints>
                             </view>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="pQS-PB-epM" customClass="FancyTextField" customModule="Sweeper" customModuleProvider="target">
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="pQS-PB-epM" customClass="FancyTextField" customModule="Pindrop" customModuleProvider="target">
                                 <rect key="frame" x="47" y="304" width="281" height="60"/>
                                 <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="60" id="pfN-8o-ezi"/>
                                 </constraints>
                             </view>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="136-Mf-r8c" customClass="FancyTextField" customModule="Sweeper" customModuleProvider="target">
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="136-Mf-r8c" customClass="FancyTextField" customModule="Pindrop" customModuleProvider="target">
                                 <rect key="frame" x="47" y="364" width="281" height="60"/>
                                 <color key="backgroundColor" red="0.1137254902" green="0.79215686269999996" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
@@ -148,7 +148,7 @@
                                         </connections>
                                     </imageView>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Profile Image" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="62E-1p-Zvm">
-                                        <rect key="frame" x="0.0" y="0.0" width="99.5" height="20"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="97.5" height="20"/>
                                         <fontDescription key="fontDescription" name="Lato-Regular" family="Lato" pointSize="17"/>
                                         <color key="textColor" red="0.27696740627288818" green="0.32088249921798706" blue="0.36670404672622681" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <nil key="highlightedColor"/>
