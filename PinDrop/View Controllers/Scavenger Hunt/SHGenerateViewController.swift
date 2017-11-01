@@ -68,15 +68,8 @@ class SHGenerateViewController: UIViewController {
         scavengerHunt.radius = sliderValue as NSNumber
         scavengerHunt.user = User.currentUser
         scavengerHunt.selectedTags = selectedTags
-        scavengerHunt.saveInBackground { (success: Bool, error: Error?) in
-            if success {
-                self.scavengerHunt = scavengerHunt
-                self.performSegue(withIdentifier: "SHNavigationSegue", sender: self)
-            } else {
-                let button = Dialog.button(title: "Try Again", type: .plain, action: nil)
-                Dialog.show(controller: self, title: "Unable to generate tour", message: error?.localizedDescription ?? "Error", buttons: [button], image: nil, dismissAfter: nil, completion: nil)
-            }
-        }
+        self.scavengerHunt = scavengerHunt
+        self.performSegue(withIdentifier: "SHNavigationSegue", sender: self)
     }
 
     fileprivate func deleteTag(with selectedCell: TagSelectedCollectionCell) {

@@ -77,12 +77,11 @@ class SHNavigationViewController: UIViewController, NVActivityIndicatorViewable 
 
     fileprivate func fetchPins() {
         if self.currentLocation != nil {
-            PinService.sharedInstance.fetchPins(with: scavengerHunt.selectedTags!, in: scavengerHunt.radius!.doubleValue, for: self.currentLocation!, count: scavengerHunt.pinCount!) {
+            PinService.sharedInstance.fetchPins(with: scavengerHunt.selectedTags!, in: scavengerHunt.radius!.doubleValue, for: self.currentLocation!, count: scavengerHunt.pinCount!, currentUser: scavengerHunt.user!) {
                 (pins: [Pin]?, error: Error?) in
                 self.stopAnimating()
                 if (pins != nil) && (pins!.count > 0) {
                     self.scavengerHunt.pins = pins
-                    self.scavengerHunt.saveInBackground()
                     self.tableView.reloadData()
                 } else {
                     let cancel = Dialog.button(title: "ok", type: .cancel) {
