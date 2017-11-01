@@ -87,16 +87,15 @@ class AppService {
     }
     
     func addLocalNotification(forPin pin: Pin) {
-        guard let _ = pin.location else {
+        if pin.location == nil || pin.creator?.objectId == User.currentUser?.objectId {
             return
         }
         
         let location = Location.geoPointToCoordinate(pin.location!)
         print(location)
         let trigger = UNLocationNotificationTrigger(
-            region: CLCircularRegion(center: location, radius: 10, identifier: "\(pin.objectId!)\(location)"),
+            region: CLCircularRegion(center: location, radius: 200, identifier: "\(pin.objectId!)\(location)"),
             repeats: true)
-        //let trigger = UNTimeIntervalNotificationTrigger(timeInterval: 15, repeats: false)
         let content = UNMutableNotificationContent()
         content.title = "You're near a pin!"
         content.body = "\(pin.creator?.getFullName() ?? "Someone") left a pin nearby"
