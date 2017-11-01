@@ -116,4 +116,18 @@ extension PinsListViewController: UITableViewDelegate {
         }
         show(detailsVC, sender: nil)
     }
+
+    func numberOfSections(in tableView: UITableView) -> Int {
+        if !pins.isEmpty {
+            UIView.animate(withDuration: 0.3, animations: {
+                TableViewHelper.RemoveMessage(tableView: tableView)
+            })
+            return 1
+        } else {
+            UIView.animate(withDuration: 0.3, animations: {
+                TableViewHelper.EmptyMessage(message: "You're all caught up!", tableView: tableView)
+            })
+            return 0
+        }
+    }
 }
