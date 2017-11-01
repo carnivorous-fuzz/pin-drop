@@ -598,7 +598,6 @@
 				B71D029D1F9C28240090DD9D /* Conversions.swift */,
 				B951556A1FA8533B00B061B7 /* FadeTransition.swift */,
 				B72E9C0C1FA98C110034B7AF /* TableViewHelper.swift */,
-				B951556A1FA8533B00B061B7 /* FadeTransition.swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
