@@ -8,6 +8,8 @@
 
 import Foundation
 import UIKit
+import UserNotifications
+import CoreLocation
 import Parse
 import ParseLiveQuery
 
@@ -71,6 +73,41 @@ class AppService {
         }
     }
     
+    func requestLocalNotificationsPermissions(deniedHandler: (() -> ())?) {
+        let center = UNUserNotificationCenter.current()
+        center.requestAuthorization(options: [.badge, .alert, .sound]) { (granted, error) in
+            if !granted {
+                deniedHandler?()
+            }
+        }
+    }
+    
+    func removeNotifications() {
+        UNUserNotificationCenter.current().removeAllPendingNotificationRequests()
+    }
+    
+    func addLocalNotification(forPin pin: Pin) {
+        if pin.location == nil || pin.creator?.objectId == User.currentUser?.objectId {
+            return
+        }
+        
+        let location = Location.geoPointToCoordinate(pin.location!)
+        print(location)
+        let trigger = UNLocationNotificationTrigger(
+            region: CLCircularRegion(center: location, radius: 200, identifier: "\(pin.objectId!)\(location)"),
+            repeats: true)
+        let content = UNMutableNotificationContent()
+        content.title = "You're near a pin!"
+        content.body = "\(pin.creator?.getFullName() ?? "Someone") left a pin nearby"
+        content.sound = UNNotificationSound.default()
+        let request = UNNotificationRequest(identifier: pin.objectId!, content: content, trigger: trigger)
+        UNUserNotificationCenter.current().add(request) { (error) in
+            if let error = error {
+                print(error.localizedDescription)
+            }
+        }
+    }
+    
     private func pinLikeLiveQueryHandler(_ pinLike: PinLike, type: PinLikeLiveQueryEventType) {
         if let likedPinId = pinLike.likedPin?.objectId {
             let info: [AnyHashable: Any] = [
@@ -89,6 +126,7 @@ class AppService {
     private func pinCreateLiveQueryHandler(_ pin: Pin) {
         do {
             try pin.creator?.fetchIfNeeded()
+            addLocalNotification(forPin: pin)
             DispatchQueue.main.async {
                 NotificationCenter.default.post(name: Pin.pinLiveQueryNotification,
                                                 object: nil,
