@@ -10,15 +10,16 @@ import UIKit
 import CoreLocation
 
 class SHGenerateViewController: UIViewController {
+    // MARK: Outlets
     @IBOutlet weak var sliderVal: UILabel!
     @IBOutlet weak var radiusSlider: UISlider!
     @IBOutlet weak var stopsCollectionView: UICollectionView!
     @IBOutlet weak var tagSelectionCollectionView: UICollectionView!
 
+    // MARK: controller variables
     fileprivate var scavengerHunt: ScavengerHunt?
     fileprivate var currentLocation: CLLocation?
     fileprivate var locationManager: CLLocationManager!
-
     fileprivate let maxTagOrStops = 5
     fileprivate var selectedTagCount: Int!
     fileprivate var selectedTags: [Tag]! {
@@ -27,6 +28,7 @@ class SHGenerateViewController: UIViewController {
         }
     }
 
+    // MARK: Lifecycle functions
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -40,29 +42,23 @@ class SHGenerateViewController: UIViewController {
         getLocation()
     }
 
+    // MARK: IB actions
     @IBAction func sliderValueChanged(sender: UISlider) {
         let currentValue = Double(sender.value).rounded(toPlaces: 1)
         sliderVal.text = "\(currentValue) mi"
     }
-
-    fileprivate func onTagChooserTap() {
-        let tagSelectorNC = UIStoryboard.tagsSelectorNC
-        let tagSelectorVC = tagSelectorNC.topViewController as! TagSelectorViewController
-        tagSelectorVC.delegate = self
-        present(tagSelectorNC, animated: true, completion: nil)
-    }
-
+    
     @IBAction func onGenerate(_ sender: Any) {
         // TODO: Improve pin filter based on count
         var selectedStopCount = 1
         let selectedStopCountIndex = stopsCollectionView.indexPathsForSelectedItems
-
+        
         if let selectedStopCountIndexFirst = selectedStopCountIndex?.first {
             selectedStopCount = selectedStopCountIndexFirst.row + 1
         }
-
+        
         let sliderValue = Double(radiusSlider.value).rounded(toPlaces: 1)
-
+        
         let scavengerHunt = ScavengerHunt()
         scavengerHunt.pinCount = selectedStopCount as NSNumber
         scavengerHunt.radius = sliderValue as NSNumber
@@ -70,6 +66,15 @@ class SHGenerateViewController: UIViewController {
         scavengerHunt.selectedTags = selectedTags
         self.scavengerHunt = scavengerHunt
         self.performSegue(withIdentifier: "SHNavigationSegue", sender: self)
+    }
+
+    
+    // MARK: helpers
+    fileprivate func onTagChooserTap() {
+        let tagSelectorNC = UIStoryboard.tagsSelectorNC
+        let tagSelectorVC = tagSelectorNC.topViewController as! TagSelectorViewController
+        tagSelectorVC.delegate = self
+        present(tagSelectorNC, animated: true, completion: nil)
     }
 
     fileprivate func deleteTag(with selectedCell: TagSelectedCollectionCell) {

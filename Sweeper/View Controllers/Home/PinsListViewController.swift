@@ -12,8 +12,10 @@ import NVActivityIndicatorView
 
 class PinsListViewController: UIViewController, UITableViewDataSource, NVActivityIndicatorViewable {
 
+    // MARK: IB outlets
     @IBOutlet weak var tableView: UITableView!
 
+    // MARK: controller variables
     let user = User.currentUser
     fileprivate var refreshControl: UIRefreshControl!
     fileprivate var pins: [Pin] = []
@@ -52,6 +54,7 @@ class PinsListViewController: UIViewController, UITableViewDataSource, NVActivit
         
     }
     
+    // MARK: helpers
     @objc fileprivate func loadPins() {
         if let currentLocation = user?.currentLocation {
             PinService.sharedInstance.fetchPins(for: user!, visited: false, near: currentLocation) { (pins: [Pin]?, error: Error?) in

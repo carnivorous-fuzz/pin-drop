@@ -12,9 +12,11 @@ import NVActivityIndicatorView
 
 class ViewedPinsViewController: UIViewController, NVActivityIndicatorViewable {
 
+    // MARK: IB outlets
     @IBOutlet weak var mapContainerView: UIView!
     @IBOutlet weak var collectionView: UICollectionView!
     
+    // MARK: controller variables
     var locationManager: CLLocationManager!
     let defaultLocation = CLLocation(latitude: 37.787353, longitude: -122.421561)
     var currentLocation: CLLocation?
@@ -26,6 +28,7 @@ class ViewedPinsViewController: UIViewController, NVActivityIndicatorViewable {
     fileprivate let sectionInsets = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0)
     fileprivate var cellsPerRow: CGFloat! = 3
     
+    // MARK: lifecycle functions
     override func viewDidLoad() {
         super.viewDidLoad()
         // Request location
@@ -92,6 +95,7 @@ class ViewedPinsViewController: UIViewController, NVActivityIndicatorViewable {
         lastVcStackSize = self.navigationController?.viewControllers.count
     }
     
+    // MARK: helpers
     private func requestLocationPermission() {
         locationManager = CLLocationManager()
         locationManager.delegate = self

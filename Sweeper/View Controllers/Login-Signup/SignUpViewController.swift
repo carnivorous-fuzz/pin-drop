@@ -10,6 +10,7 @@ import UIKit
 
 class SignUpViewController: UIViewController {
 
+    // MARK: outlets
     @IBOutlet weak var scrollView: UIScrollView!
     @IBOutlet weak var emailTextField: FancyTextField!
     @IBOutlet weak var firstNameTextField: FancyTextField!
@@ -18,15 +19,20 @@ class SignUpViewController: UIViewController {
     @IBOutlet weak var confirmPasswordField: FancyTextField!
     @IBOutlet weak var profileImageView: UIImageView!
     
-    lazy var requiredFields = [self.emailTextField, self.firstNameTextField, self.lastNameTextField,
-                               self.passwordField, self.confirmPasswordField]
+    // MARK: controller variables
+    lazy var requiredFields = [
+        self.emailTextField,
+        self.firstNameTextField,
+        self.lastNameTextField,
+        self.passwordField, self.confirmPasswordField
+    ]
     var email: String?
     var password: String?
-    
     private let missingInfo = "Did you fill all the required fields?"
     private let mismatchedPasswords = "Your passwords did not match. Please make sure they are correct"
     private let tryAgain = "Something went wrong. Try tapping sign up again."
     
+    // MARK: Lifecycle functions
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -37,6 +43,7 @@ class SignUpViewController: UIViewController {
         confirmPasswordField.customize(label: "Confirm Password*", isSecure: true)
     }
     
+    // MARK IB actions
     @IBAction func onProfileImageTap(_ sender: UITapGestureRecognizer) {
         let alertController = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
         if UIImagePickerController.isSourceTypeAvailable(.camera) {
@@ -94,6 +101,7 @@ class SignUpViewController: UIViewController {
         }
     }
     
+    // MARK: Helpers
     private func showPicker(style: UIImagePickerControllerSourceType) {
         let picker = UIImagePickerController()
         picker.delegate = self
@@ -108,6 +116,7 @@ class SignUpViewController: UIViewController {
     }
 }
 
+// MARK: delegate handlers
 extension SignUpViewController: UIImagePickerControllerDelegate, UINavigationControllerDelegate {
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
         if let image = info[UIImagePickerControllerEditedImage] as? UIImage {

@@ -11,8 +11,10 @@ import NVActivityIndicatorView
 
 class ProfileViewController: UIViewController, NVActivityIndicatorViewable {
     
+    // MARK: IB outlets
     @IBOutlet weak var collectionView: UICollectionView!
     
+    // MARK: controller variables
     var pins: [Pin]!
     var user: User!
     fileprivate let sectionInsets = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0)

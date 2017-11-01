@@ -12,12 +12,12 @@ import MapboxNavigation
 import NVActivityIndicatorView
 
 class SHNavigationViewController: UIViewController, NVActivityIndicatorViewable {
+    
+    // MARK: IB outlets
     @IBOutlet weak var tableView: UITableView!
-
     @IBAction func onCancel(_ sender: Any) {
         dismiss(animated: true, completion: nil)
     }
-
     @IBAction func onStart(_ sender: Any) {
         let routeOptions = determineRoute()
         if routeOptions != nil {
@@ -25,10 +25,12 @@ class SHNavigationViewController: UIViewController, NVActivityIndicatorViewable 
         }
     }
 
+    // MARK: controller variables
     var currentLocation: CLLocation?
     var scavengerHunt: ScavengerHunt!
     var currentPinIndex: Int = 0
 
+    // MARK: lifecycle functions
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -42,6 +44,7 @@ class SHNavigationViewController: UIViewController, NVActivityIndicatorViewable 
         fetchPins()
     }
 
+    // MARK: helpers
     fileprivate func determineRoute() -> RouteOptions? {
         if (currentLocation != nil) &&
             (scavengerHunt.pins != nil) &&

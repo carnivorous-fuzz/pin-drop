@@ -10,11 +10,15 @@ import UIKit
 
 class PinCommentViewController: UIViewController {
 
+    // MARK: IB outlets
     @IBOutlet weak var fancyTextView: FancyTextView!
     @IBOutlet weak var textViewBottomConstraint: NSLayoutConstraint!
     
+    // MARK: controller variables
     var commnentedPin: Pin!
     
+    
+    // MARK: lifecycle functions
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -40,6 +44,20 @@ class PinCommentViewController: UIViewController {
                                                   object: nil)
     }
     
+    // MARK: IB actions
+    @IBAction func onCancel(_ sender: UIBarButtonItem) {
+        if fancyTextView.hasText() {
+            let cancelButton = Dialog.button(title: "Dismiss", type: .cancel, action: nil)
+            let discardButton = Dialog.button(title: "Discard", type: .destructive) {
+                self.dismissController()
+            }
+            
+            Dialog.show(controller: self, title: "You have an unfinished comment", message: "Are you sure you want to leave this screen?", buttons: [discardButton, cancelButton], image: nil, dismissAfter: nil, completion: nil)
+        } else {
+            dismissController()
+        }
+    }
+    
     // MARK: Notification functions
     @objc private func keyboardWillShow(notification: Notification) {
         updateLayout(keyboardWillShow: true, notification: notification)
@@ -47,19 +65,6 @@ class PinCommentViewController: UIViewController {
     
     @objc private func keyboardWillHide(notification: Notification) {
         updateLayout(keyboardWillShow: false, notification: notification)
-    }
-
-    @IBAction func onCancel(_ sender: UIBarButtonItem) {
-        if fancyTextView.hasText() {
-            let cancelButton = Dialog.button(title: "Dismiss", type: .cancel, action: nil)
-            let discardButton = Dialog.button(title: "Discard", type: .destructive) {
-                self.dismissController()
-            }
-
-            Dialog.show(controller: self, title: "You have an unfinished comment", message: "Are you sure you want to leave this screen?", buttons: [discardButton, cancelButton], image: nil, dismissAfter: nil, completion: nil)
-        } else {
-            dismissController()
-        }
     }
     
     // MARK: Helpers
@@ -84,6 +89,7 @@ class PinCommentViewController: UIViewController {
     }
 }
 
+// MARK: delegate handlers
 extension PinCommentViewController: FancyTextViewDelegate {
     func fancyTextViewDidComplete(_ fancyTextView: FancyTextView) {
         let pinComment = PinComment()

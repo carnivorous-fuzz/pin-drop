@@ -12,6 +12,7 @@ import NVActivityIndicatorView
 
 class PinsMapViewController: UIViewController, NVActivityIndicatorViewable {
     
+    // MARK: controller variables
     let user = User.currentUser
     let defaultLocation = CLLocation(latitude: 37.787353, longitude: -122.421561)
     var locationManager: CLLocationManager!
@@ -62,7 +63,29 @@ class PinsMapViewController: UIViewController, NVActivityIndicatorViewable {
         }
     }
     
-    // MARK: Action handlers
+    // MARK: IB Actions
+    @IBAction func locationButtonTapped() {
+        var mode: MGLUserTrackingMode
+        
+        switch (mapView.userTrackingMode) {
+        case .none:
+            mode = .follow
+            break
+        case .follow:
+            mode = .followWithHeading
+            break
+        case .followWithHeading:
+            mode = .followWithCourse
+            break
+        case .followWithCourse:
+            mode = .none
+            break
+        }
+        
+        mapView.userTrackingMode = mode
+    }
+    
+    // MARK: helpers
     @objc fileprivate func loadPins() {
         if let currentLocation = user?.currentLocation {
             startAnimating()
@@ -87,27 +110,6 @@ class PinsMapViewController: UIViewController, NVActivityIndicatorViewable {
         }
     }
     
-    @IBAction func locationButtonTapped() {
-        var mode: MGLUserTrackingMode
-        
-        switch (mapView.userTrackingMode) {
-        case .none:
-            mode = .follow
-            break
-        case .follow:
-            mode = .followWithHeading
-            break
-        case .followWithHeading:
-            mode = .followWithCourse
-            break
-        case .followWithCourse:
-            mode = .none
-            break
-        }
-        
-        mapView.userTrackingMode = mode
-    }
-    
     @objc private func pinLiveQueryHandler(_ notification: Notification) {
         if let createdPin = Pin.getPinFromNotification(notification) {
             if createdPin.location != nil {
@@ -119,7 +121,6 @@ class PinsMapViewController: UIViewController, NVActivityIndicatorViewable {
         }
     }
     
-    // MARK: Helpers
     private func requestLocationPermission() {
         locationManager = CLLocationManager()
         locationManager.delegate = self

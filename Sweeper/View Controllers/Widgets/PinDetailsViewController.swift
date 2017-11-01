@@ -8,6 +8,7 @@
 
 import UIKit
 
+// MARK: delegates
 @objc protocol PinDetailsViewControllerDelegate {
     @objc optional func onNextPin(pinDetailsViewController: PinDetailsViewController)
     @objc optional func onEndTour(pinDetailsViewController: PinDetailsViewController)
@@ -15,10 +16,13 @@ import UIKit
 
 class PinDetailsViewController: UIViewController {
     
+    // MARK: IB outlets
     @IBOutlet weak var pinCard: PinDetailsCard!
     @IBOutlet var pinCardHeightConstraint: NSLayoutConstraint!
     @IBOutlet weak var commentsTableView: UITableView!
     
+    
+    // MARK: controller variables
     var pin: Pin!
     var hasNext: Bool?
     var delegate: PinDetailsViewControllerDelegate?
@@ -29,6 +33,7 @@ class PinDetailsViewController: UIViewController {
     fileprivate var imageVC: FullScreenImageViewController?
     fileprivate lazy var transition = FadeTransition()
 
+    // MARK: lifecycle functions
     override func loadView() {
         super.loadView()
         NSLayoutConstraint.deactivate([pinCardHeightConstraint])
@@ -52,7 +57,71 @@ class PinDetailsViewController: UIViewController {
         pinCard.delegate = self
         pinCard.pinActionsView.delegate = self
     }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        let pinService = PinService.sharedInstance
+        pinService.getComments(forPin: pin) { (comments, error) in
+            if let comments = comments {
+                if self.comments.count != comments.count {
+                    self.comments = comments
+                    self.commentsTableView.reloadData()
+                    self.pinCard.pinActionsView.updateCommentsCount(animated: true, count: comments.count)
+                }
+            }
+        }
+        
+        pinService.commentedOnPin(pin) { (hasCommented) in
+            if hasCommented {
+                self.pinCard.pinActionsView.updateCommentIcon(toColor: UIColor.green)
+            }
+        }
+        
+        pinService.likesOnPin(pin) { (count) in
+            self.likes = count
+            self.pinCard.pinActionsView.updateLikesCount(animated: false, count: self.likes)
+        }
+        
+        pinService.likedPin(pin) { (pinLike) in
+            self.liked = pinLike
+            self.pinCard.pinActionsView.updateLikeIcon(animated: false, liked: self.liked != nil)
+        }
+        
+        let visited = pin.visited ?? false
+        if !visited && pin.creator != User.currentUser {
+            pinService.markAsViewed(by: User.currentUser!, with: pin)
+        }
+        
+        NotificationCenter.default.addObserver(self,
+                                               selector: #selector(pinLikeLiveQueryNotificationHandler),
+                                               name: PinLike.pinLikeLiveQueryNotification,
+                                               object: nil)
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        
+        NotificationCenter.default.removeObserver(self, name: PinLike.pinLikeLiveQueryNotification, object: nil)
+        if likeEditedTo != nil && likeEditedTo! != (liked != nil) {
+            let pinLike = PinLike()
+            pinLike.user = User.currentUser
+            pinLike.likedPin = pin
+            
+            if likeEditedTo! {
+                pinLike.saveInBackground()
+            } else {
+                liked!.deleteInBackground()
+            }
+        }
+    }
+    
+    override func viewDidLayoutSubviews() {
+        super.viewDidLayoutSubviews()
+        
+        commentsTableView.contentInset = UIEdgeInsetsMake(pinCard.frame.height, 0, 0, 0)
+    }
 
+    // MARK: helpers
     func addBarButtonItemToDetailsView(hasNext: Bool) {
         let endButton = UIBarButtonItem(title: "End", style: .plain, target: self, action: #selector(endTour))
         endButton.tintColor = UIConstants.Theme.red
@@ -76,69 +145,6 @@ class PinDetailsViewController: UIViewController {
         })
     }
 
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-        let pinService = PinService.sharedInstance
-        pinService.getComments(forPin: pin) { (comments, error) in
-            if let comments = comments {
-                if self.comments.count != comments.count {
-                    self.comments = comments
-                    self.commentsTableView.reloadData()
-                    self.pinCard.pinActionsView.updateCommentsCount(animated: true, count: comments.count)
-                }
-            }
-        }
-
-        pinService.commentedOnPin(pin) { (hasCommented) in
-            if hasCommented {
-                self.pinCard.pinActionsView.updateCommentIcon(toColor: UIColor.green)
-            }
-        }
-
-        pinService.likesOnPin(pin) { (count) in
-            self.likes = count
-            self.pinCard.pinActionsView.updateLikesCount(animated: false, count: self.likes)
-        }
-
-        pinService.likedPin(pin) { (pinLike) in
-            self.liked = pinLike
-            self.pinCard.pinActionsView.updateLikeIcon(animated: false, liked: self.liked != nil)
-        }
-        
-        let visited = pin.visited ?? false
-        if !visited && pin.creator != User.currentUser {
-            pinService.markAsViewed(by: User.currentUser!, with: pin)
-        }
-
-        NotificationCenter.default.addObserver(self,
-                                               selector: #selector(pinLikeLiveQueryNotificationHandler),
-                                               name: PinLike.pinLikeLiveQueryNotification,
-                                               object: nil)
-    }
-    
-    override func viewWillDisappear(_ animated: Bool) {
-        super.viewWillDisappear(animated)
-
-        NotificationCenter.default.removeObserver(self, name: PinLike.pinLikeLiveQueryNotification, object: nil)
-        if likeEditedTo != nil && likeEditedTo! != (liked != nil) {
-            let pinLike = PinLike()
-            pinLike.user = User.currentUser
-            pinLike.likedPin = pin
-            
-            if likeEditedTo! {
-                pinLike.saveInBackground()
-            } else {
-                liked!.deleteInBackground()
-            }
-        }
-    }
-
-    override func viewDidLayoutSubviews() {
-        super.viewDidLayoutSubviews()
-
-        commentsTableView.contentInset = UIEdgeInsetsMake(pinCard.frame.height, 0, 0, 0)
-    }
-
     @objc private func pinLikeLiveQueryNotificationHandler(_ notification: Notification) {
         if let pinId = PinLike.getPinIdFromNotification(notification), pinId == pin.objectId!,
             let type = PinLike.getEventTypeFromNotification(notification) {
@@ -148,6 +154,8 @@ class PinDetailsViewController: UIViewController {
     }
 }
 
+
+// MARK: tableView delegate handlers
 extension PinDetailsViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return comments.count
@@ -161,6 +169,7 @@ extension PinDetailsViewController: UITableViewDelegate, UITableViewDataSource {
     }
 }
 
+// MARK: pin card delegate handlers
 extension PinDetailsViewController: PinDetailsCardDelegate {
     func pinDetailsDidTapProfile() {
         let profileNC = UIStoryboard.profileNC
@@ -180,6 +189,7 @@ extension PinDetailsViewController: PinDetailsCardDelegate {
     }
 }
 
+// MARK: pin actions delegate handlers
 extension PinDetailsViewController: PinActionsViewDelegate {
     func pinActionsDidLike(_ pinActionsView: PinActionsView) {
         likeEditedTo = likeEditedTo == nil ? !(liked != nil) : !likeEditedTo!
@@ -194,6 +204,7 @@ extension PinDetailsViewController: PinActionsViewDelegate {
     }
 }
 
+// MARK: transition delegate handlers
 extension PinDetailsViewController: UIViewControllerTransitioningDelegate {
     func animationController(forDismissed dismissed: UIViewController) -> UIViewControllerAnimatedTransitioning? {
         return transition
