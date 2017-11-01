@@ -92,19 +92,20 @@ class PinService {
         }
     }
 
-    func fetchPins(with tags: [Tag], in radius: Double, for currentLocation: CLLocation, count: NSNumber, completion: @escaping ([Pin]?, Error?) -> Void) {
+    func fetchPins(with tags: [Tag], in radius: Double, for currentLocation: CLLocation, count: NSNumber, currentUser: User, completion: @escaping ([Pin]?, Error?) -> Void) {
         let userGeo:PFGeoPoint = PFGeoPoint(location: currentLocation)
 
         let pinsQuery = Pin.query() as! PFQuery<Pin>
         pinsQuery.limit = 20
         pinsQuery.whereKey("tags", containedIn: tags)
-        pinsQuery.whereKey("location", nearGeoPoint: userGeo, withinRadians: radius)
+        pinsQuery.whereKey("location", nearGeoPoint: userGeo, withinMiles: radius)
+        pinsQuery.whereKey("creator", notEqualTo: currentUser)
         pinsQuery.clearCachedResult()
         pinsQuery.findObjectsInBackground { (pins: [Pin]?, error: Error?) in
             if let pins = pins {
                 var filteredOutPins: [Pin] = []
                 // filter out pins that within certain range
-                var filteredPins = pins.filter { index in
+                let filteredPins = pins.filter { index in
                     var repeatedCount = 0
                     pins.forEach{
                         let distance = $0.location?.distanceInKilometers(to: index.location)
