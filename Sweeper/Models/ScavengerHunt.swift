@@ -9,14 +9,10 @@
 import Foundation
 import Parse
 
-class ScavengerHunt: PFObject, PFSubclassing {
-    @NSManaged var radius: NSNumber?
-    @NSManaged var pinCount: NSNumber?
-    @NSManaged var user: User?
-    @NSManaged var pins: [Pin]?
-    @NSManaged var selectedTags: [Tag]?
-
-    static func parseClassName() -> String {
-        return "ScavengerHunt"
-    }
+class ScavengerHunt: NSObject{
+    var radius: NSNumber?
+    var pinCount: NSNumber?
+    var user: User?
+    var pins: [Pin]?
+    var selectedTags: [Tag]?
 }
