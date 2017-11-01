@@ -82,6 +82,7 @@
 		B7ED509A1FA54BBA00B7D61B /* Lato-SemiboldItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = B7ED50861FA54A9400B7D61B /* Lato-SemiboldItalic.ttf */; };
 		B7ED509B1FA54BBA00B7D61B /* Lato-Thin.ttf in Resources */ = {isa = PBXBuildFile; fileRef = B7ED50871FA54A9400B7D61B /* Lato-Thin.ttf */; };
 		B7ED509C1FA54BBA00B7D61B /* Lato-ThinItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = B7ED50881FA54A9400B7D61B /* Lato-ThinItalic.ttf */; };
+		B951556B1FA8533B00B061B7 /* FadeTransition.swift in Sources */ = {isa = PBXBuildFile; fileRef = B951556A1FA8533B00B061B7 /* FadeTransition.swift */; };
 		B96D35211F99B32F00BC6CBF /* PinDetailsCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = B96D35201F99B32F00BC6CBF /* PinDetailsCard.swift */; };
 		B96D35231F99B33A00BC6CBF /* PinDetailsCard.xib in Resources */ = {isa = PBXBuildFile; fileRef = B96D35221F99B33A00BC6CBF /* PinDetailsCard.xib */; };
 		B96D35271F99D03700BC6CBF /* PinCommentCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B96D35251F99D03700BC6CBF /* PinCommentCell.swift */; };
@@ -192,6 +193,7 @@
 		B7ED50891FA54A9400B7D61B /* OFL.txt */ = {isa = PBXFileReference; lastKnownFileType = text; path = OFL.txt; sourceTree = "<group>"; };
 		B7ED508A1FA54A9400B7D61B /* README.txt */ = {isa = PBXFileReference; lastKnownFileType = text; path = README.txt; sourceTree = "<group>"; };
 		B9002B9427295A5C4DB280EB /* Pods_Sweeper.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Sweeper.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		B951556A1FA8533B00B061B7 /* FadeTransition.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FadeTransition.swift; sourceTree = "<group>"; };
 		B96D35201F99B32F00BC6CBF /* PinDetailsCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PinDetailsCard.swift; sourceTree = "<group>"; };
 		B96D35221F99B33A00BC6CBF /* PinDetailsCard.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PinDetailsCard.xib; sourceTree = "<group>"; };
 		B96D35251F99D03700BC6CBF /* PinCommentCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PinCommentCell.swift; sourceTree = "<group>"; };
@@ -594,6 +596,7 @@
 				B9CB3D311F9425FA0023EA79 /* ImageUtils.swift */,
 				37F3FA6A1F9B16A300287F61 /* Time.swift */,
 				B71D029D1F9C28240090DD9D /* Conversions.swift */,
+				B951556A1FA8533B00B061B7 /* FadeTransition.swift */,
 				B72E9C0C1FA98C110034B7AF /* TableViewHelper.swift */,
 			);
 			path = Utils;
@@ -839,6 +842,7 @@
 				B9CB3D281F92C6970023EA79 /* PinDetailsViewController.swift in Sources */,
 				7C1A43181F96C82F00E3E6E0 /* PinAnnotation.swift in Sources */,
 				37F3FA811F9D603400287F61 /* TabBarViewController.swift in Sources */,
+				B951556B1FA8533B00B061B7 /* FadeTransition.swift in Sources */,
 				B9BC3F1D1FA0481200D4CC7A /* PinLike.swift in Sources */,
 				B96D352E1F9B008E00BC6CBF /* PinCommentViewController.swift in Sources */,
 				37731ECD1F92C093009E0603 /* AppService.swift in Sources */,
@@ -1036,7 +1040,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = MCU29NU8L3;
+				DEVELOPMENT_TEAM = 58727B98H6;
 				INFOPLIST_FILE = Sweeper/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.team11.Sweeper;
@@ -1052,7 +1056,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = MCU29NU8L3;
+				DEVELOPMENT_TEAM = 58727B98H6;
 				INFOPLIST_FILE = Sweeper/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.team11.Sweeper;

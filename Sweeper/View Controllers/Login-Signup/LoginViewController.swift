@@ -94,7 +94,7 @@ class LoginViewController: UIViewController {
 
 extension LoginViewController: UIScrollViewDelegate {
     func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
-        var page = Int(round(scrollView.contentOffset.x / view.bounds.width))
+        let page = Int(round(scrollView.contentOffset.x / view.bounds.width))
         
         introPageControl.currentPage = page
     }
