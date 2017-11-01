@@ -123,7 +123,6 @@ class PinService {
 
                 if count.intValue < filteredPins.count {
                     // pins returned more than user selected
-                    filteredPins.shuffle()
                     finalPins = filteredPins.choose(count.intValue)
                 } else {
                     // pins returned less than user selected
