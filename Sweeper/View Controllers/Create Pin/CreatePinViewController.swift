@@ -71,6 +71,7 @@ class CreatePinViewController: UIViewController, UINavigationControllerDelegate,
         tagTextView.text = nil
         messageTextView.text = nil
         tags = [String]()
+        tagsCollectionView.reloadData()
     }
 
     fileprivate func showImagePicker() {
