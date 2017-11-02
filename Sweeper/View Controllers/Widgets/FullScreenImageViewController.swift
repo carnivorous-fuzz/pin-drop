@@ -9,6 +9,8 @@
 import UIKit
 
 class FullScreenImageViewController: UIViewController {
+    
+    // MARK: controller variables
     var pinImage: UIImage!
     var transition: FadeTransition?
     fileprivate var fullScreenImage: UIImageView!
@@ -16,6 +18,7 @@ class FullScreenImageViewController: UIViewController {
     fileprivate var originalBounds: CGRect!
     fileprivate var originalScale: CGFloat!
     
+    // MARK: lifecycle functions
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -35,6 +38,7 @@ class FullScreenImageViewController: UIViewController {
         navigationController?.isNavigationBarHidden = true
     }
     
+    // MARK: helpers
     @objc fileprivate func dismissFullscreenImage(sender: UITapGestureRecognizer) {
         dismiss(animated: true, completion: nil)
     }

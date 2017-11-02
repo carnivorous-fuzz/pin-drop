@@ -9,14 +9,18 @@
 import UIKit
 
 class EditProfileViewController: UIViewController {
+    // MARK: IB outlets
     @IBOutlet weak var profileImageView: UIImageView!
     @IBOutlet weak var firstNameTextField: UITextField!
     @IBOutlet weak var lastNameTextField: UITextField!
     @IBOutlet weak var saveButton: UIButton!
     
+    // MARK: controller variables
     fileprivate var user: User! = User.currentUser
     fileprivate var isDirty: Bool = false
     
+    
+    // MARK: lifecycle functions
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -43,10 +47,7 @@ class EditProfileViewController: UIViewController {
         view.addGestureRecognizer(tap)
     }
     
-    @objc func dismissKeyboard () {
-        view.endEditing(true)
-    }
-    
+    // MARK: IB actions
     @IBAction func onChooseImage(_ sender: UIButton) {
         let alertController = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
         if UIImagePickerController.isSourceTypeAvailable(.camera) {
@@ -81,8 +82,7 @@ class EditProfileViewController: UIViewController {
         
         user.saveInBackground { (success: Bool, error: Error?) in
             if success {
-                self.navigationController?.popViewController(animated: true)
-                print("User saved!")
+                self.dismiss(animated: true, completion: nil)
             } else {
                 let cancel = Dialog.button(title: "ok", type: .cancel, action: nil)
                 Dialog.show(controller: self, title: "Error saving you profile", message: error?.localizedDescription ?? "Error", buttons: [cancel], image: nil, dismissAfter: nil, completion: nil)
@@ -99,6 +99,11 @@ class EditProfileViewController: UIViewController {
         UserService.sharedInstance.logout()
     }
     
+    // MARK: helpers
+    @objc func dismissKeyboard () {
+        view.endEditing(true)
+    }
+    
     private func showPicker(style: UIImagePickerControllerSourceType) {
         let picker = UIImagePickerController()
         picker.delegate = self
@@ -108,11 +113,21 @@ class EditProfileViewController: UIViewController {
     }
 }
 
+
+// MARK: delegates
 extension EditProfileViewController: UIImagePickerControllerDelegate, UINavigationControllerDelegate {
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
         if let image = info[UIImagePickerControllerEditedImage] as? UIImage {
             self.profileImageView.image = image.compress(maxWidth: 120, maxHeight: 120)
+            let imageString = String.random(length: 12)
+            AWSS3Service.sharedInstance.uploadImage(for: imageString, with: UIImagePNGRepresentation(image)!, completion: { (task, error) in
+                if error == nil {
+                    let url = "\(AWSConstants.S3BaseImageURL)\(imageString)"
+                    self.user.profileImageUrl = url
+                    self.dismiss(animated: true, completion: nil)
+                    self.saveButton.isEnabled = true
+                }
+            })
         }
-        self.dismiss(animated: true, completion: nil)
     }
 }

@@ -10,15 +10,16 @@ import UIKit
 
 class HomeViewController: UIViewController {
     
+    // MARK: Controller variables
     fileprivate enum ViewMode {
         case list
         case map
     }
-    
     fileprivate var currentViewMode: ViewMode!
     var listViewController: UIViewController!
     var mapViewController: UIViewController!
 
+    // MARK: lifecycle functions
     override func viewDidLoad() {
         super.viewDidLoad()
         currentViewMode = ViewMode.map
@@ -29,6 +30,7 @@ class HomeViewController: UIViewController {
         handleViewTransition(nil, mapViewController, nil)
     }
 
+    // MARK: IB actions
     @IBAction func onToggleView(_ sender: UIBarButtonItem) {
         // toggle image
         if currentViewMode == ViewMode.map {
@@ -48,6 +50,7 @@ class HomeViewController: UIViewController {
         }
     }
     
+    // MARK: helpers
     func handleViewTransition(_ fromViewController: UIViewController?, _ toViewController: UIViewController, _ animationStyle: UIViewAnimationTransition?) {
         
         // previous view controller removal/cleanup

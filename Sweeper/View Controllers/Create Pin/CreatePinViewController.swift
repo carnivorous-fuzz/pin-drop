@@ -14,6 +14,7 @@ import Fusuma
 import NVActivityIndicatorView
 
 class CreatePinViewController: UIViewController, UINavigationControllerDelegate, NVActivityIndicatorViewable {
+    // MARK: IB outlets
     @IBOutlet weak var maskView: UIView!
     @IBOutlet weak var profileImage: UIImageView!
     @IBOutlet weak var locationBanner: LocationBanner!
@@ -27,20 +28,18 @@ class CreatePinViewController: UIViewController, UINavigationControllerDelegate,
     @IBOutlet weak var tagTextView: UITextField!
     @IBOutlet weak var tagsViewTop: NSLayoutConstraint!
 
+    // MARK: controller variables
     fileprivate var currentLocation: CLLocation?
     fileprivate var locationManager: CLLocationManager!
     fileprivate var fusuma: FusumaViewController!
     fileprivate var tags = [String]()
 
+    // MARK: lifecycle functions
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         showImagePicker()
     }
-
-    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
-        self.view.endEditing(true)
-    }
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         titleField.delegate = self
@@ -48,17 +47,17 @@ class CreatePinViewController: UIViewController, UINavigationControllerDelegate,
         tagTextView.delegate = self
         titleField.borderStyle = UITextBorderStyle.none
         tagTextView.borderStyle = UITextBorderStyle.none
-
+        
         let user = User.current()
         if let url = user?.getImageUrl() {
             profileImage.setImageWith(url)
             profileImage.layer.cornerRadius = 20
             profileImage.layer.masksToBounds = true
         }
-
+        
         addTagButton.layer.cornerRadius = 10
         addTagButton.layer.masksToBounds = true
-
+        
         createDismissBarItem()
         getLocation()
     }
@@ -74,6 +73,47 @@ class CreatePinViewController: UIViewController, UINavigationControllerDelegate,
         tagsCollectionView.reloadData()
     }
 
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        self.view.endEditing(true)
+    }
+    
+    // MARK: IB actions
+    @IBAction func onImportedImageTap(_ sender: UITapGestureRecognizer) {
+        showImagePicker()
+    }
+    
+    @IBAction func onAddTag(_ sender: Any) {
+        if (tagTextView.text != nil) && !tagTextView.text!.isEmpty {
+            tags.append(tagTextView.text!)
+            tagTextView.text = ""
+            UIView.animate(withDuration: 0.3) {
+                self.tagsCollectionView.reloadData()
+            }
+        }
+    }
+    
+    @IBAction func onPost(_ sender: Any) {
+        startAnimating()
+        let pin = Pin()
+        pin.blurb = titleField.text
+        pin.latitude = currentLocation?.coordinate.latitude
+        pin.longitude = currentLocation?.coordinate.longitude
+        pin.setLocation()
+        pin.locationName = locationBanner.subLocality ?? locationBanner.addressLabel.text
+        pin.message = messageTextView.text
+        
+        PinService.sharedInstance.create(pin: pin, withImage: importedImageView.image ?? nil, tagNames: self.tags) { (success: Bool, error: Error?) in
+            if success {
+                self.stopAnimating()
+                self.dismiss(animated: true, completion: nil)
+            } else {
+                let button = Dialog.button(title: "Try Again", type: .plain, action: nil)
+                Dialog.show(controller: self, title: "Post pin failed", message: error!.localizedDescription, buttons: [button], image: nil, dismissAfter: nil, completion: nil)
+            }
+        }
+    }
+
+    // MARK: helpers
     fileprivate func showImagePicker() {
         self.navigationController?.navigationBar.isHidden = true
         fusuma = FusumaViewController()
@@ -154,40 +194,6 @@ class CreatePinViewController: UIViewController, UINavigationControllerDelegate,
         locationManager.desiredAccuracy = kCLLocationAccuracyBest
         locationManager.distanceFilter = 200
         locationManager.startUpdatingLocation()
-    }
-    @IBAction func onImportedImageTap(_ sender: UITapGestureRecognizer) {
-        showImagePicker()
-    }
-    
-    @IBAction func onAddTag(_ sender: Any) {
-        if (tagTextView.text != nil) && !tagTextView.text!.isEmpty {
-            tags.append(tagTextView.text!)
-            tagTextView.text = ""
-            UIView.animate(withDuration: 0.3) {
-                self.tagsCollectionView.reloadData()
-            }
-        }
-    }
-
-    @IBAction func onPost(_ sender: Any) {
-        startAnimating()
-        let pin = Pin()
-        pin.blurb = titleField.text
-        pin.latitude = currentLocation?.coordinate.latitude
-        pin.longitude = currentLocation?.coordinate.longitude
-        pin.setLocation()
-        pin.locationName = locationBanner.subLocality ?? locationBanner.addressLabel.text
-        pin.message = messageTextView.text
-
-        PinService.sharedInstance.create(pin: pin, withImage: importedImageView.image ?? nil, tagNames: self.tags) { (success: Bool, error: Error?) in
-            if success {
-                self.stopAnimating()
-                self.dismiss(animated: true, completion: nil)
-            } else {
-                let button = Dialog.button(title: "Try Again", type: .plain, action: nil)
-                Dialog.show(controller: self, title: "Post pin failed", message: error!.localizedDescription, buttons: [button], image: nil, dismissAfter: nil, completion: nil)
-            }
-        }
     }
     
     @objc func onCancel() {

@@ -11,11 +11,13 @@ import FBSDKLoginKit
 import ParseFacebookUtilsV4
 
 class LoginViewController: UIViewController {
+    // MARK: outlets
     @IBOutlet weak var introScrollView: UIScrollView!
     @IBOutlet weak var introPageControl: UIPageControl!
     @IBOutlet weak var fbLoginView: UIView!
     @IBOutlet weak var fbLogoImageView: UIImageView!
     
+    // MARK: controller variables
     private var pages = 4
     
     // MARK: Lifecycle functions
@@ -78,6 +80,7 @@ class LoginViewController: UIViewController {
         introScrollView.setContentOffset(CGPoint(x: xOffSet, y: 0), animated: true)
     }
     
+    // MARK: Helpers
     private func showLoginError() {
         let cancelButton = Dialog.button(title: "Dismiss", type: .cancel, action: nil)
         Dialog.show(controller: self, title: "Login Error", message: "Make sure your username and email are correct", buttons: [cancelButton], image: nil, dismissAfter: nil, completion: nil)
@@ -92,6 +95,7 @@ class LoginViewController: UIViewController {
     }
 }
 
+// MARK: ScrollView delegate handler
 extension LoginViewController: UIScrollViewDelegate {
     func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
         let page = Int(round(scrollView.contentOffset.x / view.bounds.width))

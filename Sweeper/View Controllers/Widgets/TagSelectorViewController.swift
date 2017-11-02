@@ -8,22 +8,25 @@
 
 import UIKit
 
+// MARK: delegates
 @objc protocol TagSelectorViewControllerDelegate {
     @objc optional func tagSelected(tagSelectorViewController: TagSelectorViewController, didSelectTag tag: Tag?)
 }
 
 class TagSelectorViewController: UIViewController {
+    // MARK: IB outlets
     @IBOutlet weak var selectorView: UIView!
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var searchBar: UISearchBar!
 
+    // MARK: controller variables
     var delegate: TagSelectorViewControllerDelegate?
-
     fileprivate var isMoreDataLoading = false
     fileprivate var loadingMoreView:InfiniteScrollActivityView?
     fileprivate var tags = [Tag]()
     fileprivate var currentPage = 0
 
+    // MARK: lifecycle functions
     override func viewDidLoad() {
         super.viewDidLoad()
         tableView.tableFooterView = UIView(frame: CGRect.zero)
@@ -36,10 +39,13 @@ class TagSelectorViewController: UIViewController {
 
         loadTags(page: currentPage)
     }
+    
+    // MARK: IB actions
     @IBAction func onCancel(_ sender: Any) {
         dismiss(animated: true, completion: nil)
     }
 
+    // MARK: helpers
     fileprivate func loadTags(page: Int) {
         TagService.sharedInstance.fetchTags(with: page) { (tags: [Tag]?, error: Error?) in
             self.loadingMoreView!.stopAnimating()
