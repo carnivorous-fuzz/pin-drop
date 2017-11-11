@@ -95,7 +95,7 @@ class AppService {
         print(location)
         let trigger = UNLocationNotificationTrigger(
             region: CLCircularRegion(center: location, radius: 200, identifier: "\(pin.objectId!)\(location)"),
-            repeats: true)
+            repeats: false)
         let content = UNMutableNotificationContent()
         content.title = "You're near a pin!"
         content.body = "\(pin.creator?.getFullName() ?? "Someone") left a pin nearby"
