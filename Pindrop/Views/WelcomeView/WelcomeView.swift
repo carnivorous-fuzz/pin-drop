@@ -1,6 +1,6 @@
 //
 //  WelcomeView.swift
-//  Sweeper
+//  Pindrop
 //
 //  Created by Wuming Xie on 11/1/17.
 //  Copyright © 2017 team11. All rights reserved.
