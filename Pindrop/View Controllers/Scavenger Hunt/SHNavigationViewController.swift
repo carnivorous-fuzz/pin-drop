@@ -69,7 +69,7 @@ class SHNavigationViewController: UIViewController, NVActivityIndicatorViewable 
         // TODO: let user input identifier
         routeOpt.profileIdentifier = MBDirectionsProfileIdentifier.walking
 
-        Directions.shared.calculate(routeOpt) { (waypoints, routes, error) in
+        let _ = Directions.shared.calculate(routeOpt) { (waypoints, routes, error) in
             guard let route = routes?.first else { return }
 
             let viewController = NavigationViewController(for: route)

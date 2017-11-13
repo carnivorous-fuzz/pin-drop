@@ -190,7 +190,7 @@ class PinService {
     func getComments(forPin pin: Pin, completion: @escaping ([PinComment]?, Error?) -> ()) {
         let commentsQuery = PinComment.query() as! PFQuery<PinComment>
         commentsQuery.whereKey("commentedPin", equalTo: pin)
-        commentsQuery.addDescendingOrder("createdAt")
+        commentsQuery.addAscendingOrder("createdAt")
         commentsQuery.findObjectsInBackground(block: { (pinComments, error) in
             if let pinComments = pinComments {
                 completion(pinComments, nil)

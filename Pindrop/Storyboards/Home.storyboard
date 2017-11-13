@@ -12,7 +12,7 @@
         <!--Home View Controller-->
         <scene sceneID="kcE-0q-Nd1">
             <objects>
-                <viewController id="Q8S-h3-SmR" customClass="HomeViewController" customModule="Sweeper" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="Q8S-h3-SmR" customClass="HomeViewController" customModule="Pindrop" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="v9X-wu-SBo">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -35,7 +35,7 @@
         <!--Pins Map View Controller-->
         <scene sceneID="BCJ-rb-BVu">
             <objects>
-                <viewController storyboardIdentifier="PinsMapViewController" id="6MM-aJ-zjn" customClass="PinsMapViewController" customModule="Sweeper" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="PinsMapViewController" id="6MM-aJ-zjn" customClass="PinsMapViewController" customModule="Pindrop" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8b2-YN-cYb">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -43,7 +43,7 @@
                         <viewLayoutGuide key="safeArea" id="hFo-SU-imR"/>
                     </view>
                     <navigationItem key="navigationItem" id="9sP-HK-WAH">
-                        <barButtonItem key="rightBarButtonItem" title="Toggle" image="view-list" id="4pV-2b-f1Q"/>
+                        <barButtonItem key="rightBarButtonItem" image="view-list" id="4pV-2b-f1Q"/>
                     </navigationItem>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Vv1-FE-hX7" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -53,7 +53,7 @@
         <!--Pins List View Controller-->
         <scene sceneID="kGi-cg-7iX">
             <objects>
-                <viewController storyboardIdentifier="PinsListViewController" id="Qkg-fS-K8W" customClass="PinsListViewController" customModule="Sweeper" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="PinsListViewController" id="Qkg-fS-K8W" customClass="PinsListViewController" customModule="Pindrop" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="JTH-xK-bI6">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>

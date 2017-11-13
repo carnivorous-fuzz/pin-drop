@@ -82,6 +82,8 @@
 		B7ED509B1FA54BBA00B7D61B /* Lato-Thin.ttf in Resources */ = {isa = PBXBuildFile; fileRef = B7ED50871FA54A9400B7D61B /* Lato-Thin.ttf */; };
 		B7ED509C1FA54BBA00B7D61B /* Lato-ThinItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = B7ED50881FA54A9400B7D61B /* Lato-ThinItalic.ttf */; };
 		B951556B1FA8533B00B061B7 /* FadeTransition.swift in Sources */ = {isa = PBXBuildFile; fileRef = B951556A1FA8533B00B061B7 /* FadeTransition.swift */; };
+		B951556E1FA9B0A000B061B7 /* WelcomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B951556D1FA9B0A000B061B7 /* WelcomeView.swift */; };
+		B95155701FA9B0B100B061B7 /* WelcomeView.xib in Resources */ = {isa = PBXBuildFile; fileRef = B951556F1FA9B0B100B061B7 /* WelcomeView.xib */; };
 		B96D35211F99B32F00BC6CBF /* PinDetailsCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = B96D35201F99B32F00BC6CBF /* PinDetailsCard.swift */; };
 		B96D35231F99B33A00BC6CBF /* PinDetailsCard.xib in Resources */ = {isa = PBXBuildFile; fileRef = B96D35221F99B33A00BC6CBF /* PinDetailsCard.xib */; };
 		B96D35271F99D03700BC6CBF /* PinCommentCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B96D35251F99D03700BC6CBF /* PinCommentCell.swift */; };
@@ -192,6 +194,8 @@
 		B7ED50891FA54A9400B7D61B /* OFL.txt */ = {isa = PBXFileReference; lastKnownFileType = text; path = OFL.txt; sourceTree = "<group>"; };
 		B7ED508A1FA54A9400B7D61B /* README.txt */ = {isa = PBXFileReference; lastKnownFileType = text; path = README.txt; sourceTree = "<group>"; };
 		B951556A1FA8533B00B061B7 /* FadeTransition.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FadeTransition.swift; sourceTree = "<group>"; };
+		B951556D1FA9B0A000B061B7 /* WelcomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomeView.swift; sourceTree = "<group>"; };
+		B951556F1FA9B0B100B061B7 /* WelcomeView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = WelcomeView.xib; sourceTree = "<group>"; };
 		B96D35201F99B32F00BC6CBF /* PinDetailsCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PinDetailsCard.swift; sourceTree = "<group>"; };
 		B96D35221F99B33A00BC6CBF /* PinDetailsCard.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PinDetailsCard.xib; sourceTree = "<group>"; };
 		B96D35251F99D03700BC6CBF /* PinCommentCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PinCommentCell.swift; sourceTree = "<group>"; };
@@ -464,6 +468,15 @@
 			path = Fonts;
 			sourceTree = "<group>";
 		};
+		B951556C1FA9B07800B061B7 /* WelcomeView */ = {
+			isa = PBXGroup;
+			children = (
+				B951556D1FA9B0A000B061B7 /* WelcomeView.swift */,
+				B951556F1FA9B0B100B061B7 /* WelcomeView.xib */,
+			);
+			path = WelcomeView;
+			sourceTree = "<group>";
+		};
 		B96D35241F99CAEF00BC6CBF /* PinCommentCell */ = {
 			isa = PBXGroup;
 			children = (
@@ -574,6 +587,7 @@
 				3771ABC01FA1A34700A06F17 /* Map Annotations */,
 				37F14ECA1FA81A3100D1F8D9 /* Profile */,
 				375A657E1FA65BF100B3C952 /* Pin Collection View */,
+				B951556C1FA9B07800B061B7 /* WelcomeView */,
 				B7DE45DD1F9B0BFF00F2472F /* SegmentControlViewCell.swift */,
 				B7DE45E11F9B2D4A00F2472F /* TagSelectorCell.swift */,
 				B7DE45E31F9BE03C00F2472F /* TagSelectedCollectionCell.swift */,
@@ -704,6 +718,7 @@
 				B96D35231F99B33A00BC6CBF /* PinDetailsCard.xib in Resources */,
 				B96D352C1F9B006900BC6CBF /* PinComment.storyboard in Resources */,
 				B9BC3F1B1FA0345D00D4CC7A /* PinCell.xib in Resources */,
+				B95155701FA9B0B100B061B7 /* WelcomeView.xib in Resources */,
 				37F3FA7F1F9D5DBC00287F61 /* TabBar.storyboard in Resources */,
 				375A65841FA65C6800B3C952 /* CollectionViewPinCell.xib in Resources */,
 				B9CB3CF61F9056060023EA79 /* Login.storyboard in Resources */,
@@ -859,6 +874,7 @@
 				377DAA721F9D9AB100C7143A /* HomeViewController.swift in Sources */,
 				B96D35311F9B039000BC6CBF /* FancyTextView.swift in Sources */,
 				B9CB3D171F90B57C0023EA79 /* FancyTextField.swift in Sources */,
+				B951556E1FA9B0A000B061B7 /* WelcomeView.swift in Sources */,
 				7C1A43141F96B6FD00E3E6E0 /* PinAnnotationView.swift in Sources */,
 				37563B321FAD0A1700865D87 /* Pin.swift in Sources */,
 				B7DE45DE1F9B0BFF00F2472F /* SegmentControlViewCell.swift in Sources */,
